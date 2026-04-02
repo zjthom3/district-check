@@ -325,19 +325,7 @@
     .not-found-box p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
     .not-found-box strong { color: var(--text); }
     .email-row { display: flex; gap: 8px; }
-    .email-row input {
-      flex: 1;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 7px;
-      padding: 10px 14px;
-      font-size: 14px;
-      color: var(--white);
-      outline: none;
-      font-family: inherit;
-    }
-    .email-row input:focus { border-color: var(--accent); }
-    .email-row button {
+    .email-row a {
       background: var(--accent);
       color: #fff;
       border: none;
@@ -347,6 +335,7 @@
       font-weight: 700;
       cursor: pointer;
       font-family: inherit;
+      display: inline-block;
     }
 
     /* sample result (shown on load) */
@@ -726,7 +715,7 @@
   <div class="nav-right">
     <a href="#how-it-works" class="nav-link">How it works</a>
     <a href="#full-audit" class="nav-link">Full audit</a>
-    <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Audit%20Request" class="nav-cta">Get full audit →</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" class="nav-cta">Get full audit →</a>
   </div>
 </nav>
 
@@ -812,19 +801,17 @@
           <div class="gate-text">
             <strong>This is 1 of your tools.</strong> A full district audit checks all 10–15 and gives you the complete risk picture — plus vendor outreach emails ready to send.
           </div>
-          <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Full%20Audit%20Request" class="gate-btn">Get full audit — $1,500 →</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" class="gate-btn">Get full audit — $1,500 →</a>
         </div>
       </div>
 
       <!-- not found state -->
       <div id="not-found">
         <div class="not-found-box">
-          <p><strong id="nf-name"></strong> isn't in our database yet. Enter your email and we'll run it and send you the result — free.</p>
+          <p><strong id="nf-name"></strong> isn't in our database yet. Click below and we'll open a prefilled email request for this tool.</p>
           <div class="email-row">
-            <input type="email" placeholder="your@district.edu" id="nf-email" />
-            <button onclick="handleEmailSubmit()">Request check</button>
+            <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Tool%20Request&body=Tool%20name%3A%20" id="nf-request-link">Request check</a>
           </div>
-          <div id="nf-confirm" style="display:none; margin-top:10px; font-size:13px; color: var(--green);">Got it — we'll send your result within 24 hours.</div>
         </div>
       </div>
     </div>
@@ -859,7 +846,7 @@
       <div class="stat-label">are High risk — no VPAT or vague claims</div>
     </div>
     <div>
-      <div class="stat-num accent">22 days</div>
+      <div class="stat-num accent" id="deadline-countdown">22 days</div>
       <div class="stat-label">until the April 24 enforcement deadline</div>
     </div>
     <div>
@@ -1108,7 +1095,9 @@
     document.getElementById('result-panel').style.display = 'none';
     document.getElementById('not-found').style.display    = 'block';
     document.getElementById('nf-name').textContent = query;
-    document.getElementById('nf-confirm').style.display = 'none';
+    document.getElementById('nf-request-link').href =
+      'mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Tool%20Request&body=Tool%20name%3A%20' +
+      encodeURIComponent(query);
   }
 
   function runCheck() {
@@ -1120,11 +1109,16 @@
     else        { showNotFound(query); }
   }
 
-  function handleEmailSubmit() {
-    const email = document.getElementById('nf-email').value.trim();
-    if (!email || !email.includes('@')) return;
-    document.getElementById('nf-confirm').style.display = 'block';
-    document.getElementById('nf-email').value = '';
+  function updateDeadlineCountdown() {
+    const countdownEl = document.getElementById('deadline-countdown');
+    if (!countdownEl) return;
+
+    const msPerDay = 24 * 60 * 60 * 1000;
+    const today = new Date();
+    const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const deadline = new Date(2026, 3, 24);
+    const diffDays = Math.max(0, Math.round((deadline - todayStart) / msPerDay));
+    countdownEl.textContent = `${diffDays} ${diffDays === 1 ? 'day' : 'days'}`;
   }
 
   // suggestions on input
@@ -1159,6 +1153,7 @@
   document.getElementById('tool-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') runCheck();
   });
+  updateDeadlineCountdown();
 
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.suggestions-wrap')) {
