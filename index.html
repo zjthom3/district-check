@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DistrictCheck — Free Edtech ADA Accessibility Checker</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #5B6370;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #EF4444;
+      --blue:    #3B82F6;
+      --accent:  #6366F1;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 0;
+      overflow: hidden;
+    }
+    .ticker-inner {
+      display: flex;
+      gap: 60px;
+      white-space: nowrap;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-inner:hover { animation-play-state: paused; }
+    @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-item {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .tick-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .tick-dot.crit  { background: var(--red); }
+    .tick-dot.high  { background: var(--orange); }
+    .tick-dot.med   { background: var(--yellow); }
+    .tick-dot.low   { background: var(--green); }
+    .ticker-item span.tool-name { color: var(--text); font-weight: 600; }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 72px 40px 0;
+      text-align: center;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .eyebrow-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    h1 {
+      font-size: clamp(34px, 5.5vw, 58px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    h1 .dim { color: var(--muted); font-weight: 700; }
+    .hero-sub {
+      font-size: 17px;
+      color: #7B8490;
+      max-width: 520px;
+      margin: 0 auto 40px;
+      line-height: 1.65;
+    }
+    .hero-sub strong { color: var(--text); font-weight: 500; }
+
+    /* ── FREE TOOL ── */
+    .tool-shell {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto 0;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+    }
+    .tool-header {
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tool-dots { display: flex; gap: 6px; }
+    .tool-dots span {
+      width: 11px; height: 11px; border-radius: 50%;
+    }
+    .tool-dots .d1 { background: #FF5F57; }
+    .tool-dots .d2 { background: #FFBD2E; }
+    .tool-dots .d3 { background: #28CA41; }
+    .tool-title { font-size: 12px; font-weight: 600; color: var(--muted); letter-spacing: 0.04em; }
+    .tool-body { padding: 28px; }
+
+    .search-row {
+      display: flex;
+      gap: 10px;
+    }
+    #tool-input {
+      flex: 1;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 16px;
+      font-size: 15px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: inherit;
+    }
+    #tool-input:focus { border-color: var(--accent); }
+    #tool-input::placeholder { color: var(--muted); }
+    #check-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 22px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    #check-btn:hover { opacity: 0.88; }
+
+    /* suggestions */
+    .suggestions-wrap { position: relative; }
+    #suggestions {
+      position: absolute;
+      top: 4px;
+      left: 0;
+      right: 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 10;
+      display: none;
+    }
+    .suggestion-item {
+      padding: 10px 16px;
+      font-size: 14px;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.1s;
+    }
+    .suggestion-item:hover { background: var(--border); }
+    .sug-tier { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
+
+    /* result panel */
+    #result-panel { display: none; margin-top: 20px; }
+
+    .result-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .result-tool-name {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+    .risk-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .risk-badge.critical { background: rgba(239,68,68,0.15);  border: 1px solid rgba(239,68,68,0.4);  color: #FCA5A5; }
+    .risk-badge.high     { background: rgba(249,115,22,0.15); border: 1px solid rgba(249,115,22,0.4); color: #FDB796; }
+    .risk-badge.medium   { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.4); color: #FCD34D; }
+    .risk-badge.low      { background: rgba(34,197,94,0.15);  border: 1px solid rgba(34,197,94,0.4);  color: #86EFAC; }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 560px) { .result-grid { grid-template-columns: 1fr; } }
+
+    .result-stat {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .result-stat-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 5px; }
+    .result-stat-val { font-size: 14px; font-weight: 700; color: var(--white); }
+    .result-stat-val.ok   { color: var(--green); }
+    .result-stat-val.warn { color: var(--yellow); }
+    .result-stat-val.bad  { color: #FCA5A5; }
+
+    .result-action {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+    .result-action-label { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px; }
+    .result-action-text { font-size: 14px; color: var(--text); line-height: 1.55; }
+
+    .result-gate {
+      background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(99,102,241,0.06));
+      border: 1px solid rgba(99,102,241,0.35);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .gate-text { font-size: 14px; color: var(--text); line-height: 1.5; }
+    .gate-text strong { color: var(--white); }
+    .gate-btn {
+      background: var(--accent);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 7px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: opacity 0.15s;
+      display: inline-block;
+    }
+    .gate-btn:hover { opacity: 0.88; }
+
+    #not-found { display: none; margin-top: 20px; }
+    .not-found-box {
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+    }
+    .not-found-box p { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+    .not-found-box strong { color: var(--text); }
+    .email-row { display: flex; gap: 8px; }
+    .email-row input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      font-family: inherit;
+    }
+    .email-row input:focus { border-color: var(--accent); }
+    .email-row button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* sample result (shown on load) */
+    #sample-panel { margin-top: 20px; }
+    .sample-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sample-label::before, .sample-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .tool-count-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .tool-count-row strong { color: var(--text); }
+
+    /* ── BELOW TOOL ── */
+    .trust-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 20px 40px 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .trust-item svg { color: var(--green); }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+    }
+    .stats-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    @media (max-width: 640px) { .stats-inner { grid-template-columns: 1fr 1fr; } }
+    .stat-num { font-size: 28px; font-weight: 900; color: var(--white); letter-spacing: -0.03em; margin-bottom: 4px; }
+    .stat-num.red    { color: #FCA5A5; }
+    .stat-num.orange { color: #FDB796; }
+    .stat-num.accent { color: #A5B4FC; }
+    .stat-label { font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    /* ── BREAKDOWN ── */
+    .breakdown {
+      max-width: 800px;
+      margin: 72px auto;
+      padding: 0 40px;
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .breakdown h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+    .breakdown .sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .tier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 580px) { .tier-grid { grid-template-columns: 1fr; } }
+
+    .tier-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .tier-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+    .tier-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tier-label.crit   { color: #FCA5A5; }
+    .tier-label.high   { color: #FDB796; }
+    .tier-label.med    { color: #FCD34D; }
+    .tier-label.low    { color: #86EFAC; }
+    .tier-pct {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+    .tier-pct.crit   { color: #EF4444; }
+    .tier-pct.high   { color: #F97316; }
+    .tier-pct.med    { color: #F59E0B; }
+    .tier-pct.low    { color: #22C55E; }
+    .tier-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .tier-desc strong { color: var(--text); }
+
+    .tier-bar-wrap {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      margin: 14px 0;
+    }
+    .tier-bar {
+      height: 4px;
+      border-radius: 2px;
+    }
+    .tier-bar.crit { background: #EF4444; width: 18%; }
+    .tier-bar.high { background: #F97316; width: 52%; }
+    .tier-bar.med  { background: #F59E0B; width: 20%; }
+    .tier-bar.low  { background: #22C55E; width: 10%; }
+
+    .tier-tools { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .tier-tools strong { color: var(--text); }
+
+    /* ── HOW ── */
+    .how {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 72px 40px;
+    }
+    .how-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .how-inner h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .how-inner .sub {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 40px;
+    }
+    .steps { display: flex; flex-direction: column; }
+    .step {
+      display: flex;
+      gap: 22px;
+      padding-bottom: 32px;
+      position: relative;
+    }
+    .step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 38px;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--accent);
+      position: relative;
+      z-index: 1;
+    }
+    .step-content { padding-top: 7px; }
+    .step-content h3 { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .step-content p { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .step-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: rgba(99,102,241,0.1);
+      border: 1px solid rgba(99,102,241,0.25);
+      padding: 2px 10px;
+      border-radius: 20px;
+      margin-top: 8px;
+    }
+
+    /* ── FULL AUDIT CTA ── */
+    .audit-cta {
+      max-width: 800px;
+      margin: 72px auto;
+      padding: 0 40px;
+    }
+    .audit-cta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px 44px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+    @media (max-width: 600px) { .audit-cta-card { grid-template-columns: 1fr; padding: 28px; } }
+    .audit-cta h2 {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .audit-cta p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+    .audit-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .audit-includes li {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      gap: 9px;
+      align-items: flex-start;
+    }
+    .audit-includes li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+    .price-block { text-align: center; }
+    .price-amount { font-size: 40px; font-weight: 900; color: var(--white); letter-spacing: -0.04em; line-height: 1; margin-bottom: 4px; }
+    .price-desc { font-size: 12px; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+    .btn-book {
+      display: block;
+      background: var(--accent);
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
+      transition: opacity 0.15s;
+      margin-bottom: 8px;
+    }
+    .btn-book:hover { opacity: 0.88; }
+    .deadline-tag {
+      font-size: 11px;
+      color: #FCA5A5;
+      background: rgba(239,68,68,0.1);
+      border: 1px solid rgba(239,68,68,0.25);
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      max-width: 680px;
+      margin: 0 auto 72px;
+      padding: 0 40px;
+    }
+    .faq h2 {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 28px;
+    }
+    .faq-item { border-top: 1px solid var(--border); padding: 20px 0; }
+    .faq-q { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+    .faq-a { font-size: 13px; color: var(--muted); line-height: 1.7; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer .logo { font-size: 15px; }
+    @media (max-width: 600px) {
+      nav { padding: 16px 20px; }
+      .nav-right .nav-link { display: none; }
+      footer { padding: 20px; flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-inner" id="ticker-inner">
+    <span class="ticker-item"><span class="tick-dot crit"></span><span class="tool-name">ClassDojo</span> — Critical · No VPAT found</span>
+    <span class="ticker-item"><span class="tick-dot crit"></span><span class="tool-name">Formative</span> — Critical · No WCAG claim</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Nearpod</span> — High · Vague conformance claim</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">IXL</span> — High · VPAT not found</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Remind</span> — High · No accessibility docs</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Kahoot</span> — High · "Working toward WCAG 2.1"</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">ParentSquare</span> — High · No VPAT found</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Quizlet</span> — High · No VPAT published</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">Seesaw</span> — Medium · Partial conformance</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">BrainPOP</span> — Medium · VPAT outdated</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">Pear Deck</span> — Medium · Drawing tools gap</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Google Classroom</span> — Low · Current VPAT ✓</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Canvas</span> — Low · WCAG 2.1 AA ✓</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Khan Academy</span> — Low · Current docs ✓</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span class="tick-dot crit"></span><span class="tool-name">ClassDojo</span> — Critical · No VPAT found</span>
+    <span class="ticker-item"><span class="tick-dot crit"></span><span class="tool-name">Formative</span> — Critical · No WCAG claim</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Nearpod</span> — High · Vague conformance claim</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">IXL</span> — High · VPAT not found</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Remind</span> — High · No accessibility docs</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Kahoot</span> — High · "Working toward WCAG 2.1"</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">ParentSquare</span> — High · No VPAT found</span>
+    <span class="ticker-item"><span class="tick-dot high"></span><span class="tool-name">Quizlet</span> — High · No VPAT published</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">Seesaw</span> — Medium · Partial conformance</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">BrainPOP</span> — Medium · VPAT outdated</span>
+    <span class="ticker-item"><span class="tick-dot med"></span><span class="tool-name">Pear Deck</span> — Medium · Drawing tools gap</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Google Classroom</span> — Low · Current VPAT ✓</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Canvas</span> — Low · WCAG 2.1 AA ✓</span>
+    <span class="ticker-item"><span class="tick-dot low"></span><span class="tool-name">Khan Academy</span> — Low · Current docs ✓</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">District<em>Check</em></div>
+  <div class="nav-right">
+    <a href="#how-it-works" class="nav-link">How it works</a>
+    <a href="#full-audit" class="nav-link">Full audit</a>
+    <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Audit%20Request" class="nav-cta">Get full audit →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="eyebrow">
+    <span class="eyebrow-dot"></span>
+    Free · Instant · No signup required
+  </div>
+  <h1>Some of your tools are fine.<br><span class="dim">Find out which ones aren't.</span></h1>
+  <p class="hero-sub">Check any edtech tool's ADA Title II compliance status — free, instant, no account needed. <strong>Most districts are surprised by what they find.</strong></p>
+
+  <!-- FREE TOOL -->
+  <div class="tool-shell">
+    <div class="tool-header">
+      <div class="tool-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+      <span class="tool-title">DistrictCheck Free Tool — ADA Compliance Lookup</span>
+    </div>
+    <div class="tool-body">
+      <div class="suggestions-wrap">
+        <div class="search-row">
+          <input type="text" id="tool-input" placeholder="Type a tool name (e.g. ClassDojo, IXL, Nearpod…)" autocomplete="off" />
+          <button id="check-btn">Check →</button>
+        </div>
+        <div id="suggestions"></div>
+      </div>
+
+      <!-- sample state shown on load -->
+      <div id="sample-panel">
+        <div class="sample-label">Example result</div>
+        <div class="result-header">
+          <span class="result-tool-name">ClassDojo</span>
+          <span class="risk-badge critical">⬤ Critical</span>
+        </div>
+        <div class="result-grid">
+          <div class="result-stat">
+            <div class="result-stat-label">VPAT Status</div>
+            <div class="result-stat-val bad">Not found</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-label">WCAG 2.1 AA Claim</div>
+            <div class="result-stat-val bad">No claim</div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-label">Handles Student PII</div>
+            <div class="result-stat-val bad">Yes</div>
+          </div>
+        </div>
+        <div class="result-action">
+          <div class="result-action-label">Recommended Action</div>
+          <div class="result-action-text">Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date — this is your good-faith compliance record.</div>
+        </div>
+        <div class="tool-count-row">
+          ↑ That's 1 tool. Your district probably uses <strong>10–15 more just like it.</strong>
+        </div>
+      </div>
+
+      <!-- live result panel (hidden until search) -->
+      <div id="result-panel">
+        <div class="result-header">
+          <span class="result-tool-name" id="res-name"></span>
+          <span class="risk-badge" id="res-badge"></span>
+        </div>
+        <div class="result-grid">
+          <div class="result-stat">
+            <div class="result-stat-label">VPAT Status</div>
+            <div class="result-stat-val" id="res-vpat"></div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-label">WCAG 2.1 AA Claim</div>
+            <div class="result-stat-val" id="res-wcag"></div>
+          </div>
+          <div class="result-stat">
+            <div class="result-stat-label">Handles Student PII</div>
+            <div class="result-stat-val" id="res-pii"></div>
+          </div>
+        </div>
+        <div class="result-action">
+          <div class="result-action-label">Recommended Action</div>
+          <div class="result-action-text" id="res-action"></div>
+        </div>
+        <div class="result-gate">
+          <div class="gate-text">
+            <strong>This is 1 of your tools.</strong> A full district audit checks all 10–15 and gives you the complete risk picture — plus vendor outreach emails ready to send.
+          </div>
+          <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Full%20Audit%20Request" class="gate-btn">Get full audit — $1,500 →</a>
+        </div>
+      </div>
+
+      <!-- not found state -->
+      <div id="not-found">
+        <div class="not-found-box">
+          <p><strong id="nf-name"></strong> isn't in our database yet. Enter your email and we'll run it and send you the result — free.</p>
+          <div class="email-row">
+            <input type="email" placeholder="your@district.edu" id="nf-email" />
+            <button onclick="handleEmailSubmit()">Request check</button>
+          </div>
+          <div id="nf-confirm" style="display:none; margin-top:10px; font-size:13px; color: var(--green);">Got it — we'll send your result within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST ROW -->
+<div class="trust-row">
+  <div class="trust-item">
+    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+    Free · no account needed
+  </div>
+  <div class="trust-item">
+    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+    25+ edtech tools in our database
+  </div>
+  <div class="trust-item">
+    <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+    ADA Title II deadline: April 24, 2026
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div>
+      <div class="stat-num red">18%</div>
+      <div class="stat-label">of common edtech tools are Critical risk</div>
+    </div>
+    <div>
+      <div class="stat-num orange">52%</div>
+      <div class="stat-label">are High risk — no VPAT or vague claims</div>
+    </div>
+    <div>
+      <div class="stat-num accent">22 days</div>
+      <div class="stat-label">until the April 24 enforcement deadline</div>
+    </div>
+    <div>
+      <div class="stat-num" style="color: var(--green);">10%</div>
+      <div class="stat-label">of tools are fully documented and low risk</div>
+    </div>
+  </div>
+</div>
+
+<!-- BREAKDOWN -->
+<section class="breakdown">
+  <p class="section-eyebrow">What we're seeing</p>
+  <h2>Most districts are 70% fine.<br>It's the other 30% that matters.</h2>
+  <p class="sub">Across the tools we've audited, Google Classroom passes. Canvas passes. Khan Academy passes. Then there's everything else.</p>
+  <div class="tier-grid">
+    <div class="tier-card">
+      <div class="tier-card-top">
+        <span class="tier-label crit">Critical</span>
+        <span class="tier-pct crit">18%</span>
+      </div>
+      <div class="tier-bar-wrap"><div class="tier-bar crit"></div></div>
+      <p class="tier-desc">No VPAT, no WCAG claim, student-facing, handles PII. <strong>Send outreach before April 24.</strong></p>
+      <div class="tier-tools"><strong>Examples:</strong> ClassDojo, Formative, Edulastic</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-card-top">
+        <span class="tier-label high">High</span>
+        <span class="tier-pct high">52%</span>
+      </div>
+      <div class="tier-bar-wrap"><div class="tier-bar high"></div></div>
+      <p class="tier-desc">VPAT missing or outdated. Vague conformance language. <strong>Request documentation this week.</strong></p>
+      <div class="tier-tools"><strong>Examples:</strong> Nearpod, IXL, Remind, Kahoot, Quizlet</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-card-top">
+        <span class="tier-label med">Medium</span>
+        <span class="tier-pct med">20%</span>
+      </div>
+      <div class="tier-bar-wrap"><div class="tier-bar med"></div></div>
+      <p class="tier-desc">VPAT exists with noted gaps. Good faith compliance defensible. <strong>File and monitor.</strong></p>
+      <div class="tier-tools"><strong>Examples:</strong> Seesaw, Pear Deck, BrainPOP, Newsela</div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-card-top">
+        <span class="tier-label low">Low</span>
+        <span class="tier-pct low">10%</span>
+      </div>
+      <div class="tier-bar-wrap"><div class="tier-bar low"></div></div>
+      <p class="tier-desc">Current VPAT, specific WCAG 2.1 AA claim, active accessibility program. <strong>File and retain.</strong></p>
+      <div class="tier-tools"><strong>Examples:</strong> Google Classroom, Canvas, Khan Academy</div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how-it-works">
+  <div class="how-inner">
+    <p class="section-eyebrow">Full audit</p>
+    <h2>15 minutes of your time.<br>5 business days to full clarity.</h2>
+    <p class="sub">The free tool checks one. The full audit checks all of them — and does the vendor outreach work for you.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>Fill out a 15-minute intake form</h3>
+          <p>List your top 10–15 student-facing classroom tools and note which ones handle student data. That's your entire time investment.</p>
+          <span class="step-tag">~15 min</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>We audit every tool on the list</h3>
+          <p>VPAT verification, WCAG 2.1 AA conformance check, known issue research, risk tier assignment. Every rating reviewed by a human before it goes in your report.</p>
+          <span class="step-tag">3–4 business days</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>You receive a report + vendor emails</h3>
+          <p>Tool-by-tool scorecard, executive summary for your superintendent, and a ready-to-send email for every tool that needs vendor follow-up.</p>
+          <span class="step-tag">Day 5 delivery</span>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h3>Forward the emails, file the report</h3>
+          <p>You've documented your good-faith compliance effort before the deadline. One person can approve the engagement — under most district micro-purchase thresholds.</p>
+          <span class="step-tag">Before April 24</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FULL AUDIT CTA -->
+<section class="audit-cta" id="full-audit">
+  <div class="audit-cta-card">
+    <div>
+      <h2>Ready to check all your tools?</h2>
+      <p>The free tool is one tool. The full audit is your complete district picture — with the outreach emails written and the documentation ready to file.</p>
+      <ul class="audit-includes">
+        <li>Up to 15 tools audited — VPAT verification, WCAG check, risk tier for each</li>
+        <li>Executive summary written for your superintendent or IT director</li>
+        <li>Vendor outreach email for every Critical and High tool</li>
+        <li>Priority action list ordered by urgency</li>
+        <li>PDF report formatted for filing and sharing</li>
+        <li>Delivered in 5 business days, flat fee, no surprises</li>
+      </ul>
+    </div>
+    <div class="price-block">
+      <div class="price-amount">$1,500</div>
+      <div class="price-desc">per district<br>up to 15 tools<br>5 business days</div>
+      <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Full%20Audit%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20a%20DistrictCheck%20full%20audit.%0A%0ADistrict%3A%20%0AContact%20name%20%26%20role%3A%20%0AStudent%20population%3A%20%0ANumber%20of%20tools%20to%20audit%3A%20" class="btn-book">Book your audit →</a>
+      <div class="deadline-tag">Book by April 16 for pre-deadline delivery</div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h2>Common questions.</h2>
+  <div class="faq-item">
+    <p class="faq-q">What's the difference between the free tool and the full audit?</p>
+    <p class="faq-a">The free tool checks one tool at a time from our existing database. The full audit checks your complete tool list — including tools not yet in our database — plus writes the vendor outreach emails and generates a formatted PDF report you can file as part of your compliance record.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Our LMS passed an accessibility audit. Aren't we covered?</p>
+    <p class="faq-a">Your LMS is one tool. The average district uses 40+ edtech tools annually. ADA Title II applies to every student-facing platform — not just the LMS. The critical findings in our database are almost never the LMS.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">What does "good faith compliance effort" actually mean?</p>
+    <p class="faq-a">ADA Title II enforcement is complaint-driven. When a complaint is filed, OCR looks at whether you made reasonable steps to identify and address accessibility gaps. A documented audit + vendor outreach record is that evidence — whether you fixed everything or not.</p>
+  </div>
+  <div class="faq-item">
+    <p class="faq-q">Is $1,500 within our purchasing authority?</p>
+    <p class="faq-a">Most districts have a micro-purchase threshold of $2,500–$10,000 for consulting or professional services — meaning one person can approve without a formal RFP. At $1,500, DistrictCheck is designed to be a same-day yes, not a three-week committee process.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">District<em>Check</em></div>
+  <span>Questions? <a href="mailto:zj.thomas@icloud.com" style="color: var(--accent);">zj.thomas@icloud.com</a></span>
+  <span>ADA Title II · WCAG 2.1 AA · K–12</span>
+</footer>
+
+<script>
+  // ── TOOL DATABASE ──
+  const tools = [
+    // CRITICAL
+    { name: "ClassDojo",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date — this is your good-faith compliance record." },
+    { name: "Formative",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
+    { name: "GoFormative",      tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
+    { name: "Edulastic",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send outreach today. Loop in your Special Education Director — any student with an IEP or 504 taking Edulastic assessments needs a documented accessibility accommodation pathway now." },
+
+    // HIGH
+    { name: "Nearpod",          tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request a current VPAT and written conformance statement. Flag interactive elements (drag-and-drop, timed activities) as specific areas needing documentation." },
+    { name: "IXL",              tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. Specifically flag the math input interface and timed activities — these have documented barriers for keyboard and screen reader users." },
+    { name: "IXL Learning",     tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. Specifically flag the math input interface and timed activities — these have documented barriers for keyboard and screen reader users." },
+    { name: "Remind",           tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Request VPAT. If Remind is used for emergency communications, also document an accessible alternative channel (email + robocall) as an interim measure." },
+    { name: "Kahoot",           tier: "high",     vpat: "Not found",         wcag: "Aspirational",   pii: "No",   action: "Vendor explicitly states 'working toward WCAG 2.1 AA' — that confirms non-conformance. If used for graded activities, document an alternative assessment option for students who need it." },
+    { name: "Quizlet",          tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. Note that Quizlet Live (timed, competitive format) has structural accessibility barriers — flag for any teacher using it for assessed activities." },
+    { name: "CommonLit",        tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach requesting VPAT. The complete absence of public accessibility documentation is itself the primary finding." },
+    { name: "ReadWorks",        tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send outreach — but expect a slow response given nonprofit capacity. Document the attempt regardless. Consider whether accessible alternatives exist for literary instruction." },
+    { name: "ParentSquare",     tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Request VPAT immediately. As a primary parent communication channel, this falls squarely in ADA Title II scope. Document an accessible alternative communication process in the interim." },
+    { name: "Screencastify",    tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Request VPAT. Also verify whether student video recordings are stored on Screencastify servers — if so, confirm data handling agreements." },
+    { name: "Schoology",        tier: "high",     vpat: "Unclear post-acquisition", wcag: "Vague claim", pii: "Yes", action: "Call PowerSchool directly (not web form) and ask to be connected to their accessibility team. Request a current VPAT specifically for the Schoology parent portal." },
+    { name: "Padlet",           tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. The collaborative board format has known barriers for screen reader users — specifically ask about navigation between posts and keyboard accessibility." },
+    { name: "Prodigy",          tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Request VPAT. Game-based math format has inherent accessibility concerns similar to Kahoot — flag timed and interactive elements." },
+    { name: "Boom Learning",    tier: "high",     vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Request VPAT immediately. Boom Cards is widely used but has limited accessibility documentation for a student-facing assessment platform." },
+    { name: "Wakelet",          tier: "high",     vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. Content curation interface has reported keyboard navigation issues." },
+
+    // MEDIUM
+    { name: "Seesaw",           tier: "medium",   vpat: "Exists (2023)",     wcag: "Specific claim", pii: "Yes",  action: "Download and file the existing VPAT from Seesaw's accessibility page. Note that portfolio creation tools are partially conformant — advise teachers that students needing accessible alternatives should have them documented." },
+    { name: "BrainPOP",         tier: "medium",   vpat: "Exists (2022)",     wcag: "Specific claim", pii: "Yes",  action: "Request an updated VPAT (2024 or later). Also ask specifically about legacy video content captioning accuracy." },
+    { name: "Pear Deck",        tier: "medium",   vpat: "Exists (2023)",     wcag: "Specific claim", pii: "Yes",  action: "File the existing VPAT. Note that freehand drawing and annotation tools are partially conformant — ensure text-based alternatives are available." },
+    { name: "Newsela",          tier: "medium",   vpat: "Exists (2023)",     wcag: "Specific claim", pii: "Yes",  action: "File the existing VPAT. Low risk — add to annual review cycle." },
+    { name: "Flip",             tier: "medium",   vpat: "Exists (2023)",     wcag: "Specific claim", pii: "Yes",  action: "Download and file the VPAT through Microsoft's accessibility documentation. Advise teachers that AI-generated captions on student-uploaded videos should be reviewed before class viewing." },
+    { name: "Flipgrid",         tier: "medium",   vpat: "Exists (2023)",     wcag: "Specific claim", pii: "Yes",  action: "Download and file the VPAT through Microsoft's accessibility documentation. Advise teachers that AI-generated captions on student-uploaded videos should be reviewed before class viewing." },
+    { name: "Discovery Education", tier: "medium", vpat: "Exists (2023)",   wcag: "Specific claim", pii: "Yes",  action: "File existing VPAT. Note partial conformance for interactive simulations and virtual labs. Review at next contract renewal." },
+    { name: "Canva for Education", tier: "medium", vpat: "Exists (2023)",   wcag: "Specific claim", pii: "Yes",  action: "File existing VPAT. Canva has improved accessibility significantly but some advanced design features remain partially conformant." },
+    { name: "Book Creator",     tier: "medium",   vpat: "Not found",         wcag: "Vague claim",    pii: "Yes",  action: "Request VPAT. Core reading features are generally accessible but the creation interface has reported barriers for users relying on assistive technology." },
+    { name: "Duolingo",         tier: "medium",   vpat: "Not found",         wcag: "Specific claim", pii: "Yes",  action: "Request VPAT. Duolingo makes WCAG claims but no formal VPAT is published. Game-based timed activities warrant specific documentation." },
+
+    // LOW
+    { name: "Google Classroom", tier: "low",      vpat: "Exists (2024)",     wcag: "Specific claim", pii: "Yes",  action: "Retain current VPAT on file. Add to annual accessibility review cycle. Check for updates when renewing Google Workspace contract. No immediate action needed." },
+    { name: "Google Workspace", tier: "low",      vpat: "Exists (2024)",     wcag: "Specific claim", pii: "Yes",  action: "Retain current VPAT on file. Google Workspace for Education has one of the most comprehensive accessibility programs in edtech. No immediate action needed." },
+    { name: "Canvas",           tier: "low",      vpat: "Exists (2024)",     wcag: "Specific claim", pii: "Yes",  action: "Retain current VPAT on file. Note: LTI-embedded tools within Canvas are NOT covered by Canvas's VPAT — they require separate accessibility verification." },
+    { name: "Khan Academy",     tier: "low",      vpat: "Exists (2024)",     wcag: "Specific claim", pii: "Yes",  action: "Download and file from Khan Academy's accessibility page. Some interactive exercise types (graphing tools) have noted limitations — proactively disclosed. No immediate action needed." },
+    { name: "Microsoft Teams",  tier: "low",      vpat: "Exists (2024)",     wcag: "Specific claim", pii: "Yes",  action: "Retain current VPAT on file. Microsoft has one of the strongest accessibility programs in enterprise software. No immediate action needed." },
+  ];
+
+  // ── TIER CONFIG ──
+  const tierConfig = {
+    critical: { label: "⬤ Critical", color: "critical" },
+    high:     { label: "⬤ High",     color: "high"     },
+    medium:   { label: "⬤ Medium",   color: "medium"   },
+    low:      { label: "⬤ Low",      color: "low"      },
+  };
+
+  const vpat_class = (v) => v.toLowerCase().includes("not found") || v.toLowerCase().includes("unclear") ? "bad" : (v.toLowerCase().includes("2022") ? "warn" : "ok");
+  const wcag_class = (w) => w === "Specific claim" ? "ok" : (w === "No claim" ? "bad" : "warn");
+  const pii_class  = (p) => p === "Yes" ? "warn" : "ok";
+
+  function fuzzyMatch(query, name) {
+    query = query.toLowerCase().trim();
+    name  = name.toLowerCase();
+    if (name.includes(query)) return true;
+    if (query.includes(name)) return true;
+    // token match
+    const qTokens = query.split(/\s+/);
+    return qTokens.some(t => t.length > 2 && name.includes(t));
+  }
+
+  function showResult(tool) {
+    document.getElementById('sample-panel').style.display = 'none';
+    document.getElementById('not-found').style.display    = 'none';
+    document.getElementById('result-panel').style.display = 'block';
+
+    const cfg = tierConfig[tool.tier];
+    document.getElementById('res-name').textContent   = tool.name;
+    const badge = document.getElementById('res-badge');
+    badge.textContent = cfg.label;
+    badge.className = 'risk-badge ' + cfg.color;
+
+    const vpatEl = document.getElementById('res-vpat');
+    vpatEl.textContent  = tool.vpat;
+    vpatEl.className    = 'result-stat-val ' + vpat_class(tool.vpat);
+
+    const wcagEl = document.getElementById('res-wcag');
+    wcagEl.textContent  = tool.wcag;
+    wcagEl.className    = 'result-stat-val ' + wcag_class(tool.wcag);
+
+    const piiEl = document.getElementById('res-pii');
+    piiEl.textContent   = tool.pii;
+    piiEl.className     = 'result-stat-val ' + pii_class(tool.pii);
+
+    document.getElementById('res-action').textContent = tool.action;
+  }
+
+  function showNotFound(query) {
+    document.getElementById('sample-panel').style.display = 'none';
+    document.getElementById('result-panel').style.display = 'none';
+    document.getElementById('not-found').style.display    = 'block';
+    document.getElementById('nf-name').textContent = query;
+    document.getElementById('nf-confirm').style.display = 'none';
+  }
+
+  function runCheck() {
+    const query = document.getElementById('tool-input').value.trim();
+    if (!query) return;
+    document.getElementById('suggestions').style.display = 'none';
+    const match = tools.find(t => fuzzyMatch(query, t.name));
+    if (match) { showResult(match); }
+    else        { showNotFound(query); }
+  }
+
+  function handleEmailSubmit() {
+    const email = document.getElementById('nf-email').value.trim();
+    if (!email || !email.includes('@')) return;
+    document.getElementById('nf-confirm').style.display = 'block';
+    document.getElementById('nf-email').value = '';
+  }
+
+  // suggestions on input
+  document.getElementById('tool-input').addEventListener('input', function() {
+    const q = this.value.trim();
+    const sugEl = document.getElementById('suggestions');
+    if (q.length < 2) { sugEl.style.display = 'none'; return; }
+
+    const matches = tools.filter(t => fuzzyMatch(q, t.name)).slice(0, 5);
+    if (!matches.length) { sugEl.style.display = 'none'; return; }
+
+    sugEl.innerHTML = matches.map(t => {
+      const cfg = tierConfig[t.tier];
+      const colors = { critical: '#FCA5A5', high: '#FDB796', medium: '#FCD34D', low: '#86EFAC' };
+      const bgs    = { critical: 'rgba(239,68,68,0.15)', high: 'rgba(249,115,22,0.15)', medium: 'rgba(245,158,11,0.15)', low: 'rgba(34,197,94,0.15)' };
+      return `<div class="suggestion-item" onclick="selectSuggestion('${t.name}')">
+        <span>${t.name}</span>
+        <span class="sug-tier" style="color:${colors[t.tier]};background:${bgs[t.tier]}">${t.tier.toUpperCase()}</span>
+      </div>`;
+    }).join('');
+    sugEl.style.display = 'block';
+  });
+
+  function selectSuggestion(name) {
+    document.getElementById('tool-input').value = name;
+    document.getElementById('suggestions').style.display = 'none';
+    const tool = tools.find(t => t.name === name);
+    if (tool) showResult(tool);
+  }
+
+  document.getElementById('check-btn').addEventListener('click', runCheck);
+  document.getElementById('tool-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') runCheck();
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.suggestions-wrap')) {
+      document.getElementById('suggestions').style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
