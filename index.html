@@ -565,6 +565,22 @@
       border-radius: 20px;
       margin-top: 8px;
     }
+    .step-cta {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      border: 1px solid rgba(99,102,241,0.35);
+      background: rgba(99,102,241,0.08);
+      color: var(--text);
+      transition: opacity 0.15s, border-color 0.15s;
+    }
+    .step-cta:hover {
+      opacity: 0.9;
+      border-color: rgba(99,102,241,0.55);
+    }
 
     /* ── FULL AUDIT CTA ── */
     .audit-cta {
@@ -627,6 +643,29 @@
       margin-bottom: 8px;
     }
     .btn-book:hover { opacity: 0.88; }
+    .btn-secondary {
+      display: block;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      transition: opacity 0.15s, border-color 0.15s;
+      margin-bottom: 10px;
+    }
+    .btn-secondary:hover {
+      opacity: 0.9;
+      border-color: rgba(99,102,241,0.45);
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
     .deadline-tag {
       font-size: 11px;
       color: #FCA5A5;
@@ -914,6 +953,7 @@
           <h3>Fill out a 15-minute intake form</h3>
           <p>List your top 10–15 student-facing classroom tools and note which ones handle student data. That's your entire time investment.</p>
           <span class="step-tag">~15 min</span>
+          <a href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" class="step-cta" target="_blank" rel="noopener noreferrer">Filled it out? Pay to secure your audit slot →</a>
         </div>
       </div>
       <div class="step">
@@ -963,6 +1003,8 @@
       <div class="price-amount">$1,500</div>
       <div class="price-desc">per district<br>up to 15 tools<br>5 business days</div>
       <a href="mailto:zj.thomas@icloud.com?subject=DistrictCheck%20Full%20Audit%20Request&body=Hi%2C%20I%27d%20like%20to%20book%20a%20DistrictCheck%20full%20audit.%0A%0ADistrict%3A%20%0AContact%20name%20%26%20role%3A%20%0AStudent%20population%3A%20%0ANumber%20of%20tools%20to%20audit%3A%20" class="btn-book">Book your audit →</a>
+      <a href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" class="btn-secondary" target="_blank" rel="noopener noreferrer">Or pay online after intake</a>
+      <div class="price-note">For the first pilot districts, email is still fine if you prefer to handle payment manually.</div>
       <div class="deadline-tag">Book by April 16 for pre-deadline delivery</div>
     </div>
   </div>
