@@ -216,6 +216,9 @@
       display: none;
     }
     .suggestion-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
       padding: 10px 16px;
       font-size: 14px;
       color: var(--text);
@@ -224,8 +227,15 @@
       align-items: center;
       justify-content: space-between;
       transition: background 0.1s;
+      font-family: inherit;
+      text-align: left;
     }
-    .suggestion-item:hover { background: var(--border); }
+    .suggestion-item:hover,
+    .suggestion-item:focus-visible,
+    .suggestion-item.is-active {
+      background: var(--border);
+      outline: none;
+    }
     .sug-tier { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; }
 
     /* result panel */
@@ -581,6 +591,14 @@
       opacity: 0.9;
       border-color: rgba(99,102,241,0.55);
     }
+    .step-cta.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+    .step-cta.primary:hover {
+      border-color: transparent;
+    }
 
     /* ── FULL AUDIT CTA ── */
     .audit-cta {
@@ -779,7 +797,7 @@
           <input type="text" id="tool-input" placeholder="Type a tool name (e.g. ClassDojo, IXL, Nearpod…)" autocomplete="off" />
           <button id="check-btn">Check →</button>
         </div>
-        <div id="suggestions"></div>
+        <div id="suggestions" role="listbox" aria-label="Tool suggestions"></div>
       </div>
 
       <!-- sample state shown on load -->
@@ -953,7 +971,8 @@
           <h3>Fill out a 15-minute intake form</h3>
           <p>List your top 10–15 student-facing classroom tools and note which ones handle student data. That's your entire time investment.</p>
           <span class="step-tag">~15 min</span>
-          <a href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" class="step-cta" target="_blank" rel="noopener noreferrer">Filled it out? Pay to secure your audit slot →</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" class="step-cta primary" target="_blank" rel="noopener noreferrer">Open the intake form →</a>
+          <a href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" class="step-cta" target="_blank" rel="noopener noreferrer">Already submitted it? Pay to secure your audit slot →</a>
         </div>
       </div>
       <div class="step">
@@ -1145,7 +1164,7 @@
   function runCheck() {
     const query = document.getElementById('tool-input').value.trim();
     if (!query) return;
-    document.getElementById('suggestions').style.display = 'none';
+    hideSuggestions();
     const match = tools.find(t => fuzzyMatch(query, t.name));
     if (match) { showResult(match); }
     else        { showNotFound(query); }
@@ -1163,43 +1182,98 @@
     countdownEl.textContent = `${diffDays} ${diffDays === 1 ? 'day' : 'days'}`;
   }
 
+  let suggestionMatches = [];
+  let activeSuggestionIndex = -1;
+
+  function hideSuggestions() {
+    activeSuggestionIndex = -1;
+    document.getElementById('suggestions').style.display = 'none';
+  }
+
+  function renderSuggestions(matches) {
+    const sugEl = document.getElementById('suggestions');
+    suggestionMatches = matches;
+
+    if (!matches.length) {
+      hideSuggestions();
+      return;
+    }
+
+    const colors = { critical: '#FCA5A5', high: '#FDB796', medium: '#FCD34D', low: '#86EFAC' };
+    const bgs    = { critical: 'rgba(239,68,68,0.15)', high: 'rgba(249,115,22,0.15)', medium: 'rgba(245,158,11,0.15)', low: 'rgba(34,197,94,0.15)' };
+
+    sugEl.innerHTML = matches.map((t, index) => `
+      <button type="button" class="suggestion-item" data-index="${index}" role="option" aria-selected="false">
+        <span>${t.name}</span>
+        <span class="sug-tier" style="color:${colors[t.tier]};background:${bgs[t.tier]}">${t.tier.toUpperCase()}</span>
+      </button>
+    `).join('');
+    sugEl.style.display = 'block';
+  }
+
+  function setActiveSuggestion(index) {
+    const sugEl = document.getElementById('suggestions');
+    const items = Array.from(sugEl.querySelectorAll('.suggestion-item'));
+    if (!items.length) return;
+
+    activeSuggestionIndex = index;
+    items.forEach((item, itemIndex) => {
+      const isActive = itemIndex === activeSuggestionIndex;
+      item.classList.toggle('is-active', isActive);
+      item.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+  }
+
   // suggestions on input
   document.getElementById('tool-input').addEventListener('input', function() {
     const q = this.value.trim();
-    const sugEl = document.getElementById('suggestions');
-    if (q.length < 2) { sugEl.style.display = 'none'; return; }
+    if (q.length < 2) { hideSuggestions(); return; }
 
     const matches = tools.filter(t => fuzzyMatch(q, t.name)).slice(0, 5);
-    if (!matches.length) { sugEl.style.display = 'none'; return; }
-
-    sugEl.innerHTML = matches.map(t => {
-      const cfg = tierConfig[t.tier];
-      const colors = { critical: '#FCA5A5', high: '#FDB796', medium: '#FCD34D', low: '#86EFAC' };
-      const bgs    = { critical: 'rgba(239,68,68,0.15)', high: 'rgba(249,115,22,0.15)', medium: 'rgba(245,158,11,0.15)', low: 'rgba(34,197,94,0.15)' };
-      return `<div class="suggestion-item" onclick="selectSuggestion('${t.name}')">
-        <span>${t.name}</span>
-        <span class="sug-tier" style="color:${colors[t.tier]};background:${bgs[t.tier]}">${t.tier.toUpperCase()}</span>
-      </div>`;
-    }).join('');
-    sugEl.style.display = 'block';
+    renderSuggestions(matches);
   });
 
   function selectSuggestion(name) {
     document.getElementById('tool-input').value = name;
-    document.getElementById('suggestions').style.display = 'none';
+    hideSuggestions();
     const tool = tools.find(t => t.name === name);
     if (tool) showResult(tool);
   }
 
+  document.getElementById('suggestions').addEventListener('click', function(e) {
+    const item = e.target.closest('.suggestion-item');
+    if (!item) return;
+    selectSuggestion(suggestionMatches[Number(item.dataset.index)].name);
+  });
+
   document.getElementById('check-btn').addEventListener('click', runCheck);
   document.getElementById('tool-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') runCheck();
+    if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && suggestionMatches.length) {
+      e.preventDefault();
+      const direction = e.key === 'ArrowDown' ? 1 : -1;
+      const nextIndex = activeSuggestionIndex === -1
+        ? (direction === 1 ? 0 : suggestionMatches.length - 1)
+        : (activeSuggestionIndex + direction + suggestionMatches.length) % suggestionMatches.length;
+      setActiveSuggestion(nextIndex);
+      return;
+    }
+
+    if (e.key === 'Enter') {
+      if (activeSuggestionIndex >= 0 && suggestionMatches[activeSuggestionIndex]) {
+        e.preventDefault();
+        selectSuggestion(suggestionMatches[activeSuggestionIndex].name);
+        return;
+      }
+      runCheck();
+    }
+
+    if (e.key === 'Escape') hideSuggestions();
   });
   updateDeadlineCountdown();
 
   document.addEventListener('click', function(e) {
     if (!e.target.closest('.suggestions-wrap')) {
-      document.getElementById('suggestions').style.display = 'none';
+      hideSuggestions();
     }
   });
 </script>
