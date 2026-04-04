@@ -3,6 +3,7 @@ const path = require('path');
 
 const DEFAULT_LASTMOD = '2026-04-04';
 const BLOG_INDEX_LASTMOD = '2026-04-04';
+const OG_IMAGE = 'https://districtcheck.io/og-default.png';
 
 const blogPosts = [
   {
@@ -38,7 +39,7 @@ const blogPosts = [
 const tools = [
   { name: 'ClassDojo', tier: 'critical', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date - this is your good-faith compliance record.' },
   { name: 'Formative', tier: 'critical', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it.' },
-  { name: 'GoFormative', tier: 'critical', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it.' },
+  { name: 'GoFormative', tier: 'critical', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', canonical: 'Formative', action: 'Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it.' },
   { name: 'Edulastic', tier: 'critical', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Send outreach today. Loop in your Special Education Director - any student with an IEP or 504 taking Edulastic assessments needs a documented accessibility accommodation pathway now.' },
   { name: 'Nearpod', tier: 'high', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT and written conformance statement. Flag interactive elements (drag-and-drop, timed activities) as specific areas needing documentation.' },
   { name: 'IXL', tier: 'high', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request VPAT. Specifically flag the math input interface and timed activities - these have documented barriers for keyboard and screen reader users.' },
@@ -111,6 +112,14 @@ const seoOverrides = {
   'Google Classroom': {
     title: 'Google Classroom ADA Compliance (Low Risk) | DistrictCheck',
     description: 'Google Classroom has a current VPAT and specific WCAG claim - low ADA risk. See what is covered, what is partially supported, and what districts should file.'
+  },
+  'Canva for Education': {
+    title: 'Canva Education ADA Compliance | DistrictCheck',
+    description: 'Canva for Education ADA compliance review for K-12 districts: medium risk, current VPAT available, and key accessibility follow-ups to document.'
+  },
+  'Discovery Education': {
+    title: 'Discovery Education ADA Compliance | DistrictCheck',
+    description: 'Discovery Education ADA compliance review for K-12 districts: medium risk, current VPAT available, and the partial-support areas districts should note.'
   },
   'Tool Database': {
     title: 'Edtech ADA Compliance Database | DistrictCheck',
@@ -267,13 +276,31 @@ function toolSeo(tool) {
   };
 }
 
+function faqPairs(tool) {
+  const canonical = canonicalTool(tool);
+  const analysis = analysisContent[canonical.name];
+  if (analysis) return analysis.faq;
+  if (canonical.tier === 'low') {
+    return [
+      [`Is ${canonical.name} ADA compliant?`, `${canonical.name} is currently rated ${tierMap[canonical.tier].label.toLowerCase()} risk because DistrictCheck found a current VPAT or accessibility documentation with a specific WCAG claim, though districts should still file the current record and review partial-support notes.`],
+      [`Does ${canonical.name} have a VPAT?`, `The current DistrictCheck entry for ${canonical.name} lists VPAT status as ${canonical.vpat}. Districts should keep the latest vendor documentation on file and refresh it during annual review or renewal.`],
+      [`What should districts do next for ${canonical.name}?`, `Districts should retain the current documentation, note any partially supported workflows, and make sure connected third-party tools are reviewed separately.`]
+    ];
+  }
+  return [
+    [`Is ${canonical.name} ADA compliant?`, `${canonical.name} is currently rated ${tierMap[canonical.tier].label.toLowerCase()} risk in DistrictCheck based on the current VPAT status, WCAG claim, and how the tool is commonly used in K-12 settings.`],
+    [`Does ${canonical.name} have a VPAT?`, `The current DistrictCheck entry for ${canonical.name} lists VPAT status as ${canonical.vpat}. Districts should request or retain the latest accessibility documentation directly from the vendor.`],
+    [`What should districts do next for ${canonical.name}?`, canonical.action]
+  ];
+}
+
 function faqJsonLd(tool) {
-  const analysis = analysisContent[canonicalName(tool)];
-  if (!analysis) return '';
+  const pairs = faqPairs(tool);
+  if (!pairs || isAlias(tool)) return '';
   const payload = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: analysis.faq.map(([question, answer]) => ({
+    mainEntity: pairs.map(([question, answer]) => ({
       '@type': 'Question',
       name: question,
       acceptedAnswer: {
@@ -287,7 +314,19 @@ function faqJsonLd(tool) {
 
 function analysisMarkup(tool) {
   const analysis = analysisContent[canonicalName(tool)];
-  if (!analysis || isAlias(tool)) return '';
+  if (isAlias(tool)) return '';
+  if (!analysis) {
+    const tier = tierMap[tool.tier];
+    return `
+    <section class="section">
+      <h2>${escapeHtml(tool.name)} accessibility analysis</h2>
+      <div class="analysis-copy">
+<p><strong>${escapeHtml(tool.name)}</strong> is currently rated <strong>${escapeHtml(tier.label.toLowerCase())} risk</strong> in DistrictCheck because the present documentation record shows <strong>VPAT: ${escapeHtml(tool.vpat)}</strong> and <strong>WCAG claim: ${escapeHtml(tool.wcag)}</strong>. That combination does not answer every district question on its own, but it gives a concrete starting point for how defensible the tool is today.</p>
+<p>For district teams, the practical issue is whether the vendor documentation matches how the product is actually used. Tools that handle student data, required participation, assessments, communication, or multimedia creation deserve closer review because any accessibility gap can quickly become an instructional or legal problem. The strongest next step is to file the current documentation status, identify the highest-risk workflows your teachers actually use, and note whether an accommodation or alternate path is needed if a barrier appears.</p>
+<p>DistrictCheck's recommendation for ${escapeHtml(tool.name)} is simple: ${escapeHtml(tool.action)} This page should be treated as a compliance snapshot, then paired with vendor outreach and local implementation notes so your district can show a timely, good-faith review process.</p>
+      </div>
+    </section>`;
+  }
   return `
     <section class="section">
       <h2>${escapeHtml(tool.name)} accessibility analysis</h2>
@@ -313,7 +352,7 @@ function relatedToolsFor(tool) {
 
 function relatedMarkup(tool) {
   return relatedToolsFor(tool)
-    .map((entry) => `<a class="related-link" href="./${slugify(entry.name)}.html">Districts using ${escapeHtml(tool.name)} often also use ${escapeHtml(entry.name)} &rarr;</a>`)
+    .map((entry) => `<a class="related-link" href="./${canonicalSlug(entry)}.html">Districts using ${escapeHtml(canonicalName(tool))} often also use ${escapeHtml(entry.name)} &rarr;</a>`)
     .join('\n');
 }
 
@@ -359,11 +398,11 @@ function toolDirectoryPage() {
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://districtcheck.io/tools/index.html" />
   <meta property="og:site_name" content="DistrictCheck" />
-  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta property="og:image" content="${OG_IMAGE}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(seo.title)}" />
   <meta name="twitter:description" content="${escapeHtml(seo.description)}" />
-  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:image" content="${OG_IMAGE}" />
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -528,11 +567,11 @@ function page(tool) {
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://districtcheck.io/tools/${slug}.html" />
   <meta property="og:site_name" content="DistrictCheck" />
-  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta property="og:image" content="${OG_IMAGE}" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(seo.title)}" />
   <meta name="twitter:description" content="${escapeHtml(seo.description)}" />
-  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:image" content="${OG_IMAGE}" />
   ${faqScript}
   <style>
     *, *::before, *::after { box-sizing: border-box; }
