@@ -40,15 +40,15 @@
       --surface: #16191E;
       --card:    #1C2027;
       --border:  #272C35;
-      --muted:   #5B6370;
+      --muted:   #7B8490;
       --text:    #D8DCE3;
       --white:   #FFFFFF;
       --green:   #22C55E;
       --yellow:  #F59E0B;
       --orange:  #F97316;
-      --red:     #EF4444;
+      --red:     #F87171;
       --blue:    #3B82F6;
-      --accent:  #6366F1;
+      --accent:  #5254CC;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -60,6 +60,25 @@
     }
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
 
     nav {
       display: flex; align-items: center; justify-content: space-between;
@@ -126,6 +145,10 @@
     .article-body ul, .article-body ol { margin: 0 0 24px 0; padding-left: 24px; }
     .article-body li { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
     .article-body strong { color: var(--white); font-weight: 700; }
+    .article-body a {
+      text-decoration: underline;
+      text-underline-offset: 0.14em;
+    }
 
     /* RISK CARDS */
     .risk-card {
@@ -253,9 +276,10 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <nav>
-    <a href="/" class="logo">District<em>Check</em></a>
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="DistrictCheck">District<em>Check</em></a>
     <div class="nav-right">
       <a href="/blog/index.html" class="nav-link">Blog</a>
       <a href="/#tools" class="nav-link">Browse Tools</a>
@@ -263,17 +287,18 @@
     </div>
   </nav>
 
+  <main id="main-content">
   <div class="wrap">
     <article>
 
       <header class="article-header">
-        <div class="breadcrumb">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
           <a href="/">Home</a>
           <span class="breadcrumb-sep">/</span>
           <a href="/blog/index.html">Blog</a>
           <span class="breadcrumb-sep">/</span>
           Riskiest Edtech Tools
-        </div>
+        </nav>
         <div class="article-tag">Tool Analysis</div>
         <h1>The 5 Riskiest Edtech Tools for ADA Compliance — And What To Do About Them</h1>
         <div class="article-meta">
@@ -516,8 +541,9 @@
 
   <footer>
     <div class="footer-logo">District<em>Check</em></div>
-    <div>Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
+    <div>Copyright 2026 DistrictCheck · Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
   </footer>
+  </main>
 
 </body>
 </html>

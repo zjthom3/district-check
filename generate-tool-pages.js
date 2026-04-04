@@ -412,8 +412,9 @@ function toolDirectoryPage() {
       --text: #d8dce3;
       --muted: #7b8490;
       --white: #ffffff;
-      --accent: #6366f1;
+      --accent: #5254cc;
     }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -423,6 +424,25 @@ function toolDirectoryPage() {
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--bg);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     nav {
       padding: 22px 0;
@@ -514,11 +534,13 @@ function toolDirectoryPage() {
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="wrap">
-    <nav>
-      <a class="logo" href="../index.html">District<em>Check</em></a>
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
       <a class="nav-link" href="../index.html">Back to homepage</a>
     </nav>
+    <main id="main-content">
     <section class="hero">
       <div class="eyebrow">Tool Database</div>
       <h1>Browse all tools</h1>
@@ -527,7 +549,8 @@ function toolDirectoryPage() {
     <section class="tool-grid">
 ${cards}
     </section>
-    <footer>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
+    </main>
+    <footer>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
   </div>
 </body>
 </html>`;
@@ -598,6 +621,25 @@ function page(tool) {
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--bg);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     nav {
       padding: 22px 0;
@@ -612,7 +654,7 @@ function page(tool) {
     .nav-link { font-size: 13px; color: var(--muted); }
     .nav-cta {
       background: var(--accent);
-      color: var(--white);
+      color: var(--bg);
       padding: 10px 16px;
       border-radius: 999px;
       font-size: 13px;
@@ -669,7 +711,7 @@ function page(tool) {
       font-size: 14px;
       font-weight: 700;
     }
-    .btn.primary { background: var(--accent); border-color: transparent; color: var(--white); }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--bg); }
     .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
     .panel, .card {
       background: rgba(22,25,30,0.9);
@@ -823,16 +865,17 @@ function page(tool) {
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="wrap">
-    <nav>
-      <a class="logo" href="../index.html">District<em>Check</em></a>
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
       <div class="nav-links">
         <a class="nav-link" href="../index.html#how-it-works">How it works</a>
         <a class="nav-link" href="../index.html#full-audit">Full audit</a>
         <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Get full audit</a>
       </div>
     </nav>
-
+    <main id="main-content">
     <section class="hero">
       <div class="hero-copy">
         <div class="eyebrow">${escapeHtml(tier.eyebrow)} · K-12 Accessibility Review</div>
@@ -958,9 +1001,10 @@ ${relatedBlogLinks}
         </div>
       </div>
     </section>
+    </main>
 
     <footer>
-      <div>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+      <div>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
     </footer>
   </div>
 </body>

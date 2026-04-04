@@ -27,8 +27,9 @@
       --text: #d8dce3;
       --muted: #7b8490;
       --white: #ffffff;
-      --accent: #6366f1;
+      --accent: #5254cc;
     }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -38,6 +39,25 @@
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--bg);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     nav {
       padding: 22px 0;
@@ -129,11 +149,13 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
   <div class="wrap">
-    <nav>
-      <a class="logo" href="../index.html">District<em>Check</em></a>
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
       <a class="nav-link" href="../index.html">Back to homepage</a>
     </nav>
+    <main id="main-content">
     <section class="hero">
       <div class="eyebrow">Tool Database</div>
       <h1>Browse all tools</h1>
@@ -358,7 +380,8 @@
           <span class="tool-card-meta">VPAT: Not found · WCAG: Vague claim</span>
         </a>
     </section>
-    <footer>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
+    </main>
+    <footer>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
   </div>
 </body>
 </html>
