@@ -1,0 +1,481 @@
+const fs = require('fs');
+const path = require('path');
+
+const tools = [
+  { name: "ClassDojo", tier: "critical", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date - this is your good-faith compliance record." },
+  { name: "Formative", tier: "critical", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
+  { name: "GoFormative", tier: "critical", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
+  { name: "Edulastic", tier: "critical", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send outreach today. Loop in your Special Education Director - any student with an IEP or 504 taking Edulastic assessments needs a documented accessibility accommodation pathway now." },
+  { name: "Nearpod", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request a current VPAT and written conformance statement. Flag interactive elements (drag-and-drop, timed activities) as specific areas needing documentation." },
+  { name: "IXL", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. Specifically flag the math input interface and timed activities - these have documented barriers for keyboard and screen reader users." },
+  { name: "IXL Learning", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. Specifically flag the math input interface and timed activities - these have documented barriers for keyboard and screen reader users." },
+  { name: "Remind", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Request VPAT. If Remind is used for emergency communications, also document an accessible alternative channel (email + robocall) as an interim measure." },
+  { name: "Kahoot", tier: "high", vpat: "Not found", wcag: "Aspirational", pii: "No", action: "Vendor explicitly states 'working toward WCAG 2.1 AA' - that confirms non-conformance. If used for graded activities, document an alternative assessment option for students who need it." },
+  { name: "Quizlet", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. Note that Quizlet Live (timed, competitive format) has structural accessibility barriers - flag for any teacher using it for assessed activities." },
+  { name: "CommonLit", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send vendor outreach requesting VPAT. The complete absence of public accessibility documentation is itself the primary finding." },
+  { name: "ReadWorks", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Send outreach - but expect a slow response given nonprofit capacity. Document the attempt regardless. Consider whether accessible alternatives exist for literary instruction." },
+  { name: "ParentSquare", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Request VPAT immediately. As a primary parent communication channel, this falls squarely in ADA Title II scope. Document an accessible alternative communication process in the interim." },
+  { name: "Screencastify", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Request VPAT. Also verify whether student video recordings are stored on Screencastify servers - if so, confirm data handling agreements." },
+  { name: "Schoology", tier: "high", vpat: "Unclear post-acquisition", wcag: "Vague claim", pii: "Yes", action: "Call PowerSchool directly (not web form) and ask to be connected to their accessibility team. Request a current VPAT specifically for the Schoology parent portal." },
+  { name: "Padlet", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. The collaborative board format has known barriers for screen reader users - specifically ask about navigation between posts and keyboard accessibility." },
+  { name: "Prodigy", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Request VPAT. Game-based math format has inherent accessibility concerns similar to Kahoot - flag timed and interactive elements." },
+  { name: "Boom Learning", tier: "high", vpat: "Not found", wcag: "No claim", pii: "Yes", action: "Request VPAT immediately. Boom Cards is widely used but has limited accessibility documentation for a student-facing assessment platform." },
+  { name: "Wakelet", tier: "high", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. Content curation interface has reported keyboard navigation issues." },
+  { name: "Seesaw", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "Download and file the existing VPAT from Seesaw's accessibility page. Note that portfolio creation tools are partially conformant - advise teachers that students needing accessible alternatives should have them documented." },
+  { name: "BrainPOP", tier: "medium", vpat: "Exists (2022)", wcag: "Specific claim", pii: "Yes", action: "Request an updated VPAT (2024 or later). Also ask specifically about legacy video content captioning accuracy." },
+  { name: "Pear Deck", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "File the existing VPAT. Note that freehand drawing and annotation tools are partially conformant - ensure text-based alternatives are available." },
+  { name: "Newsela", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "File the existing VPAT. Low risk - add to annual review cycle." },
+  { name: "Flip", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "Download and file the VPAT through Microsoft's accessibility documentation. Advise teachers that AI-generated captions on student-uploaded videos should be reviewed before class viewing." },
+  { name: "Flipgrid", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "Download and file the VPAT through Microsoft's accessibility documentation. Advise teachers that AI-generated captions on student-uploaded videos should be reviewed before class viewing." },
+  { name: "Discovery Education", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "File existing VPAT. Note partial conformance for interactive simulations and virtual labs. Review at next contract renewal." },
+  { name: "Canva for Education", tier: "medium", vpat: "Exists (2023)", wcag: "Specific claim", pii: "Yes", action: "File existing VPAT. Canva has improved accessibility significantly but some advanced design features remain partially conformant." },
+  { name: "Book Creator", tier: "medium", vpat: "Not found", wcag: "Vague claim", pii: "Yes", action: "Request VPAT. Core reading features are generally accessible but the creation interface has reported barriers for users relying on assistive technology." },
+  { name: "Duolingo", tier: "medium", vpat: "Not found", wcag: "Specific claim", pii: "Yes", action: "Request VPAT. Duolingo makes WCAG claims but no formal VPAT is published. Game-based timed activities warrant specific documentation." },
+  { name: "Google Classroom", tier: "low", vpat: "Exists (2024)", wcag: "Specific claim", pii: "Yes", action: "Retain current VPAT on file. Add to annual accessibility review cycle. Check for updates when renewing Google Workspace contract. No immediate action needed." },
+  { name: "Google Workspace", tier: "low", vpat: "Exists (2024)", wcag: "Specific claim", pii: "Yes", action: "Retain current VPAT on file. Google Workspace for Education has one of the most comprehensive accessibility programs in edtech. No immediate action needed." },
+  { name: "Canvas", tier: "low", vpat: "Exists (2024)", wcag: "Specific claim", pii: "Yes", action: "Retain current VPAT on file. Note: LTI-embedded tools within Canvas are NOT covered by Canvas's VPAT - they require separate accessibility verification." },
+  { name: "Khan Academy", tier: "low", vpat: "Exists (2024)", wcag: "Specific claim", pii: "Yes", action: "Download and file from Khan Academy's accessibility page. Some interactive exercise types (graphing tools) have noted limitations - proactively disclosed. No immediate action needed." },
+  { name: "Microsoft Teams", tier: "low", vpat: "Exists (2024)", wcag: "Specific claim", pii: "Yes", action: "Retain current VPAT on file. Microsoft has one of the strongest accessibility programs in enterprise software. No immediate action needed." }
+];
+
+const tierMap = {
+  critical: {
+    label: 'Critical',
+    eyebrow: 'Critical Risk',
+    accent: '#ef4444',
+    glow: 'rgba(239,68,68,0.20)',
+    summary: 'This tool has the highest level of ADA compliance risk in the database because public documentation is missing and the tool is student-facing.',
+    nextStep: 'Immediate outreach and an interim accessible alternative should be documented before the ADA Title II deadline.'
+  },
+  high: {
+    label: 'High',
+    eyebrow: 'High Risk',
+    accent: '#f97316',
+    glow: 'rgba(249,115,22,0.20)',
+    summary: 'This tool shows elevated ADA compliance risk because the VPAT is missing, unclear, or paired with weak accessibility claims.',
+    nextStep: 'Districts should request updated documentation now and flag likely problem areas for review.'
+  },
+  medium: {
+    label: 'Medium',
+    eyebrow: 'Medium Risk',
+    accent: '#f59e0b',
+    glow: 'rgba(245,158,11,0.20)',
+    summary: 'This tool has some accessibility documentation, but there are still gaps, dated materials, or partially conformant features to track.',
+    nextStep: 'Districts should file current documentation and note any areas where accommodations may still be needed.'
+  },
+  low: {
+    label: 'Low',
+    eyebrow: 'Low Risk',
+    accent: '#22c55e',
+    glow: 'rgba(34,197,94,0.20)',
+    summary: 'This tool is one of the stronger ADA compliance entries in the database, with current documentation and a specific WCAG claim.',
+    nextStep: 'The main task is retention, annual review, and checking for updates at renewal time.'
+  }
+};
+
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function escapeHtml(value) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function description(tool) {
+  return `${tool.name} ADA compliance review for K-12 districts: ${tool.tier} risk, VPAT ${tool.vpat.toLowerCase()}, WCAG claim ${tool.wcag.toLowerCase()}, and recommended next steps.`;
+}
+
+function page(tool) {
+  const tier = tierMap[tool.tier];
+  const slug = slugify(tool.name);
+  const title = `${tool.name} ADA Compliance | DistrictCheck`;
+  const metaDescription = description(tool);
+  const toolName = escapeHtml(tool.name);
+  const action = escapeHtml(tool.action);
+  const vpat = escapeHtml(tool.vpat);
+  const wcag = escapeHtml(tool.wcag);
+  const pii = escapeHtml(tool.pii);
+  const tierLabel = escapeHtml(tier.label);
+  const tierSummary = escapeHtml(tier.summary);
+  const nextStep = escapeHtml(tier.nextStep);
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(metaDescription)}" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/${slug}.html" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #0e1013;
+      --surface: #16191e;
+      --card: #1c2027;
+      --border: #272c35;
+      --text: #d8dce3;
+      --muted: #7b8490;
+      --white: #ffffff;
+      --accent: ${tier.accent};
+      --accent-soft: ${tier.glow};
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, var(--accent-soft), transparent 28%),
+        linear-gradient(180deg, #101319 0%, var(--bg) 42%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero {
+      padding: 44px 0 36px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+    .hero-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--white); }
+    .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
+    .panel, .card {
+      background: rgba(22,25,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+    .panel { padding: 22px; }
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .panel-title { color: var(--white); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+    .value { font-size: 15px; color: var(--white); font-weight: 700; }
+    .callout {
+      background: linear-gradient(135deg, var(--accent-soft), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .callout p { margin: 0; font-size: 14px; color: var(--text); }
+    .section {
+      padding: 24px 0;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .section p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .card { padding: 22px; }
+    .card p { margin: 0; font-size: 15px; color: var(--muted); }
+    .card strong { color: var(--text); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .step h3, .faq h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 16px;
+    }
+    .step p, .faq p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 900px) {
+      .hero, .grid, .steps { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+      nav { padding: 18px 0; }
+      .nav-links { gap: 10px; }
+      .hero { padding-top: 28px; }
+      .hero-copy p { font-size: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="../index.html">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#how-it-works">How it works</a>
+        <a class="nav-link" href="../index.html#full-audit">Full audit</a>
+        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Get full audit</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">${escapeHtml(tier.eyebrow)} · K-12 Accessibility Review</div>
+        <h1>${toolName} ADA Compliance</h1>
+        <p>${toolName} ADA compliance is currently rated <strong>${tierLabel} risk</strong> in the DistrictCheck tool database. This page summarizes the current VPAT status, WCAG claim, student data exposure, and the next action a district should take.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Audit your full stack</a>
+          <a class="btn secondary" href="../index.html">Check another tool</a>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div class="panel-top">
+          <div class="panel-title">${toolName}</div>
+          <div class="badge">${tierLabel}</div>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="label">VPAT status</div>
+            <div class="value">${vpat}</div>
+          </div>
+          <div class="stat">
+            <div class="label">WCAG 2.1 claim</div>
+            <div class="value">${wcag}</div>
+          </div>
+          <div class="stat">
+            <div class="label">Handles student PII</div>
+            <div class="value">${pii}</div>
+          </div>
+        </div>
+        <div class="callout">
+          <div class="label">Recommended action</div>
+          <p>${action}</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>What ${toolName} ADA compliance means for districts</h2>
+      <p class="lead">${tierSummary} ${nextStep}</p>
+      <div class="grid">
+        <article class="card">
+          <div class="label">Current finding</div>
+          <p><strong>${toolName}</strong> is marked as <strong>${tierLabel.toLowerCase()} risk</strong> because the current database entry lists <strong>VPAT: ${vpat}</strong> and <strong>WCAG claim: ${wcag}</strong>.</p>
+        </article>
+        <article class="card">
+          <div class="label">District implication</div>
+          <p>${pii === 'Yes' ? 'Because the tool handles student data, documentation gaps create a more urgent ADA Title II compliance and procurement issue.' : 'Even without student PII, classroom use can still create ADA Title II risk if the tool is used in instruction or assessment.'}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Next steps for ${toolName} ADA compliance</h2>
+      <p class="lead">Use this sequence to document a reasonable, good-faith accessibility review for ${toolName} before or during renewal.</p>
+      <div class="steps">
+        <article class="card step">
+          <div class="step-num">1</div>
+          <h3>File the current finding</h3>
+          <p>Save this rating, the VPAT status, and the WCAG claim in your district accessibility review log.</p>
+        </article>
+        <article class="card step">
+          <div class="step-num">2</div>
+          <h3>Contact the vendor</h3>
+          <p>${action}</p>
+        </article>
+        <article class="card step">
+          <div class="step-num">3</div>
+          <h3>Document the interim plan</h3>
+          <p>Record any accommodations, alternate workflows, or annual review notes tied to ${toolName} so your compliance file is complete.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>${toolName} ADA compliance FAQ</h2>
+      <div class="faq-list">
+        <article class="card faq">
+          <h3>Is ${toolName} ADA compliant?</h3>
+          <p>DistrictCheck currently rates ${toolName} as <strong>${tierLabel.toLowerCase()} risk</strong>, based on the tool database entry for its VPAT status, WCAG claim, and usage context.</p>
+        </article>
+        <article class="card faq">
+          <h3>Does ${toolName} have a VPAT?</h3>
+          <p>The current database entry shows <strong>${vpat}</strong>. Districts should verify whether a newer VPAT or accessibility conformance report is available directly from the vendor.</p>
+        </article>
+        <article class="card faq">
+          <h3>What should districts do next?</h3>
+          <p>${action}</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="panel">
+        <div class="label">Need the full picture?</div>
+        <h2 style="margin-top:0;">One tool is useful. The full stack is what matters.</h2>
+        <p class="lead" style="margin-bottom:18px;">Districts rarely use just one platform. DistrictCheck can review your full edtech stack, assign a risk tier to each tool, and prepare vendor outreach language for the ones that need documentation.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Request full audit</a>
+          <a class="btn secondary" href="../index.html">Return to lookup</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+    </footer>
+  </div>
+</body>
+</html>
+`;
+}
+
+const outputDir = path.join(process.cwd(), 'tools');
+fs.mkdirSync(outputDir, { recursive: true });
+
+for (const tool of tools) {
+  const slug = slugify(tool.name);
+  fs.writeFileSync(path.join(outputDir, `${slug}.html`), page(tool));
+}
+
+console.log(`Generated ${tools.length} tool pages in ${outputDir}`);
