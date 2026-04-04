@@ -715,6 +715,87 @@
     .faq-q { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
     .faq-a { font-size: 13px; color: var(--muted); line-height: 1.7; }
 
+    /* ── BLOG ── */
+    .blog-strip {
+      max-width: 800px;
+      margin: 0 auto 72px;
+      padding: 0 40px;
+    }
+    .blog-strip-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .blog-strip-head h2 {
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .blog-strip-head p {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+    .blog-strip-link {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      opacity: 0.86;
+      transition: opacity 0.15s, color 0.15s;
+    }
+    .blog-strip-link:hover {
+      opacity: 1;
+      color: var(--text);
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 720px) { .blog-grid { grid-template-columns: 1fr; } }
+    .blog-card {
+      display: block;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .blog-card:hover {
+      border-color: rgba(99,102,241,0.45);
+      transform: translateY(-1px);
+    }
+    .blog-card-tag {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .blog-card h3 {
+      font-size: 16px;
+      line-height: 1.35;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .blog-card p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 12px;
+    }
+    .blog-card span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
@@ -724,6 +805,15 @@
       justify-content: space-between;
       font-size: 12px;
       color: var(--muted);
+    }
+    .footer-quiet-link {
+      color: var(--muted);
+      opacity: 0.78;
+      transition: opacity 0.15s, color 0.15s;
+    }
+    .footer-quiet-link:hover {
+      opacity: 1;
+      color: var(--text);
     }
     footer .logo { font-size: 15px; }
     @media (max-width: 600px) {
@@ -1064,10 +1154,43 @@
   </div>
 </section>
 
+<!-- BLOG -->
+<section class="blog-strip">
+  <div class="blog-strip-head">
+    <div>
+      <h2>From the blog.</h2>
+      <p>Quietly useful context for district teams doing the compliance work: deadline guidance, VPAT explainers, and tool-risk analysis.</p>
+    </div>
+    <a href="blog/index.html" class="blog-strip-link">Visit the blog →</a>
+  </div>
+  <div class="blog-grid">
+    <a href="blog/ada-title-ii-deadline-k12-districts.html" class="blog-card">
+      <div class="blog-card-tag">Deadline Guide</div>
+      <h3>What districts actually need to do before the April 24, 2026 ADA deadline</h3>
+      <p>A practical overview of scope, risk tiers, and the steps districts should document now.</p>
+      <span>Read article →</span>
+    </a>
+    <a href="blog/what-is-a-vpat-school-districts.html" class="blog-card">
+      <div class="blog-card-tag">Explainer</div>
+      <h3>What a VPAT is, what a good one looks like, and what to do when a vendor has none</h3>
+      <p>A plain-language guide for admins and tech leaders who suddenly need to evaluate accessibility documents.</p>
+      <span>Read article →</span>
+    </a>
+    <a href="blog/riskiest-edtech-tools-ada-compliance.html" class="blog-card">
+      <div class="blog-card-tag">Tool Analysis</div>
+      <h3>The riskiest edtech tools to prioritize first if time is running short</h3>
+      <p>A focused breakdown of the highest-risk tools in the average district stack and how to respond.</p>
+      <span>Read article →</span>
+    </a>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="logo">District<em>Check</em></div>
   <span>Questions? <a href="mailto:hello@districtcheck.io" style="color: var(--accent);">hello@districtcheck.io</a></span>
+  <span><a href="tools/index.html" class="footer-quiet-link">Browse all tools</a></span>
+  <span><a href="blog/index.html" class="footer-quiet-link">Blog</a></span>
   <span>ADA Title II · WCAG 2.1 AA · K–12</span>
 </footer>
 

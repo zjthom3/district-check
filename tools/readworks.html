@@ -217,6 +217,24 @@
       display: grid;
       gap: 14px;
     }
+    .related-stack {
+      display: grid;
+      gap: 12px;
+    }
+    .related-link {
+      display: block;
+      padding: 16px 18px;
+      background: rgba(22,25,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 14px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .related-link:hover {
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
     footer {
       border-top: 1px solid var(--border);
       padding: 26px 0 40px;
@@ -340,12 +358,33 @@
     </section>
 
     <section class="section">
+      <h2>Related tools in district stacks</h2>
+      <p class="lead">These internal links help you compare adjacent tools and build a fuller picture of district-wide accessibility risk.</p>
+      <div class="related-stack">
+<a class="related-link" href="./nearpod.html">Districts using ReadWorks often also use Nearpod &rarr;</a>
+<a class="related-link" href="./ixl.html">Districts using ReadWorks often also use IXL &rarr;</a>
+<a class="related-link" href="./ixl-learning.html">Districts using ReadWorks often also use IXL Learning &rarr;</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Related reading</h2>
+      <p class="lead">These DistrictCheck articles add policy context and practical guidance related to ReadWorks.</p>
+      <div class="related-stack">
+<a class="related-link" href="../blog/ada-title-ii-deadline-k12-districts.html">ADA Title II Deadline for K-12 Districts &rarr;</a>
+<a class="related-link" href="../blog/what-is-a-vpat-school-districts.html">What Is a VPAT? A Guide for School Districts &rarr;</a>
+      </div>
+    </section>
+
+    <section class="section">
       <div class="panel">
         <div class="label">Need the full picture?</div>
         <h2 style="margin-top:0;">One tool is useful. The full stack is what matters.</h2>
         <p class="lead" style="margin-bottom:18px;">Districts rarely use just one platform. DistrictCheck can review your full edtech stack, assign a risk tier to each tool, and prepare vendor outreach language for the ones that need documentation.</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Request full audit</a>
+          <a class="btn secondary" href="../blog/index.html">Read the blog</a>
+          <a class="btn secondary" href="./index.html">Browse all tools</a>
           <a class="btn secondary" href="../index.html">Return to lookup</a>
         </div>
       </div>

@@ -73,6 +73,27 @@ const tierMap = {
   }
 };
 
+const blogPosts = [
+  {
+    title: 'ADA Title II Deadline for K-12 Districts',
+    slug: 'ada-title-ii-deadline-k12-districts.html',
+    description: 'What districts must do before the April 24, 2026 ADA Title II deadline, including inventory, prioritization, and documentation.',
+    tools: ['ClassDojo', 'Kahoot', 'Canvas', 'IXL', 'Seesaw', 'Nearpod', 'Google Classroom']
+  },
+  {
+    title: 'The 5 Riskiest Edtech Tools for ADA Compliance',
+    slug: 'riskiest-edtech-tools-ada-compliance.html',
+    description: 'A risk-focused breakdown of the tools districts should prioritize first, with concrete next steps.',
+    tools: ['ClassDojo', 'Formative', 'GoFormative', 'Kahoot', 'IXL', 'IXL Learning', 'Edulastic']
+  },
+  {
+    title: 'What Is a VPAT? A Guide for School Districts',
+    slug: 'what-is-a-vpat-school-districts.html',
+    description: 'A practical explanation of VPATs, how to read them, and what to do when vendors do not provide one.',
+    tools: ['Google Classroom', 'Canvas', 'Khan Academy', 'Microsoft Teams', 'Seesaw', 'Pear Deck', 'Newsela', 'ClassDojo', 'Formative', 'Edulastic', 'Kahoot', 'IXL']
+  }
+];
+
 function slugify(name) {
   return name
     .toLowerCase()
@@ -94,6 +115,200 @@ function description(tool) {
   return `${tool.name} ADA compliance review for K-12 districts: ${tool.tier} risk, VPAT ${tool.vpat.toLowerCase()}, WCAG claim ${tool.wcag.toLowerCase()}, and recommended next steps.`;
 }
 
+function relatedToolsFor(tool) {
+  const sameTier = tools.filter((entry) => entry.name !== tool.name && entry.tier === tool.tier);
+  const samePii = tools.filter((entry) => entry.name !== tool.name && entry.pii === tool.pii && entry.tier !== tool.tier);
+  const fallback = tools.filter((entry) => entry.name !== tool.name);
+  const picked = [];
+
+  for (const candidate of [...sameTier, ...samePii, ...fallback]) {
+    if (!picked.find((entry) => entry.name === candidate.name)) picked.push(candidate);
+    if (picked.length === 3) break;
+  }
+
+  return picked;
+}
+
+function relatedMarkup(tool) {
+  return relatedToolsFor(tool)
+    .map((entry) => {
+      const slug = slugify(entry.name);
+      return `<a class="related-link" href="./${slug}.html">Districts using ${escapeHtml(tool.name)} often also use ${escapeHtml(entry.name)} &rarr;</a>`;
+    })
+    .join('\n');
+}
+
+function blogPostsForTool(tool) {
+  const matched = blogPosts.filter((post) => post.tools.includes(tool.name));
+  if (matched.length) return matched;
+  return [blogPosts[0], blogPosts[2]];
+}
+
+function blogMarkup(tool) {
+  return blogPostsForTool(tool)
+    .slice(0, 2)
+    .map((post) => `<a class="related-link" href="../blog/${post.slug}">${escapeHtml(post.title)} &rarr;</a>`)
+    .join('\n');
+}
+
+function toolDirectoryPage() {
+  const toolCards = tools
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((tool) => {
+      const slug = slugify(tool.name);
+      const tier = tierMap[tool.tier];
+      return `        <a class="tool-card" href="./${slug}.html">
+          <span class="tool-card-top">
+            <span class="tool-card-name">${escapeHtml(tool.name)}</span>
+            <span class="tool-card-tier ${tool.tier}">${escapeHtml(tier.label)}</span>
+          </span>
+          <span class="tool-card-meta">VPAT: ${escapeHtml(tool.vpat)} · WCAG: ${escapeHtml(tool.wcag)}</span>
+        </a>`;
+    })
+    .join('\n');
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tool Database | DistrictCheck</title>
+  <meta name="description" content="Browse the DistrictCheck tool database of edtech ADA compliance pages, including risk tiers, VPAT status, WCAG claims, and next steps for districts." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/index.html" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #0e1013;
+      --surface: #16191e;
+      --card: #1c2027;
+      --border: #272c35;
+      --text: #d8dce3;
+      --muted: #7b8490;
+      --white: #ffffff;
+      --accent: #6366f1;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #101319 0%, var(--bg) 40%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { font-style: normal; color: var(--accent); }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .hero { padding: 44px 0 28px; }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(36px, 6vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 70ch;
+    }
+    .tool-grid {
+      padding: 24px 0 56px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .tool-card {
+      background: rgba(22,25,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px 20px;
+      display: block;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .tool-card:hover {
+      border-color: rgba(99,102,241,0.45);
+      transform: translateY(-1px);
+    }
+    .tool-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .tool-card-name {
+      color: var(--white);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .tool-card-tier {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .tool-card-tier.critical { color: #fca5a5; background: rgba(239,68,68,0.12); }
+    .tool-card-tier.high { color: #fdba74; background: rgba(249,115,22,0.12); }
+    .tool-card-tier.medium { color: #fcd34d; background: rgba(245,158,11,0.12); }
+    .tool-card-tier.low { color: #86efac; background: rgba(34,197,94,0.12); }
+    .tool-card-meta { color: var(--muted); font-size: 13px; display: block; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 760px) {
+      .tool-grid { grid-template-columns: 1fr; }
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="../index.html">District<em>Check</em></a>
+      <a class="nav-link" href="../index.html">Back to homepage</a>
+    </nav>
+    <section class="hero">
+      <div class="eyebrow">Tool Database</div>
+      <h1>Browse all tools</h1>
+      <p>Explore the full DistrictCheck edtech tool database. Each page summarizes ADA compliance risk, VPAT status, WCAG claims, and what districts should do next.</p>
+    </section>
+    <section class="tool-grid">
+${toolCards}
+    </section>
+    <footer>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
+  </div>
+</body>
+</html>
+`;
+}
+
 function page(tool) {
   const tier = tierMap[tool.tier];
   const slug = slugify(tool.name);
@@ -107,6 +322,8 @@ function page(tool) {
   const tierLabel = escapeHtml(tier.label);
   const tierSummary = escapeHtml(tier.summary);
   const nextStep = escapeHtml(tier.nextStep);
+  const relatedLinks = relatedMarkup(tool);
+  const relatedBlogLinks = blogMarkup(tool);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -327,6 +544,24 @@ function page(tool) {
       display: grid;
       gap: 14px;
     }
+    .related-stack {
+      display: grid;
+      gap: 12px;
+    }
+    .related-link {
+      display: block;
+      padding: 16px 18px;
+      background: rgba(22,25,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      color: var(--text);
+      font-size: 14px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .related-link:hover {
+      border-color: rgba(255,255,255,0.18);
+      transform: translateY(-1px);
+    }
     footer {
       border-top: 1px solid var(--border);
       padding: 26px 0 40px;
@@ -450,12 +685,30 @@ function page(tool) {
     </section>
 
     <section class="section">
+      <h2>Related tools in district stacks</h2>
+      <p class="lead">These internal links help you compare adjacent tools and build a fuller picture of district-wide accessibility risk.</p>
+      <div class="related-stack">
+${relatedLinks}
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Related reading</h2>
+      <p class="lead">These DistrictCheck articles add policy context and practical guidance related to ${toolName}.</p>
+      <div class="related-stack">
+${relatedBlogLinks}
+      </div>
+    </section>
+
+    <section class="section">
       <div class="panel">
         <div class="label">Need the full picture?</div>
         <h2 style="margin-top:0;">One tool is useful. The full stack is what matters.</h2>
         <p class="lead" style="margin-bottom:18px;">Districts rarely use just one platform. DistrictCheck can review your full edtech stack, assign a risk tier to each tool, and prepare vendor outreach language for the ones that need documentation.</p>
         <div class="hero-actions">
           <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Request full audit</a>
+          <a class="btn secondary" href="../blog/index.html">Read the blog</a>
+          <a class="btn secondary" href="./index.html">Browse all tools</a>
           <a class="btn secondary" href="../index.html">Return to lookup</a>
         </div>
       </div>
@@ -478,4 +731,6 @@ for (const tool of tools) {
   fs.writeFileSync(path.join(outputDir, `${slug}.html`), page(tool));
 }
 
-console.log(`Generated ${tools.length} tool pages in ${outputDir}`);
+fs.writeFileSync(path.join(outputDir, 'index.html'), toolDirectoryPage());
+
+console.log(`Generated ${tools.length} tool pages plus directory in ${outputDir}`);
