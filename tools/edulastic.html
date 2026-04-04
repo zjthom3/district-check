@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Edulastic ADA Compliance | DistrictCheck</title>
-  <meta name="description" content="Edulastic ADA compliance review for K-12 districts: critical risk, VPAT not found, WCAG claim no claim, and recommended next steps." />
+  <title>Edulastic ADA Compliance (Critical Risk) | DistrictCheck</title>
+  <meta name="description" content="Edulastic has no VPAT and no WCAG claim - critical risk for any district using it for student assessments. See gaps and recommended next steps." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://districtcheck.io/tools/edulastic.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Edulastic ADA Compliance (Critical Risk) | DistrictCheck" />
+  <meta property="og:description" content="Edulastic has no VPAT and no WCAG claim - critical risk for any district using it for student assessments. See gaps and recommended next steps." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/edulastic.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Edulastic ADA Compliance (Critical Risk) | DistrictCheck" />
+  <meta name="twitter:description" content="Edulastic has no VPAT and no WCAG claim - critical risk for any district using it for student assessments. See gaps and recommended next steps." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Edulastic accessible for students with disabilities?","acceptedAnswer":{"@type":"Answer","text":"DistrictCheck rates Edulastic as critical risk because there is no current public VPAT or WCAG claim confirming accessible use across assessment workflows."}},{"@type":"Question","name":"Does Edulastic have a VPAT?","acceptedAnswer":{"@type":"Answer","text":"No public VPAT was found during the current review, so districts should request one directly through the vendor or account team."}},{"@type":"Question","name":"Why is Edulastic higher risk than many other tools?","acceptedAnswer":{"@type":"Answer","text":"Because it is an assessment platform, accessibility failures can directly affect student participation, grading, and documented educational outcomes."}}]}</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -162,9 +174,7 @@
       padding: 16px;
     }
     .callout p { margin: 0; font-size: 14px; color: var(--text); }
-    .section {
-      padding: 24px 0;
-    }
+    .section { padding: 24px 0; }
     .section h2 {
       margin: 0 0 10px;
       font-size: clamp(24px, 3vw, 34px);
@@ -213,13 +223,17 @@
       color: var(--muted);
       font-size: 14px;
     }
-    .faq-list {
+    .analysis-copy {
+      display: grid;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+    .analysis-copy strong { color: var(--text); }
+    .faq-list, .related-stack {
       display: grid;
       gap: 14px;
-    }
-    .related-stack {
-      display: grid;
-      gap: 12px;
     }
     .related-link {
       display: block;
@@ -302,6 +316,8 @@
       </aside>
     </section>
 
+    
+
     <section class="section">
       <h2>What Edulastic ADA compliance means for districts</h2>
       <p class="lead">This tool has the highest level of ADA compliance risk in the database because public documentation is missing and the tool is student-facing. Immediate outreach and an interim accessible alternative should be documented before the ADA Title II deadline.</p>
@@ -314,6 +330,16 @@
           <div class="label">District implication</div>
           <p>Because the tool handles student data, documentation gaps create a more urgent ADA Title II compliance and procurement issue.</p>
         </article>
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <h2>Edulastic accessibility analysis</h2>
+      <div class="analysis-copy">
+<p><strong>Edulastic</strong> is an assessment platform, which makes its accessibility profile more sensitive than a casual classroom app. Districts use it for formative checks, benchmark testing, standards-aligned practice, and in some cases high-stakes student evaluation. When an assessment tool is not accessible, the impact is immediate: a student can be prevented from demonstrating what they know in an equitable way.</p>
+<p>The critical issue is that Edulastic has no public VPAT and no public WCAG claim. For assessment software, districts should be thinking specifically about keyboard support, focus order, drag-and-drop or graphing interactions, timed elements, and whether directions depend on visual cues alone. Question types that feel routine to a mouse user can become unusable with a screen reader, keyboard-only navigation, or alternative input device. Without vendor documentation, the district has no way to show that those question types were tested against WCAG 2.1 AA success criteria.</p>
+<p>Practically, that means Edulastic should be near the top of the outreach queue. The district should request a current VPAT and ask whether core item types have been tested with common assistive technologies such as JAWS, NVDA, and VoiceOver. At the same time, special education, assessment, and instructional teams should document what happens if a student cannot complete an Edulastic-based assessment accessibly. A written alternative administration plan is not just helpful risk management here; it is the minimum evidence that the district recognized the exposure and acted on it.</p>
       </div>
     </section>
 
@@ -371,8 +397,9 @@
       <h2>Related reading</h2>
       <p class="lead">These DistrictCheck articles add policy context and practical guidance related to Edulastic.</p>
       <div class="related-stack">
-<a class="related-link" href="../blog/riskiest-edtech-tools-ada-compliance.html">The 5 Riskiest Edtech Tools for ADA Compliance &rarr;</a>
 <a class="related-link" href="../blog/what-is-a-vpat-school-districts.html">What Is a VPAT? A Guide for School Districts &rarr;</a>
+<a class="related-link" href="../blog/riskiest-edtech-tools-ada-compliance.html">The 5 Riskiest Edtech Tools for ADA Compliance &rarr;</a>
+<a class="related-link" href="../blog/missed-ada-title-ii-deadline.html">What Happens If Your District Missed the ADA Title II Deadline &rarr;</a>
       </div>
     </section>
 

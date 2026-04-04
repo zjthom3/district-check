@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Padlet ADA Compliance | DistrictCheck</title>
-  <meta name="description" content="Padlet ADA compliance review for K-12 districts: high risk, VPAT not found, WCAG claim vague claim, and recommended next steps." />
+  <title>Padlet ADA Compliance (High Risk) | DistrictCheck</title>
+  <meta name="description" content="Padlet has no VPAT and a vague WCAG claim - high ADA risk. The canvas interface creates known screen reader barriers. See what districts should do." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://districtcheck.io/tools/padlet.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Padlet ADA Compliance (High Risk) | DistrictCheck" />
+  <meta property="og:description" content="Padlet has no VPAT and a vague WCAG claim - high ADA risk. The canvas interface creates known screen reader barriers. See what districts should do." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/padlet.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Padlet ADA Compliance (High Risk) | DistrictCheck" />
+  <meta name="twitter:description" content="Padlet has no VPAT and a vague WCAG claim - high ADA risk. The canvas interface creates known screen reader barriers. See what districts should do." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Padlet ADA compliant?","acceptedAnswer":{"@type":"Answer","text":"DistrictCheck rates Padlet as high risk because no public VPAT was found and the existing accessibility language does not verify WCAG conformance."}},{"@type":"Question","name":"Does Padlet have an accessibility conformance report?","acceptedAnswer":{"@type":"Answer","text":"No current public VPAT or ACR was found during review, so districts should request documentation from the vendor directly."}},{"@type":"Question","name":"Why is Padlet challenging for accessibility?","acceptedAnswer":{"@type":"Answer","text":"The free-form board structure, multimedia uploads, and drag-style interactions can create navigation and comprehension barriers for assistive technology users."}}]}</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -162,9 +174,7 @@
       padding: 16px;
     }
     .callout p { margin: 0; font-size: 14px; color: var(--text); }
-    .section {
-      padding: 24px 0;
-    }
+    .section { padding: 24px 0; }
     .section h2 {
       margin: 0 0 10px;
       font-size: clamp(24px, 3vw, 34px);
@@ -213,13 +223,17 @@
       color: var(--muted);
       font-size: 14px;
     }
-    .faq-list {
+    .analysis-copy {
+      display: grid;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+    .analysis-copy strong { color: var(--text); }
+    .faq-list, .related-stack {
       display: grid;
       gap: 14px;
-    }
-    .related-stack {
-      display: grid;
-      gap: 12px;
     }
     .related-link {
       display: block;
@@ -302,6 +316,8 @@
       </aside>
     </section>
 
+    
+
     <section class="section">
       <h2>What Padlet ADA compliance means for districts</h2>
       <p class="lead">This tool shows elevated ADA compliance risk because the VPAT is missing, unclear, or paired with weak accessibility claims. Districts should request updated documentation now and flag likely problem areas for review.</p>
@@ -314,6 +330,16 @@
           <div class="label">District implication</div>
           <p>Because the tool handles student data, documentation gaps create a more urgent ADA Title II compliance and procurement issue.</p>
         </article>
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <h2>Padlet accessibility analysis</h2>
+      <div class="analysis-copy">
+<p><strong>Padlet</strong> is often adopted quickly because it feels lightweight and creative. Teachers use it for brainstorming, collaborative boards, portfolio work, and multimedia sharing across grade levels. That flexibility is exactly why districts need a clearer compliance posture: the product is frequently used in graded or required assignments even when it entered the district informally.</p>
+<p>DistrictCheck rates Padlet as high risk because there is no public VPAT and the vendor language around accessibility remains vague. From an accessibility perspective, a free-form board layout raises immediate concerns about information relationships, reading order, keyboard alternatives for drag-and-drop interactions, and whether user-added media can be made understandable to assistive technology users. A canvas that looks intuitive visually can still be difficult to navigate if the structure is not exposed properly to screen readers.</p>
+<p>Districts should request a VPAT, ask specifically about board navigation with screen readers and keyboard-only use, and decide whether classes using Padlet for graded work need an alternate submission path while documentation remains unresolved. This is also a teacher-practice issue: if students are uploading images, audio, or video, classrooms need expectations around alt text and accessible descriptions. In other words, Padlet risk is partly vendor-side and partly implementation-side, which makes documented guidance even more important.</p>
       </div>
     </section>
 
@@ -363,7 +389,7 @@
       <div class="related-stack">
 <a class="related-link" href="./nearpod.html">Districts using Padlet often also use Nearpod &rarr;</a>
 <a class="related-link" href="./ixl.html">Districts using Padlet often also use IXL &rarr;</a>
-<a class="related-link" href="./ixl-learning.html">Districts using Padlet often also use IXL Learning &rarr;</a>
+<a class="related-link" href="./remind.html">Districts using Padlet often also use Remind &rarr;</a>
       </div>
     </section>
 
@@ -373,6 +399,7 @@
       <div class="related-stack">
 <a class="related-link" href="../blog/ada-title-ii-deadline-k12-districts.html">ADA Title II Deadline for K-12 Districts &rarr;</a>
 <a class="related-link" href="../blog/what-is-a-vpat-school-districts.html">What Is a VPAT? A Guide for School Districts &rarr;</a>
+<a class="related-link" href="../blog/riskiest-edtech-tools-ada-compliance.html">The 5 Riskiest Edtech Tools for ADA Compliance &rarr;</a>
       </div>
     </section>
 

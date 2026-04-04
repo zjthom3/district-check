@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prodigy ADA Compliance | DistrictCheck</title>
-  <meta name="description" content="Prodigy ADA compliance review for K-12 districts: high risk, VPAT not found, WCAG claim no claim, and recommended next steps." />
+  <title>Prodigy Math ADA Compliance (High Risk) | DistrictCheck</title>
+  <meta name="description" content="Prodigy Math has no VPAT and no WCAG claim - high ADA risk. See the accessibility gaps in its game interface and what to request from the vendor." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://districtcheck.io/tools/prodigy.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Prodigy Math ADA Compliance (High Risk) | DistrictCheck" />
+  <meta property="og:description" content="Prodigy Math has no VPAT and no WCAG claim - high ADA risk. See the accessibility gaps in its game interface and what to request from the vendor." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/prodigy.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Prodigy Math ADA Compliance (High Risk) | DistrictCheck" />
+  <meta name="twitter:description" content="Prodigy Math has no VPAT and no WCAG claim - high ADA risk. See the accessibility gaps in its game interface and what to request from the vendor." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Prodigy Math ADA compliant?","acceptedAnswer":{"@type":"Answer","text":"DistrictCheck rates Prodigy as high risk because no public VPAT or WCAG conformance statement was found."}},{"@type":"Question","name":"Does Prodigy support assistive technology?","acceptedAnswer":{"@type":"Answer","text":"No vendor documentation currently confirms accessible support across the game interface, so districts should not assume full compatibility."}},{"@type":"Question","name":"What should districts request from Prodigy?","acceptedAnswer":{"@type":"Answer","text":"Ask for a current VPAT, any third-party accessibility audit evidence, and product-specific clarification on keyboard and screen reader support."}}]}</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -162,9 +174,7 @@
       padding: 16px;
     }
     .callout p { margin: 0; font-size: 14px; color: var(--text); }
-    .section {
-      padding: 24px 0;
-    }
+    .section { padding: 24px 0; }
     .section h2 {
       margin: 0 0 10px;
       font-size: clamp(24px, 3vw, 34px);
@@ -213,13 +223,17 @@
       color: var(--muted);
       font-size: 14px;
     }
-    .faq-list {
+    .analysis-copy {
+      display: grid;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+    .analysis-copy strong { color: var(--text); }
+    .faq-list, .related-stack {
       display: grid;
       gap: 14px;
-    }
-    .related-stack {
-      display: grid;
-      gap: 12px;
     }
     .related-link {
       display: block;
@@ -302,6 +316,8 @@
       </aside>
     </section>
 
+    
+
     <section class="section">
       <h2>What Prodigy ADA compliance means for districts</h2>
       <p class="lead">This tool shows elevated ADA compliance risk because the VPAT is missing, unclear, or paired with weak accessibility claims. Districts should request updated documentation now and flag likely problem areas for review.</p>
@@ -314,6 +330,16 @@
           <div class="label">District implication</div>
           <p>Because the tool handles student data, documentation gaps create a more urgent ADA Title II compliance and procurement issue.</p>
         </article>
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <h2>Prodigy accessibility analysis</h2>
+      <div class="analysis-copy">
+<p><strong>Prodigy</strong> is a gamified math platform used heavily in elementary and middle school classrooms. Its fantasy game environment is part of the product appeal, but that same design introduces accessibility questions that districts cannot ignore. Animated interfaces, map navigation, battle flows, and reward systems all create more surface area than a simple worksheet or quiz tool.</p>
+<p>DistrictCheck rates Prodigy as high risk because there is no public VPAT and no documented WCAG claim. For a game-based interface like this, districts should be thinking about keyboard navigation, contrast across UI elements, motion or animation effects, and whether the instructional content can be accessed without relying on visual exploration of the game world. When the learning experience is tightly coupled to the game shell, the district needs evidence that assistive technology users can still participate meaningfully.</p>
+<p>The district response should focus on leverage and contingency. If the district pays for Prodigy, the vendor should be asked directly for a VPAT and a timeline for WCAG documentation. Meanwhile, district teams should consider whether students with visual, motor, or processing-related disabilities need an alternate math platform or alternate access path until the compliance picture is clearer. Recording that review now is much stronger than trying to reconstruct a rationale after the fact.</p>
       </div>
     </section>
 
@@ -363,7 +389,7 @@
       <div class="related-stack">
 <a class="related-link" href="./nearpod.html">Districts using Prodigy often also use Nearpod &rarr;</a>
 <a class="related-link" href="./ixl.html">Districts using Prodigy often also use IXL &rarr;</a>
-<a class="related-link" href="./ixl-learning.html">Districts using Prodigy often also use IXL Learning &rarr;</a>
+<a class="related-link" href="./remind.html">Districts using Prodigy often also use Remind &rarr;</a>
       </div>
     </section>
 
@@ -373,6 +399,7 @@
       <div class="related-stack">
 <a class="related-link" href="../blog/ada-title-ii-deadline-k12-districts.html">ADA Title II Deadline for K-12 Districts &rarr;</a>
 <a class="related-link" href="../blog/what-is-a-vpat-school-districts.html">What Is a VPAT? A Guide for School Districts &rarr;</a>
+<a class="related-link" href="../blog/riskiest-edtech-tools-ada-compliance.html">The 5 Riskiest Edtech Tools for ADA Compliance &rarr;</a>
       </div>
     </section>
 

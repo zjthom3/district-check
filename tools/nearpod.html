@@ -3,10 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nearpod ADA Compliance | DistrictCheck</title>
-  <meta name="description" content="Nearpod ADA compliance review for K-12 districts: high risk, VPAT not found, WCAG claim vague claim, and recommended next steps." />
+  <title>Nearpod ADA Compliance (High Risk) | DistrictCheck</title>
+  <meta name="description" content="Nearpod has no VPAT and a vague WCAG claim - high ADA risk, especially for real-time classroom activities. See gaps and next steps for your district." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://districtcheck.io/tools/nearpod.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Nearpod ADA Compliance (High Risk) | DistrictCheck" />
+  <meta property="og:description" content="Nearpod has no VPAT and a vague WCAG claim - high ADA risk, especially for real-time classroom activities. See gaps and next steps for your district." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/nearpod.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nearpod ADA Compliance (High Risk) | DistrictCheck" />
+  <meta name="twitter:description" content="Nearpod has no VPAT and a vague WCAG claim - high ADA risk, especially for real-time classroom activities. See gaps and next steps for your district." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Nearpod ADA compliant?","acceptedAnswer":{"@type":"Answer","text":"DistrictCheck rates Nearpod as high risk because no public VPAT was found and the current accessibility claim is too vague to verify conformance."}},{"@type":"Question","name":"Does Nearpod have a VPAT?","acceptedAnswer":{"@type":"Answer","text":"No current public VPAT was found during review, so districts should request one directly from the vendor or account team."}},{"@type":"Question","name":"What Nearpod features are most likely to create accessibility issues?","acceptedAnswer":{"@type":"Answer","text":"Real-time interactive activities such as draw, drag, and collaborative response formats deserve the closest review for keyboard and assistive-technology compatibility."}}]}</script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
@@ -162,9 +174,7 @@
       padding: 16px;
     }
     .callout p { margin: 0; font-size: 14px; color: var(--text); }
-    .section {
-      padding: 24px 0;
-    }
+    .section { padding: 24px 0; }
     .section h2 {
       margin: 0 0 10px;
       font-size: clamp(24px, 3vw, 34px);
@@ -213,13 +223,17 @@
       color: var(--muted);
       font-size: 14px;
     }
-    .faq-list {
+    .analysis-copy {
+      display: grid;
+      gap: 18px;
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 76ch;
+    }
+    .analysis-copy strong { color: var(--text); }
+    .faq-list, .related-stack {
       display: grid;
       gap: 14px;
-    }
-    .related-stack {
-      display: grid;
-      gap: 12px;
     }
     .related-link {
       display: block;
@@ -302,6 +316,8 @@
       </aside>
     </section>
 
+    
+
     <section class="section">
       <h2>What Nearpod ADA compliance means for districts</h2>
       <p class="lead">This tool shows elevated ADA compliance risk because the VPAT is missing, unclear, or paired with weak accessibility claims. Districts should request updated documentation now and flag likely problem areas for review.</p>
@@ -314,6 +330,16 @@
           <div class="label">District implication</div>
           <p>Because the tool handles student data, documentation gaps create a more urgent ADA Title II compliance and procurement issue.</p>
         </article>
+      </div>
+    </section>
+
+    
+    <section class="section">
+      <h2>Nearpod accessibility analysis</h2>
+      <div class="analysis-copy">
+<p><strong>Nearpod</strong> is an interactive lesson-delivery tool used for live classroom presentations, embedded activities, polls, collaboration boards, and multimedia experiences. That real-time use case is why districts care about it: if a student cannot participate accessibly during the lesson, they are excluded in the moment rather than merely delayed.</p>
+<p>The current risk comes from the lack of a public VPAT combined with only vague accessibility language. Districts should be especially alert to WCAG criteria tied to meaningful sequence, focus visibility, non-text content in teacher-created slides, and pointer gestures for draw or drag interactions. Nearpod's flexibility is powerful instructionally, but it also means a district is relying on both the platform and teacher-authored content to behave accessibly. Without vendor documentation, there is no clear record of what parts of that stack have actually been audited.</p>
+<p>For compliance teams, the right move is to request documentation from the vendor or parent company, identify which activity types are most commonly used in the district, and tell staff where text-based or alternate-response options should be used when possible. If the district depends on Nearpod for classroom participation, it should not wait for a complaint to start documenting accommodations. A district note that says "Nearpod in use, vendor documentation pending, alternate activity formats available" is materially better than silence.</p>
       </div>
     </section>
 
@@ -362,8 +388,8 @@
       <p class="lead">These internal links help you compare adjacent tools and build a fuller picture of district-wide accessibility risk.</p>
       <div class="related-stack">
 <a class="related-link" href="./ixl.html">Districts using Nearpod often also use IXL &rarr;</a>
-<a class="related-link" href="./ixl-learning.html">Districts using Nearpod often also use IXL Learning &rarr;</a>
 <a class="related-link" href="./remind.html">Districts using Nearpod often also use Remind &rarr;</a>
+<a class="related-link" href="./kahoot.html">Districts using Nearpod often also use Kahoot &rarr;</a>
       </div>
     </section>
 
@@ -372,6 +398,7 @@
       <p class="lead">These DistrictCheck articles add policy context and practical guidance related to Nearpod.</p>
       <div class="related-stack">
 <a class="related-link" href="../blog/ada-title-ii-deadline-k12-districts.html">ADA Title II Deadline for K-12 Districts &rarr;</a>
+<a class="related-link" href="../blog/missed-ada-title-ii-deadline.html">What Happens If Your District Missed the ADA Title II Deadline &rarr;</a>
       </div>
     </section>
 

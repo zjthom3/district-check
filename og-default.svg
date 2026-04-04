@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="DistrictCheck social preview">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#101319"/>
+      <stop offset="100%" stop-color="#0E1013"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="18%" r="40%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="72" y="76" width="1056" height="478" rx="30" fill="#16191E" stroke="#272C35"/>
+  <text x="120" y="184" fill="#6366F1" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" letter-spacing="4">DISTRICTCHECK</text>
+  <text x="120" y="286" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="800">ADA Compliance Checker</text>
+  <text x="120" y="366" fill="#D8DCE3" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="600">for K-12 Edtech Tools</text>
+  <text x="120" y="452" fill="#7B8490" font-family="Arial, Helvetica, sans-serif" font-size="28">Instant risk tiers, VPAT status, and next steps for district teams.</text>
+  <circle cx="1000" cy="180" r="86" fill="#1C2027" stroke="#272C35"/>
+  <path d="M956 182l28 28 62-76" fill="none" stroke="#6366F1" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+</svg>

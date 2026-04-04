@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What Happens If Your District Missed the ADA Title II Deadline | DistrictCheck</title>
+  <meta name="description" content="The April 24, 2026 ADA Title II deadline has passed. Here's what actually happens next, what districts should do immediately, and how to demonstrate a good-faith compliance effort." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/blog/missed-ada-title-ii-deadline.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="What Happens If Your District Missed the ADA Title II Deadline" />
+  <meta property="og:description" content="The April 24, 2026 deadline has passed. Here's what actually happens next, what the real legal risk is, and what your district should do right now." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://districtcheck.io/blog/missed-ada-title-ii-deadline.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.svg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Happens If Your District Missed the ADA Title II Deadline" />
+  <meta name="twitter:description" content="The April 24 deadline has passed. Here's what the real legal risk is and what your district should do right now." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.svg" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Happens If Your District Missed the ADA Title II Deadline",
+    "description": "The April 24, 2026 ADA Title II deadline has passed. Here's what actually happens next, what districts should do immediately, and how to demonstrate a good-faith compliance effort.",
+    "datePublished": "2026-04-25",
+    "author": { "@type": "Organization", "name": "DistrictCheck" },
+    "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" },
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What happens if a school district misses the ADA Title II WCAG deadline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Missing the deadline doesn't trigger automatic penalties. The DOJ investigates based on complaints. If a complaint is filed, districts that can demonstrate a documented good-faith compliance effort — vendor outreach, risk inventories, remediation timelines — are in a significantly stronger legal position than those with no documentation at all."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can a district get an extension on the ADA Title II WCAG deadline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no formal extension process. However, the DOJ's enforcement approach prioritizes good-faith efforts and documented remediation plans over strict deadline compliance. Smaller districts (populations under 50,000) have until April 26, 2027."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What should a district do the day after missing the ADA Title II deadline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Start documenting immediately. Create an edtech tool inventory, identify which tools have VPATs and which don't, send vendor outreach emails to those without documentation, and record the date of every action. A documented remediation effort started the day after the deadline is far stronger than no effort at all."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #5B6370;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #EF4444;
+      --blue:    #3B82F6;
+      --accent:  #6366F1;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* NAV */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    /* LAYOUT */
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+
+    /* ARTICLE HEADER */
+    .article-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .breadcrumb-sep { color: var(--border); }
+    .article-tag {
+      display: inline-block;
+      background: rgba(245,158,11,0.15);
+      color: var(--yellow);
+      border: 1px solid rgba(245,158,11,0.3);
+      font-size: 11px; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px;
+      margin-bottom: 18px;
+    }
+    .article-header h1 {
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 18px;
+    }
+    .article-header .lead {
+      font-size: 18px;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 62ch;
+    }
+    .article-meta {
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 24px;
+      font-size: 13px; color: var(--muted);
+    }
+    .article-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ARTICLE BODY */
+    .article-body { padding-bottom: 80px; }
+    .article-body h2 {
+      font-size: 24px; font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--white);
+      margin: 48px 0 16px;
+      line-height: 1.2;
+    }
+    .article-body h3 {
+      font-size: 18px; font-weight: 700;
+      color: var(--white);
+      margin: 32px 0 12px;
+      letter-spacing: -0.015em;
+    }
+    .article-body p { margin-bottom: 20px; }
+    .article-body ul, .article-body ol {
+      padding-left: 24px;
+      margin-bottom: 20px;
+    }
+    .article-body li { margin-bottom: 10px; }
+    .article-body strong { color: var(--text); font-weight: 600; }
+
+    /* CALLOUT */
+    .callout {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 28px 0;
+    }
+    .callout.warning {
+      border-left-color: var(--yellow);
+      background: rgba(245,158,11,0.06);
+    }
+    .callout.action {
+      border-left-color: var(--green);
+      background: rgba(34,197,94,0.06);
+    }
+    .callout-label {
+      font-size: 11px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      margin-bottom: 8px;
+    }
+    .callout.warning .callout-label { color: var(--yellow); }
+    .callout.action .callout-label { color: var(--green); }
+    .callout p { margin-bottom: 0; font-size: 15px; }
+
+    /* STEP LIST */
+    .step-list { list-style: none; padding: 0; margin-bottom: 20px; counter-reset: steps; }
+    .step-list li {
+      counter-increment: steps;
+      display: flex; gap: 16px;
+      margin-bottom: 20px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 13px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 2px;
+    }
+    .step-list li > div { flex: 1; }
+    .step-list li strong { color: var(--white); display: block; margin-bottom: 4px; }
+
+    /* CTA BOX */
+    .cta-box {
+      background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05));
+      border: 1px solid rgba(99,102,241,0.3);
+      border-radius: 16px;
+      padding: 32px;
+      margin: 48px 0;
+      text-align: center;
+    }
+    .cta-box h3 { color: var(--white); font-size: 20px; margin-bottom: 10px; letter-spacing: -0.02em; }
+    .cta-box p { color: var(--muted); font-size: 15px; margin-bottom: 20px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px; font-weight: 700;
+      transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    /* RELATED */
+    .related {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .related-label {
+      font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); margin-bottom: 20px;
+    }
+    .related-links { display: flex; flex-direction: column; gap: 12px; }
+    .related-link {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 15px; color: var(--text);
+      transition: color 0.15s;
+    }
+    .related-link:hover { color: var(--white); text-decoration: none; }
+    .related-link::before { content: "→"; color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 14px 20px; }
+      .article-header { padding: 40px 0 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/">District<em>Check</em></a>
+    <div class="nav-right">
+      <a class="nav-link" href="/tools/index.html">Tool database</a>
+      <a class="nav-link" href="/blog/index.html">Blog</a>
+      <a class="nav-cta" href="/">Check a tool</a>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <article>
+      <header class="article-header">
+        <div class="breadcrumb">
+          <a href="/blog/index.html">Blog</a>
+          <span class="breadcrumb-sep">›</span>
+          Post-Deadline Guide
+        </div>
+        <div class="article-tag">Post-Deadline</div>
+        <h1>What Happens If Your District Missed the ADA Title II Deadline</h1>
+        <p class="lead">The April 24, 2026 compliance date has passed. Here's what the real risk is, what enforcement actually looks like, and the five things your district should do starting today — regardless of where your compliance effort stands.</p>
+        <div class="article-meta">
+          <span>DistrictCheck</span>
+          <span>·</span>
+          <span>April 25, 2026</span>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>The April 24, 2026 deadline under the DOJ's ADA Title II final rule has come and gone. For many K-12 districts, full WCAG 2.1 AA compliance — across every website, app, and third-party edtech tool — wasn't achieved by yesterday. That's the reality, and it's more common than anyone is publicly admitting.</p>
+
+        <p>So: what happens now?</p>
+
+        <p>The short answer is that missing the deadline doesn't automatically trigger penalties, lawsuits, or federal investigation. The longer answer is that it creates real legal exposure that grows over time if you don't act — and that the most important thing you can do right now is start documenting what you're doing.</p>
+
+        <div class="callout warning">
+          <div class="callout-label">Important distinction</div>
+          <p>If your district serves a population <strong>under 50,000</strong>, your compliance deadline is <strong>April 26, 2027</strong> — not April 24, 2026. Check your district's population classification before treating this as a missed deadline.</p>
+        </div>
+
+        <h2>What enforcement actually looks like</h2>
+
+        <p>The DOJ's ADA enforcement process is complaint-driven, not proactive. There is no federal office conducting regular audits of every school district in America. Enforcement begins when someone files a complaint — typically a parent of a student with a disability, a disability rights organization, or occasionally a staff member.</p>
+
+        <p>Once a complaint is filed, the DOJ (or the relevant state civil rights office) investigates. That investigation looks at whether the district is complying with ADA Title II's accessibility requirements — including the new WCAG 2.1 AA standard for digital content. What investigators also look at, and what matters enormously in determining outcomes, is <strong>whether the district has made a good-faith effort to comply.</strong></p>
+
+        <p>A district that missed the deadline but can show:</p>
+        <ul>
+          <li>A documented inventory of their edtech tools and digital content</li>
+          <li>Risk assessments for each tool (which is exactly what DistrictCheck is for)</li>
+          <li>Written vendor outreach requesting VPATs and conformance documentation</li>
+          <li>A remediation timeline with specific milestones</li>
+          <li>Evidence of staff training on accessibility requirements</li>
+        </ul>
+        <p>…is in a categorically different legal position than a district with no documentation, no awareness of the requirements, and no ongoing effort.</p>
+
+        <p>Good faith doesn't eliminate liability, but it is a significant mitigating factor in every ADA enforcement context — and it's within your control to establish starting right now.</p>
+
+        <h2>The scenarios where real legal risk materializes</h2>
+
+        <p>Not all non-compliance carries equal risk. The scenarios most likely to trigger complaints and subsequent enforcement action are:</p>
+
+        <h3>A student with a disability is denied meaningful access to a tool</h3>
+        <p>This is the highest-risk scenario. If a student who uses a screen reader, switch access device, or other assistive technology cannot participate in a required classroom activity because the edtech tool isn't accessible — and the district has no documented alternative — that's a direct, documentable harm. Assessment tools such as <a href="/tools/edulastic.html">Edulastic</a> and <a href="/tools/formative.html">Formative</a>, plus daily communication platforms such as <a href="/tools/classdojo.html">ClassDojo</a>, are the most exposed categories here.</p>
+
+        <h3>A parent raises an accessibility complaint and gets no response</h3>
+        <p>Complaint responsiveness is itself a compliance obligation under ADA Title II. Districts must have a functioning grievance procedure for accessibility complaints. A parent who contacts the district about an inaccessible tool and receives no response, or a denial, is very likely to escalate to the DOJ or a disability rights attorney. Having a documented grievance process — even if your tools aren't fully compliant yet — significantly changes this dynamic.</p>
+
+        <h3>A tool vendor faces litigation and districts are named as co-respondents</h3>
+        <p>This is less common but worth understanding. If a large-scale accessibility lawsuit targets an edtech vendor, districts that used that tool — particularly those with no record of having requested VPAT documentation — may face secondary exposure. Districts that can show they requested and reviewed vendor compliance documentation are better positioned to demonstrate they exercised appropriate due diligence.</p>
+
+        <h2>What to do right now: the five-day documentation sprint</h2>
+
+        <p>If your district doesn't have a structured compliance file, the following five actions will create one quickly. Each can be done by your district's technology director or IT coordinator without outside consultants.</p>
+
+        <ol class="step-list">
+          <li>
+            <div class="step-num">1</div>
+            <div>
+              <strong>Build your tool inventory today</strong>
+              Use DistrictCheck's tool database to look up every edtech tool your district actively uses. Record each tool's risk tier, VPAT status, and WCAG claim in a simple spreadsheet. This inventory is the foundation document for every compliance conversation you'll have going forward — with your board, with the DOJ, with parents. If you don't have it, start it now.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div>
+              <strong>Send vendor outreach emails for every tool without a VPAT</strong>
+              For each tool rated Critical or High risk in your inventory — meaning no VPAT or no WCAG conformance claim — send a written email to the vendor requesting a VPAT and a timeline for WCAG 2.1 AA conformance. The date you send this email is the date your good-faith compliance effort is documented. Keep copies of every email and every response (or non-response).
+            </div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div>
+              <strong>Identify students who need accommodation right now</strong>
+              Cross-reference your IEP and 504 plan database with your edtech tool inventory. Which students use assistive technology? Which tools do those students interact with? Are any of those tools Critical or High risk? If yes, the district needs a documented alternative pathway for those students — in writing, in their accommodation files — before any complaint arises.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div>
+              <strong>Confirm your ADA grievance procedure is active</strong>
+              ADA Title II requires a functioning grievance procedure for accessibility complaints. Check that your district has a designated ADA coordinator, that the coordinator's contact information is publicly posted on your district website, and that there is a documented process for reviewing and responding to complaints. If this infrastructure is missing, establishing it now takes priority over everything else.
+            </div>
+          </li>
+          <li>
+            <div class="step-num">5</div>
+            <div>
+              <strong>Draft a remediation timeline and get it in writing</strong>
+              A remediation timeline doesn't need to promise full compliance by tomorrow. It needs to document your district's plan: which tools will be addressed first, what the criteria are for moving a tool from "non-compliant" to "compliant," and who is responsible for each step. This document should be formally approved by your superintendent or technology director and dated. The date matters.
+            </div>
+          </li>
+        </ol>
+
+        <div class="callout action">
+          <div class="callout-label">The core principle</div>
+          <p>Every day you don't act increases the gap between where you are and where you need to be. Every day you do act, you're building the documentation record that protects your district. The deadline has passed, but the clock on your good-faith effort hasn't — it starts whenever you start.</p>
+        </div>
+
+        <h2>What "good faith" documentation looks like in practice</h2>
+
+        <p>DOJ investigators and plaintiffs' attorneys in ADA cases look for specific evidence of good-faith compliance efforts. Based on DOJ guidance and existing ADA enforcement patterns in education, the following documentation is most protective:</p>
+
+        <ul>
+          <li><strong>Dated tool inventory</strong> with risk assessments — shows you know what you have and assessed the risk</li>
+          <li><strong>Vendor outreach emails</strong> with dates, to specific contacts, requesting specific documentation — shows you demanded compliance evidence from vendors</li>
+          <li><strong>Vendor responses</strong> (or documented non-responses after 30 days) — shows the bottleneck is vendor-side, which is a materially different legal situation than district inaction</li>
+          <li><strong>Student accommodation documentation</strong> for students with disabilities who use high-risk tools — shows you protected the students most directly at risk</li>
+          <li><strong>A remediation timeline</strong> with specific milestones, approved by district leadership — shows this is an active, prioritized compliance effort</li>
+          <li><strong>Board or leadership communication</strong> documenting that compliance status was reported to district leadership — shows institutional awareness and responsibility</li>
+        </ul>
+
+        <h2>The tools that need your attention first</h2>
+
+        <p>If you're triaging where to focus first, prioritize the tools with the highest risk tier and the widest student exposure. Based on DistrictCheck's database, the tools most commonly deployed in K-12 districts that carry Critical or High risk are <a href="/tools/classdojo.html">ClassDojo</a>, <a href="/tools/edulastic.html">Edulastic</a>, <a href="/tools/kahoot.html">Kahoot</a>, <a href="/tools/prodigy.html">Prodigy</a>, <a href="/tools/formative.html">Formative</a>, and <a href="/tools/nearpod.html">Nearpod</a>. Districts should also compare those against lower-risk anchors such as <a href="/tools/canvas.html">Canvas</a> and <a href="/tools/google-classroom.html">Google Classroom</a> to understand what stronger documentation looks like. Any district using these tools without a documented vendor outreach record has the most urgent gap to close.</p>
+
+        <div class="cta-box">
+          <h3>Check every tool in your district's stack</h3>
+          <p>DistrictCheck's free tool lookup shows risk tier, VPAT status, WCAG claim, and recommended next steps for 35+ edtech tools — instantly, no signup required.</p>
+          <a class="cta-btn" href="/">Check your tools now →</a>
+        </div>
+
+        <h2>A note on smaller districts</h2>
+
+        <p>If your district serves a population under 50,000, your compliance deadline under ADA Title II is <strong>April 26, 2027</strong> — one year from now. You are not late. But the practical advice in this article applies equally to your district: use this window to build a compliance file, complete your tool inventory, and send vendor outreach. Every day of lead time you have over larger districts is an advantage — don't waste it.</p>
+
+        <h2>The bottom line</h2>
+
+        <p>The April 24 deadline was real, and its passing does create legal exposure for districts that haven't taken any compliance steps. But the enforcement mechanism is complaint-driven, and the most powerful protection against complaints — and against adverse outcomes if complaints do arise — is a documented record of genuine good-faith effort.</p>
+
+        <p>You can't change what happened before April 24. You can change what happens starting today. The districts that move now, document everything, and establish a structured remediation process will be far better positioned than those that treat the missed deadline as a reason to stop.</p>
+
+        <p>Start your tool inventory. Send your vendor emails. Date everything.</p>
+
+      </div>
+    </article>
+
+    <nav class="related" aria-label="Related articles">
+      <div class="related-label">Read next</div>
+      <div class="related-links">
+        <a class="related-link" href="/tools/classdojo.html">ClassDojo ADA compliance</a>
+        <a class="related-link" href="/tools/kahoot.html">Kahoot ADA compliance</a>
+        <a class="related-link" href="/tools/ixl.html">IXL ADA compliance</a>
+        <a class="related-link" href="/blog/ada-title-ii-deadline-k12-districts.html">ADA Title II Deadline for K-12 Schools: What Districts Must Do</a>
+        <a class="related-link" href="/blog/what-is-a-vpat-school-districts.html">What Is a VPAT? A Plain-Language Guide for School District Administrators</a>
+        <a class="related-link" href="/blog/riskiest-edtech-tools-ada-compliance.html">The 5 Riskiest Edtech Tools for ADA Compliance</a>
+      </div>
+    </nav>
+
+    <footer>DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
+  </div>
+
+</body>
+</html>
