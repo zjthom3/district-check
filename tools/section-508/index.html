@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Section 508 vs ADA Title II: What K-12 Districts Need to Know | DistrictCheck</title>
+  <meta name="description" content="Section 508 and ADA Title II both cover digital accessibility — but they're not the same law. Here's how they differ, how they overlap, and which one applies to your K-12 district." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/section-508/index.html" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Section 508 vs ADA Title II: What K-12 Districts Need to Know | DistrictCheck" />
+  <meta property="og:description" content="Section 508 and ADA Title II both cover digital accessibility — but they're not the same law. Here's how they differ, how they overlap, and which one applies to your K-12 district." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://districtcheck.io/tools/section-508/index.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Section 508 vs ADA Title II: What K-12 Districts Need to Know | DistrictCheck" />
+  <meta name="twitter:description" content="Section 508 and ADA Title II both cover digital accessibility — but they're not the same law. Here's how they differ, how they overlap, and which one applies to your K-12 district." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+
+  <!-- Article structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Section 508 vs ADA Title II: What K-12 Districts Need to Know",
+    "description": "Section 508 and ADA Title II both cover digital accessibility — but they're not the same law. Here's how they differ, how they overlap, and which one applies to your K-12 district.",
+    "datePublished": "2026-04-05",
+    "author": { "@type": "Organization", "name": "DistrictCheck" },
+    "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" }
+  }
+  </script>
+
+  <!-- FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does Section 508 apply to K-12 school districts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Section 508 applies directly to federal agencies and entities that receive federal funds for the procurement of information and communications technology. K-12 public school districts that receive federal funding (which includes essentially all public districts through Title I, IDEA, E-Rate, etc.) must ensure that electronic and information technology they procure, develop, maintain, or use meets Section 508 standards. In practice, ADA Title II is often the more directly enforced law for K-12 districts, but Section 508 obligations co-exist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Section 508 and ADA Title II for school districts?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Section 508 focuses on procurement — it governs what technology federal agencies and federally-funded entities can buy and deploy. ADA Title II focuses on program access — it governs whether people with disabilities can access the services and programs a government entity provides. For K-12 districts, ADA Title II is typically the more relevant and actively enforced law, especially following the DOJ's 2024 final rule naming WCAG 2.1 AA as the technical standard."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does a vendor VPAT for Section 508 satisfy ADA Title II requirements?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Partially. Section 508 was revised in 2018 to incorporate WCAG 2.0 Level A and AA by reference. Since ADA Title II now requires WCAG 2.1 AA, a Section 508 VPAT based on WCAG 2.0 does not fully satisfy ADA Title II requirements — WCAG 2.1 added additional success criteria not in 2.0. However, a vendor that has a current Section 508 VPAT is much further along than one with no documentation at all."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #7B8490;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #F87171;
+      --blue:    #3B82F6;
+      --accent:  #5254CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark); color: var(--text);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute; left: 20px; top: 16px;
+      transform: translateY(-180%);
+      background: var(--white); color: var(--dark);
+      padding: 10px 14px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px; border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+
+    .article-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .breadcrumb-sep { color: var(--border); }
+    .article-tag {
+      display: inline-block;
+      background: rgba(59,130,246,0.15); color: var(--blue);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 4px; padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(28px, 4.5vw, 46px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px;
+    }
+    .article-meta { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .article-body { padding-bottom: 80px; }
+    .article-body p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 24px; }
+    .article-body h2 {
+      font-size: clamp(22px, 3vw, 30px); font-weight: 800;
+      letter-spacing: -0.025em; line-height: 1.15;
+      color: var(--white); margin: 48px 0 16px;
+    }
+    .article-body h3 {
+      font-size: 19px; font-weight: 700;
+      letter-spacing: -0.015em; color: var(--white); margin: 32px 0 12px;
+    }
+    .article-body ul, .article-body ol { margin: 0 0 24px 0; padding-left: 24px; }
+    .article-body li { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+    .article-body strong { color: var(--white); font-weight: 700; }
+    .article-body a { text-decoration: underline; text-underline-offset: 0.14em; }
+
+    /* COMPARISON TABLE */
+    .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; }
+    .compare-table th {
+      text-align: left; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); padding: 10px 14px;
+      border-bottom: 2px solid var(--border);
+    }
+    .compare-table th:not(:first-child) { text-align: center; }
+    .compare-table td {
+      padding: 14px 14px; font-size: 14px; color: var(--text);
+      border-bottom: 1px solid var(--border); vertical-align: top;
+    }
+    .compare-table td:not(:first-child) { text-align: center; }
+    .compare-table tr:hover td { background: var(--surface); }
+    .compare-table td:first-child { color: var(--white); font-weight: 600; }
+    .check { color: var(--green); font-size: 16px; }
+    .cross { color: var(--red); font-size: 16px; }
+    .partial { color: var(--yellow); font-size: 14px; font-weight: 700; }
+
+    .callout {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 10px;
+      padding: 20px 24px; margin: 32px 0;
+    }
+    .callout.warning { border-left-color: var(--yellow); }
+    .callout.success { border-left-color: var(--green); }
+    .callout.info { border-left-color: var(--blue); }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 8px; color: var(--accent);
+    }
+    .callout.warning .callout-label { color: var(--yellow); }
+    .callout.success .callout-label { color: var(--green); }
+    .callout.info .callout-label { color: var(--blue); }
+    .callout p { margin-bottom: 0 !important; font-size: 15px !important; }
+
+    .law-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px; margin-bottom: 16px;
+    }
+    .law-card-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 16px; margin-bottom: 14px;
+    }
+    .law-name { font-size: 18px; font-weight: 800; color: var(--white); }
+    .law-year {
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 4px; padding: 3px 8px; white-space: nowrap;
+    }
+    .law-stat-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+    .law-stat { flex: 1; min-width: 120px; }
+    .law-stat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+    .law-stat-value { font-size: 14px; font-weight: 600; color: var(--text); }
+
+    .cta-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px; text-align: center; margin: 48px 0;
+    }
+    .cta-block h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); font-size: 15px; margin-bottom: 24px !important; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer-logo { font-size: 15px; font-weight: 800; color: var(--white); }
+    .footer-logo em { color: var(--accent); font-style: normal; }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .law-stat-row { flex-direction: column; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="DistrictCheck">District<em>Check</em></a>
+    <div class="nav-right">
+      <a href="/blog/index.html" class="nav-link">Blog</a>
+      <a href="/#tools" class="nav-link">Browse Tools</a>
+      <a href="/" class="nav-cta">Check a Tool →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <div class="wrap">
+    <article>
+      <header class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="/tools/index.html">Tools</a>
+          <span class="breadcrumb-sep">/</span>
+          Section 508 vs ADA Title II
+        </nav>
+        <div class="article-tag">Compliance Guide</div>
+        <h1>Section 508 vs ADA Title II: What K-12 Districts Actually Need to Know</h1>
+        <div class="article-meta">
+          <span>DistrictCheck Team</span>
+          <span>·</span>
+          <span>April 2026</span>
+          <span>·</span>
+          <span>7 min read</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>If you've spent any time researching digital accessibility compliance for your school district, you've probably seen both "Section 508" and "ADA Title II" come up — often in the same breath, as if they're interchangeable. They're not. They're two different laws, with different scopes, different enforcement mechanisms, and different implications for K-12 procurement. Understanding which one applies to your situation — and how they interact — is essential before you start requesting VPATs or building a compliance program.</p>
+
+        <p>The short version: <strong>ADA Title II is the primary law K-12 districts need to be focused on right now</strong>, especially following the DOJ's 2024 final rule. Section 508 also applies to most districts — but through a different mechanism, and with a different scope. This guide explains the distinction.</p>
+
+        <h2>The Two Laws at a Glance</h2>
+
+        <div class="law-card">
+          <div class="law-card-header">
+            <div class="law-name">Section 508 of the Rehabilitation Act</div>
+            <div class="law-year">1998 / Refreshed 2018</div>
+          </div>
+          <p style="font-size:15px; color:var(--text); margin-bottom:12px;">A federal procurement law requiring that federal agencies — and entities that receive federal funding for ICT — purchase and deploy information and communications technology that is accessible to people with disabilities.</p>
+          <div class="law-stat-row">
+            <div class="law-stat">
+              <div class="law-stat-label">Focus</div>
+              <div class="law-stat-value">ICT Procurement</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Standard</div>
+              <div class="law-stat-value">WCAG 2.0 AA (by reference)</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Enforcer</div>
+              <div class="law-stat-value">USAB / DOE</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Applies to districts?</div>
+              <div class="law-stat-value">Yes (federal funding)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="law-card">
+          <div class="law-card-header">
+            <div class="law-name">ADA Title II</div>
+            <div class="law-year">1990 / DOJ Rule 2024</div>
+          </div>
+          <p style="font-size:15px; color:var(--text); margin-bottom:12px;">A civil rights law prohibiting state and local government entities from discriminating against people with disabilities. The 2024 DOJ final rule specified WCAG 2.1 AA as the technical standard for web content and digital applications.</p>
+          <div class="law-stat-row">
+            <div class="law-stat">
+              <div class="law-stat-label">Focus</div>
+              <div class="law-stat-value">Program access / civil rights</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Standard</div>
+              <div class="law-stat-value">WCAG 2.1 AA</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Enforcer</div>
+              <div class="law-stat-value">DOJ Civil Rights Division</div>
+            </div>
+            <div class="law-stat">
+              <div class="law-stat-label">Applies to districts?</div>
+              <div class="law-stat-value">Yes (government entities)</div>
+            </div>
+          </div>
+        </div>
+
+        <h2>The Core Difference: Procurement vs. Program Access</h2>
+
+        <p>Section 508 is fundamentally a <strong>procurement law</strong>. It governs what technology a federally funded entity can buy and deploy. If you're purchasing a student information system, an LMS, or an assessment platform using federal E-Rate funds or Title I dollars, Section 508 says that technology must meet accessibility standards.</p>
+
+        <p>ADA Title II is fundamentally a <strong>civil rights law</strong>. It doesn't just govern what you buy — it governs whether the services and programs you provide are actually accessible to people with disabilities. If a student with a visual impairment can't participate in a required class activity because the tool you deployed doesn't support screen readers, that student has been denied equal access to your district's educational program. That's a Title II violation regardless of how the tool was procured.</p>
+
+        <p>In practice, this means ADA Title II has broader implications for K-12 districts. It's not just about what you buy — it's about what you actually make students use, whether they can use it, and whether you have a documented process for ensuring equal access.</p>
+
+        <h2>How the Technical Standards Compare</h2>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Requirement</th>
+              <th>Section 508</th>
+              <th>ADA Title II</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>WCAG version required</td>
+              <td>WCAG 2.0 AA</td>
+              <td>WCAG 2.1 AA</td>
+            </tr>
+            <tr>
+              <td>Specific compliance deadline</td>
+              <td>At procurement</td>
+              <td>April 24, 2026 (large districts) / April 26, 2027 (small)</td>
+            </tr>
+            <tr>
+              <td>Applies to all deployed tools</td>
+              <td class="partial">Federally funded only</td>
+              <td class="check">✓ All deployed tools</td>
+            </tr>
+            <tr>
+              <td>Can be enforced by individuals</td>
+              <td class="partial">Via Section 504 (related)</td>
+              <td class="check">✓ Direct private right of action</td>
+            </tr>
+            <tr>
+              <td>Covers third-party vendor tools</td>
+              <td class="check">✓ At procurement</td>
+              <td class="check">✓ In use</td>
+            </tr>
+            <tr>
+              <td>Named VPAT standard</td>
+              <td>Section 508 VPAT / WCAG 2.0</td>
+              <td>WCAG 2.1 AA VPAT / ACR</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <div class="callout-label">The WCAG version gap matters</div>
+          <p>Section 508 (refreshed in 2018) incorporated WCAG 2.0 by reference. ADA Title II (2024) requires WCAG 2.1. WCAG 2.1 added 17 new success criteria to WCAG 2.0 — including mobile accessibility improvements and better guidance for cognitive and low-vision users. A product conforming to WCAG 2.0 AA may not conform to WCAG 2.1 AA.</p>
+        </div>
+
+        <h2>Does Section 508 Actually Apply to K-12 Districts?</h2>
+
+        <p>Yes — with a nuance. Section 508 directly applies to <em>federal agencies</em>. But it also applies to any entity that receives federal funding for the development, procurement, maintenance, or use of electronic and information technology. That covers virtually every public school district in the United States, which receives federal dollars through Title I (ESEA), IDEA, E-Rate, and other programs.</p>
+
+        <p>The practical implication: when a district uses federal E-Rate funds to purchase an LMS or SIS, that procurement should meet Section 508 standards. The same is true for any technology purchased or deployed using federal grants or assistance.</p>
+
+        <p>In practice, Section 508 enforcement against K-12 districts is rare — it's primarily enforced through the procurement process itself (vendors must self-certify) and through OCR complaints rather than DOJ enforcement. <strong>ADA Title II is the law generating active enforcement pressure right now.</strong></p>
+
+        <h2>Does a Section 508 VPAT Satisfy ADA Title II Requirements?</h2>
+
+        <p>Partially — but not completely. Here's the issue:</p>
+
+        <ul>
+          <li>Section 508 (refreshed 2018) requires WCAG <strong>2.0</strong> Level AA by reference.</li>
+          <li>ADA Title II (2024 DOJ rule) requires WCAG <strong>2.1</strong> Level AA.</li>
+          <li>WCAG 2.1 added 17 new success criteria not in WCAG 2.0.</li>
+        </ul>
+
+        <p>A vendor with only a Section 508 VPAT citing WCAG 2.0 has not documented conformance with the additional criteria in WCAG 2.1. For ADA Title II compliance purposes, you need a VPAT or ACR (Accessibility Conformance Report) that specifically addresses <strong>WCAG 2.1 Level AA</strong>.</p>
+
+        <p>That said, a vendor who has invested in a Section 508 VPAT is almost certainly in better shape than one with no accessibility documentation at all. When reviewing vendor documentation, look specifically for: (1) whether the VPAT addresses WCAG 2.1 or only WCAG 2.0, and (2) whether the vendor claims "supports" or "fully conforms" — vague claims are much weaker than criterion-level assessments.</p>
+
+        <div class="callout warning">
+          <div class="callout-label">Watch for "Section 508 compliant" claims</div>
+          <p>A vendor claiming "Section 508 compliant" is citing WCAG 2.0 conformance, not WCAG 2.1. For ADA Title II purposes, ask specifically for a VPAT addressing <strong>WCAG 2.1 Level AA</strong>. These are not the same document.</p>
+        </div>
+
+        <h2>Which Law Should Your District Prioritize?</h2>
+
+        <p>Both matter — but for practical planning purposes, <strong>ADA Title II should be your primary focus</strong> because:</p>
+
+        <ol>
+          <li><strong>It has a hard compliance deadline.</strong> April 24, 2026 (or April 26, 2027 for smaller districts) creates urgency that doesn't exist in Section 508's ongoing procurement requirement.</li>
+          <li><strong>It has a broader scope.</strong> Title II covers all tools your district deploys — not just those purchased with federal funding.</li>
+          <li><strong>It has a higher technical standard.</strong> WCAG 2.1 AA ⊃ WCAG 2.0 AA. Meet Title II and you've met Section 508.</li>
+          <li><strong>Enforcement is more active.</strong> The 2024 DOJ rule has created immediate compliance pressure and increased complaint volume. Section 508 enforcement at the K-12 level is comparatively rare.</li>
+        </ol>
+
+        <h3>Section 508 is still relevant for procurement</h3>
+        <p>Even if ADA Title II is your primary compliance lens, Section 508 language belongs in your procurement documentation. Including Section 508 requirements in RFPs creates a documented procurement trail that demonstrates due diligence for both laws simultaneously. Vendors are familiar with Section 508 requests and know how to respond — it also signals to vendors that your district takes accessibility seriously.</p>
+
+        <h2>Practical Implications for Edtech Procurement</h2>
+
+        <h3>In your RFPs and contracts:</h3>
+        <ul>
+          <li>Require a current VPAT addressing <strong>WCAG 2.1 Level AA</strong> (not just Section 508 / WCAG 2.0)</li>
+          <li>Reference both Section 508 and ADA Title II requirements — they're complementary, not competing</li>
+          <li>Ask vendors to identify known accessibility barriers and their remediation timeline</li>
+          <li>Include a contract clause requiring vendors to notify you of material changes to their accessibility conformance</li>
+        </ul>
+
+        <h3>When reviewing existing tools:</h3>
+        <ul>
+          <li>A Section 508 VPAT is a starting point, not a complete answer — ask for an updated WCAG 2.1 AA assessment if you only have WCAG 2.0 documentation</li>
+          <li>The DistrictCheck risk tiers reflect WCAG 2.1 AA status, not just Section 508 conformance</li>
+          <li>Tools that claim "Section 508 compliant" without a WCAG 2.1 reference are not fully documented for ADA Title II purposes</li>
+        </ul>
+
+        <div class="callout success">
+          <div class="callout-label">Related resources</div>
+          <p>See our <a href="/resources/ada-title-ii-faq.html" style="color:var(--green);">ADA Title II FAQ</a>, the <a href="/resources/vendor-vpat-request-template.html" style="color:var(--green);">Vendor VPAT Request Email Templates</a>, and the <a href="/blog/ada-title-ii-30-day-compliance-roadmap.html" style="color:var(--green);">30-Day Compliance Roadmap</a> for more specific guidance.</p>
+        </div>
+
+        <h2>Quick Reference: FAQs</h2>
+
+        <h3>Does Section 508 apply to K-12 school districts?</h3>
+        <p>Yes. Public school districts that receive federal funding — which includes essentially all public districts through Title I, IDEA, E-Rate, and other programs — are required to meet Section 508 standards for technology they procure or deploy using federal funds. However, ADA Title II is typically the more actively enforced law at the K-12 level.</p>
+
+        <h3>Is a Section 508 VPAT enough for ADA Title II compliance?</h3>
+        <p>Not on its own. Section 508 references WCAG 2.0 AA; ADA Title II requires WCAG 2.1 AA. A vendor with only a Section 508 / WCAG 2.0 VPAT has not fully documented conformance with WCAG 2.1's additional requirements. You need WCAG 2.1 AA documentation specifically.</p>
+
+        <h3>Which tools does DistrictCheck evaluate against?</h3>
+        <p>DistrictCheck assesses tools against WCAG 2.1 AA — the standard required by the DOJ's 2024 ADA Title II final rule. This is a higher bar than Section 508/WCAG 2.0. When we assign risk tiers, we're assessing whether a tool has documented WCAG 2.1 AA conformance, not just Section 508 compliance.</p>
+
+        <div class="cta-block">
+          <h3>Check Your Tools Against WCAG 2.1 AA</h3>
+          <p>Instant ADA compliance lookup for 30+ common edtech platforms. See which tools have current WCAG 2.1 AA documentation — no account required.</p>
+          <a href="/" class="cta-btn">Run a Free Compliance Check →</a>
+        </div>
+
+      </div>
+    </article>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">District<em>Check</em></div>
+    <div>Copyright 2026 DistrictCheck · Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
+  </footer>
+
+</body>
+</html>

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /_seo/
+Disallow: /_accessibility/
+Disallow: /_marketing/
+Disallow: /private/
 
 Sitemap: https://districtcheck.io/sitemap.xml

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DistrictCheck Verified for Edtech Vendors | DistrictCheck</title>
+  <meta name="description" content="Apply for the DistrictCheck Verified badge. Submit your VPAT, show districts your accessibility posture, and earn a vendor-facing trust signal." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/vendors/index.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="DistrictCheck Verified for Edtech Vendors | DistrictCheck" />
+  <meta property="og:description" content="Apply for the DistrictCheck Verified badge. Submit your VPAT, show districts your accessibility posture, and earn a vendor-facing trust signal." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/vendors/index.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DistrictCheck Verified for Edtech Vendors | DistrictCheck" />
+  <meta name="twitter:description" content="Apply for the DistrictCheck Verified badge. Submit your VPAT, show districts your accessibility posture, and earn a vendor-facing trust signal." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --bg: #0e1013;
+      --surface: #16191e;
+      --card: #1c2027;
+      --border: #272c35;
+      --text: #d8dce3;
+      --muted: #7b8490;
+      --white: #ffffff;
+      --accent: #5254cc;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #101319 0%, var(--bg) 40%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--bg);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 14px; }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero {
+      padding: 48px 0 28px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(36px, 5.5vw, 60px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+    .hero p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 68ch;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn.primary {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .btn.secondary {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: rgba(22,25,30,0.92);
+    }
+    .panel, .card {
+      background: rgba(22,25,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+    .panel {
+      padding: 24px;
+    }
+    .panel-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .panel h2 {
+      margin: 0 0 12px;
+      color: var(--white);
+      font-size: 24px;
+      letter-spacing: -0.03em;
+    }
+    .panel p {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+    .price-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+    .bullet-list {
+      display: grid;
+      gap: 10px;
+    }
+    .bullet {
+      color: var(--text);
+      font-size: 14px;
+    }
+    .section {
+      padding: 22px 0 34px;
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      color: var(--white);
+      font-size: clamp(28px, 4vw, 38px);
+      letter-spacing: -0.04em;
+    }
+    .section .lead {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 72ch;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      padding: 20px;
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      color: var(--white);
+      font-size: 20px;
+      letter-spacing: -0.03em;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .status {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(28,32,39,0.88);
+    }
+    .status strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+    .status p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .status.good { box-shadow: inset 0 0 0 1px rgba(34,197,94,0.24); }
+    .status.warn { box-shadow: inset 0 0 0 1px rgba(245,158,11,0.24); }
+    .status.base { box-shadow: inset 0 0 0 1px rgba(82,84,204,0.18); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 920px) {
+      .hero,
+      .grid,
+      .steps,
+      .status-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 760px) {
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+      .nav-links { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="/" aria-label="DistrictCheck">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="/tools/index.html">Tool database</a>
+        <a class="nav-link" href="/blog/index.html">Blog</a>
+        <a class="nav-cta" href="mailto:hello@districtcheck.io?subject=DistrictCheck%20Verified%20application">Apply now</a>
+      </div>
+    </nav>
+    <main id="main-content">
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Vendor Program</div>
+          <h1>DistrictCheck Verified</h1>
+          <p>The DistrictCheck Verified badge gives edtech vendors a simple way to show districts that accessibility documentation exists, has been reviewed, and is current enough to support procurement conversations.</p>
+          <p>This program is built for vendors that already have a VPAT or accessibility conformance report and want a buyer-facing trust signal on top of it. Districts get a clearer path to documentation. Vendors get a cleaner answer when buyers ask, “Do you have a current VPAT?”</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:hello@districtcheck.io?subject=DistrictCheck%20Verified%20application">Apply for verification</a>
+            <a class="btn secondary" href="/tools/index.html">See current tool ratings</a>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="panel-label">Program pricing</div>
+          <div class="price">$999<span style="font-size:16px;font-weight:700;color:var(--muted);">/year</span></div>
+          <div class="price-note">Built around the hybrid vendor + district model defined in the organic growth plan.</div>
+          <div class="bullet-list">
+            <div class="bullet">Accessibility documentation review against the DistrictCheck rubric</div>
+            <div class="bullet">Verified badge placement on your vendor profile</div>
+            <div class="bullet">Priority update handling when your VPAT or ACR changes</div>
+            <div class="bullet">Direct buyer-facing explanation of what has been verified</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <h2>What the badge actually means</h2>
+        <p class="lead">The goal is not to imply perfect accessibility. The goal is to show districts that your documentation is real, current, and strong enough to support a serious procurement review.</p>
+        <div class="status-grid">
+          <div class="status good">
+            <strong>Verified documentation</strong>
+            <p>You have provided a current VPAT, ACR, or equivalent accessibility documentation that can be reviewed and linked from your vendor profile.</p>
+          </div>
+          <div class="status warn">
+            <strong>Transparent claims</strong>
+            <p>The badge is reserved for vendors whose accessibility claims are specific, dated, and materially more useful than vague “we care about accessibility” language.</p>
+          </div>
+          <div class="status base">
+            <strong>District-facing trust signal</strong>
+            <p>District buyers can see that your accessibility posture has been reviewed through the same lens used across the DistrictCheck database.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How verification works</h2>
+        <p class="lead">The process is designed to be lightweight for vendors but useful for districts that need written evidence before purchase or renewal.</p>
+        <div class="steps">
+          <article class="card">
+            <div class="step-num">1</div>
+            <h3>Submit your docs</h3>
+            <p>Send your current VPAT, ACR, or accessibility packet along with a product list and the date each document was last updated.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">2</div>
+            <h3>Review against the rubric</h3>
+            <p>DistrictCheck checks documentation quality, specificity of claims, freshness, and whether the materials support a defensible procurement file.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">3</div>
+            <h3>Launch the verified profile</h3>
+            <p>Once approved, your vendor profile can display the DistrictCheck Verified status and link buyers to the reviewed documentation path.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">4</div>
+            <h3>Keep it current</h3>
+            <p>When your VPAT changes, send the update. The badge is only valuable if districts can trust that it still reflects the current state of the product.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Who this is for</h2>
+        <p class="lead">The strongest fit is vendors whose district buyers are already asking for a VPAT and whose sales team needs a faster, cleaner answer.</p>
+        <div class="grid">
+          <article class="card">
+            <h3>Edtech vendors with a current VPAT</h3>
+            <p>If your product team has already done the documentation work, the badge helps that work show up where district buyers are actively researching tool risk.</p>
+          </article>
+          <article class="card">
+            <h3>Customer success and sales teams</h3>
+            <p>The badge reduces the friction of repeated accessibility questions by giving your team a public reference point that districts can review directly.</p>
+          </article>
+          <article class="card">
+            <h3>Vendors improving their posture</h3>
+            <p>If you are close but not there yet, DistrictCheck can still surface what districts are likely to ask next so you know what to strengthen before reapplying.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div class="panel-label">Apply</div>
+          <h2>Ready to apply for DistrictCheck Verified?</h2>
+          <p>Email your product name, current accessibility documentation, and the best contact for follow-up. We will reply with next steps and timing.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:hello@districtcheck.io?subject=DistrictCheck%20Verified%20application&body=Company%3A%0AProduct%3A%0AAccessibility%20documentation%20available%3A%0ABest%20contact%3A%0A">Start your application</a>
+            <a class="btn secondary" href="/resources/ada-title-ii-faq.html">Read the ADA Title II FAQ</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</footer>
+  </div>
+</body>
+</html>
