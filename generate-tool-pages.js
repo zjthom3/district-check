@@ -1,11 +1,57 @@
+/**
+ * DistrictCheck tool-page generator
+ *
+ * Source of truth:
+ * - This file owns the generated tool corpus in /tools/*.html
+ * - This file also regenerates /tools/index.html and /sitemap.xml
+ *
+ * Edit workflow:
+ * - If you want to change shared tool-page layout, SEO fields, FAQ/schema,
+ *   related links, alias handling, or sitemap inclusion for generated pages,
+ *   make the change here first.
+ * - After editing this file, run: `node generate-tool-pages.js`
+ *
+ * Important:
+ * - Direct edits to generated files in /tools may be overwritten the next time
+ *   this generator runs.
+ * - Hand-authored pages such as /blog, /resources, /vendors, and category
+ *   landing pages under nested tool directories are maintained separately, but
+ *   some of them are intentionally included in the sitemap via `staticPages`.
+ */
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_LASTMOD = '2026-04-04';
-const BLOG_INDEX_LASTMOD = '2026-04-04';
+const DEFAULT_LASTMOD = '2026-04-05';
+const BLOG_INDEX_LASTMOD = '2026-04-05';
 const OG_IMAGE = 'https://districtcheck.io/og-default.png';
+const staticPages = [
+  { loc: 'https://districtcheck.io/resources/ada-title-ii-faq.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/resources/vendor-vpat-request-template.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/resources/wcag-checklist-edtech.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/section-508/index.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/lms/index.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/lms/canvas-vs-schoology.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/assessment/index.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/communication/index.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/content/index.html', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/vendors/index.html', lastmod: '2026-04-05' }
+];
 
 const blogPosts = [
+  {
+    title: 'After the ADA Title II Deadline: What Enforcement Actually Looks Like',
+    slug: 'ada-title-ii-enforcement-update.html',
+    lastmod: '2026-04-05',
+    description: 'A practical look at post-deadline complaint risk, DOJ enforcement, and what districts should do if they are still behind.',
+    tools: ['ClassDojo', 'Kahoot', 'IXL', 'Canvas', 'Google Classroom', 'Edulastic', 'Formative', 'Nearpod', 'ParentSquare', 'Schoology']
+  },
+  {
+    title: 'ADA Title II 30-Day Compliance Roadmap for K-12 Districts',
+    slug: 'ada-title-ii-30-day-compliance-roadmap.html',
+    lastmod: '2026-04-05',
+    description: 'A step-by-step 30-day roadmap for K-12 districts to build ADA Title II edtech compliance documentation.',
+    tools: ['ClassDojo', 'Edulastic', 'Formative', 'Kahoot', 'Canvas', 'Google Classroom', 'Schoology', 'ParentSquare', 'Nearpod', 'IXL']
+  },
   {
     title: 'ADA Title II Deadline for K-12 Districts',
     slug: 'ada-title-ii-deadline-k12-districts.html',
@@ -367,6 +413,22 @@ function blogMarkup(tool) {
   return blogPostsForTool(tool)
     .map((post) => `<a class="related-link" href="../blog/${post.slug}">${escapeHtml(post.title)} &rarr;</a>`)
     .join('\n');
+}
+
+function vendorTemplateMarkup(tool) {
+  if (isAlias(tool) || !['critical', 'high'].includes(tool.tier)) return '';
+  return `
+    <section class="section">
+      <div class="panel">
+        <div class="label">Vendor outreach</div>
+        <h2 style="margin-top:0;">Need a VPAT from this vendor?</h2>
+        <p class="lead" style="margin-bottom:18px;">Use DistrictCheck's copy-paste outreach templates to request a VPAT, follow up if needed, and document your good-faith compliance effort.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="../resources/vendor-vpat-request-template.html">Request a VPAT from this vendor</a>
+          <a class="btn secondary" href="../resources/wcag-checklist-edtech.html">Review the WCAG checklist</a>
+        </div>
+      </div>
+    </section>`;
 }
 
 function toolDirectoryPage() {
@@ -988,6 +1050,8 @@ ${relatedBlogLinks}
       </div>
     </section>
 
+    ${vendorTemplateMarkup(tool)}
+
     <section class="section">
       <div class="panel">
         <div class="label">Need the full picture?</div>
@@ -1016,6 +1080,7 @@ function sitemapXml() {
     { loc: 'https://districtcheck.io/', lastmod: DEFAULT_LASTMOD },
     { loc: 'https://districtcheck.io/blog/index.html', lastmod: BLOG_INDEX_LASTMOD },
     ...blogPosts.map((post) => ({ loc: `https://districtcheck.io/blog/${post.slug}`, lastmod: post.lastmod })),
+    ...staticPages,
     { loc: 'https://districtcheck.io/tools/index.html', lastmod: DEFAULT_LASTMOD },
     ...tools.filter((tool) => !isAlias(tool)).map((tool) => ({ loc: `https://districtcheck.io/tools/${slugify(tool.name)}.html`, lastmod: DEFAULT_LASTMOD }))
   ];

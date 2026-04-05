@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADA Compliant LMS Options for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="How do Canvas, Schoology, Google Classroom, and Microsoft Teams compare on ADA Title II accessibility? VPAT status, risk tiers, and what districts should do." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/lms/index.html" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="ADA Compliant LMS Options for K-12 Districts | DistrictCheck" />
+  <meta property="og:description" content="How do Canvas, Schoology, Google Classroom, and Microsoft Teams compare on ADA Title II accessibility? VPAT status, risk tiers, and what districts should do." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/lms/index.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ADA Compliant LMS Options for K-12 Districts | DistrictCheck" />
+  <meta name="twitter:description" content="How do Canvas, Schoology, Google Classroom, and Microsoft Teams compare on ADA Title II accessibility? VPAT status, risk tiers, and what districts should do." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ADA Compliant LMS Options for K-12 Districts","description":"How do Canvas, Schoology, Google Classroom, and Microsoft Teams compare on ADA Title II accessibility?","datePublished":"2026-04-05"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the most ADA compliant LMS for K-12?","acceptedAnswer":{"@type":"Answer","text":"Canvas, Google Classroom, and Microsoft Teams for Education all have current VPATs with specific WCAG 2.1 AA claims and are rated Low risk by DistrictCheck. Schoology is rated High risk due to unclear VPAT status post-acquisition."}},{"@type":"Question","name":"Does an LMS VPAT cover embedded tools like Kahoot and Nearpod?","acceptedAnswer":{"@type":"Answer","text":"No. An LMS VPAT covers the LMS platform only. Third-party tools embedded via LTI integrations require separate accessibility documentation."}},{"@type":"Question","name":"How often should districts request updated LMS VPATs?","acceptedAnswer":{"@type":"Answer","text":"At minimum annually and at every contract renewal. LMS products are updated frequently and a VPAT from two years ago may not reflect current conformance status."}}]}</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --dark: #0e1013;
+      --surface: #16191e;
+      --card: #1c2027;
+      --border: #272c35;
+      --muted: #7b8490;
+      --text: #d8dce3;
+      --white: #ffffff;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+      --orange: #f97316;
+      --red: #f87171;
+      --blue: #3b82f6;
+      --accent: #5254cc;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #101319 0%, var(--dark) 42%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero {
+      padding: 44px 0 36px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .hero-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--white); }
+    .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
+    .panel, .card {
+      background: rgba(22,25,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+    .panel { padding: 22px; }
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .panel-title { color: var(--white); font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .badge-green { background: rgba(34,197,94,0.20); color: var(--white); }
+    .badge-orange { background: rgba(249,115,22,0.20); color: var(--white); }
+    .badge-yellow { background: rgba(245,158,11,0.20); color: var(--white); }
+    .badge-red { background: rgba(248,113,113,0.20); color: var(--white); }
+    .comparison-table {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(22,25,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    th {
+      background: var(--card);
+      padding: 16px;
+      text-align: left;
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 800;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+    }
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+    }
+    tr:last-child td { border-bottom: none; }
+    .callout {
+      background: linear-gradient(135deg, rgba(248,113,113,0.15), rgba(255,255,255,0.02));
+      border: 1px solid rgba(248,113,113,0.30);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .callout p { margin: 0; font-size: 14px; color: var(--text); }
+    .section { padding: 24px 0; }
+    .section p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .card { padding: 22px; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+    .card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-2px); }
+    .card-tool-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .card p { margin: 8px 0; font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .card strong { color: var(--text); }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(82,84,204,0.20);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .step h3, .faq h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 16px;
+    }
+    .step p, .faq p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    .breadcrumb {
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .breadcrumb a { color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media (max-width: 1024px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+      nav { padding: 18px 0; }
+      .nav-links { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../../blog/index.html">Blog</a>
+        <a class="nav-link" href="../index.html">Browse Tools</a>
+        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Check a Tool →</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> / <a href="../index.html">Tools</a> / LMS
+        </div>
+        <span class="eyebrow">Category Guide</span>
+        <h1>ADA Compliant LMS Options for K-12 Districts</h1>
+        <p class="lead" style="margin-top: 16px;">Why LMS accessibility matters most — the LMS is the platform students spend the most time in. Every assignment, every grade, every digital interaction runs through it. An inaccessible LMS doesn't just block one activity — it blocks the entire learning environment.</p>
+      </section>
+
+      <section class="section">
+        <h2>LMS Comparison</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Risk Tier</th>
+                <th>VPAT Status</th>
+                <th>WCAG 2.1 Claim</th>
+                <th>Best For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Canvas</strong></td>
+                <td><span class="badge badge-green">Low</span></td>
+                <td>Exists (2024)</td>
+                <td>Specific claim</td>
+                <td>Districts wanting strongest documentation</td>
+              </tr>
+              <tr>
+                <td><strong>Google Classroom</strong></td>
+                <td><span class="badge badge-green">Low</span></td>
+                <td>Exists, current</td>
+                <td>Specific claim</td>
+                <td>Google Workspace districts</td>
+              </tr>
+              <tr>
+                <td><strong>Microsoft Teams for Education</strong></td>
+                <td><span class="badge badge-green">Low</span></td>
+                <td>Exists (2024)</td>
+                <td>Specific claim</td>
+                <td>Microsoft 365 districts</td>
+              </tr>
+              <tr>
+                <td><strong>Schoology</strong></td>
+                <td><span class="badge badge-orange">High</span></td>
+                <td>Unclear post-acquisition</td>
+                <td>Vague claim</td>
+                <td>Needs updated VPAT from PowerSchool</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>LMS Accessibility Overview</h2>
+        <div class="grid">
+          <a class="card" href="../canvas.html">
+            <div class="card-tool-name">Canvas</div>
+            <div class="badge badge-green">Low</div>
+            <p>Canvas publishes current VPAT documentation with specific WCAG 2.1 AA claims. It is one of the stronger LMS options for ADA compliance in K-12 deployments.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../google-classroom.html">
+            <div class="card-tool-name">Google Classroom</div>
+            <div class="badge badge-green">Low</div>
+            <p>Google publishes accessibility conformance materials for Workspace products with specific WCAG claims. Particularly strong for districts already in the Google ecosystem.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../microsoft-teams.html">
+            <div class="card-tool-name">Microsoft Teams for Education</div>
+            <div class="badge badge-green">Low</div>
+            <p>Microsoft publishes current VPAT documentation with specific WCAG 2.1 AA claims for Teams. A solid option for Microsoft 365 districts with accessible documentation.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../schoology.html">
+            <div class="card-tool-name">Schoology</div>
+            <div class="badge badge-orange">High</div>
+            <p>Schoology's VPAT status is unclear following PowerSchool's acquisition. Districts using Schoology should request updated accessibility documentation immediately.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How to evaluate your LMS for ADA compliance</h2>
+        <p class="lead">Use this sequence to conduct a reasonable, documented accessibility review of your LMS before renewal.</p>
+        <div class="steps">
+          <article class="card step">
+            <div class="step-num">1</div>
+            <h3>Request current VPAT</h3>
+            <p>Ask your vendor for a VPAT addressing WCAG 2.1 AA specifically. Accept no older than 18 months.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">2</div>
+            <h3>Check platform coverage</h3>
+            <p>Verify the VPAT covers the LMS platform itself — LTI tools need separate verification and cannot rely on the LMS documentation.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">3</div>
+            <h3>Review unsupported criteria</h3>
+            <p>Look for "Partially Supports" and "Does Not Support" entries in student-facing criteria. Flag any that affect your use case.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">4</div>
+            <h3>Plan annual review</h3>
+            <p>Build VPAT renewal into your annual contract review process. LMS platforms update frequently and documentation can become stale.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>LMS Accessibility FAQ</h2>
+        <div class="faq-list">
+          <article class="card faq">
+            <h3>What is the most ADA compliant LMS for K-12?</h3>
+            <p>Canvas, Google Classroom, and Microsoft Teams for Education all have current VPATs with specific WCAG 2.1 AA claims and are rated Low risk by DistrictCheck. Schoology is rated High risk due to unclear VPAT status post-acquisition.</p>
+          </article>
+          <article class="card faq">
+            <h3>Does an LMS VPAT cover embedded tools like Kahoot and Nearpod?</h3>
+            <p>No. An LMS VPAT covers the LMS platform only. Third-party tools embedded via LTI integrations require separate accessibility documentation.</p>
+          </article>
+          <article class="card faq">
+            <h3>How often should districts request updated LMS VPATs?</h3>
+            <p>At minimum annually and at every contract renewal. LMS products are updated frequently and a VPAT from two years ago may not reflect current conformance status.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div style="margin-bottom: 18px;">
+            <h2 style="margin-top: 0;">Check Your LMS Tools</h2>
+            <p class="lead" style="margin-bottom: 0;">Need a full accessibility audit of your district edtech stack? DistrictCheck reviews all the tools in your LMS ecosystem and prioritizes compliance risk.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="../../index.html">Return to Tool Lookup</a>
+            <a class="btn secondary" href="../index.html">Browse All Tools</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+      <div></div>
+    </footer>
+  </div>
+</body>
+</html>

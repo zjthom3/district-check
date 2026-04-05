@@ -50,10 +50,10 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
 - [x] ⚠️ **[HUMAN]** Use GSC URL Inspection to request indexing for: `/`, `/blog/ada-title-ii-deadline-k12-districts.html`, `/blog/what-is-a-vpat-school-districts.html`, `/tools/classdojo.html`, `/tools/google-classroom.html`, `/tools/canvas.html`
 - [x] ⚠️ **[HUMAN]** Confirm GSC ownership verification is active (file `google838396fbdba882e4.html` is at root — confirmed green in GSC)
 
-### Phase 1 — Content Gap Pages (Weeks 1–4)
+### Phase 1 — Content Gap Pages (Weeks 1–4) ✅ Complete
 
 #### 1. Vendor VPAT Request Email Template Page
-- [ ] Build `/resources/vendor-vpat-request-template.html`
+- [x] Build `/resources/vendor-vpat-request-template.html` — built April 5, 2026
   - Target keyword: "email template request VPAT from vendor" / "edtech vendor accessibility outreach"
   - Content: Intro paragraph explaining why districts need a VPAT in writing, then 2–3 copy-paste email template blocks (initial request, follow-up, escalation). Each block in a styled `<pre>` or card with a "Copy" button (plain JS, no dependencies).
   - CTA at bottom: link to the WCAG checklist page (once built) and a "Check your tool's status" search link back to the homepage
@@ -63,7 +63,7 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
   - After building: add a "Request a VPAT from this vendor →" link to every HIGH and CRITICAL risk tool page pointing to this resource
 
 #### 2. WCAG 2.1 AA Edtech Compliance Checklist
-- [ ] Build `/resources/wcag-checklist-edtech.html`
+- [x] Build `/resources/wcag-checklist-edtech.html` — built April 5, 2026 (interactive HTML version with 38-item checklist, progress tracker, filter by principle; PDF version TODO: needs email embed URL)
   - Target keyword: "wcag 2.1 aa edtech checklist" / "ada compliance checklist k-12 district"
   - Content: Intro (why WCAG 2.1 AA applies to K-12 edtech procurement under ADA Title II), then a structured checklist organized by WCAG principle (Perceivable, Operable, Understandable, Robust). For each criterion, include: the criterion code + name, a plain-English explanation, and a K-12 edtech-specific example (e.g. "1.1.1 Non-text content — student avatar images in ClassDojo must have descriptive alt text or be marked decorative").
   - Format: interactive HTML checklist (checkboxes, print-friendly CSS). Add a "Download as PDF" link (static PDF version at `/resources/wcag-checklist-edtech.pdf`).
@@ -74,32 +74,32 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
 
 #### 3. Category Landing Pages (build in this order)
 
-- [ ] Build `/tools/lms/index.html` — "ADA Compliant LMS Options for K-12 Districts"
+- [x] Build `/tools/lms/index.html` — "ADA Compliant LMS Options for K-12 Districts" — built April 5, 2026
   - Target keyword: "ada compliant lms k-12" / "accessible learning management system schools"
   - Tools to include: Canvas, Schoology, Google Classroom, Microsoft Teams for Education
   - Content structure: intro (why LMS accessibility matters most — it's the platform students spend the most time in), comparison table (tool name | risk tier | VPAT status | WCAG claim), then a card for each tool linking to its full tool page, then a "How to evaluate your LMS for ADA compliance" section (3–4 actionable steps), then FAQ schema (3 questions)
   - Priority: **P1**
 
-- [ ] Build `/tools/assessment/index.html` — "ADA Compliant Assessment Tools for K-12 Districts"
+- [x] Build `/tools/assessment/index.html` — "ADA Compliant Assessment Tools for K-12 Districts" — built April 5, 2026
   - Target keyword: "accessible assessment tools schools" / "ada compliant assessment platform k-12"
   - Tools to include: Edulastic, Formative, GoFormative, Kahoot, Quizlet
   - Same structure as LMS page. Note in intro: assessment tools are especially high-stakes — inaccessible tools can prevent students with disabilities from demonstrating their knowledge on required assessments.
   - Priority: **P1**
 
-- [ ] Build `/tools/communication/index.html` — "ADA Compliant Communication Tools for K-12 Districts"
+- [x] Build `/tools/communication/index.html` — "ADA Compliant Communication Tools for K-12 Districts" — built April 5, 2026
   - Target keyword: "ada compliant school communication tools" / "accessible parent communication platform k-12"
   - Tools to include: ClassDojo, Remind, ParentSquare, Seesaw
   - Same structure. Note in intro: family communication tools reach parents with disabilities too — ADA Title II applies to district communications broadly, not just classroom tools.
   - Priority: **P1**
 
-- [ ] Build `/tools/content/index.html` — "ADA Compliant Content & Curriculum Tools for K-12 Districts"
+- [x] Build `/tools/content/index.html` — "ADA Compliant Content & Curriculum Tools for K-12 Districts" — built April 5, 2026
   - Target keyword: "accessible edtech content tools schools" / "ada compliant curriculum platform k-12"
   - Tools to include: Newsela, CommonLit, ReadWorks, Khan Academy, BrainPOP, Discovery Education
   - Same structure.
   - Priority: **P2**
 
 #### 4. ADA Title II 30-Day Compliance Roadmap
-- [ ] Build `/blog/ada-title-ii-30-day-compliance-roadmap.html`
+- [x] Build `/blog/ada-title-ii-30-day-compliance-roadmap.html` — built April 5, 2026
   - Target keyword: "ada title ii compliance checklist school district" / "how to prepare for ada title ii k-12"
   - Content: intro (the DOJ 2024 final rule, what it requires, who's affected), then a numbered 30-day roadmap with specific, actionable steps organized by week. Week 1: inventory all deployed edtech tools. Week 2: check VPAT status for each (link to DistrictCheck). Week 3: contact vendors with no VPAT (link to vendor template). Week 4: document findings and establish ongoing review cadence.
   - Include Article schema. Link to: WCAG checklist, vendor template, relevant tool pages (especially ClassDojo, Edulastic).
@@ -186,12 +186,12 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
 ## Done
 - [x] Site architecture and HTML foundation built
 - [x] 31 tool pages live with substantive content (17.5KB+ each)
-- [x] 5 blog posts live: ADA Title II deadline, missed deadline, enforcement update, what is a VPAT, riskiest edtech tools
+- [x] 6 blog posts live: ADA Title II deadline, missed deadline, enforcement update, 30-day roadmap, what is a VPAT, riskiest edtech tools
 - [x] FAQ schema on all 31 real tool pages
-- [x] Article schema on all 4 blog posts
+- [x] Article schema on all 6 blog posts
 - [x] OG + Twitter meta tags sitewide
-- [x] Canonical tags on all 43 indexed pages
-- [x] XML sitemap (43 URLs, all with lastmod, alias pages excluded)
+- [x] Canonical tags on all 53 indexed pages
+- [x] XML sitemap (53 URLs, all with lastmod, alias pages excluded)
 - [x] robots.txt configured
 - [x] GSC verification file at root (`google838396fbdba882e4.html`)
 - [x] Internal linking: homepage → tools hub → tool pages; blog posts link to tool pages

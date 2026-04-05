@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADA Compliant Assessment Tools for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="Assessment tools are highest-stakes for ADA compliance — inaccessible assessments deny students the ability to demonstrate knowledge. See risk tiers for Edulastic, Formative, Kahoot, and Quizlet." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/assessment/index.html" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="ADA Compliant Assessment Tools for K-12 Districts | DistrictCheck" />
+  <meta property="og:description" content="Assessment tools are highest-stakes for ADA compliance — inaccessible assessments deny students the ability to demonstrate knowledge. See risk tiers for Edulastic, Formative, Kahoot, and Quizlet." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/tools/assessment/index.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ADA Compliant Assessment Tools for K-12 Districts | DistrictCheck" />
+  <meta name="twitter:description" content="Assessment tools are highest-stakes for ADA compliance — inaccessible assessments deny students the ability to demonstrate knowledge. See risk tiers for Edulastic, Formative, Kahoot, and Quizlet." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"ADA Compliant Assessment Tools for K-12 Districts","description":"Assessment tools are highest-stakes for ADA compliance — inaccessible assessments deny students the ability to demonstrate knowledge.","datePublished":"2026-04-05"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What assessment tools are ADA compliant for K-12 districts?","acceptedAnswer":{"@type":"Answer","text":"None of the most commonly deployed K-12 assessment tools (Edulastic, Formative, Kahoot, Quizlet) have current VPATs with specific WCAG 2.1 AA claims. All four are rated Critical or High risk by DistrictCheck. Districts should request VPATs from these vendors immediately and document accessible alternatives for students with disabilities."}},{"@type":"Question","name":"Can I use Kahoot for required student assessments?","acceptedAnswer":{"@type":"Answer","text":"Kahoot is rated High risk — it has no VPAT and only an aspirational WCAG claim. Using it for required, graded student assessments without documenting an accessible alternative creates compliance exposure, particularly for students with IEPs or 504 plans."}},{"@type":"Question","name":"What should I do while waiting for a vendor to produce a VPAT?","acceptedAnswer":{"@type":"Answer","text":"Document your outreach date, identify which students may be affected, and document an accessible alternative pathway (a different tool or modified assignment format) for students who cannot use the tool. The date of your outreach is itself compliance evidence."}}]}</script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    :root {
+      --dark: #0e1013;
+      --surface: #16191e;
+      --card: #1c2027;
+      --border: #272c35;
+      --muted: #7b8490;
+      --text: #d8dce3;
+      --white: #ffffff;
+      --green: #22c55e;
+      --yellow: #f59e0b;
+      --orange: #f97316;
+      --red: #f87171;
+      --blue: #3b82f6;
+      --accent: #5254cc;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: linear-gradient(180deg, #101319 0%, var(--dark) 42%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--white);
+      outline-offset: 2px;
+    }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { font-style: normal; color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero {
+      padding: 44px 0 36px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(36px, 6vw, 60px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 34px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+    .hero-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
+    }
+    .hero-copy strong { color: var(--text); }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--white); }
+    .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
+    .panel, .card {
+      background: rgba(22,25,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+    }
+    .panel { padding: 22px; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .badge-green { background: rgba(34,197,94,0.20); color: var(--white); }
+    .badge-orange { background: rgba(249,115,22,0.20); color: var(--white); }
+    .badge-yellow { background: rgba(245,158,11,0.20); color: var(--white); }
+    .badge-red { background: rgba(248,113,113,0.20); color: var(--white); }
+    .comparison-table {
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: rgba(22,25,30,0.9);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    th {
+      background: var(--card);
+      padding: 16px;
+      text-align: left;
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 800;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: -0.01em;
+    }
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      font-size: 14px;
+    }
+    tr:last-child td { border-bottom: none; }
+    .callout {
+      background: linear-gradient(135deg, rgba(248,113,113,0.15), rgba(255,255,255,0.02));
+      border: 1px solid rgba(248,113,113,0.30);
+      border-radius: 14px;
+      padding: 18px;
+      margin: 24px 0;
+    }
+    .callout-title {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .callout p { margin: 0; font-size: 14px; color: var(--text); }
+    .section { padding: 24px 0; }
+    .section p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .card { padding: 22px; cursor: pointer; transition: border-color 0.15s, transform 0.15s; }
+    .card:hover { border-color: rgba(255,255,255,0.18); transform: translateY(-2px); }
+    .card-tool-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .card p { margin: 8px 0; font-size: 14px; color: var(--muted); line-height: 1.5; }
+    .card strong { color: var(--text); }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 12px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(82,84,204,0.20);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+    .step h3, .faq h3 {
+      margin: 0 0 8px;
+      color: var(--white);
+      font-size: 16px;
+    }
+    .step p, .faq p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .faq-list {
+      display: grid;
+      gap: 14px;
+    }
+    .breadcrumb {
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .breadcrumb a { color: var(--accent); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @media (max-width: 1024px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .hero, .grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+      nav { padding: 18px 0; }
+      .nav-links { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../../blog/index.html">Blog</a>
+        <a class="nav-link" href="../index.html">Browse Tools</a>
+        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Check a Tool →</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="section">
+        <div class="breadcrumb">
+          <a href="../../index.html">Home</a> / <a href="../index.html">Tools</a> / Assessment
+        </div>
+        <span class="eyebrow">Category Guide</span>
+        <h1>ADA Compliant Assessment Tools for K-12 Districts</h1>
+        <p class="lead" style="margin-top: 16px;">Assessment tools are especially high-stakes. An inaccessible assessment platform doesn't just inconvenience a student — it prevents them from demonstrating their knowledge on required assignments. When graded activities are delivered through a tool with documented accessibility barriers, the district faces direct exposure: a student with an IEP was demonstrably denied equal access to a required educational activity.</p>
+      </section>
+
+      <section class="section">
+        <h2>Assessment Tools Comparison</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Tool</th>
+                <th>Risk Tier</th>
+                <th>VPAT Status</th>
+                <th>WCAG Claim</th>
+                <th>Action Needed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Edulastic</strong></td>
+                <td><span class="badge badge-red">Critical</span></td>
+                <td>None</td>
+                <td>None</td>
+                <td>Request VPAT immediately; document alternatives</td>
+              </tr>
+              <tr>
+                <td><strong>Formative</strong></td>
+                <td><span class="badge badge-red">Critical</span></td>
+                <td>None</td>
+                <td>None</td>
+                <td>Request VPAT immediately; document alternatives</td>
+              </tr>
+              <tr>
+                <td><strong>Kahoot</strong></td>
+                <td><span class="badge badge-orange">High</span></td>
+                <td>None</td>
+                <td>Aspirational only</td>
+                <td>Request VPAT; limit use for required graded work</td>
+              </tr>
+              <tr>
+                <td><strong>Quizlet</strong></td>
+                <td><span class="badge badge-orange">High</span></td>
+                <td>None</td>
+                <td>Vague claim</td>
+                <td>Request VPAT; avoid for required assessments</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="callout">
+          <div class="callout-title">Critical risk in assessment tools</div>
+          <p>If your district uses Edulastic or Formative for required graded assessments and you have students with IEPs or 504 plans, this is your highest-priority compliance action. These tools have no VPAT and no documented WCAG claim. Document your outreach to the vendor and your accessible alternative now.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Assessment Tools Overview</h2>
+        <div class="grid">
+          <a class="card" href="../edulastic.html">
+            <div class="card-tool-name">Edulastic</div>
+            <div class="badge badge-red">Critical</div>
+            <p>Edulastic has no published VPAT and no specific WCAG accessibility claim. Critical risk for required assessments — request documentation immediately.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../formative.html">
+            <div class="card-tool-name">Formative</div>
+            <div class="badge badge-red">Critical</div>
+            <p>Formative has no published VPAT and no documented WCAG compliance claim. Using for graded assignments with students with disabilities creates significant legal exposure.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../kahoot.html">
+            <div class="card-tool-name">Kahoot</div>
+            <div class="badge badge-orange">High</div>
+            <p>Kahoot has no VPAT and only an aspirational WCAG claim. Acceptable for optional, non-graded engagement activities but risky for required assessments.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+
+          <a class="card" href="../quizlet.html">
+            <div class="card-tool-name">Quizlet</div>
+            <div class="badge badge-orange">High</div>
+            <p>Quizlet has no VPAT and a vague WCAG claim. High risk for required assessments — document alternatives for students who cannot use the platform.</p>
+            <div class="card-link">View full compliance details →</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Key accessibility issues in assessment tools</h2>
+        <p class="lead">These are the four most common accessibility failures in K-12 assessment platforms.</p>
+        <div class="steps">
+          <article class="card step">
+            <div class="step-num">1</div>
+            <h3>Timed question formats</h3>
+            <p>Timed question formats without accessible time-limit controls fail WCAG 2.2.1. Students needing extra time cannot complete assessments.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">2</div>
+            <h3>Drag-and-drop alternatives</h3>
+            <p>Drag-and-drop question types with no keyboard alternative fail WCAG 2.1.1. Students unable to use a mouse cannot access these items.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">3</div>
+            <h3>Color-coded feedback</h3>
+            <p>Color-coded answer feedback without text labels fails WCAG 1.4.1. Students with color blindness cannot distinguish correct from incorrect responses.</p>
+          </article>
+          <article class="card step">
+            <div class="step-num">4</div>
+            <h3>Interactive element roles</h3>
+            <p>Custom interactive elements without ARIA roles fail WCAG 4.1.2. Assistive technology users cannot identify element purpose and state.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Assessment Tool Accessibility FAQ</h2>
+        <div class="faq-list">
+          <article class="card faq">
+            <h3>What assessment tools are ADA compliant for K-12 districts?</h3>
+            <p>None of the most commonly deployed K-12 assessment tools (Edulastic, Formative, Kahoot, Quizlet) have current VPATs with specific WCAG 2.1 AA claims. All four are rated Critical or High risk by DistrictCheck. Districts should request VPATs from these vendors immediately and document accessible alternatives for students with disabilities.</p>
+          </article>
+          <article class="card faq">
+            <h3>Can I use Kahoot for required student assessments?</h3>
+            <p>Kahoot is rated High risk — it has no VPAT and only an aspirational WCAG claim. Using it for required, graded student assessments without documenting an accessible alternative creates compliance exposure, particularly for students with IEPs or 504 plans.</p>
+          </article>
+          <article class="card faq">
+            <h3>What should I do while waiting for a vendor to produce a VPAT?</h3>
+            <p>Document your outreach date, identify which students may be affected, and document an accessible alternative pathway (a different tool or modified assignment format) for students who cannot use the tool. The date of your outreach is itself compliance evidence.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="panel">
+          <div style="margin-bottom: 18px;">
+            <h2 style="margin-top: 0;">Check Your Assessment Tools</h2>
+            <p class="lead" style="margin-bottom: 0;">Need a full accessibility audit of your district assessment stack? DistrictCheck identifies which tools pose compliance risk and what to do about them.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="../../index.html">Return to Tool Lookup</a>
+            <a class="btn secondary" href="../index.html">Browse All Tools</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+      <div></div>
+    </footer>
+  </div>
+</body>
+</html>

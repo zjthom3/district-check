@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADA Title II 30-Day Compliance Roadmap for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="A step-by-step 30-day roadmap for K-12 districts to build ADA Title II edtech compliance documentation — organized by week with specific, actionable tasks.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://districtcheck.io/blog/ada-title-ii-30-day-compliance-roadmap.html">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ADA Title II 30-Day Compliance Roadmap for K-12 Districts | DistrictCheck">
+  <meta property="og:description" content="A step-by-step 30-day roadmap for K-12 districts to build ADA Title II edtech compliance documentation — organized by week with specific, actionable tasks.">
+  <meta property="og:url" content="https://districtcheck.io/blog/ada-title-ii-30-day-compliance-roadmap.html">
+  <meta property="og:site_name" content="DistrictCheck">
+  <meta property="og:image" content="https://districtcheck.io/og-default.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ADA Title II 30-Day Compliance Roadmap for K-12 Districts | DistrictCheck">
+  <meta name="twitter:description" content="A step-by-step 30-day roadmap for K-12 districts to build ADA Title II edtech compliance documentation — organized by week with specific, actionable tasks.">
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png">
+
+  <style>
+    :root {
+      --dark: #0E1013;
+      --surface: #16191E;
+      --card: #1C2027;
+      --border: #272C35;
+      --muted: #7B8490;
+      --text: #D8DCE3;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --yellow: #F59E0B;
+      --orange: #F97316;
+      --red: #F87171;
+      --blue: #3B82F6;
+      --accent: #5254CC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: var(--white);
+      padding: 8px;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-logo em {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 0.625rem 1.25rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      background-color: var(--surface);
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    .breadcrumb a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--text);
+    }
+
+    /* Article Header */
+    .article-header {
+      background: linear-gradient(135deg, var(--surface) 0%, var(--card) 100%);
+      padding: 4rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .article-header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .article-tag {
+      display: inline-block;
+      background-color: var(--card);
+      color: var(--accent);
+      padding: 0.375rem 0.75rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    h1 {
+      font-size: clamp(1.875rem, 5vw, 2.5rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .article-meta {
+      display: flex;
+      gap: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .article-body {
+      color: var(--text);
+    }
+
+    .article-body > p {
+      font-size: clamp(1rem, 1.5vw, 1.0625rem);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+      color: var(--text);
+    }
+
+    .intro-note {
+      background-color: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0.375rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .intro-note strong {
+      color: var(--white);
+    }
+
+    h2 {
+      font-size: clamp(1.375rem, 4vw, 1.875rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    h2:first-child {
+      margin-top: 0;
+    }
+
+    .week-header {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding: 2rem;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+    }
+
+    .week-header-content h2 {
+      margin: 0 0 0.75rem 0;
+    }
+
+    .week-intro {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1.1875rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    h3:first-child {
+      margin-top: 0;
+    }
+
+    ul, ol {
+      margin: 0 0 1.75rem 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border-left: 4px solid;
+    }
+
+    .callout-warning {
+      background-color: rgba(245, 158, 11, 0.1);
+      border-left-color: var(--yellow);
+    }
+
+    .callout-info {
+      background-color: rgba(59, 130, 246, 0.1);
+      border-left-color: var(--blue);
+    }
+
+    .callout-success {
+      background-color: rgba(34, 197, 94, 0.1);
+      border-left-color: var(--green);
+    }
+
+    .callout-accent {
+      background-color: rgba(82, 84, 204, 0.1);
+      border-left-color: var(--accent);
+    }
+
+    .callout p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .callout strong {
+      color: var(--white);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      padding: 3rem 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta-section h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 0.375rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+      margin-top: 1rem;
+    }
+
+    .cta-button:hover {
+      opacity: 0.9;
+    }
+
+    /* Resources Section */
+    .resources-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .resources-section h3 {
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .resources-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .resources-list li {
+      margin-bottom: 0.875rem;
+    }
+
+    .resources-list a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-weight: 500;
+    }
+
+    .resources-list a:hover {
+      color: var(--text);
+      text-decoration: underline;
+    }
+
+    /* Ongoing Section */
+    .ongoing-section {
+      background-color: var(--card);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    .ongoing-section h3 {
+      margin-top: 0;
+    }
+
+    .ongoing-section ol {
+      margin-bottom: 0;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-logo em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .footer-copyright {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .nav-links {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .article-header {
+        padding: 2rem 1rem;
+      }
+
+      .article-meta {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <nav>
+    <a href="/" class="nav-logo">
+      District<em>Check</em>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/">Browse Tools</a></li>
+      <li><a href="/" class="nav-cta">Check a Tool →</a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="/">Home</a> / <a href="/blog">Blog</a> / 30-Day Compliance Roadmap
+  </div>
+
+  <article class="article-header">
+    <div class="article-header-content">
+      <span class="article-tag">Compliance Roadmap</span>
+      <h1>The K-12 District ADA Title II 30-Day Compliance Roadmap</h1>
+      <div class="article-meta">
+        <span class="meta-item">April 2026</span>
+        <span class="meta-item">10 min read</span>
+      </div>
+    </div>
+  </article>
+
+  <main id="main" class="article-body">
+    <p>The DOJ's 2024 ADA Title II final rule named WCAG 2.1 AA as the technical standard for web accessibility, set hard compliance deadlines (April 24, 2026 for large districts, April 26, 2027 for smaller ones), and created real enforcement exposure for districts deploying inaccessible edtech tools. The question isn't whether this applies to your district — it does. The question is how to build a defensible compliance record in the shortest time possible. This 30-day roadmap gives you the specific, week-by-week actions that matter most.</p>
+
+    <div class="intro-note">
+      <strong>Who this is for:</strong> District Technology Directors, IT Coordinators, Section 504 Coordinators, and any staff leading your district's ADA compliance effort. The roadmap assumes you are starting from scratch — if you've already completed some steps, skip them and use the remaining actions to fill gaps.
+    </div>
+
+    <!-- WEEK 1 -->
+    <section class="week-header">
+      <div class="week-header-content">
+        <h2>Week 1: Inventory and Assessment (Days 1–7)</h2>
+        <p class="week-intro">You can't fix what you don't know exists. The first week is entirely about inventory — building a complete, documented list of every web-based tool your district uses, and getting an initial read on each tool's compliance status.</p>
+      </div>
+    </section>
+
+    <h3>Day 1–2: Build your tool inventory</h3>
+    <ul>
+      <li>Pull your SSO/identity provider login list — every tool students or staff authenticate to is in scope</li>
+      <li>Check your SIS integrations, LMS plugins, and any district-approved app lists</li>
+      <li>Ask teachers to self-report any tools they use with students that may not be in your system</li>
+      <li>Goal: a spreadsheet with every tool name, vendor, how it's used (student-facing / staff-only / parent-facing), and whether use is required or optional</li>
+    </ul>
+
+    <h3>Day 3–4: Initial compliance screening with DistrictCheck</h3>
+    <ul>
+      <li>For every tool in your inventory, search DistrictCheck for its compliance status</li>
+      <li>Record: risk tier, VPAT status, WCAG claim, recommended action</li>
+      <li>Flag all Critical and High risk tools — these become your priority list</li>
+    </ul>
+
+    <h3>Day 5–7: Triage and prioritize</h3>
+    <ul>
+      <li>Sort your tool list by risk tier × usage type: Critical + student-facing required = immediate action</li>
+      <li>Identify the top 5–10 tools that represent your highest combined risk</li>
+      <li>Note any tools where students with IEPs or 504 plans are specifically required to use the tool</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <p><strong>Common mistake in Week 1:</strong> Under-counting your tools. Teacher-adopted free tools — things that were never formally approved but are actively used in classrooms — are in scope. Don't stop at your IT-sanctioned list.</p>
+    </div>
+
+    <!-- WEEK 2 -->
+    <section class="week-header">
+      <div class="week-header-content">
+        <h2>Week 2: Vendor Outreach (Days 8–14)</h2>
+        <p class="week-intro">With your inventory prioritized, Week 2 is about creating a documented paper trail with vendors. The date you send your first VPAT request is the date your good-faith compliance record begins — even if the vendor is slow to respond.</p>
+      </div>
+    </section>
+
+    <h3>Day 8–9: Check for publicly available VPATs</h3>
+    <ul>
+      <li>For each Critical and High risk tool, search "<code>[tool name] VPAT</code>" and "<code>[tool name] accessibility conformance report</code>"</li>
+      <li>Check vendor websites under Legal, Accessibility, and Trust pages</li>
+      <li>Download and date-stamp every VPAT you find</li>
+      <li>Note: a 2019 VPAT for a product that has had major releases since then may not reflect current conformance</li>
+    </ul>
+
+    <h3>Day 10–14: Send VPAT requests to vendors with no documentation</h3>
+    <ul>
+      <li>Use the DistrictCheck Vendor VPAT Request Email Template (initial request)</li>
+      <li>Send from your district email — not a personal account</li>
+      <li>CC your IT director or Section 504 coordinator</li>
+      <li>Log every email sent with the date — this becomes your compliance documentation</li>
+      <li>For Critical-risk student-facing tools: consider immediately sending the formal escalation version (Template 3) rather than starting with Template 1</li>
+    </ul>
+
+    <div class="callout callout-accent">
+      <p><strong>Keep a vendor outreach log:</strong> A simple spreadsheet with Tool Name, Contact Email, Date Template 1 Sent, Date Template 2 Sent, Response Received (Y/N), Date, VPAT Received (Y/N). This is your primary compliance evidence document.</p>
+    </div>
+
+    <!-- WEEK 3 -->
+    <section class="week-header">
+      <div class="week-header-content">
+        <h2>Week 3: Documentation and Accessible Alternatives (Days 15–21)</h2>
+        <p class="week-intro">While vendor responses come in, Week 3 focuses on building the compliance documentation record that protects your district even while remediation is underway — and on ensuring no student is currently being denied access without a documented alternative.</p>
+      </div>
+    </section>
+
+    <h3>Day 15–17: Build your accessible alternatives documentation</h3>
+    <ul>
+      <li>For every Critical and High risk tool currently required for student use, document:
+        <ul>
+          <li>Which students might be affected (students with IEPs, 504 plans, or known AT use)</li>
+          <li>What accessible alternative exists (a different tool, a modified task format, a teacher-mediated accommodation)</li>
+          <li>Who is responsible for implementing the alternative if requested</li>
+        </ul>
+      </li>
+      <li>This document doesn't have to be elaborate — a spreadsheet or notes document is sufficient</li>
+    </ul>
+
+    <h3>Day 18–19: Review vendor VPAT responses received</h3>
+    <ul>
+      <li>For VPATs received from vendors, review the WCAG 2.1 AA section specifically</li>
+      <li>Flag any "Partially Supports" or "Does Not Support" entries in student-facing criteria</li>
+      <li>Use the DistrictCheck WCAG 2.1 AA Edtech Checklist to assess which criteria have known gaps</li>
+      <li>Note any criteria where partial support affects your specific use case</li>
+    </ul>
+
+    <h3>Day 20–21: IEP and 504 cross-check</h3>
+    <ul>
+      <li>Review active IEPs and 504 plans for students who use assistive technology</li>
+      <li>Cross-reference with your tool inventory — any tool required for a student with AT needs and rated Critical or High is highest-priority for immediate accessible alternative documentation</li>
+      <li>Notify teachers of any specific accommodations needed for high-risk tool use</li>
+    </ul>
+
+    <div class="callout callout-success">
+      <p><strong>Finding a gap isn't failure:</strong> It's the start of a documented remediation record. The goal isn't perfect compliance on day one; it's demonstrating that you identified the gaps, are actively pursuing vendor documentation, and have a plan for affected students.</p>
+    </div>
+
+    <!-- WEEK 4 -->
+    <section class="week-header">
+      <div class="week-header-content">
+        <h2>Week 4: Process and Procurement Updates (Days 22–30)</h2>
+        <p class="week-intro">The final week is about converting this one-time exercise into a sustainable compliance program — so you're not starting from scratch every year, and so every tool you purchase going forward arrives with accessibility requirements already built in.</p>
+      </div>
+    </section>
+
+    <h3>Day 22–24: Update your procurement process</h3>
+    <ul>
+      <li>Add VPAT requirement to your standard vendor questionnaire and RFP template</li>
+      <li>Include contract language requiring vendors to provide a current VPAT or ACR addressing WCAG 2.1 AA</li>
+      <li>Add an accessibility verification checkpoint to your contract renewal process</li>
+      <li>Consider adding a VPAT score to your edtech evaluation rubric</li>
+    </ul>
+
+    <h3>Day 25–27: Build an ongoing monitoring system</h3>
+    <ul>
+      <li>Schedule calendar reminders to re-verify VPAT status for your top 10 tools annually</li>
+      <li>Create a shared folder or drive location where all VPATs are stored and dated</li>
+      <li>Designate a staff member responsible for maintaining the accessibility documentation file</li>
+      <li>Set a reminder to send follow-up VPAT requests to vendors who haven't responded by Week 4</li>
+    </ul>
+
+    <h3>Day 28–30: Brief leadership and document your effort</h3>
+    <ul>
+      <li>Prepare a brief summary for your superintendent and/or school board: what tools were reviewed, what actions were taken, what the current status is</li>
+      <li>Confirm that your accessible alternatives documentation is filed with your Section 504 coordinator</li>
+      <li>Review your vendor outreach log — send Template 2 (follow-up) to any vendor that hasn't responded</li>
+      <li>File your 30-day compliance summary in your district's official compliance records</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <p><strong>Don't skip the leadership briefing:</strong> A district that can show its leadership was informed and took action has a qualitatively different compliance posture than one where accessibility was handled quietly by IT. If a complaint is ever filed, documented institutional awareness is a significant factor.</p>
+    </div>
+
+    <!-- ONGOING -->
+    <section class="ongoing-section">
+      <h3>After the 30 Days: Ongoing Compliance</h3>
+      <p>Three actions to maintain momentum:</p>
+      <ol>
+        <li><strong>Monthly:</strong> Check DistrictCheck for any status changes on your top 20 tools (vendors do update VPATs)</li>
+        <li><strong>Quarterly:</strong> Review any new tools adopted by teachers or approved by IT — screen them before they enter the classroom</li>
+        <li><strong>Annually:</strong> Full re-inventory, VPAT renewal verification, and update of accessible alternatives documentation</li>
+      </ol>
+    </section>
+
+    <!-- RESOURCES -->
+    <div class="resources-section">
+      <h3>Links to Additional Resources</h3>
+      <ul class="resources-list">
+        <li><a href="/resources/wcag-checklist-edtech.html">WCAG 2.1 AA Edtech Checklist</a></li>
+        <li><a href="/resources/vendor-vpat-request-template.html">Vendor VPAT Request Email Templates</a></li>
+        <li><a href="/resources/ada-title-ii-faq.html">ADA Title II FAQ</a></li>
+        <li><a href="/blog/ada-title-ii-enforcement-update.html">What Happened After the Deadline</a></li>
+      </ul>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <h3>Ready to get started?</h3>
+      <p>Begin your compliance check today by searching your tools in DistrictCheck.</p>
+      <a href="/" class="cta-button">Start Your Compliance Check</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <a href="/" class="footer-logo">
+        District<em>Check</em>
+      </a>
+      <p class="footer-copyright">&copy; 2026 DistrictCheck. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Article Schema JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The K-12 District ADA Title II 30-Day Compliance Roadmap",
+    "description": "A step-by-step 30-day roadmap for K-12 districts to build ADA Title II edtech compliance documentation — organized by week with specific, actionable tasks.",
+    "image": "https://districtcheck.io/og-image.png",
+    "datePublished": "2026-04-01",
+    "dateModified": "2026-04-05",
+    "author": {
+      "@type": "Organization",
+      "name": "DistrictCheck"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DistrictCheck",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://districtcheck.io/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://districtcheck.io/blog/ada-title-ii-30-day-compliance-roadmap.html"
+    }
+  }
+  </script>
+</body>
+</html>

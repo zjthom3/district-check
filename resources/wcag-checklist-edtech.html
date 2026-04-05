@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WCAG 2.1 AA Edtech Compliance Checklist for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="Interactive WCAG 2.1 AA checklist built for K-12 edtech procurement. Each criterion includes plain-English explanation and a K-12-specific example. Printable and PDF available." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/resources/wcag-checklist-edtech.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="WCAG 2.1 AA Edtech Compliance Checklist for K-12 Districts | DistrictCheck" />
+  <meta property="og:description" content="Interactive WCAG 2.1 AA checklist built for K-12 edtech procurement — plain English, K-12 examples, printable." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://districtcheck.io/resources/wcag-checklist-edtech.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="WCAG 2.1 AA Edtech Compliance Checklist for K-12 Districts | DistrictCheck" />
+  <meta name="twitter:description" content="Interactive WCAG 2.1 AA checklist built for K-12 edtech procurement — plain English, K-12 examples, printable." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "WCAG 2.1 AA Edtech Compliance Checklist for K-12 Districts",
+    "description": "Interactive WCAG 2.1 AA checklist built for K-12 edtech procurement, with plain-English explanations and K-12-specific examples for each criterion.",
+    "datePublished": "2026-04-05",
+    "author": { "@type": "Organization", "name": "DistrictCheck" },
+    "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is WCAG 2.1 AA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WCAG 2.1 AA (Web Content Accessibility Guidelines, version 2.1, Level AA) is a set of technical standards published by the W3C for making web content accessible to people with disabilities. It is organized around four principles: Perceivable, Operable, Understandable, and Robust (POUR). Level AA is the conformance tier required by the DOJ's 2024 ADA Title II final rule for K-12 school districts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does WCAG 2.1 AA apply to K-12 schools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The DOJ's 2024 final rule under ADA Title II specifically requires state and local government entities — including public school districts — to ensure their websites, web applications, and web-based tools used in educational programs conform to WCAG 2.1 Level AA. The compliance deadline for large districts (50,000+ residents) was April 24, 2026; smaller districts have until April 26, 2027."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I use a WCAG checklist for edtech procurement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use this checklist when evaluating a new edtech tool or reviewing the compliance documentation (VPAT) for a tool you already use. For each criterion, check whether the vendor's VPAT addresses that criterion and at what conformance level (Supports, Partially Supports, Does Not Support). Pay special attention to criteria where tools commonly fail: color contrast (1.4.3), keyboard navigation (2.1.1), no keyboard trap (2.1.2), and screen reader compatibility (4.1.2)."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #7B8490;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #F87171;
+      --blue:    #3B82F6;
+      --accent:  #5254CC;
+      --perceivable: #3B82F6;
+      --operable: #22C55E;
+      --understandable: #F59E0B;
+      --robust: #A78BFA;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark); color: var(--text);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute; left: 20px; top: 16px;
+      transform: translateY(-180%);
+      background: var(--white); color: var(--dark);
+      padding: 10px 14px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px; border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    .wrap { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    .page-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border); margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+      margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .breadcrumb-sep { color: var(--border); }
+    .page-tag {
+      display: inline-block;
+      background: rgba(82,84,204,0.15); color: var(--accent);
+      border: 1px solid rgba(82,84,204,0.3);
+      border-radius: 4px; padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--white); margin-bottom: 16px;
+    }
+    .page-meta { font-size: 13px; color: var(--muted); }
+
+    /* PROGRESS BAR */
+    .progress-bar-wrap {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 20px 24px; margin-bottom: 32px;
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    }
+    .progress-label { font-size: 13px; color: var(--muted); white-space: nowrap; }
+    .progress-track {
+      flex: 1; min-width: 200px;
+      background: var(--surface); border-radius: 999px; height: 8px; overflow: hidden;
+    }
+    .progress-fill {
+      background: var(--accent); height: 100%; border-radius: 999px;
+      width: 0%; transition: width 0.3s ease;
+    }
+    .progress-count { font-size: 14px; font-weight: 700; color: var(--white); white-space: nowrap; }
+    .reset-btn {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--muted); padding: 6px 14px; border-radius: 6px;
+      font-size: 12px; cursor: pointer; transition: border-color 0.15s, color 0.15s;
+    }
+    .reset-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* PRINCIPLE TABS */
+    .principle-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px;
+    }
+    .principle-tab {
+      padding: 8px 16px; border-radius: 999px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      border: 1px solid var(--border);
+      background: var(--card); color: var(--muted);
+      transition: all 0.15s;
+    }
+    .principle-tab:hover { color: var(--white); }
+    .principle-tab.active { color: var(--white); }
+    .principle-tab[data-principle="all"].active { border-color: var(--accent); background: rgba(82,84,204,0.15); color: var(--accent); }
+    .principle-tab[data-principle="perceivable"].active { border-color: var(--perceivable); background: rgba(59,130,246,0.15); color: var(--perceivable); }
+    .principle-tab[data-principle="operable"].active { border-color: var(--operable); background: rgba(34,197,94,0.15); color: var(--operable); }
+    .principle-tab[data-principle="understandable"].active { border-color: var(--understandable); background: rgba(245,158,11,0.15); color: var(--understandable); }
+    .principle-tab[data-principle="robust"].active { border-color: var(--robust); background: rgba(167,139,250,0.15); color: var(--robust); }
+
+    /* PRINCIPLE SECTION */
+    .principle-section { margin-bottom: 48px; }
+    .principle-section[data-principle] { display: block; }
+    .principle-header {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--border);
+    }
+    .principle-dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+    }
+    .principle-dot.perceivable { background: var(--perceivable); }
+    .principle-dot.operable { background: var(--operable); }
+    .principle-dot.understandable { background: var(--understandable); }
+    .principle-dot.robust { background: var(--robust); }
+    .principle-name {
+      font-size: 20px; font-weight: 800; color: var(--white); letter-spacing: -0.02em;
+    }
+    .principle-desc { font-size: 14px; color: var(--muted); }
+
+    /* CHECKLIST ITEM */
+    .checklist-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; margin-bottom: 10px;
+      transition: border-color 0.2s;
+    }
+    .checklist-item.checked { border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.04); }
+    .checklist-label {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 16px 18px; cursor: pointer;
+    }
+    .checklist-checkbox {
+      flex-shrink: 0; width: 20px; height: 20px;
+      border: 2px solid var(--border); border-radius: 4px;
+      background: var(--surface); margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.15s;
+    }
+    .checklist-item.checked .checklist-checkbox {
+      background: var(--green); border-color: var(--green);
+    }
+    .checklist-checkbox-icon { display: none; color: var(--dark); font-size: 12px; font-weight: 900; }
+    .checklist-item.checked .checklist-checkbox-icon { display: block; }
+    .checklist-content { flex: 1; }
+    .checklist-code {
+      font-size: 10px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px;
+    }
+    .checklist-title { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .checklist-desc { font-size: 14px; color: var(--text); line-height: 1.5; margin-bottom: 6px; }
+    .checklist-example {
+      font-size: 13px; color: var(--muted); line-height: 1.5;
+      background: var(--surface); border-radius: 6px;
+      padding: 8px 12px; margin-top: 8px;
+    }
+    .checklist-example strong { color: var(--text); }
+
+    /* INPUT checkbox hidden */
+    .checklist-input { position: absolute; opacity: 0; width: 0; height: 0; }
+
+    .callout {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 10px;
+      padding: 20px 24px; margin: 32px 0;
+    }
+    .callout.success { border-left-color: var(--green); }
+    .callout.warning { border-left-color: var(--yellow); }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 8px; color: var(--accent);
+    }
+    .callout.success .callout-label { color: var(--green); }
+    .callout.warning .callout-label { color: var(--yellow); }
+    .callout p { margin-bottom: 0; font-size: 15px; }
+
+    .pdf-cta {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 32px; margin: 32px 0;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      flex-wrap: wrap;
+    }
+    .pdf-cta-text h3 { font-size: 18px; font-weight: 800; color: var(--white); margin-bottom: 6px; }
+    .pdf-cta-text p { font-size: 14px; color: var(--muted); margin: 0; }
+    .pdf-btn {
+      background: var(--accent); color: #fff;
+      padding: 12px 22px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; white-space: nowrap;
+      transition: opacity 0.15s; text-decoration: none;
+    }
+    .pdf-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    .cta-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px; text-align: center; margin: 48px 0;
+    }
+    .cta-block h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+    .cta-btn {
+      display: inline-block; background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+
+    @media print {
+      nav, footer, .principle-tabs, .progress-bar-wrap, .pdf-cta, .cta-block, .checklist-example { display: none !important; }
+      body { background: #fff; color: #000; }
+      .checklist-title, .principle-name { color: #000; }
+      .checklist-desc { color: #333; }
+      .checklist-item { border: 1px solid #ccc; border-radius: 4px; }
+    }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer-logo { font-size: 15px; font-weight: 800; color: var(--white); }
+    .footer-logo em { color: var(--accent); font-style: normal; }
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .pdf-cta { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="DistrictCheck">District<em>Check</em></a>
+    <div class="nav-right">
+      <a href="/blog/index.html" class="nav-link">Blog</a>
+      <a href="/#tools" class="nav-link">Browse Tools</a>
+      <a href="/" class="nav-cta">Check a Tool →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <div class="wrap">
+
+    <header class="page-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Resources</span>
+        <span class="breadcrumb-sep">/</span>
+        WCAG 2.1 AA Edtech Checklist
+      </nav>
+      <div class="page-tag">Interactive Checklist</div>
+      <h1>WCAG 2.1 AA Compliance Checklist for K-12 Edtech</h1>
+      <p class="page-meta">Updated April 2026 &nbsp;·&nbsp; DistrictCheck Team &nbsp;·&nbsp; <a href="#" onclick="window.print(); return false;" style="color:var(--muted); text-decoration:underline;">Print checklist</a></p>
+    </header>
+
+    <div id="app">
+
+      <p style="font-size:17px; line-height:1.75; color:var(--text); margin-bottom:24px;">WCAG 2.1 Level AA is the technical standard required by the DOJ's 2024 ADA Title II final rule. This checklist covers the criteria K-12 districts need to evaluate when reviewing a vendor's VPAT or assessing an edtech tool directly. Each item includes a plain-English explanation and a K-12-specific example of what compliance looks like in practice.</p>
+
+      <p style="font-size:17px; line-height:1.75; color:var(--text); margin-bottom:24px;"><strong style="color:var(--white);">How to use this checklist:</strong> Use it alongside a vendor's VPAT — for each criterion, verify whether the vendor claims "Supports," "Partially Supports," or "Does Not Support." Check items off as you review. Use the filter tabs to focus on one principle at a time.</p>
+
+      <div class="pdf-cta" aria-label="Download PDF version">
+        <div class="pdf-cta-text">
+          <h3>Download the PDF Version</h3>
+          <p>Save and share with your team. The PDF is the lead magnet version — enter your work email to receive it.</p>
+        </div>
+        <!-- TODO: replace with real embed URL -->
+        <a href="#pdf-gate" class="pdf-btn" id="pdf-cta-btn">Get the PDF →</a>
+      </div>
+
+      <!-- Progress tracker -->
+      <div class="progress-bar-wrap" aria-live="polite" aria-label="Checklist progress">
+        <span class="progress-label">Progress:</span>
+        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="38" aria-valuenow="0" id="progress-track">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-count" id="progress-count">0 / 38 criteria reviewed</span>
+        <button class="reset-btn" onclick="resetChecklist()" aria-label="Reset all checkboxes">Reset</button>
+      </div>
+
+      <!-- Principle filter tabs -->
+      <div class="principle-tabs" role="tablist" aria-label="Filter by WCAG principle">
+        <button class="principle-tab active" data-principle="all" role="tab" aria-selected="true" onclick="filterPrinciple('all', this)">All (38)</button>
+        <button class="principle-tab" data-principle="perceivable" role="tab" aria-selected="false" onclick="filterPrinciple('perceivable', this)">Perceivable (13)</button>
+        <button class="principle-tab" data-principle="operable" role="tab" aria-selected="false" onclick="filterPrinciple('operable', this)">Operable (12)</button>
+        <button class="principle-tab" data-principle="understandable" role="tab" aria-selected="false" onclick="filterPrinciple('understandable', this)">Understandable (8)</button>
+        <button class="principle-tab" data-principle="robust" role="tab" aria-selected="false" onclick="filterPrinciple('robust', this)">Robust (5)</button>
+      </div>
+
+      <!-- PERCEIVABLE -->
+      <section class="principle-section" data-principle="perceivable" aria-label="Perceivable criteria">
+        <div class="principle-header">
+          <div class="principle-dot perceivable"></div>
+          <div>
+            <div class="principle-name">Perceivable</div>
+            <div class="principle-desc">Information and UI components must be presentable in ways users can perceive — including those who can't see, hear, or distinguish color.</div>
+          </div>
+        </div>
+
+        <div class="checklist-item" id="item-1-1-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-1-1')" aria-label="1.1.1 Non-text Content">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.1.1 · Non-text Content · Level A</div>
+              <div class="checklist-title">All images, icons, and graphics have text alternatives</div>
+              <div class="checklist-desc">Every non-text element has a text alternative that serves the equivalent purpose, or is marked as decorative.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Student avatar images in ClassDojo have descriptive alt text or are marked decorative (role="presentation") so screen reader users aren't read meaningless filenames.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-2-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-2-1')" aria-label="1.2.1 Audio-only and Video-only">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.2.1 · Audio-only and Video-only (Prerecorded) · Level A</div>
+              <div class="checklist-title">Prerecorded audio and silent video have text alternatives</div>
+              <div class="checklist-desc">Audio-only content has a transcript. Silent video has a text description of the visual content.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A prerecorded read-aloud on ReadWorks provides a transcript for students who are deaf or hard of hearing.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-2-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-2-2')" aria-label="1.2.2 Captions (Prerecorded)">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.2.2 · Captions (Prerecorded) · Level A</div>
+              <div class="checklist-title">All prerecorded videos have synchronized captions</div>
+              <div class="checklist-desc">Captions must be synchronized with the audio, not just a transcript link. Auto-generated captions alone do not satisfy this criterion unless they are accurate.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> BrainPOP video content includes accurate closed captions synchronized with the narration, not just auto-generated YouTube captions with errors.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-2-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-2-3')" aria-label="1.2.3 Audio Description or Media Alternative">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.2.3 · Audio Description or Media Alternative (Prerecorded) · Level A</div>
+              <div class="checklist-title">Prerecorded video has audio description or full text alternative</div>
+              <div class="checklist-desc">Video content where the visuals convey information that isn't in the audio track must have an audio description track or a text alternative.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Discovery Education video demonstrating a science experiment narrates what's happening visually so students with visual impairments can follow along.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-2-4">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-2-4')" aria-label="1.2.4 Captions (Live)">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.2.4 · Captions (Live) · Level AA</div>
+              <div class="checklist-title">Live audio/video content has real-time captions</div>
+              <div class="checklist-desc">Live video, webinars, and real-time audio must have captions provided in real time.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A live Zoom for Education class meeting provides real-time captions for students with hearing impairments, not just a post-event transcript.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-2-5">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-2-5')" aria-label="1.2.5 Audio Description (Prerecorded)">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.2.5 · Audio Description (Prerecorded) · Level AA</div>
+              <div class="checklist-title">Prerecorded video has an audio description track</div>
+              <div class="checklist-desc">When a video has synchronized visual information not conveyed by the audio, a separate audio description track must be available.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Khan Academy instructional videos provide an audio description track where the instructor refers to visual content on the whiteboard.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-3-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-3-1')" aria-label="1.3.1 Info and Relationships">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.3.1 · Info and Relationships · Level A</div>
+              <div class="checklist-title">Structure and relationships are programmatically determinable</div>
+              <div class="checklist-desc">Visual structure (headings, lists, tables, form labels) is conveyed in the HTML so assistive technologies can understand the relationships between content elements.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> An Edulastic assessment uses proper &lt;label&gt; elements for all form inputs, so a screen reader user knows which answer option corresponds to which question.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-3-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-3-2')" aria-label="1.3.2 Meaningful Sequence">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.3.2 · Meaningful Sequence · Level A</div>
+              <div class="checklist-title">Reading order is logical when CSS is removed</div>
+              <div class="checklist-desc">When content is read in the order it appears in the DOM (as a screen reader reads it), the sequence makes sense and doesn't change the meaning.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Padlet board doesn't rely on visual positioning to convey which sticky note is a response to which — the DOM order or ARIA labels make the relationships clear.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-3-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-3-3')" aria-label="1.3.3 Sensory Characteristics">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.3.3 · Sensory Characteristics · Level A</div>
+              <div class="checklist-title">Instructions don't rely on shape, color, size, or position alone</div>
+              <div class="checklist-desc">Instructions like "click the green button" or "see the box on the right" fail students who can't see color or spatial layout.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Nearpod activity that says "select the red answer choice" also identifies the answer by text label, not color alone.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-1')" aria-label="1.4.1 Use of Color">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.1 · Use of Color · Level A</div>
+              <div class="checklist-title">Color is not the only means of conveying information</div>
+              <div class="checklist-desc">Color can supplement information but cannot be the only differentiator — errors, status indicators, and chart data must also use text labels, patterns, or icons.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> IXL's correct/incorrect feedback uses both color AND a text label or icon, not just a red/green color change, so colorblind students can identify results.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-3')" aria-label="1.4.3 Contrast (Minimum)">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.3 · Contrast (Minimum) · Level AA ⚠ Commonly failed</div>
+              <div class="checklist-title">Text has a contrast ratio of at least 4.5:1</div>
+              <div class="checklist-desc">Normal text must have 4.5:1 contrast against its background. Large text (18pt or 14pt bold) requires 3:1. This is one of the most commonly failed criteria in edtech.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Quizlet flashcard with light gray text on a white background fails this criterion — a student with low vision reading on an older monitor in a bright classroom cannot read the content.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-4">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-4')" aria-label="1.4.4 Resize Text">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.4 · Resize Text · Level AA</div>
+              <div class="checklist-title">Text can be resized to 200% without loss of content or function</div>
+              <div class="checklist-desc">When a user increases text size to 200% via browser settings, content remains readable and functional without requiring horizontal scrolling or content truncation.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A student with low vision using 200% zoom on a CommonLit reading assignment can still navigate the text and answer questions without content being cut off.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-5">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-5')" aria-label="1.4.5 Images of Text">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.5 · Images of Text · Level AA</div>
+              <div class="checklist-title">Text is rendered as real text, not images of text</div>
+              <div class="checklist-desc">Reading content, labels, and instructions should use actual HTML text so users can resize, recolor, and use assistive tools on it — not images of text that degrade when resized.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A ReadWorks passage is actual HTML text, not a scanned image, so students using text-to-speech software can have it read aloud.</div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- OPERABLE -->
+      <section class="principle-section" data-principle="operable" aria-label="Operable criteria">
+        <div class="principle-header">
+          <div class="principle-dot operable"></div>
+          <div>
+            <div class="principle-name">Operable</div>
+            <div class="principle-desc">Interface components must be operable by all users — including those who rely on keyboards, switches, or other assistive input devices.</div>
+          </div>
+        </div>
+
+        <div class="checklist-item" id="item-2-1-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-1-1')" aria-label="2.1.1 Keyboard">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.1.1 · Keyboard · Level A ⚠ Commonly failed</div>
+              <div class="checklist-title">All functionality is operable via keyboard alone</div>
+              <div class="checklist-desc">Every feature — including menus, drag-and-drop, interactive content, and form controls — must be accessible without a mouse.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A student with a motor disability completing a Formative assignment uses only the Tab and Enter keys — every question type is navigable and submittable without a mouse.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-1-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-1-2')" aria-label="2.1.2 No Keyboard Trap">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.1.2 · No Keyboard Trap · Level A ⚠ Critical failure</div>
+              <div class="checklist-title">Keyboard focus is never trapped inside a component</div>
+              <div class="checklist-desc">If a user navigates into a component with the keyboard, they can always navigate out using standard keys (Tab, Escape). Modals and embedded iframes are common trap sites.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Nearpod interactive slide embedded in Canvas doesn't trap keyboard focus — pressing Escape or Tab exits the embedded content and returns focus to the LMS.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-1-4">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-1-4')" aria-label="2.1.4 Character Key Shortcuts">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.1.4 · Character Key Shortcuts · Level A (WCAG 2.1 new)</div>
+              <div class="checklist-title">Single-key shortcuts can be turned off or remapped</div>
+              <div class="checklist-desc">If the tool uses keyboard shortcuts triggered by a single character key, users can turn them off or reassign them to avoid conflicts with assistive technology.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A student using voice control software doesn't accidentally trigger Kahoot answer shortcuts when dictating responses.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-2-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-2-1')" aria-label="2.2.1 Timing Adjustable">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.2.1 · Timing Adjustable · Level A</div>
+              <div class="checklist-title">Time limits can be turned off, adjusted, or extended</div>
+              <div class="checklist-desc">If content has a time limit, users must be able to turn it off, extend it, or be warned before it expires with enough time to respond.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Kahoot's timed questions must have a mechanism for teachers or accessibility accommodations to extend or disable time limits for students with processing disabilities.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-2-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-2-2')" aria-label="2.2.2 Pause, Stop, Hide">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.2.2 · Pause, Stop, Hide · Level A</div>
+              <div class="checklist-title">Moving or auto-updating content can be paused or stopped</div>
+              <div class="checklist-desc">Animations, scrolling content, and auto-refreshing feeds must include a pause, stop, or hide control. This is critical for students with attention or vestibular disorders.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> An animated Seesaw activity has a pause button so a student with vestibular sensitivity or ADHD can stop the motion without losing their place.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-3-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-3-1')" aria-label="2.3.1 Three Flashes">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.3.1 · Three Flashes or Below Threshold · Level A</div>
+              <div class="checklist-title">No content flashes more than three times per second</div>
+              <div class="checklist-desc">Flashing content above this threshold can trigger photosensitive seizures. This applies to animations, video, and interactive effects.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Prodigy game's combat animation doesn't include rapid flashing sequences that could trigger seizures in students with photosensitive epilepsy.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-1')" aria-label="2.4.1 Bypass Blocks">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.1 · Bypass Blocks · Level A</div>
+              <div class="checklist-title">Users can skip repetitive navigation blocks</div>
+              <div class="checklist-desc">A skip navigation link or landmark structure allows keyboard and screen reader users to skip past repeated menus and headers directly to main content.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Canvas course page has a "Skip to main content" link so a student using a screen reader doesn't have to tab through 30 navigation items every time they load the page.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-2')" aria-label="2.4.2 Page Titled">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.2 · Page Titled · Level A</div>
+              <div class="checklist-title">Every page has a descriptive, unique title</div>
+              <div class="checklist-desc">Page titles appear in browser tabs and are announced by screen readers — they must describe the page's topic or purpose.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Each Schoology course page has a unique title (e.g., "7th Grade Science — Unit 3: Ecosystems") so students using multiple tabs can identify each without reading every page.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-3')" aria-label="2.4.3 Focus Order">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.3 · Focus Order · Level A</div>
+              <div class="checklist-title">Keyboard focus order is logical and meaningful</div>
+              <div class="checklist-desc">Tab order follows the visual or logical sequence of the page — not a random or disconnected order that confuses the meaning of the content.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Google Classroom assignment form moves keyboard focus from title → instructions → attachments → submit button in the order a student would naturally complete it.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-4">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-4')" aria-label="2.4.4 Link Purpose">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.4 · Link Purpose (In Context) · Level A</div>
+              <div class="checklist-title">Link text describes the link's purpose</div>
+              <div class="checklist-desc">Links must have descriptive text. "Click here" and "Read more" fail this criterion — screen reader users navigating by links can't tell where they go.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Newsela article list uses "Read: Should Schools Start Later?" as link text, not "Click here" for every article.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-5">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-5')" aria-label="2.4.5 Multiple Ways">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.5 · Multiple Ways · Level AA</div>
+              <div class="checklist-title">There is more than one way to find content</div>
+              <div class="checklist-desc">A site with multiple pages must offer multiple navigation methods — search, site map, or table of contents — not just sequential navigation.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Schoology's course materials have both a menu navigation and a search function so students can find assignments multiple ways.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-6">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-6')" aria-label="2.4.6 Headings and Labels">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.6 · Headings and Labels · Level AA</div>
+              <div class="checklist-title">Headings and form labels are descriptive</div>
+              <div class="checklist-desc">Where headings and labels are used, they accurately describe the content or purpose of the section or form field.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> An Edulastic quiz uses clear question headings ("Question 3 of 10: Reading Comprehension") not just "Q3" so screen reader users understand context.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-2-4-7">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '2-4-7')" aria-label="2.4.7 Focus Visible">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">2.4.7 · Focus Visible · Level AA ⚠ Commonly failed</div>
+              <div class="checklist-title">Keyboard focus indicator is always visible</div>
+              <div class="checklist-desc">There must be a visible indicator (outline, highlight, underline) showing which element currently has keyboard focus. Many tools suppress the browser's default focus ring with CSS.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> When a student using keyboard navigation tabs through a Kahoot game lobby, a visible focus ring shows which button is currently selected.</div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- UNDERSTANDABLE -->
+      <section class="principle-section" data-principle="understandable" aria-label="Understandable criteria">
+        <div class="principle-header">
+          <div class="principle-dot understandable"></div>
+          <div>
+            <div class="principle-name">Understandable</div>
+            <div class="principle-desc">Content and UI must be readable and understandable — users must be able to comprehend content and predict how the interface behaves.</div>
+          </div>
+        </div>
+
+        <div class="checklist-item" id="item-3-1-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-1-1')" aria-label="3.1.1 Language of Page">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.1.1 · Language of Page · Level A</div>
+              <div class="checklist-title">The default language of each page is identified in the HTML</div>
+              <div class="checklist-desc">The lang attribute on the &lt;html&gt; tag tells screen readers which language rules to apply for pronunciation.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Duolingo for Schools Spanish lesson page has lang="es" on Spanish content blocks so a screen reader pronounces the text correctly, not reading Spanish with English phonetics.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-1-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-1-2')" aria-label="3.1.2 Language of Parts">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.1.2 · Language of Parts · Level AA</div>
+              <div class="checklist-title">Language changes within a page are programmatically marked</div>
+              <div class="checklist-desc">When a passage uses a different language than the page default, that change is identified with a lang attribute.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A bilingual Newsela article that switches between English and Spanish marks the language of each paragraph so a screen reader switches pronunciation rules accordingly.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-2-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-2-1')" aria-label="3.2.1 On Focus">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.2.1 · On Focus · Level A</div>
+              <div class="checklist-title">Receiving focus doesn't automatically trigger a context change</div>
+              <div class="checklist-desc">Tabbing to a form field, button, or link should not automatically submit a form, open a dialog, or navigate away from the page.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Tabbing to a Google Classroom dropdown menu does not automatically select an assignment category — the student must press Enter to activate the selection.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-2-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-2-2')" aria-label="3.2.2 On Input">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.2.2 · On Input · Level A</div>
+              <div class="checklist-title">Changing a setting doesn't automatically submit a form</div>
+              <div class="checklist-desc">Selecting a radio button or checkbox should not submit the form or navigate away without warning — unless the user is explicitly informed beforehand.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Selecting an answer on a Formative multiple-choice question doesn't immediately auto-submit — the student must confirm their answer with a submit button.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-2-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-2-3')" aria-label="3.2.3 Consistent Navigation">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.2.3 · Consistent Navigation · Level AA</div>
+              <div class="checklist-title">Navigation is consistent across pages</div>
+              <div class="checklist-desc">Navigation menus that appear on multiple pages occur in the same relative order across those pages, reducing cognitive load for students with learning disabilities.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> Every Seesaw class page has the assignment button in the same location so students with cognitive disabilities don't have to relearn the layout for each class.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-2-4">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-2-4')" aria-label="3.2.4 Consistent Identification">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.2.4 · Consistent Identification · Level AA</div>
+              <div class="checklist-title">Components with the same function are identified consistently</div>
+              <div class="checklist-desc">A search field, submit button, or navigation element that appears on multiple pages uses the same name, label, or icon on every page.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> The "Turn In" button in Google Classroom is always labeled "Turn In" — not "Submit" on one assignment and "Hand In" on another.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-3-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-3-1')" aria-label="3.3.1 Error Identification">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.3.1 · Error Identification · Level A</div>
+              <div class="checklist-title">Input errors are identified and described in text</div>
+              <div class="checklist-desc">When a form submission fails validation, the error is described in text — not just indicated with a red border or icon alone.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> When a student submits an incomplete Edulastic assignment, the error message says "Question 4 requires a response" — not just turns the field red.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-3-3-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '3-3-2')" aria-label="3.3.2 Labels or Instructions">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">3.3.2 · Labels or Instructions · Level A</div>
+              <div class="checklist-title">Form fields have labels or instructions</div>
+              <div class="checklist-desc">Every input field has a label or clear instruction that tells the user what to enter. Placeholder text alone does not meet this criterion.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Remind account creation form labels each field ("School Email Address," "Grade Level") — not just placeholder text that disappears when the student starts typing.</div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- ROBUST -->
+      <section class="principle-section" data-principle="robust" aria-label="Robust criteria">
+        <div class="principle-header">
+          <div class="principle-dot robust"></div>
+          <div>
+            <div class="principle-name">Robust</div>
+            <div class="principle-desc">Content must be robust enough to be reliably interpreted by a wide variety of assistive technologies — now and in the future.</div>
+          </div>
+        </div>
+
+        <div class="checklist-item" id="item-4-1-1">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '4-1-1')" aria-label="4.1.1 Parsing">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">4.1.1 · Parsing · Level A</div>
+              <div class="checklist-title">HTML is well-formed and has no parsing errors</div>
+              <div class="checklist-desc">The HTML source code has no duplicate IDs, unclosed tags, or other structural errors that could confuse assistive technologies.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A Pear Deck slide's HTML doesn't have duplicate element IDs that cause a screen reader to skip or misread interactive elements.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-4-1-2">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '4-1-2')" aria-label="4.1.2 Name, Role, Value">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">4.1.2 · Name, Role, Value · Level A ⚠ Commonly failed</div>
+              <div class="checklist-title">UI components have accessible name, role, and state</div>
+              <div class="checklist-desc">Every interactive element (button, dropdown, toggle, tab) has a programmatic name, role, and state that screen readers can convey to users. Custom controls built with divs instead of native HTML elements commonly fail this criterion.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A ClassDojo behavior point button uses proper ARIA attributes (aria-label="Add point for Marcus", role="button") so a screen reader user knows exactly what the button does and who it affects.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-4-1-3">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '4-1-3')" aria-label="4.1.3 Status Messages">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">4.1.3 · Status Messages · Level AA (WCAG 2.1 new)</div>
+              <div class="checklist-title">Status messages are programmatically communicated without focus</div>
+              <div class="checklist-desc">When a status update appears (e.g., "Assignment submitted," "3 questions remaining") without moving focus, that message is conveyed to screen readers via ARIA live regions.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> When a Formative student submits an answer, a "Submitted!" status message is announced to screen readers via aria-live="polite" even though focus didn't move.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-10">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-10')" aria-label="1.4.10 Reflow">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.10 · Reflow · Level AA (WCAG 2.1 new)</div>
+              <div class="checklist-title">Content reflows at 400% zoom without horizontal scrolling</div>
+              <div class="checklist-desc">When a user zooms to 400% on a 1280px-wide viewport, content reflows to a single column without requiring both horizontal and vertical scrolling.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> A student using a tablet on low vision settings can zoom Google Classroom to 400% and still read the full assignment description by scrolling vertically only.</div>
+            </div>
+          </label>
+        </div>
+
+        <div class="checklist-item" id="item-1-4-11">
+          <label class="checklist-label">
+            <input type="checkbox" class="checklist-input" onchange="updateItem(this, '1-4-11')" aria-label="1.4.11 Non-text Contrast">
+            <div class="checklist-checkbox"><span class="checklist-checkbox-icon">✓</span></div>
+            <div class="checklist-content">
+              <div class="checklist-code">1.4.11 · Non-text Contrast · Level AA (WCAG 2.1 new)</div>
+              <div class="checklist-title">UI components and graphical objects have 3:1 contrast</div>
+              <div class="checklist-desc">Interface components (button borders, focus rings, form field outlines) and meaningful graphics (chart lines, icons) have at least 3:1 contrast against adjacent colors.</div>
+              <div class="checklist-example"><strong>K-12 example:</strong> The checkbox borders on a Quizlet matching activity have sufficient contrast against the card background so students with low vision can see where to click.</div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <div class="callout success">
+        <div class="callout-label">How to use this with a VPAT</div>
+        <p>For each criterion above, check whether the vendor's VPAT says "Supports," "Partially Supports," or "Does Not Support." Focus especially on criteria marked ⚠ — these are where edtech tools most commonly fail. Any "Does Not Support" entry on a criterion used in your educational program needs a documented accessible alternative.</p>
+      </div>
+
+      <h2 style="font-size:clamp(22px, 3vw, 28px); font-weight:800; letter-spacing:-0.025em; color:var(--white); margin:48px 0 16px;">Frequently Asked Questions</h2>
+
+      <h3 style="font-size:18px; font-weight:700; color:var(--white); margin:24px 0 10px;">What is WCAG 2.1 AA?</h3>
+      <p style="font-size:17px; line-height:1.75; color:var(--text); margin-bottom:20px;">WCAG 2.1 AA (Web Content Accessibility Guidelines, version 2.1, Level AA) is the technical standard required by the DOJ's 2024 ADA Title II final rule for K-12 school districts. It's organized around four principles — Perceivable, Operable, Understandable, Robust — and Level AA represents a comprehensive accessibility baseline appropriate for educational environments.</p>
+
+      <h3 style="font-size:18px; font-weight:700; color:var(--white); margin:24px 0 10px;">Does WCAG 2.1 AA apply to K-12 schools?</h3>
+      <p style="font-size:17px; line-height:1.75; color:var(--text); margin-bottom:20px;">Yes. The DOJ's 2024 final rule specifically requires public school districts to ensure their web-based tools and digital content conform to WCAG 2.1 AA. The compliance deadline for large districts (50,000+ residents) was April 24, 2026; smaller districts have until April 26, 2027.</p>
+
+      <h3 style="font-size:18px; font-weight:700; color:var(--white); margin:24px 0 10px;">How do I use a WCAG checklist for edtech procurement?</h3>
+      <p style="font-size:17px; line-height:1.75; color:var(--text); margin-bottom:32px;">Use this checklist alongside a vendor's VPAT. For each criterion, verify whether the vendor claims "Supports," "Partially Supports," or "Does Not Support." Pay special attention to the ⚠ commonly-failed criteria: color contrast (1.4.3), keyboard navigation (2.1.1), no keyboard trap (2.1.2), and screen reader compatibility (4.1.2). Any "Does Not Support" on a student-facing criterion needs a documented accessible alternative in your compliance file.</p>
+
+      <div class="cta-block">
+        <h3>Check Your Tools' Current Compliance Status</h3>
+        <p>See which tools already have VPAT documentation and which need your outreach — free, instant, no account required.</p>
+        <a href="/" class="cta-btn">Run a Free Compliance Check →</a>
+      </div>
+
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">District<em>Check</em></div>
+    <div>Copyright 2026 DistrictCheck · Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
+  </footer>
+
+  <script>
+    const TOTAL = 38;
+    let checked = new Set();
+
+    // Load from localStorage
+    try {
+      const saved = JSON.parse(localStorage.getItem('wcag-checklist') || '[]');
+      saved.forEach(function(id) {
+        checked.add(id);
+        var item = document.getElementById('item-' + id);
+        if (item) {
+          item.classList.add('checked');
+          var input = item.querySelector('.checklist-input');
+          if (input) input.checked = true;
+        }
+      });
+    } catch(e) {}
+    updateProgress();
+
+    function updateItem(checkbox, id) {
+      var item = document.getElementById('item-' + id);
+      if (checkbox.checked) {
+        checked.add(id);
+        if (item) item.classList.add('checked');
+      } else {
+        checked.delete(id);
+        if (item) item.classList.remove('checked');
+      }
+      updateProgress();
+      try { localStorage.setItem('wcag-checklist', JSON.stringify([...checked])); } catch(e) {}
+    }
+
+    function updateProgress() {
+      var n = checked.size;
+      var pct = Math.round((n / TOTAL) * 100);
+      document.getElementById('progress-fill').style.width = pct + '%';
+      document.getElementById('progress-count').textContent = n + ' / ' + TOTAL + ' criteria reviewed';
+      var track = document.getElementById('progress-track');
+      if (track) track.setAttribute('aria-valuenow', n);
+    }
+
+    function resetChecklist() {
+      if (!confirm('Reset all checked items?')) return;
+      checked.clear();
+      document.querySelectorAll('.checklist-item').forEach(function(item) {
+        item.classList.remove('checked');
+        var input = item.querySelector('.checklist-input');
+        if (input) input.checked = false;
+      });
+      updateProgress();
+      try { localStorage.removeItem('wcag-checklist'); } catch(e) {}
+    }
+
+    function filterPrinciple(p, btn) {
+      document.querySelectorAll('.principle-tab').forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+      document.querySelectorAll('.principle-section').forEach(function(s) {
+        if (p === 'all' || s.getAttribute('data-principle') === p) {
+          s.style.display = 'block';
+        } else {
+          s.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ADA Compliant Content & Curriculum Tools for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="Newsela, CommonLit, ReadWorks, Khan Academy, BrainPOP, Discovery Education — ADA accessibility comparison for K-12 content and curriculum platforms.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://districtcheck.io/tools/content/index.html">
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+
+  <meta property="og:title" content="ADA Compliant Content & Curriculum Tools for K-12 Districts | DistrictCheck">
+  <meta property="og:description" content="Compare accessibility documentation and risk tiers for Khan Academy, Newsela, BrainPOP, Discovery Education, CommonLit, and ReadWorks.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://districtcheck.io/tools/content/index.html">
+  <meta property="og:site_name" content="DistrictCheck">
+  <meta property="og:image" content="https://districtcheck.io/og-default.png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ADA Compliant Content & Curriculum Tools for K-12 Districts | DistrictCheck">
+  <meta name="twitter:description" content="Compare accessibility documentation and risk tiers for Khan Academy, Newsela, BrainPOP, Discovery Education, CommonLit, and ReadWorks.">
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png">
+
+  <style>
+    :root {
+      --dark: #0E1013;
+      --surface: #16191E;
+      --card: #1C2027;
+      --border: #272C35;
+      --muted: #7B8490;
+      --text: #D8DCE3;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --yellow: #F59E0B;
+      --orange: #F97316;
+      --red: #F87171;
+      --blue: #3B82F6;
+      --accent: #5254CC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background-color: var(--dark);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 8px 16px;
+      text-decoration: none;
+      z-index: 100;
+      border-radius: 0 0 4px 0;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Navigation */
+    nav {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-logo em {
+      font-style: normal;
+      color: var(--accent);
+      margin-left: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--white);
+    }
+
+    .nav-cta {
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover {
+      opacity: 0.9;
+    }
+
+    /* Main content */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Breadcrumb */
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumb a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      margin: 0 4px;
+    }
+
+    /* Page tag */
+    .page-tag {
+      display: inline-block;
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Heading */
+    h1 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+      margin-top: 32px;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    /* Intro section */
+    .intro {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 40px;
+      max-width: 800px;
+    }
+
+    /* Comparison table */
+    .table-container {
+      overflow-x: auto;
+      margin-bottom: 40px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: var(--card);
+    }
+
+    thead {
+      background-color: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      padding: 16px;
+      text-align: left;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    tbody tr:hover {
+      background-color: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Badge styles */
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .badge-red {
+      background-color: rgba(248, 113, 113, 0.1);
+      color: var(--red);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+    }
+
+    .badge-orange {
+      background-color: rgba(249, 115, 22, 0.1);
+      color: var(--orange);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+    }
+
+    .badge-yellow {
+      background-color: rgba(245, 158, 11, 0.1);
+      color: var(--yellow);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .badge-green {
+      background-color: rgba(34, 197, 94, 0.1);
+      color: var(--green);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+    }
+
+    /* Callout */
+    .callout {
+      background-color: var(--card);
+      border-left: 4px solid var(--red);
+      padding: 20px;
+      border-radius: 4px;
+      margin-bottom: 40px;
+    }
+
+    .callout.success {
+      border-left-color: var(--green);
+    }
+
+    .callout p {
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* Tool cards grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .tool-card {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 12px rgba(82, 84, 204, 0.1);
+    }
+
+    .tool-card h3 {
+      margin-bottom: 12px;
+    }
+
+    .tool-card .badge {
+      margin-bottom: 16px;
+    }
+
+    .tool-card p {
+      flex-grow: 1;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text);
+    }
+
+    .tool-card a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .tool-card a:hover {
+      color: var(--accent);
+    }
+
+    /* Key points section */
+    .key-points {
+      margin-bottom: 40px;
+    }
+
+    .key-points ol {
+      list-style: none;
+      counter-reset: point-counter;
+    }
+
+    .key-points li {
+      counter-increment: point-counter;
+      margin-bottom: 20px;
+      padding-left: 36px;
+      position: relative;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .key-points li::before {
+      content: counter(point-counter);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background-color: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* FAQ section */
+    .faq {
+      margin-bottom: 40px;
+    }
+
+    .faq-item {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--card);
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-weight: 600;
+      color: var(--white);
+      font-size: 15px;
+      transition: background-color 0.2s;
+    }
+
+    .faq-question:hover {
+      background-color: rgba(255, 255, 255, 0.04);
+    }
+
+    .faq-question::after {
+      content: '▼';
+      font-size: 12px;
+      color: var(--muted);
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-question::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 500px;
+    }
+
+    .faq-answer-content {
+      padding: 0 20px 20px 20px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    /* CTA Block */
+    .cta-block {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cta-block h3 {
+      margin-bottom: 20px;
+    }
+
+    .cta-link {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 12px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: opacity 0.2s;
+    }
+
+    .cta-link:hover {
+      opacity: 0.9;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-logo {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    .footer-logo em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .nav-container {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        gap: 16px;
+        flex-direction: column;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-block {
+        padding: 24px;
+      }
+
+      table {
+        font-size: 12px;
+      }
+
+      th, td {
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav>
+    <div class="nav-container">
+      <a href="/" class="nav-logo">District<em>Check</em></a>
+      <ul class="nav-links">
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/tools">Browse Tools</a></li>
+        <li><a href="/tools/content" class="nav-cta">Check a Tool →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <div class="breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/tools">Tools</a>
+      <span>/</span>
+      <span>Content & Curriculum</span>
+    </div>
+
+    <span class="page-tag">Category Guide</span>
+
+    <h1>ADA Compliant Content & Curriculum Tools for K-12 Districts</h1>
+
+    <p class="intro">
+      Content and curriculum platforms deliver the actual instructional material students engage with — reading passages, videos, interactive lessons. For students with visual impairments, learning disabilities, or physical disabilities, the accessibility of these tools directly determines whether they can access the curriculum. A student who can't navigate a reading platform with a screen reader, or who can't read low-contrast text, is excluded from the content — not just inconvenienced.
+    </p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Tool</th>
+            <th>Risk Tier</th>
+            <th>VPAT Status</th>
+            <th>WCAG Claim</th>
+            <th>Note</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Khan Academy</strong></td>
+            <td><span class="badge badge-green">Low</span></td>
+            <td>Exists (2024)</td>
+            <td>Specific claim</td>
+            <td>Strongest documentation in this category</td>
+          </tr>
+          <tr>
+            <td><strong>Newsela</strong></td>
+            <td><span class="badge badge-yellow">Medium</span></td>
+            <td>Exists (2023)</td>
+            <td>Specific claim</td>
+            <td>VPAT exists; verify for current version</td>
+          </tr>
+          <tr>
+            <td><strong>BrainPOP</strong></td>
+            <td><span class="badge badge-yellow">Medium</span></td>
+            <td>Exists (2022)</td>
+            <td>Specific claim</td>
+            <td>Older VPAT — request updated version</td>
+          </tr>
+          <tr>
+            <td><strong>Discovery Education</strong></td>
+            <td><span class="badge badge-yellow">Medium</span></td>
+            <td>Exists, current</td>
+            <td>Partial claim</td>
+            <td>Partial support areas; review for video accessibility</td>
+          </tr>
+          <tr>
+            <td><strong>CommonLit</strong></td>
+            <td><span class="badge badge-orange">High</span></td>
+            <td>Not found</td>
+            <td>None</td>
+            <td>No documentation; widely used for ELA</td>
+          </tr>
+          <tr>
+            <td><strong>ReadWorks</strong></td>
+            <td><span class="badge badge-orange">High</span></td>
+            <td>Not found</td>
+            <td>None</td>
+            <td>No documentation; widely used for reading</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout success">
+      <p>
+        <strong>Khan Academy stands out in this category with a 2024 VPAT and specific WCAG 2.1 AA claim</strong> — the strongest documentation of any content platform reviewed. Districts with flexibility in curriculum tool selection can treat Khan Academy's documentation strength as a differentiator.
+      </p>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Khan Academy</h3>
+        <span class="badge badge-green">Low Risk</span>
+        <p>
+          2024 VPAT, specific WCAG 2.1 AA claim. Best-documented content platform in this review.
+        </p>
+        <a href="/tools/khan-academy.html">View Full Review →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Newsela</h3>
+        <span class="badge badge-yellow">Medium Risk</span>
+        <p>
+          2023 VPAT with specific WCAG claim. Solid documentation but verify current version is covered.
+        </p>
+        <a href="/tools/newsela.html">View Full Review →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>BrainPOP</h3>
+        <span class="badge badge-yellow">Medium Risk</span>
+        <p>
+          2022 VPAT with specific WCAG claim. Documentation exists but is approaching age threshold — request updated ACR.
+        </p>
+        <a href="/tools/brainpop.html">View Full Review →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Discovery Education</h3>
+        <span class="badge badge-yellow">Medium Risk</span>
+        <p>
+          Current VPAT with partial conformance claim. Strong presence in districts but video accessibility areas need review.
+        </p>
+        <a href="/tools/discovery-education.html">View Full Review →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>CommonLit</h3>
+        <span class="badge badge-orange">High Risk</span>
+        <p>
+          No VPAT found, no WCAG claim. Widely deployed for ELA. Districts using CommonLit for required reading assignments should request VPAT now.
+        </p>
+        <a href="/tools/commonlit.html">View Full Review →</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>ReadWorks</h3>
+        <span class="badge badge-orange">High Risk</span>
+        <p>
+          No VPAT found, no WCAG claim. Free platform widely adopted for reading passages. Request VPAT and review for screen reader compatibility.
+        </p>
+        <a href="/tools/readworks.html">View Full Review →</a>
+      </div>
+    </div>
+
+    <h2>Specific Accessibility Risks in Content Tools</h2>
+
+    <div class="key-points">
+      <ol>
+        <li>
+          <strong>Reading passage accessibility:</strong> Text must be real HTML (not images of text), resizable, and compatible with read-aloud software. Students with dyslexia or visual impairments depend on this.
+        </li>
+        <li>
+          <strong>Video accessibility:</strong> Educational videos require accurate synchronized captions, not just auto-generated. Audio description tracks are needed when visuals convey curriculum-critical information.
+        </li>
+        <li>
+          <strong>Interactive content:</strong> Quizzes and exercises embedded in content platforms must be keyboard navigable and provide error identification that works with screen readers.
+        </li>
+      </ol>
+    </div>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-question">What content platform has the best ADA accessibility documentation?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Khan Academy is rated Low risk by DistrictCheck with a current 2024 VPAT and specific WCAG 2.1 AA claim — the strongest documentation in this category. BrainPOP, Newsela, and Discovery Education have VPATs with varying degrees of completeness; CommonLit and ReadWorks have no current VPAT documentation.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Is CommonLit accessible for students with disabilities?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            CommonLit is rated High risk by DistrictCheck — no VPAT is publicly available and no specific WCAG conformance claim has been made. Districts using CommonLit for required ELA assignments should request accessibility documentation from the vendor and document accessible alternatives for students who cannot use the platform without barriers.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question">Do educational video platforms need audio description tracks?</button>
+        <div class="faq-answer">
+          <div class="faq-answer-content">
+            Yes. Under WCAG 2.1 criterion 1.2.5, prerecorded video where the audio doesn't fully describe the visual content requires an audio description track. This applies to instructional videos on Discovery Education, BrainPOP, and any other content platform that uses video as a primary instructional medium.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-block">
+      <h3>Check All Your Content Tools</h3>
+      <a href="/" class="cta-link">Go to DistrictCheck →</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-logo">District<em>Check</em></div>
+      <div class="footer-copyright">&copy; 2024 DistrictCheck. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ADA Compliant Content & Curriculum Tools for K-12 Districts",
+    "description": "Newsela, CommonLit, ReadWorks, Khan Academy, BrainPOP, Discovery Education — ADA accessibility comparison for K-12 content and curriculum platforms.",
+    "url": "https://districtcheck.io/tools/content/index.html",
+    "datePublished": "2024-01-01",
+    "author": {
+      "@type": "Organization",
+      "name": "DistrictCheck"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What content platform has the best ADA accessibility documentation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Khan Academy is rated Low risk by DistrictCheck with a current 2024 VPAT and specific WCAG 2.1 AA claim — the strongest documentation in this category. BrainPOP, Newsela, and Discovery Education have VPATs with varying degrees of completeness; CommonLit and ReadWorks have no current VPAT documentation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is CommonLit accessible for students with disabilities?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CommonLit is rated High risk by DistrictCheck — no VPAT is publicly available and no specific WCAG conformance claim has been made. Districts using CommonLit for required ELA assignments should request accessibility documentation from the vendor and document accessible alternatives for students who cannot use the platform without barriers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do educational video platforms need audio description tracks?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Under WCAG 2.1 criterion 1.2.5, prerecorded video where the audio doesn't fully describe the visual content requires an audio description track. This applies to instructional videos on Discovery Education, BrainPOP, and any other content platform that uses video as a primary instructional medium."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script>
+    document.querySelectorAll('.faq-question').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+  </script>
+</body>
+</html>

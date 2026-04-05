@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vendor VPAT Request Email Templates for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="Copy-paste email templates for requesting a VPAT from edtech vendors — initial request, follow-up, and escalation. Built for K-12 district IT teams and compliance officers." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/resources/vendor-vpat-request-template.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+  <meta property="og:title" content="Vendor VPAT Request Email Templates for K-12 Districts | DistrictCheck" />
+  <meta property="og:description" content="Copy-paste email templates for requesting a VPAT from edtech vendors — initial request, follow-up, and escalation." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://districtcheck.io/resources/vendor-vpat-request-template.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vendor VPAT Request Email Templates for K-12 Districts | DistrictCheck" />
+  <meta name="twitter:description" content="Copy-paste email templates for requesting a VPAT from edtech vendors — initial request, follow-up, and escalation." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Vendor VPAT Request Email Templates for K-12 Districts",
+    "description": "Copy-paste email templates for requesting a VPAT from edtech vendors — initial request, follow-up, and escalation. Built for K-12 district IT teams.",
+    "datePublished": "2026-04-05",
+    "author": { "@type": "Organization", "name": "DistrictCheck" },
+    "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is a VPAT and why do I need one from my edtech vendor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A VPAT (Voluntary Product Accessibility Template) is the standard document vendors use to report how their product conforms to accessibility standards like WCAG 2.1. Under the DOJ's 2024 ADA Title II final rule, K-12 school districts must have documented accessibility conformance for every web-based tool they deploy. A current VPAT is your primary documentation that a tool has been evaluated for accessibility — without it, you have no written basis for claiming compliance."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I request a VPAT from an edtech vendor?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Start by checking the vendor's public website — many post VPATs under Legal, Accessibility, or Trust pages. If not available, email the vendor's sales contact or customer success manager with a written request citing ADA Title II compliance requirements. Use specific language: request a current VPAT or ACR (Accessibility Conformance Report) addressing WCAG 2.1 Level AA. Document the date you sent the request — that date becomes part of your compliance record regardless of how quickly the vendor responds."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if a vendor won't provide a VPAT?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Document every request you send and every non-response. A vendor that refuses or ignores VPAT requests is a compliance risk that should affect your procurement and renewal decisions. In the interim, document an accessible alternative pathway for students who need it. For high-risk tools where vendor outreach has failed, consider sending a formal letter from your district's legal counsel citing the specific compliance requirement and requesting a written response within 30 days."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #7B8490;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #F87171;
+      --blue:    #3B82F6;
+      --accent:  #5254CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark); color: var(--text);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute; left: 20px; top: 16px;
+      transform: translateY(-180%);
+      background: var(--white); color: var(--dark);
+      padding: 10px 14px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px; border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+    .wrap { max-width: 740px; margin: 0 auto; padding: 0 24px; }
+    .page-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+      margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .breadcrumb-sep { color: var(--border); }
+    .page-tag {
+      display: inline-block;
+      background: rgba(82,84,204,0.15); color: var(--accent);
+      border: 1px solid rgba(82,84,204,0.3);
+      border-radius: 4px; padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(28px, 4.5vw, 44px);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px;
+    }
+    .page-meta { font-size: 13px; color: var(--muted); }
+    .page-body { padding-bottom: 80px; }
+    .page-body p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 24px; }
+    .page-body h2 {
+      font-size: clamp(22px, 3vw, 28px); font-weight: 800;
+      letter-spacing: -0.025em; line-height: 1.15;
+      color: var(--white); margin: 48px 0 16px;
+    }
+    .page-body h3 { font-size: 18px; font-weight: 700; letter-spacing: -0.015em; color: var(--white); margin: 32px 0 12px; }
+    .page-body ul, .page-body ol { margin: 0 0 24px 0; padding-left: 24px; }
+    .page-body li { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+    .page-body strong { color: var(--white); font-weight: 700; }
+    .page-body a { text-decoration: underline; text-underline-offset: 0.14em; }
+
+    /* TEMPLATE CARD */
+    .template-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden; margin-bottom: 32px;
+    }
+    .template-header {
+      padding: 18px 24px; border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .template-title { font-size: 15px; font-weight: 700; color: var(--white); }
+    .template-badge {
+      display: inline-block;
+      border-radius: 4px; padding: 3px 10px;
+      font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .badge-1 { background: rgba(34,197,94,0.15); color: var(--green); }
+    .badge-2 { background: rgba(245,158,11,0.15); color: var(--yellow); }
+    .badge-3 { background: rgba(239,68,68,0.15); color: var(--red); }
+    .template-meta {
+      padding: 12px 24px; border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .template-meta-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .template-meta-item { font-size: 12px; color: var(--muted); }
+    .template-meta-item strong { color: var(--text); }
+    .template-body {
+      padding: 0;
+    }
+    .template-pre {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+      font-size: 13.5px; line-height: 1.65;
+      color: var(--text);
+      background: transparent;
+      padding: 24px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      border: none; outline: none;
+      display: block; width: 100%;
+    }
+    .template-pre .placeholder {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .template-actions {
+      padding: 14px 24px; border-top: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .copy-btn {
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); padding: 8px 16px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .copy-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .copy-btn.copied { border-color: var(--green); color: var(--green); }
+    .copy-hint { font-size: 12px; color: var(--muted); }
+
+    .callout {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 10px;
+      padding: 20px 24px; margin: 32px 0;
+    }
+    .callout.success { border-left-color: var(--green); }
+    .callout.warning { border-left-color: var(--yellow); }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 8px; color: var(--accent);
+    }
+    .callout.success .callout-label { color: var(--green); }
+    .callout.warning .callout-label { color: var(--yellow); }
+    .callout p { margin-bottom: 0 !important; font-size: 15px !important; }
+    .cta-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px; text-align: center; margin: 48px 0;
+    }
+    .cta-block h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); font-size: 15px; margin-bottom: 24px; }
+    .cta-btn {
+      display: inline-block; background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer-logo { font-size: 15px; font-weight: 800; color: var(--white); }
+    .footer-logo em { color: var(--accent); font-style: normal; }
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="DistrictCheck">District<em>Check</em></a>
+    <div class="nav-right">
+      <a href="/blog/index.html" class="nav-link">Blog</a>
+      <a href="/#tools" class="nav-link">Browse Tools</a>
+      <a href="/" class="nav-cta">Check a Tool →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <div class="wrap">
+    <header class="page-header">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Resources</span>
+        <span class="breadcrumb-sep">/</span>
+        Vendor VPAT Request Templates
+      </nav>
+      <div class="page-tag">Resource</div>
+      <h1>Vendor VPAT Request Email Templates</h1>
+      <p class="page-meta">Updated April 2026 &nbsp;·&nbsp; DistrictCheck Team</p>
+    </header>
+
+    <div class="page-body">
+
+      <p>Under the DOJ's 2024 ADA Title II final rule, school districts need documented WCAG 2.1 AA conformance for every web-based tool they deploy. That documentation starts with a VPAT (Voluntary Product Accessibility Template) — and most vendors won't proactively provide one. You have to ask.</p>
+
+      <p>These three templates cover the full outreach sequence: an initial request, a follow-up if the vendor doesn't respond, and a formal escalation for tools where your outreach has stalled. <strong>The date you send the initial request becomes part of your good-faith compliance record</strong> — so send these now, even if the deadline has already passed.</p>
+
+      <p>Replace all <span style="color:var(--accent); font-weight:700;">[bracketed text]</span> before sending. Send from a work email address. Keep a copy of every email you send in your district's compliance documentation file.</p>
+
+      <div class="callout warning">
+        <div class="callout-label">Before you send</div>
+        <p>Check if the vendor has already published their VPAT publicly — search "[tool name] VPAT" or "[tool name] accessibility conformance report." Many vendors post them under Legal, Accessibility, or Trust pages. If a VPAT exists, download it and add it to your documentation file rather than requesting one.</p>
+      </div>
+
+      <h2>Template 1: Initial VPAT Request</h2>
+      <p>Use this as your first outreach to any vendor that doesn't have a publicly available VPAT. Send to your customer success contact or, if you don't have one, to the vendor's general support email.</p>
+
+      <div class="template-card">
+        <div class="template-header">
+          <span class="template-title">Initial VPAT Request</span>
+          <span class="template-badge badge-1">Send First</span>
+        </div>
+        <div class="template-meta">
+          <div class="template-meta-row">
+            <div class="template-meta-item"><strong>To:</strong> Customer Success Manager / Vendor Support</div>
+            <div class="template-meta-item"><strong>Timeline:</strong> Send immediately</div>
+            <div class="template-meta-item"><strong>Follow up if:</strong> No response in 14 days</div>
+          </div>
+        </div>
+        <div class="template-body">
+          <pre class="template-pre" id="template-1">Subject: ADA Title II Accessibility Documentation Request — [Tool Name]
+
+Dear [Vendor Contact Name / [Tool Name] Support Team],
+
+I'm writing on behalf of [District Name] to request accessibility documentation for [Tool Name] as part of our ADA Title II compliance review.
+
+As you may be aware, the U.S. Department of Justice issued a final rule in 2024 (89 FR 31320) requiring state and local government entities — including K-12 public school districts — to ensure that web-based tools and digital applications used in their programs conform to WCAG 2.1 Level AA. Our district's compliance date is [April 24, 2026 / April 26, 2027].
+
+To document our compliance review for [Tool Name], we are requesting:
+
+1. A current Voluntary Product Accessibility Template (VPAT) or Accessibility Conformance Report (ACR) for [Tool Name] addressing WCAG 2.1 Level AA
+2. Confirmation of the date the VPAT was last updated
+3. A list of any known accessibility barriers or partial-support areas at the WCAG 2.1 AA level
+
+If a current VPAT is publicly available, please direct us to the URL. If one is not yet available, please let us know your expected timeline for producing one.
+
+We are documenting this outreach as part of our district's compliance record. Please respond at your earliest convenience and no later than [Date 30 days from today].
+
+Thank you for your attention to this matter.
+
+[Your Name]
+[Your Title]
+[District Name]
+[Email] | [Phone]</pre>
+        </div>
+        <div class="template-actions">
+          <button class="copy-btn" onclick="copyTemplate('template-1', this)" aria-label="Copy Template 1 to clipboard">Copy Template</button>
+          <span class="copy-hint">Replaces [bracketed placeholders] before sending</span>
+        </div>
+      </div>
+
+      <h2>Template 2: Follow-Up (No Response)</h2>
+      <p>Use this if you've sent the initial request and haven't received a response after 14 days. Send to the same contact and CC a manager or director if you can find one.</p>
+
+      <div class="template-card">
+        <div class="template-header">
+          <span class="template-title">Follow-Up: No Response After 14 Days</span>
+          <span class="template-badge badge-2">14 Days Later</span>
+        </div>
+        <div class="template-meta">
+          <div class="template-meta-row">
+            <div class="template-meta-item"><strong>To:</strong> Original contact + CC a manager</div>
+            <div class="template-meta-item"><strong>Timeline:</strong> 14 days after Template 1</div>
+            <div class="template-meta-item"><strong>Follow up if:</strong> No response in 14 more days → Template 3</div>
+          </div>
+        </div>
+        <div class="template-body">
+          <pre class="template-pre" id="template-2">Subject: Follow-Up: ADA Title II Accessibility Documentation — [Tool Name]
+
+Dear [Vendor Contact Name],
+
+I'm following up on my email from [Original Date] requesting accessibility documentation for [Tool Name] as part of [District Name]'s ADA Title II compliance review.
+
+We have not yet received a response. Our compliance deadline is approaching and we need to document the accessibility status of every tool deployed in our district. Without a current VPAT or ACR from your team, [Tool Name] will be flagged as high compliance risk in our district documentation, which may affect our renewal decision.
+
+We are requesting, at minimum, one of the following by [Date 14 days from now]:
+- A current VPAT or ACR addressing WCAG 2.1 Level AA, or
+- A written timeline for when one will be produced, or
+- Written acknowledgment of known accessibility barriers and your remediation plan
+
+Please be aware that we are documenting all vendor outreach as part of our compliance record.
+
+I'm happy to schedule a brief call if that would be easier. Please reply to this email or reach me at [Phone].
+
+Thank you,
+
+[Your Name]
+[Your Title]
+[District Name]
+[Email] | [Phone]</pre>
+        </div>
+        <div class="template-actions">
+          <button class="copy-btn" onclick="copyTemplate('template-2', this)" aria-label="Copy Template 2 to clipboard">Copy Template</button>
+          <span class="copy-hint">Replaces [bracketed placeholders] before sending</span>
+        </div>
+      </div>
+
+      <h2>Template 3: Formal Escalation</h2>
+      <p>Use this when you've sent two requests with no substantive response — or for any critical-risk tool (no VPAT, student-facing, required for class participation). This template should come from a senior administrator or district legal counsel. It signals formal intent and creates a stronger documentation record.</p>
+
+      <div class="template-card">
+        <div class="template-header">
+          <span class="template-title">Formal Escalation Letter</span>
+          <span class="template-badge badge-3">Escalation</span>
+        </div>
+        <div class="template-meta">
+          <div class="template-meta-row">
+            <div class="template-meta-item"><strong>From:</strong> Superintendent / District Counsel</div>
+            <div class="template-meta-item"><strong>To:</strong> Vendor VP or General Counsel</div>
+            <div class="template-meta-item"><strong>Timeline:</strong> After 2 unanswered requests, or immediately for Critical-risk tools</div>
+          </div>
+        </div>
+        <div class="template-body">
+          <pre class="template-pre" id="template-3">Subject: Formal Accessibility Compliance Request — [Tool Name] — [District Name]
+
+Dear [Vendor Name] [Leadership / Legal Team],
+
+I am writing on behalf of [District Name] regarding [Tool Name], which [District Name] currently deploys for [description of use — e.g., "student assessment across grades 3–8"].
+
+[District Name] is subject to the U.S. Department of Justice's 2024 final rule under ADA Title II (89 FR 31320), which requires our digital tools to conform to WCAG 2.1 Level AA. Our compliance date is [April 24, 2026 / April 26, 2027]. We have previously requested accessibility documentation for [Tool Name] on [Date of Template 1] and [Date of Template 2] without receiving an adequate response.
+
+We are formally requesting, within 30 days of this letter:
+
+1. A current Voluntary Product Accessibility Template (VPAT) or Accessibility Conformance Report (ACR) specifically addressing WCAG 2.1 Level AA for [Tool Name]
+2. Identification of any known WCAG 2.1 AA conformance gaps and your committed remediation timeline
+3. Written acknowledgment of [Tool Name]'s accessibility posture as it pertains to our ADA Title II obligations
+
+Please be advised that the absence of an adequate response will require [District Name] to classify [Tool Name] as a high-priority compliance risk and factor this into our upcoming contract renewal evaluation. We are obligated to document this outreach and your response (or non-response) as part of our compliance record, which may be subject to review in any future DOJ or OCR investigation.
+
+We prefer to resolve this collaboratively. Please respond to this letter or contact [Superintendent/Counsel Name] at [email/phone] to schedule a call.
+
+Respectfully,
+
+[Superintendent / District Counsel Name]
+[Title]
+[District Name]
+[Address]
+[Email] | [Phone]</pre>
+        </div>
+        <div class="template-actions">
+          <button class="copy-btn" onclick="copyTemplate('template-3', this)" aria-label="Copy Template 3 to clipboard">Copy Template</button>
+          <span class="copy-hint">Best sent from Superintendent or District Counsel letterhead</span>
+        </div>
+      </div>
+
+      <h2>How to Use These Templates Effectively</h2>
+
+      <h3>Document everything</h3>
+      <p>Create a compliance tracking spreadsheet with one row per tool. Columns: Tool Name, Risk Tier, Date Template 1 Sent, Date Template 2 Sent, Date Template 3 Sent, Vendor Response Date, VPAT Received (Y/N), VPAT Date, Notes. This is your compliance evidence file.</p>
+
+      <h3>Prioritize by risk tier</h3>
+      <p>Use DistrictCheck to identify your Critical and High risk tools first. Start with those — they're the ones with no VPAT or vague WCAG claims, and they represent your highest exposure. Low-risk tools with current VPATs don't need a request; they need to be filed and verified annually.</p>
+
+      <h3>Send from your work email</h3>
+      <p>Always send from an official district email address. Never send from a personal account. The institutional email sender establishes that this is a formal district request, not a personal inquiry.</p>
+
+      <h3>CC your IT director or compliance officer</h3>
+      <p>On Template 1 and 2, CC your supervisor or compliance officer. This creates an internal record and signals to the vendor that this request has institutional backing.</p>
+
+      <div class="callout success">
+        <div class="callout-label">Related resources</div>
+        <p>Use DistrictCheck to look up which tools need outreach before you start sending. Then see the <a href="/resources/ada-title-ii-faq.html" style="color:var(--green);">ADA Title II FAQ</a> and the <a href="/resources/wcag-checklist-edtech.html" style="color:var(--green);">WCAG 2.1 AA Edtech Checklist</a> for more compliance context.</p>
+      </div>
+
+      <h2>Frequently Asked Questions</h2>
+
+      <h3>What is a VPAT and why do I need one from my edtech vendor?</h3>
+      <p>A VPAT (Voluntary Product Accessibility Template) is the standard document vendors use to report how their product conforms to accessibility standards like WCAG 2.1. Under the DOJ's 2024 ADA Title II final rule, K-12 districts must have documented accessibility conformance for every tool they deploy. A current VPAT is your primary documentation — without one, you have no written basis for claiming a tool is compliant.</p>
+
+      <h3>How do I request a VPAT from an edtech vendor?</h3>
+      <p>Start by checking the vendor's website under Legal, Accessibility, or Trust pages. If not available, use Template 1 above to send a written request to your customer success contact. Document the date — it becomes part of your compliance record regardless of vendor response speed.</p>
+
+      <h3>What if a vendor won't provide a VPAT?</h3>
+      <p>Document every request and non-response. Escalate to Template 3. A vendor that refuses or consistently ignores VPAT requests is a documented compliance risk that should factor into your renewal decision. In the interim, document an accessible alternative pathway for students who need it — that's your stopgap while vendor remediation is underway.</p>
+
+      <div class="cta-block">
+        <h3>Find Out Which Tools Need Outreach</h3>
+        <p>Check which tools in your district have no VPAT — then come back and send the templates. Free, no account needed.</p>
+        <a href="/" class="cta-btn">Check Your Tools →</a>
+      </div>
+
+    </div>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">District<em>Check</em></div>
+    <div>Copyright 2026 DistrictCheck · Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
+  </footer>
+
+  <script>
+    function copyTemplate(id, btn) {
+      const pre = document.getElementById(id);
+      const text = pre.textContent || pre.innerText;
+      navigator.clipboard.writeText(text).then(function() {
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(function() {
+          btn.textContent = 'Copy Template';
+          btn.classList.remove('copied');
+        }, 2000);
+      }).catch(function() {
+        // Fallback: select text
+        const range = document.createRange();
+        range.selectNode(pre);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        btn.textContent = 'Selected — Ctrl+C to copy';
+        setTimeout(function() {
+          btn.textContent = 'Copy Template';
+          window.getSelection().removeAllRanges();
+        }, 2500);
+      });
+    }
+  </script>
+
+</body>
+</html>
