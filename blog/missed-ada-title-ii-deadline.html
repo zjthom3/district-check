@@ -64,6 +64,17 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://districtcheck.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://districtcheck.io/blog/index.html" },
+      { "@type": "ListItem", "position": 3, "name": "Your District Missed the ADA Title II Deadline. Now What?", "item": "https://districtcheck.io/blog/missed-ada-title-ii-deadline.html" }
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -277,6 +288,46 @@
     }
     .cta-btn:hover { opacity: 0.88; text-decoration: none; }
 
+    .email-capture {
+      margin-top: 22px;
+    }
+    .email-capture p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 14px;
+    }
+    .email-capture-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .email-capture-form input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font: inherit;
+    }
+    .email-capture-form button {
+      border: 0;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--white);
+      padding: 12px 18px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .email-capture-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
     /* RELATED */
     .related {
       border-top: 1px solid var(--border);
@@ -307,6 +358,7 @@
     @media (max-width: 680px) {
       nav { padding: 14px 20px; }
       .article-header { padding: 40px 0 28px; }
+      .email-capture-form { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -455,6 +507,17 @@
           <h3>Check every tool in your district's stack</h3>
           <p>DistrictCheck's free tool lookup shows risk tier, VPAT status, WCAG claim, and recommended next steps for 35+ edtech tools — instantly, no signup required.</p>
           <a class="cta-btn" href="/">Check your tools now →</a>
+          <div class="email-capture">
+            <p>Want the full district report when it launches? Enter your work email and district name.</p>
+            <!-- TODO: replace with real embed URL -->
+            <form class="email-capture-form" action="YOUR_FORM_EMBED_URL" method="post">
+              <input type="email" name="email" placeholder="Work email" autocomplete="email" required />
+              <input type="text" name="district_name" placeholder="District name" autocomplete="organization" required />
+              <input type="hidden" name="source" value="blog-missed-deadline" />
+              <button type="submit">Get updates</button>
+            </form>
+            <div class="email-capture-note">We&apos;ll send DistrictCheck launch updates and practical compliance resources for district teams.</div>
+          </div>
         </div>
 
         <h2>A note on smaller districts</h2>

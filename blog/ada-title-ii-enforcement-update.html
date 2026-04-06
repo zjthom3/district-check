@@ -34,6 +34,17 @@
     "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://districtcheck.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://districtcheck.io/blog/index.html" },
+      { "@type": "ListItem", "position": 3, "name": "After the ADA Title II Deadline: What Enforcement Actually Looks Like", "item": "https://districtcheck.io/blog/ada-title-ii-enforcement-update.html" }
+    ]
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,6 +196,41 @@
       font-size: 15px; font-weight: 700; transition: opacity 0.15s;
     }
     .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+    .email-capture {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .email-capture-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .email-capture-form input {
+      width: 100%;
+      background: var(--dark);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 13px 14px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: inherit;
+    }
+    .email-capture-form input::placeholder { color: var(--muted); }
+    .email-capture-form button {
+      border: 0;
+      border-radius: 8px;
+      padding: 13px 18px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .email-capture-note { margin-top: 10px; font-size: 12px; color: var(--muted); }
 
     footer {
       border-top: 1px solid var(--border); padding: 32px 60px;
@@ -196,6 +242,7 @@
 
     @media (max-width: 640px) {
       nav { padding: 14px 20px; }
+      .email-capture-form { grid-template-columns: 1fr; }
       footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
@@ -357,6 +404,17 @@
           <h3>Start Your Compliance Documentation Now</h3>
           <p>Check the ADA status of every tool in your district. Free, instant, no account needed. Begin your compliance record today.</p>
           <a href="/" class="cta-btn">Run a Free Compliance Check →</a>
+          <div class="email-capture">
+            <p>Want the full district report when it&apos;s ready? Enter your work email and district name.</p>
+            <!-- TODO: replace with real embed URL -->
+            <form class="email-capture-form" action="YOUR_FORM_EMBED_URL" method="post">
+              <input type="email" name="email" placeholder="Work email" autocomplete="email" required />
+              <input type="text" name="district_name" placeholder="District name" autocomplete="organization" required />
+              <input type="hidden" name="source" value="blog-enforcement-update" />
+              <button type="submit">Get updates</button>
+            </form>
+            <div class="email-capture-note">We&apos;ll use this only for DistrictCheck launch updates and compliance resources.</div>
+          </div>
         </div>
 
         <div class="callout success">

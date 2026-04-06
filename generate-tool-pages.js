@@ -116,7 +116,26 @@ const tools = [
   { name: 'Google Workspace', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain current VPAT on file. Google Workspace for Education has one of the most comprehensive accessibility programs in edtech. No immediate action needed.' },
   { name: 'Canvas', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain current VPAT on file. Note: LTI-embedded tools within Canvas are NOT covered by Canvas\'s VPAT - they require separate accessibility verification.' },
   { name: 'Khan Academy', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Download and file from Khan Academy\'s accessibility page. Some interactive exercise types (graphing tools) have noted limitations - proactively disclosed. No immediate action needed.' },
-  { name: 'Microsoft Teams', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain current VPAT on file. Microsoft has one of the strongest accessibility programs in enterprise software. No immediate action needed.' }
+  { name: 'Microsoft Teams', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain current VPAT on file. Microsoft has one of the strongest accessibility programs in enterprise software. No immediate action needed.' },
+  { name: 'Zoom', tier: 'low', vpat: 'Exists (2025)', wcag: 'Specific claim', pii: 'Yes', action: 'File the current Zoom Workplace or web-app VPAT that matches your deployment model. Districts using Zoom for required instruction should still note captioning, webinar, and breakout-room workflows in local guidance.' },
+  { name: 'Clever', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT from Clever and ask specifically about portal navigation, MFA flows, and rostering interfaces used by students or families. Document the request date in your district file.' },
+  { name: 'PowerSchool', tier: 'high', vpat: 'Unclear public status', wcag: 'Vague claim', pii: 'Yes', action: 'Escalate a written VPAT request through your account team and ask which accessibility documentation applies to SIS, parent portal, and mobile workflows. PowerSchool is core infrastructure, so document alternate family/student access paths while status is unresolved.' },
+  { name: 'Microsoft 365', tier: 'low', vpat: 'Exists (2025)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain the current Microsoft 365 accessibility conformance reports in your compliance file and refresh them during annual review or major contract renewal. Verify specific apps in scope for your district deployment.' },
+  { name: 'Canva Edu', tier: 'medium', vpat: 'Exists (2023)', wcag: 'Specific claim', pii: 'Yes', canonical: 'Canva for Education', action: 'Use the canonical Canva for Education page for the current risk rating, VPAT status, and district next steps.' },
+  { name: 'Typing.com', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT and ask specifically about keyboard-only exercises, timed drills, and how accuracy feedback is conveyed to assistive technology users.' },
+  { name: 'Duolingo for Schools', tier: 'medium', vpat: 'Not found', wcag: 'Specific claim', pii: 'Yes', canonical: 'Duolingo', action: 'Use the canonical Duolingo page for the current risk rating, documentation status, and district action steps.' },
+  { name: 'Epic', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a VPAT from Epic and ask whether the current reading experience, read-aloud controls, and classroom assignment workflows have been audited against WCAG 2.1 AA.' },
+  { name: 'Edpuzzle', tier: 'high', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Request a VPAT immediately and ask whether video player controls, embedded questions, captions, and LMS-embedded workflows have been tested with common assistive technologies.' },
+  { name: 'Kami', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT and ask specifically about annotation tools, PDF markup, and classroom assignment flows that depend on drag, draw, or visual positioning.' },
+  { name: 'Google Forms', tier: 'low', vpat: 'Exists (2024)', wcag: 'Specific claim', pii: 'Yes', action: 'Retain the current Google Workspace accessibility documentation on file and note any district-specific guidance for image-based questions, file uploads, or add-ons that are not covered by Google Forms itself.' },
+  { name: 'Flipgrid Studio', tier: 'medium', vpat: 'Exists (2023)', wcag: 'Specific claim', pii: 'Yes', canonical: 'Flip', action: 'Use the canonical Flip page for the current risk rating, VPAT status, and district next steps.' },
+  { name: 'Loom', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a VPAT from Loom and ask about recorder controls, caption workflows, transcript accuracy, and whether students can access shared videos and comments with keyboard and screen reader support.' },
+  { name: 'Notion', tier: 'medium', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Request a current VPAT and clarify which workspace features are in scope, especially databases, drag-and-drop blocks, comments, and shared classroom workspaces used with students.' },
+  { name: 'Freckle', tier: 'medium', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Request a VPAT from Renaissance for Freckle and ask whether student practice activities, teacher dashboards, and adaptive pathways have current WCAG testing documentation.' },
+  { name: 'DreamBox', tier: 'medium', vpat: 'Not found', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT and ask specifically about keyboard navigation, math manipulatives, and visual lesson interactions that may create barriers for assistive technology users.' },
+  { name: 'i-Ready', tier: 'high', vpat: 'Not found', wcag: 'No claim', pii: 'Yes', action: 'Escalate a VPAT request through your Curriculum Associates contact and ask whether diagnostic, lesson-player, and student practice workflows have been tested with screen readers and keyboard-only input.' },
+  { name: 'Lexia', tier: 'medium', vpat: 'Unclear public status', wcag: 'Vague claim', pii: 'Yes', action: 'Request current accessibility documentation for the exact Lexia product in use and ask whether reading, audio, and intervention workflows are covered by a recent VPAT or ACR.' },
+  { name: 'Amplify', tier: 'medium', vpat: 'Unclear public status', wcag: 'Vague claim', pii: 'Yes', action: 'Request a current VPAT or accessibility conformance report for the exact Amplify product line your district uses and record whether curriculum, assessment, and student-reader interfaces are all covered.' }
 ];
 
 const tierMap = {
@@ -169,8 +188,51 @@ const seoOverrides = {
   },
   'Tool Database': {
     title: 'Edtech ADA Compliance Database | DistrictCheck',
-    description: 'Browse 35+ edtech tools with ADA risk ratings, VPAT status, and WCAG notes. See where your district stands before the April deadline.'
+    description: 'Browse 47 edtech tools with ADA risk ratings, VPAT status, and WCAG notes. See where your district stands before the April deadline.'
   }
+};
+
+const categoryGuides = {
+  Canvas: [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  Schoology: [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  'Google Classroom': [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  'Microsoft Teams': [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  'Microsoft 365': [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  Clever: [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  PowerSchool: [{ title: 'LMS accessibility guide', href: './lms/index.html' }],
+  Edulastic: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  Formative: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  Kahoot: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  Quizlet: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  'Google Forms': [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  Freckle: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  DreamBox: [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  'i-Ready': [{ title: 'Assessment tools guide', href: './assessment/index.html' }],
+  ClassDojo: [{ title: 'Communication tools guide', href: './communication/index.html' }],
+  Remind: [{ title: 'Communication tools guide', href: './communication/index.html' }],
+  ParentSquare: [{ title: 'Communication tools guide', href: './communication/index.html' }],
+  Seesaw: [{ title: 'Communication tools guide', href: './communication/index.html' }],
+  Zoom: [{ title: 'Communication tools guide', href: './communication/index.html' }],
+  Newsela: [{ title: 'Content tools guide', href: './content/index.html' }],
+  CommonLit: [{ title: 'Content tools guide', href: './content/index.html' }],
+  ReadWorks: [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Khan Academy': [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Discovery Education': [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Canva for Education': [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Typing.com': [{ title: 'Content tools guide', href: './content/index.html' }],
+  Epic: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Edpuzzle: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Kami: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Loom: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Notion: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Lexia: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Amplify: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Padlet: [{ title: 'Content tools guide', href: './content/index.html' }],
+  Prodigy: [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Boom Learning': [{ title: 'Content tools guide', href: './content/index.html' }],
+  Wakelet: [{ title: 'Content tools guide', href: './content/index.html' }],
+  'Book Creator': [{ title: 'Content tools guide', href: './content/index.html' }],
+  Duolingo: [{ title: 'Content tools guide', href: './content/index.html' }]
 };
 
 const analysisContent = {
@@ -269,6 +331,198 @@ const analysisContent = {
       ['Does Google Classroom have a VPAT?', 'Yes. Google publishes accessibility conformance materials for Workspace products, and districts should retain the current Google Classroom documentation in their compliance files.'],
       ['Does Google Classroom cover tools integrated inside it?', 'No. Third-party tools used through Classroom still need their own accessibility review and cannot rely on Google Classroom\'s documentation alone.']
     ]
+  },
+  Zoom: {
+    sections: [
+      '<p><strong>Zoom</strong> is no longer just a general meeting tool in K-12. Districts use Zoom for virtual instruction, parent conferences, professional learning, special education meetings, and one-to-one support sessions. That broad usage means accessibility has to be judged across live captions, keyboard navigation, webinar controls, recordings, and the web or desktop client a district actually deploys.</p>',
+      '<p>DistrictCheck rates Zoom as low risk because Zoom publishes accessibility documentation and product-specific VPAT materials for major parts of the platform, including workplace clients and web experiences. That does not mean every classroom workflow is perfect by default. Districts still need to think about caption quality, whether recordings are shared with accurate transcripts, and whether hosts know how to enable accessibility features like manual captions, keyboard shortcuts, and screen-reader-friendly controls.</p>',
+      '<p>The practical district action is to file the Zoom documentation that matches the version in use, then pair it with local meeting guidance. If your district relies on Zoom for required student or family interactions, you want two records on file: the vendor VPAT and the district procedure for captions, accessible recordings, and alternate participation paths when needed. That combination makes Zoom one of the more defensible communication tools in a compliance review.</p>'
+    ],
+    faq: [
+      ['Is Zoom ADA compliant?', 'Zoom is rated low risk because the vendor publishes accessibility documentation and product-specific VPAT materials for major platform components.'],
+      ['Does Zoom have a VPAT?', 'Yes. Zoom publishes VPAT materials for Zoom Workplace, web experiences, and other major products, and districts should file the one that matches their deployment.'],
+      ['What should districts still review in Zoom?', 'Districts should still document captioning, transcript accuracy, recording workflows, and host guidance for accessible meeting practices.']
+    ]
+  },
+  Clever: {
+    sections: [
+      '<p><strong>Clever</strong> is infrastructure more than classroom content, but that makes it strategically important. Districts use Clever for single sign-on, rostering, application launch, and in some cases multi-factor authentication or identity workflows. If a student, family member, or staff user cannot navigate the portal or authentication flow accessibly, the barrier affects access to many other tools downstream.</p>',
+      '<p>DistrictCheck rates Clever as medium risk because it is widely deployed and clearly central to district access, but a current public VPAT is not easy to verify in the same way as the strongest low-risk vendors. For a platform like Clever, districts should focus on keyboard navigation in the portal, screen-reader labeling for app launch tiles, error handling during authentication, and whether rostering or account-management interfaces are accessible for staff who use assistive technology.</p>',
+      '<p>The right district move is to request a current VPAT directly and document which Clever workflows are mission-critical locally. If Clever is the doorway into multiple student-facing tools, the district should record that dependency in its accessibility file and note how students or families can get support if the sign-in path becomes a barrier. Clever is not the flashiest tool in the stack, but it is one of the most consequential if access fails.</p>'
+    ],
+    faq: [
+      ['Is Clever ADA compliant?', 'DistrictCheck rates Clever as medium risk because it is widely used in K-12 but a current public VPAT is not clearly surfaced in the same way as stronger low-risk vendors.'],
+      ['Does Clever have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Clever or their district account channel.'],
+      ['Why does Clever matter so much for accessibility?', 'Because Clever often sits at the access layer for many other tools, an inaccessible sign-in or portal workflow can block students and staff from the rest of the stack.']
+    ]
+  },
+  PowerSchool: {
+    sections: [
+      '<p><strong>PowerSchool</strong> is core district infrastructure, not a fringe classroom app. Districts rely on it for SIS workflows, parent portals, schedules, grades, attendance, and records that families and staff may need to access frequently. That makes any accessibility gap more serious because it affects official school operations and communication, not just optional enrichment.</p>',
+      '<p>DistrictCheck rates PowerSchool as high risk because the public documentation picture is unclear and districts often need product-specific clarification about what accessibility materials apply to SIS, parent-facing tools, mobile experiences, or acquired products. For this category of system, the main WCAG questions are not abstract. Families need readable schedules and grades, students need usable portals, and staff may depend on keyboard or screen-reader access to administrative workflows.</p>',
+      '<p>Districts using PowerSchool should treat documentation requests as a priority rather than a nice-to-have. Ask which VPAT or accessibility conformance report covers the exact modules in use, save the response, and document alternate support paths for any family or student who cannot use the portal accessibly. Because PowerSchool touches official records and communications, unresolved documentation gaps carry more institutional risk than a typical classroom supplement.</p>'
+    ],
+    faq: [
+      ['Is PowerSchool ADA compliant?', 'DistrictCheck rates PowerSchool as high risk because the public accessibility documentation picture is unclear for many district-relevant workflows and products.'],
+      ['Does PowerSchool have a VPAT?', 'Districts should request product-specific accessibility documentation directly from PowerSchool because public coverage is not clear enough to treat as settled evidence.'],
+      ['Why is PowerSchool higher risk than some other tools?', 'Because it is district infrastructure tied to grades, records, parent access, and official workflows, so accessibility failures affect core school operations.']
+    ]
+  },
+  'Microsoft 365': {
+    sections: [
+      '<p><strong>Microsoft 365</strong> is one of the broadest product suites in education, covering Word, PowerPoint, Excel, OneDrive, Teams-adjacent workflows, and cloud collaboration tools used by staff and students. That breadth means districts should think in terms of suite-level documentation plus app-specific implementation practices. A good Microsoft 365 compliance file is not one PDF and done; it is a current vendor record paired with local content-authoring expectations.</p>',
+      '<p>DistrictCheck rates Microsoft 365 as low risk because Microsoft publishes accessibility conformance reports and maintains a mature public accessibility program. That gives districts a stronger starting point than they have with many K-12 vendors. The remaining work is operational: staff still need to use built-in accessibility checkers, share accessible files, caption videos, and avoid introducing inaccessible templates or add-ins that the Microsoft documentation does not cover.</p>',
+      '<p>The practical next step is to keep the current Microsoft conformance reports on file and note which products are actually in scope for your district. If you rely heavily on Forms, Stream, PowerPoint, or OneDrive sharing workflows, document those local use cases as part of annual review. Microsoft 365 is one of the more defensible suites in the edtech environment, but districts still need to separate the vendor platform from the content their own staff publish inside it.</p>'
+    ],
+    faq: [
+      ['Is Microsoft 365 ADA compliant?', 'DistrictCheck rates Microsoft 365 as low risk because Microsoft publishes accessibility conformance reports and maintains a strong accessibility program across major apps.'],
+      ['Does Microsoft 365 have a VPAT?', 'Yes. Microsoft publishes accessibility conformance reports for Microsoft 365 products, and districts should retain the current reports relevant to the apps they deploy.'],
+      ['What should districts still monitor in Microsoft 365?', 'Districts should still monitor how staff create documents, presentations, forms, and shared content, because local authoring practices can introduce barriers even on strong platforms.']
+    ]
+  },
+  'Typing.com': {
+    sections: [
+      '<p><strong>Typing.com</strong> is used in many districts as a foundational skills tool for keyboarding, digital literacy, and introductory computing. Because it is often assigned to younger students or used in regular classroom rotations, accessibility issues can affect a large number of learners quietly rather than through one obvious high-stakes event.</p>',
+      '<p>DistrictCheck rates Typing.com as medium risk because the platform has obvious accessibility implications, but a current public VPAT is not easy to verify. For a keyboarding tool, districts should pay special attention to timing, focus order, audio feedback, and whether performance signals are conveyed in ways that work with screen readers or for students with motor differences. A tool built around speed and accuracy can become exclusionary quickly if it assumes a narrow input pattern.</p>',
+      '<p>The district response should be practical and student-centered. Request a current VPAT, ask how lessons and drills work for keyboard-only and assistive-technology users, and document what alternatives exist if a student cannot complete the standard exercise format. Typing.com may not sound legally dramatic, but because it is often used as required instruction, unresolved accessibility gaps still matter.</p>'
+    ],
+    faq: [
+      ['Is Typing.com ADA compliant?', 'DistrictCheck rates Typing.com as medium risk because a current public VPAT is not clearly available and the product category raises important accessibility questions around timing and input.'],
+      ['Does Typing.com have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Typing.com.'],
+      ['Why does keyboarding software create accessibility risk?', 'Because lessons often depend on speed, motor input, and real-time feedback that can create barriers for students who use assistive technology or alternate input methods.']
+    ]
+  },
+  Epic: {
+    sections: [
+      '<p><strong>Epic</strong> is a digital reading platform used heavily in elementary classrooms and at-home reading programs. Teachers use it for independent reading, assigned books, and motivation around literacy goals. Because the platform is content-rich and student-facing, districts should evaluate both the reading interface and the classroom management layer that wraps around it.</p>',
+      '<p>DistrictCheck rates Epic as medium risk because the vendor publicly emphasizes accessibility features, but a current public VPAT is not easy to verify. That creates a familiar district problem: positive accessibility language without the document that procurement or compliance teams need to file. For reading platforms, the critical questions include text customization, screen-reader compatibility, read-aloud controls, image descriptions, and whether classroom assignment workflows remain accessible for students and teachers.</p>',
+      '<p>The district next step is to request a current VPAT and record whether the accessibility features highlighted publicly are backed by a formal WCAG review. If Epic is used with younger readers or students with accommodations, note what alternate access path exists if the assigned title or player experience is not usable. A medium-risk rating here reflects uncertainty in documentation rather than a proven failure, but districts still need the paper trail.</p>'
+    ],
+    faq: [
+      ['Is Epic ADA compliant?', 'DistrictCheck rates Epic as medium risk because accessibility features are discussed publicly, but a current public VPAT is not clearly available for district review.'],
+      ['Does Epic have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Epic.'],
+      ['What should districts review in Epic?', 'Districts should review read-aloud controls, screen-reader support, classroom assignment flows, and whether the current accessibility features are documented against WCAG 2.1 AA.']
+    ]
+  },
+  Edpuzzle: {
+    sections: [
+      '<p><strong>Edpuzzle</strong> is a video-based lesson and assessment tool used across middle and high school classrooms and increasingly in blended elementary instruction. Teachers assign videos, embed questions, and track completion or understanding through the platform. That combination of media player, quiz interface, and analytics is exactly why districts need more than a generic help article before calling it compliant.</p>',
+      '<p>DistrictCheck rates Edpuzzle as high risk because a current public VPAT is not clearly available and the platform is often used for required coursework. The risk is not just the video itself. Districts should think about caption quality, keyboard operability in the player, timing of embedded questions, focus handling when questions interrupt playback, and whether LMS-embedded versions behave the same way as the native experience. If those details are undocumented, the district has little defensible evidence.</p>',
+      '<p>The immediate move is to request a VPAT and ask whether the player and question workflows have been tested with assistive technologies such as NVDA, JAWS, and VoiceOver. If Edpuzzle is used in graded activities, districts should also note what alternate path exists for a student who cannot complete the standard experience accessibly. High-risk does not mean never use; it means document fast and avoid assuming the interface has already been vetted for you.</p>'
+    ],
+    faq: [
+      ['Is Edpuzzle ADA compliant?', 'DistrictCheck rates Edpuzzle as high risk because a current public VPAT is not clearly available and the platform is often used in required classroom workflows.'],
+      ['Does Edpuzzle have a VPAT?', 'Districts should request a current VPAT directly from Edpuzzle, especially if the tool is used for graded assignments or LMS-integrated instruction.'],
+      ['What parts of Edpuzzle matter most for accessibility?', 'Districts should review captions, keyboard use in the video player, embedded questions, and whether LMS-embedded workflows remain accessible.']
+    ]
+  },
+  Kami: {
+    sections: [
+      '<p><strong>Kami</strong> is commonly used for document annotation, worksheet completion, PDF markup, and classroom collaboration. In many districts it becomes the layer students use to interact with otherwise static handouts. That means accessibility questions extend beyond the app shell itself to the experience of reading, navigating, and marking up classroom documents inside the tool.</p>',
+      '<p>DistrictCheck rates Kami as medium risk because it is clearly important in classroom workflows, but a current public VPAT is not easy to verify. Annotation platforms deserve close review for keyboard support, focus order, labeling of markup tools, and whether drawing, highlighting, and comment functions have accessible alternatives. A district can easily assume a PDF workflow is covered when in reality the markup interaction introduces a new barrier.</p>',
+      '<p>The right district action is to request a current VPAT, ask specifically about annotation and classroom assignment flows, and note whether accessible alternatives exist when teachers depend on freehand or visual markup. Medium risk here reflects a tool that may be workable in many cases but still lacks the documentation standard districts need for a clean compliance file.</p>'
+    ],
+    faq: [
+      ['Is Kami ADA compliant?', 'DistrictCheck rates Kami as medium risk because a current public VPAT is not clearly available for district review.'],
+      ['Does Kami have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Kami.'],
+      ['Why does annotation software need accessibility review?', 'Because markup, highlighting, drawing, and PDF interaction can create barriers even when the underlying document seems simple visually.']
+    ]
+  },
+  'Google Forms': {
+    sections: [
+      '<p><strong>Google Forms</strong> is one of the most common lightweight tools in district workflows, used for surveys, quizzes, registration, family communication, and quick checks for understanding. It often appears harmless because it is simple and familiar, but its real compliance value is that it inherits the broader Google accessibility documentation ecosystem rather than relying on a vague standalone claim.</p>',
+      '<p>DistrictCheck rates Google Forms as low risk because Google publishes accessibility conformance materials for Workspace products and maintains a mature public accessibility program. That said, districts should still distinguish between the platform and the form content they build. Image-based questions, poorly written labels, inaccessible linked files, and unsupported add-ons can all introduce barriers that are not solved by the vendor documentation alone.</p>',
+      '<p>The practical district move is to retain the current Google documentation and add local author guidance: write clear prompts, avoid relying on images without text alternatives, and be cautious with third-party add-ons embedded in the form workflow. Google Forms is one of the easier tools to defend from a documentation standpoint, but it still benefits from a short district playbook for accessible form design.</p>'
+    ],
+    faq: [
+      ['Is Google Forms ADA compliant?', 'DistrictCheck rates Google Forms as low risk because Google publishes accessibility documentation through its Workspace accessibility program.'],
+      ['Does Google Forms have a VPAT?', 'Google publishes accessibility conformance materials for Workspace products, and districts should retain the current documentation relevant to Google Forms.'],
+      ['What can still go wrong in Google Forms?', 'District-created content such as image-only questions, inaccessible attachments, and unsupported add-ons can still introduce barriers even on a low-risk platform.']
+    ]
+  },
+  Loom: {
+    sections: [
+      '<p><strong>Loom</strong> is increasingly used in districts for staff communication, asynchronous feedback, tutorials, and student-created video explanation. That makes it relevant even when it is not formally purchased as a core instructional product. Video tools create a layered accessibility question: recording controls, playback controls, captions, transcripts, comments, and sharing all matter.</p>',
+      '<p>DistrictCheck rates Loom as medium risk because the product is growing in school use but a current public VPAT is not easy to verify. Districts should especially review caption workflows, transcript quality, keyboard access in the player, and whether students can navigate shared videos and comments without relying on pointer-heavy interactions. A video platform can feel accessible if captions exist, while still leaving gaps in navigation or authoring.</p>',
+      '<p>The next step is to request a current VPAT and document how Loom is actually used locally. If the tool is primarily staff-facing, the risk may be more manageable. If students must watch or submit Loom videos as part of required classwork, districts should note what accommodations or alternate formats are available until stronger documentation is on file.</p>'
+    ],
+    faq: [
+      ['Is Loom ADA compliant?', 'DistrictCheck rates Loom as medium risk because a current public VPAT is not clearly available and districts often use it in communication and instruction workflows.'],
+      ['Does Loom have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Loom.'],
+      ['What should districts review in Loom?', 'Districts should review captioning, transcript accuracy, keyboard access in the player, and whether shared videos and comments are accessible to assistive technology users.']
+    ]
+  },
+  Notion: {
+    sections: [
+      '<p><strong>Notion</strong> is appearing more often in secondary classrooms, staff workflow, project-based learning, and internal district knowledge bases. It is flexible enough to be everything from a shared notebook to a lightweight student workspace, which is exactly what makes accessibility review harder. The product surface includes text blocks, databases, drag-and-drop layouts, comments, embeds, and linked pages.</p>',
+      '<p>DistrictCheck rates Notion as medium risk because it is increasingly relevant in education settings while a current public VPAT is not easy to verify. For a block-based workspace, districts should be thinking about keyboard navigation across nested content, clarity of headings and page structure, drag-and-drop alternatives, and whether database views or toggles expose usable semantics to assistive technology. When a platform is this flexible, accessibility risk often depends on both product design and user-authored structure.</p>',
+      '<p>The practical district move is to request a VPAT and decide whether Notion is being used for optional collaboration or required instructional workflows. If students must submit work or navigate course materials inside it, the district should document that use case specifically. Medium risk here reflects a product with real upside but insufficiently clear public documentation for K-12 teams that need audit-ready records.</p>'
+    ],
+    faq: [
+      ['Is Notion ADA compliant?', 'DistrictCheck rates Notion as medium risk because a current public VPAT is not clearly available and the product has a complex, flexible interface.'],
+      ['Does Notion have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Notion if it is being used in school workflows.'],
+      ['Why is Notion hard to evaluate for accessibility?', 'Because the workspace combines nested pages, databases, drag-and-drop blocks, and user-authored layouts that can create accessibility issues beyond simple text editing.']
+    ]
+  },
+  Freckle: {
+    sections: [
+      '<p><strong>Freckle</strong> is a student practice platform used for math, ELA, and differentiated classroom activities. Because it is adaptive and frequently assigned during regular instruction, accessibility questions affect daily participation rather than a one-time event. Tools like Freckle are easy to overlook because they feel routine, but they still sit directly in the student experience.</p>',
+      '<p>DistrictCheck rates Freckle as medium risk because a current public VPAT is not easy to verify even though the product is widely used. Districts should pay attention to keyboard support, adaptive question flows, visual feedback, and whether teacher dashboards and student practice experiences have both been assessed. A tool can work acceptably for many learners while still creating barriers for students who rely on screen readers or alternate input.</p>',
+      '<p>The next step is to request product-specific documentation from Renaissance and record whether the district uses Freckle for required practice or intervention. If the vendor cannot provide a current VPAT promptly, note what alternate practice pathway exists for students who encounter barriers. Medium risk here means documentation needs to catch up to real classroom use.</p>'
+    ],
+    faq: [
+      ['Is Freckle ADA compliant?', 'DistrictCheck rates Freckle as medium risk because a current public VPAT is not clearly available for district review.'],
+      ['Does Freckle have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Renaissance for Freckle.'],
+      ['Why should districts review adaptive practice tools like Freckle?', 'Because they are used frequently with students and can create barriers in both the student experience and the teacher-facing workflow if accessibility is not documented.']
+    ]
+  },
+  DreamBox: {
+    sections: [
+      '<p><strong>DreamBox</strong> is an adaptive math platform used for supplemental practice and intervention. Like other visually rich math tools, it often blends manipulatives, on-screen representations, and interactive response patterns into the lesson experience. That design can be instructionally effective while also making accessibility questions more complex than a simple multiple-choice workflow.</p>',
+      '<p>DistrictCheck rates DreamBox as medium risk because public accessibility positioning exists, but a current public VPAT is not easy to verify. Districts should focus on keyboard access, screen-reader support for math interactions, use of color or motion in manipulatives, and whether adaptive lesson pathways remain understandable to students using assistive technology. Math platforms frequently need closer scrutiny because representations and interaction models are central to the learning experience.</p>',
+      '<p>The district response should be to request a current VPAT, document which student groups use DreamBox, and note what alternate instructional path exists if a specific lesson type is not accessible. Medium risk here reflects a tool that may have meaningful accessibility work behind it, but still needs stronger public documentation before a district can treat it as fully defensible.</p>'
+    ],
+    faq: [
+      ['Is DreamBox ADA compliant?', 'DistrictCheck rates DreamBox as medium risk because a current public VPAT is not clearly available and the math interaction model deserves close review.'],
+      ['Does DreamBox have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from DreamBox.'],
+      ['Why are math platforms like DreamBox harder to assess?', 'Because manipulatives, visual representations, and interactive lesson flows can create accessibility barriers that are not obvious from a marketing page alone.']
+    ]
+  },
+  'i-Ready': {
+    sections: [
+      '<p><strong>i-Ready</strong> is one of the most consequential products in the K-12 stack because districts use it for diagnostic assessment, personalized instruction, and intervention planning. Accessibility questions carry more weight here than they would in a casual classroom app because i-Ready can influence instructional grouping, intervention decisions, and student support conversations.</p>',
+      '<p>DistrictCheck rates i-Ready as high risk because the product is high impact while a current public VPAT is not easy to verify. Districts should be especially focused on diagnostic workflows, lesson-player navigation, keyboard support, audio controls, and whether adaptive responses or item types work consistently with assistive technology. For assessment-adjacent platforms, the burden of proof is higher because the impact on students is more direct and easier to document if something goes wrong.</p>',
+      '<p>The right move is to escalate a VPAT request through Curriculum Associates and document whether the exact product modules in use are covered. If i-Ready is used in special education, intervention, or progress-monitoring contexts, the district should note that dependency clearly in the compliance file. High risk here reflects the combination of significance and unclear public documentation, not just the absence of a PDF.</p>'
+    ],
+    faq: [
+      ['Is i-Ready ADA compliant?', 'DistrictCheck rates i-Ready as high risk because it is heavily used in assessment and intervention contexts while a current public VPAT is not clearly available.'],
+      ['Does i-Ready have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report directly from Curriculum Associates for the exact i-Ready product modules in use.'],
+      ['Why is i-Ready considered high risk?', 'Because the platform can affect assessment, intervention, and instructional decisions, so unclear accessibility documentation creates higher district exposure.']
+    ]
+  },
+  Lexia: {
+    sections: [
+      '<p><strong>Lexia</strong> is commonly used in reading intervention, literacy support, and structured student practice. It often appears in MTSS, intervention blocks, and specialized support settings where accessibility needs may already be more concentrated. That alone makes documentation quality especially important.</p>',
+      '<p>DistrictCheck rates Lexia as medium risk because districts often rely on it heavily, but the public documentation picture is not as clear or current as the strongest low-risk vendors. For literacy intervention tools, districts should review audio controls, reading-order support, keyboard navigation, and whether the student experience remains usable for learners who rely on screen readers or other assistive technology. Because Lexia is often used to support students who need extra help, accessibility confidence matters even more.</p>',
+      '<p>The practical next step is to request a current VPAT for the exact Lexia product in use and document how intervention staff will respond if a student cannot access the standard workflow. Medium risk reflects uncertainty rather than a proven failure, but that uncertainty still needs to be resolved if the district wants a defensible compliance record.</p>'
+    ],
+    faq: [
+      ['Is Lexia ADA compliant?', 'DistrictCheck rates Lexia as medium risk because the public accessibility documentation picture is not clearly current enough for a clean district file.'],
+      ['Does Lexia have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report for the exact Lexia product in use.'],
+      ['Why does Lexia deserve special review?', 'Because it is often used in literacy intervention settings where accessibility needs may already be concentrated and the student impact of barriers is immediate.']
+    ]
+  },
+  Amplify: {
+    sections: [
+      '<p><strong>Amplify</strong> covers a wide range of district use cases, from curriculum delivery to literacy and science instruction. That breadth means districts cannot assume one generic accessibility statement covers every product they may have purchased. A curriculum platform, an assessment component, and a student-reader experience may all need separate confirmation.</p>',
+      '<p>DistrictCheck rates Amplify as medium risk because the public documentation picture is not clear enough to treat as settled, especially given the product range involved. Districts should be asking which VPAT or conformance report applies to the exact Amplify program in use, whether student-facing readers and teacher dashboards are both covered, and how multimedia or interactive components were tested. When vendors offer families of products, the accessibility risk often comes from assuming broad coverage where only partial coverage exists.</p>',
+      '<p>The district action is to request product-specific documentation, save the response, and note where Amplify sits in required instruction. If the district uses Amplify in a core subject area, documenting the product scope matters almost as much as obtaining the report itself. Medium risk here reflects a platform family that may have meaningful accessibility work behind it, but still needs clearer mapping for district compliance files.</p>'
+    ],
+    faq: [
+      ['Is Amplify ADA compliant?', 'DistrictCheck rates Amplify as medium risk because product-specific accessibility documentation is not clearly surfaced enough to treat as settled for district use.'],
+      ['Does Amplify have a VPAT?', 'Districts should request a current VPAT or accessibility conformance report for the exact Amplify product line they deploy.'],
+      ['Why does product scope matter so much with Amplify?', 'Because curriculum, assessment, and student-reader workflows may not all be covered by one generic accessibility statement or document.']
+    ]
   }
 };
 
@@ -289,6 +543,19 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function breadcrumbJsonLd(items) {
+  return `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.item
+    }))
+  })}</script>`;
+}
+
 function canonicalName(tool) {
   return tool.canonical || tool.name;
 }
@@ -304,6 +571,10 @@ function canonicalSlug(tool) {
 
 function isAlias(tool) {
   return canonicalName(tool) !== tool.name;
+}
+
+function categoryGuidesForTool(tool) {
+  return categoryGuides[canonicalName(tool)] || [];
 }
 
 function toolSeo(tool) {
@@ -413,6 +684,22 @@ function blogMarkup(tool) {
   return blogPostsForTool(tool)
     .map((post) => `<a class="related-link" href="../blog/${post.slug}">${escapeHtml(post.title)} &rarr;</a>`)
     .join('\n');
+}
+
+function categoryMarkup(tool) {
+  const guides = categoryGuidesForTool(tool);
+  if (!guides.length || isAlias(tool)) return '';
+  const links = guides
+    .map((guide) => `<a class="related-link" href="${guide.href}">Compare ${escapeHtml(canonicalName(tool))} in the ${escapeHtml(guide.title)} &rarr;</a>`)
+    .join('\n');
+  return `
+    <section class="section">
+      <h2>Category guides for ${escapeHtml(canonicalName(tool))}</h2>
+      <p class="lead">Use these comparison pages to see how ${escapeHtml(canonicalName(tool))} fits into broader district procurement and accessibility decisions.</p>
+      <div class="related-stack">
+${links}
+      </div>
+    </section>`;
 }
 
 function vendorTemplateMarkup(tool) {
@@ -624,11 +911,17 @@ function page(tool) {
   const seo = toolSeo(tool);
   const slug = slugify(tool.name);
   const canonicalHref = `https://districtcheck.io/tools/${canonicalSlug(tool)}.html`;
+  const breadcrumbScript = breadcrumbJsonLd([
+    { name: 'Home', item: 'https://districtcheck.io/' },
+    { name: 'Tools', item: 'https://districtcheck.io/tools/index.html' },
+    { name: canonical.name, item: canonicalHref }
+  ]);
   const aliasNote = isAlias(tool)
     ? `<div class="callout"><div class="label">Canonical page</div><p>${escapeHtml(tool.name)} is currently consolidated under <a href="./${canonicalSlug(tool)}.html" style="text-decoration:underline;">${escapeHtml(canonical.name)}</a> so DistrictCheck does not split authority across duplicate product pages.</p></div>`
     : '';
   const faqScript = faqJsonLd(tool);
   const writtenAnalysis = analysisMarkup(tool);
+  const categoryLinks = categoryMarkup(tool);
   const relatedLinks = relatedMarkup(tool);
   const relatedBlogLinks = blogMarkup(tool);
   const tierLabel = tier.label;
@@ -657,6 +950,7 @@ function page(tool) {
   <meta name="twitter:title" content="${escapeHtml(seo.title)}" />
   <meta name="twitter:description" content="${escapeHtml(seo.description)}" />
   <meta name="twitter:image" content="${OG_IMAGE}" />
+  ${breadcrumbScript}
   ${faqScript}
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -993,6 +1287,8 @@ function page(tool) {
     </section>
 
     ${writtenAnalysis}
+
+    ${categoryLinks}
 
     <section class="section">
       <h2>Next steps for ${toolName} ADA compliance</h2>

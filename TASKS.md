@@ -24,21 +24,41 @@ You are working in this repository as an autonomous agent. Before taking any act
 - Campaign plan: `_marketing/organic-growth-campaign-plan.md`
 - SEO audit (current): `_seo/seo-audit-v3.md`
 - Content briefs (tool pages): `_seo/content-briefs-top-tools.md`
+- Delivery runbook: `_marketing/runbook.md` — SOP for delivering paid audits
+- Client pipeline: `_marketing/PIPELINE.md` — active leads and revenue tracking
 - Existing tool pages: `tools/*.html` — match structure and style exactly
 - Existing blog posts: `blog/*.html` — match structure and style exactly
 
 ---
 
-## Current Focus
-**Phase 0–1 (Weeks 1–4): Unlock indexation + build the content gap pages that represent the clearest keyword opportunities.**
+## Revenue Model (Confirmed — do not speculate, use this)
+- **Free tool** (districtcheck.io) — top of funnel. No signup, instant risk lookup. This is the demand gen engine.
+- **Pilot audit** — $1,500 flat per district (up to 15 tools). Human-delivered via the runbook SOP. 4–5 hours to deliver.
+- **Retainer** — $500/month per district. Quarterly re-audit + new tool reviews on request.
+- **Path to $50k MRR:** 100 retainer clients at $500/month. Near-term target: 3 paying clients by April 16 ($4,500 booked).
+- The free tool funnel is: tool lookup → CRITICAL/HIGH risk surfaced → audit intake CTA → $1,500 pilot → $500/month retainer.
+- There is no SaaS product. The vendor badge program (`/vendors/index.html`) is a backlog experiment, not the primary revenue path.
 
-The site is technically solid (SEO score 8/10) but has zero Google indexation and zero off-site authority. No traffic will come until indexation is resolved. In parallel, the four highest-opportunity content gap pages need to be built — these are the fastest path to long-tail rankings once the site is indexed.
+---
+
+## Current Focus
+**Near-term (by April 16): Book 3 paying clients at $1,500 each = $4,500. This requires direct outreach — organic SEO will not close clients in 11 days.**
+
+**Ongoing (Weeks 1–8): Build the free tool funnel infrastructure** — audit intake page, email capture pointing to the right CTA, and the content/SEO assets that generate inbound demand over the following weeks and months.
 
 ---
 
 ## In Progress
-- [ ] **Add email capture CTA to homepage and tool lookup result** — inline CTA below the tool result: "Want a full compliance report for your district? Enter your work email." Capture email + district name. Use a simple HTML form pointing to a Beehiiv/ConvertKit embed URL (placeholder `YOUR_FORM_EMBED_URL` if not yet decided). Place a second CTA at the bottom of every blog post. This is a prerequisite for all distribution work — do not start driving traffic before this exists.
-  > **Dependency:** Revenue model and email platform must be decided by Jerel before the form embed URL is known. Use a placeholder and flag clearly in the HTML with a `<!-- TODO: replace with real embed URL -->` comment.
+- [ ] ⚠️ **[HUMAN] Direct outreach — 3 clients by April 16** — this is not an agent task but it is the highest-priority action in the entire plan. Organic SEO will not close clients by April 16. The only path is direct outreach to district IT directors.
+  - LinkedIn: DM district technology directors and IT coordinators. Lead with the specific risk finding for a tool their district likely uses ("ClassDojo is in 85% of elementary schools and has no VPAT — happy to run a full audit for your district before the April 24 deadline").
+  - Email: Send warm outreach to any existing edtech or district contacts in your network.
+  - r/k12sysadmin: Post one substantive thread on ADA Title II + free tool lookup — include the DistrictCheck URL. Can drive 200–500 targeted visits within 48 hours.
+  - Pitch: Free tool lookup shows the pain → "We can turn this into a full district audit report in 48 hours, $1,500 flat."
+  - Track all contacts in `_marketing/PIPELINE.md`
+  > **Deadline: April 16, 2026. Goal: 3 clients booked = $4,500.**
+
+- [x] **Add email capture CTA to homepage and tool lookup result** — built April 5, 2026 with placeholder form action `YOUR_FORM_EMBED_URL` on homepage and all blog post CTA sections.
+  > **Remaining:** Once the audit intake page (Phase 3) is live, update all email CTAs to point there instead of a generic form. Replace `YOUR_FORM_EMBED_URL` placeholder with the real embed once the email platform is confirmed.
 
 ---
 
@@ -107,64 +127,70 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
 
 ---
 
-### Phase 2 — Schema + New Tool Pages (Weeks 5–8)
+### Phase 2 — Schema + New Tool Pages (Weeks 5–8) ✅ Complete
 
 #### Schema
-- [ ] Add `BreadcrumbList` JSON-LD schema to all blog posts (`blog/*.html`)
+- [x] Add `BreadcrumbList` JSON-LD schema to all blog posts (`blog/*.html`) — implemented April 5, 2026 on all 6 blog posts
   - Format: `Home > Blog > [Post Title]`
   - Reference: https://schema.org/BreadcrumbList
   - Estimated effort: 1 hour for all 4 posts
 
-- [ ] Add `BreadcrumbList` JSON-LD schema to all tool pages (`tools/*.html`)
+- [x] Add `BreadcrumbList` JSON-LD schema to all tool pages (`tools/*.html`) — implemented April 5, 2026 via `generate-tool-pages.js` across all generated tool pages, including alias pages
   - Format: `Home > Tools > [Tool Name]`
   - Estimated effort: 2 hours (script or batch)
 
-- [ ] Add `BreadcrumbList` JSON-LD schema to category pages (once built)
+- [x] Add `BreadcrumbList` JSON-LD schema to category pages (once built) — implemented April 5, 2026 on `/tools/lms/index.html`, `/tools/assessment/index.html`, `/tools/communication/index.html`, and `/tools/content/index.html`
   - Format: `Home > Tools > [Category]`
 
 #### New Tool Pages (Batch 1 — target 10 pages, prioritized by district adoption)
 > Use the existing tool page HTML as the template. Match structure, risk tier format, FAQ schema, and internal linking exactly. Each page needs 350–500 words of unique prose — no copy-paste from other tool pages. Refer to `_seo/content-briefs-top-tools.md` for the content angle framework.
 
-- [ ] `/tools/zoom.html` — Zoom for Education
-- [ ] `/tools/clever.html` — Clever (SSO/rostering — moderate risk, widely deployed)
-- [ ] `/tools/powerschool.html` — PowerSchool SIS
-- [ ] `/tools/microsoft-365.html` — Microsoft 365 for Education
-- [ ] `/tools/canva-edu.html` — Canva for Education *(check if alias of existing `canva-for-education.html`)*
-- [ ] `/tools/typing-com.html` — Typing.com
-- [ ] `/tools/duolingo-for-schools.html` — Duolingo for Schools *(check if alias of existing `duolingo.html`)*
-- [ ] `/tools/epic.html` — Epic! (digital reading platform)
-- [ ] `/tools/edpuzzle.html` — Edpuzzle
-- [ ] `/tools/kami.html` — Kami
+- [x] `/tools/zoom.html` — Zoom for Education — built April 5, 2026
+- [x] `/tools/clever.html` — Clever (SSO/rostering — moderate risk, widely deployed) — built April 5, 2026
+- [x] `/tools/powerschool.html` — PowerSchool SIS — built April 5, 2026
+- [x] `/tools/microsoft-365.html` — Microsoft 365 for Education — built April 5, 2026
+- [x] `/tools/canva-edu.html` — Canva for Education *(check if alias of existing `canva-for-education.html`)* — implemented April 5, 2026 as canonical alias to `/tools/canva-for-education.html`
+- [x] `/tools/typing-com.html` — Typing.com — built April 5, 2026
+- [x] `/tools/duolingo-for-schools.html` — Duolingo for Schools *(check if alias of existing `duolingo.html`)* — implemented April 5, 2026 as canonical alias to `/tools/duolingo.html`
+- [x] `/tools/epic.html` — Epic! (digital reading platform) — built April 5, 2026
+- [x] `/tools/edpuzzle.html` — Edpuzzle — built April 5, 2026
+- [x] `/tools/kami.html` — Kami — built April 5, 2026
 
 > For each page: research the vendor's current VPAT/ACR status, assign a risk tier (Critical / High / Medium / Low) using the same rubric as existing tool pages, write the 5 content angles from the brief template, add 2–3 FAQ schema questions, add internal links to relevant category pages.
 
 #### New Tool Pages (Batch 2 — 10 more pages)
-- [ ] `/tools/google-forms.html` — Google Forms
-- [ ] `/tools/flipgrid-studio.html` — check if this should be a redirect to existing Flip/Flipgrid page
-- [~] `/tools/screencastify.html` — already exists — skip — verified: tools/screencastify.html exists
-- [ ] `/tools/loom.html` — Loom for Education
-- [ ] `/tools/notion.html` — Notion (growing in secondary ed)
-- [ ] `/tools/freckle.html` — Freckle (Renaissance)
-- [ ] `/tools/dreambox.html` — DreamBox Learning
-- [ ] `/tools/iready.html` — i-Ready (Curriculum Associates)
-- [ ] `/tools/lexia.html` — Lexia Core5
-- [ ] `/tools/amplify.html` — Amplify ELA/Science
+- [x] `/tools/google-forms.html` — Google Forms — built April 5, 2026
+- [x] `/tools/flipgrid-studio.html` — check if this should be a redirect to existing Flip/Flipgrid page — implemented April 5, 2026 as canonical alias to `/tools/flip.html`
+- [x] `/tools/screencastify.html` — already exists — skip — verified April 5, 2026: `tools/screencastify.html` exists and now includes breadcrumb schema via generator
+- [x] `/tools/loom.html` — Loom for Education — built April 5, 2026
+- [x] `/tools/notion.html` — Notion (growing in secondary ed) — built April 5, 2026
+- [x] `/tools/freckle.html` — Freckle (Renaissance) — built April 5, 2026
+- [x] `/tools/dreambox.html` — DreamBox Learning — built April 5, 2026
+- [x] `/tools/iready.html` — i-Ready (Curriculum Associates) — built April 5, 2026 as `/tools/i-ready.html`
+- [x] `/tools/lexia.html` — Lexia Core5 — built April 5, 2026
+- [x] `/tools/amplify.html` — Amplify ELA/Science — built April 5, 2026
 
 ---
 
 ### Phase 3 — Conversion Layer (Weeks 9–10)
 
-- [ ] Build `/pro/index.html` — DistrictCheck Pro landing page
-  > **Dependency:** Jerel must decide on pricing, feature set, and payment processor before this page can be finalized. Scaffold the page structure and use placeholder pricing/features. Flag all placeholder content with `<!-- TODO: confirm with Jerel -->` comments.
-  - Above the fold: headline, 3-bullet value prop, email/district name capture form or Stripe payment button
-  - Features section: what Pro includes vs. free (batch scanning, compliance report PDF export, monitoring alerts, documentation trail)
-  - Pricing section: placeholder — `$499/district/year` as working assumption
-  - CTA: "Join the early access waitlist" or "Start your district audit"
-  - No FAQ schema needed on this page — it's a conversion page, not an informational one
+- [ ] Build `/audit/index.html` — Audit intake + booking page
+  > This is the conversion destination for the free tool funnel. All "get a full audit" CTAs across the site point here. There is no SaaS product — this page sells the $1,500 human-delivered pilot audit.
+  - **Above the fold:** Headline ("Get a complete ADA Title II audit for your district — delivered in 48 hours"), 3-bullet value prop (what's included, turnaround time, price), primary CTA button: "Request your audit — $1,500"
+  - **What's included section:** mirrors the runbook scope — up to 15 tools, risk scorecard per tool, vendor outreach emails pre-written, executive summary for superintendent, compliance documentation trail
+  - **How it works:** 3 steps — (1) Fill out the intake form (15 min), (2) We audit your tools and deliver the report (48 hrs), (3) You have documentation + a clear action plan before the April 24 deadline
+  - **Intake form embed:** Google Form from the runbook SOP (questions 1–10). Embed directly on the page or link to it. Flag with `<!-- TODO: replace with real Google Form embed URL -->` until confirmed.
+  - **Pricing:** $1,500 flat / district (up to 15 tools). Retainer option: $500/month for ongoing quarterly re-audits. Add a Stripe payment link or "Request invoice" button.
+  - **Trust signals:** reference the April 24, 2026 ADA Title II deadline; note that districts under most micro-purchase thresholds ($2,500–$10,000) don't need a PO
+  - No FAQ schema on this page — it's a conversion page. Add Article schema only if a longer explanatory section is added.
+  - No `/pro/index.html` — do not create that path. If it exists already, add a redirect canonical pointing to `/audit/index.html`.
 
-- [ ] Add "Get a full district report →" CTA to every tool page linking to `/pro/index.html`
-  - Place below the "Recommended next steps" section
-  - Style as a secondary CTA (accent color, outlined button), not competing with the primary tool lookup
+- [ ] Update all tool page CTAs to point to `/audit/index.html`
+  - Replace any existing "Get a full district report →" links that point to `/pro/index.html`
+  - Place below the "Recommended next steps" section on every tool page
+  - CTA text: "Get a full district audit →" or "Book your district audit — $1,500"
+  - Style as a secondary CTA (accent color, outlined button), distinct from the primary tool lookup
+  - Priority: do CRITICAL and HIGH risk tool pages first (ClassDojo, Edulastic, Kahoot, etc.)
 
 ---
 
@@ -185,13 +211,13 @@ The site is technically solid (SEO score 8/10) but has zero Google indexation an
 
 ## Done
 - [x] Site architecture and HTML foundation built
-- [x] 31 tool pages live with substantive content (17.5KB+ each)
+- [x] 47 real tool pages live with substantive content (plus 6 canonical alias pages)
 - [x] 6 blog posts live: ADA Title II deadline, missed deadline, enforcement update, 30-day roadmap, what is a VPAT, riskiest edtech tools
-- [x] FAQ schema on all 31 real tool pages
+- [x] FAQ schema on all 47 real tool pages
 - [x] Article schema on all 6 blog posts
 - [x] OG + Twitter meta tags sitewide
-- [x] Canonical tags on all 53 indexed pages
-- [x] XML sitemap (53 URLs, all with lastmod, alias pages excluded)
+- [x] Canonical tags on all 66 indexed pages
+- [x] XML sitemap (66 URLs, all with lastmod, alias pages excluded)
 - [x] robots.txt configured
 - [x] GSC verification file at root (`google838396fbdba882e4.html`)
 - [x] Internal linking: homepage → tools hub → tool pages; blog posts link to tool pages
