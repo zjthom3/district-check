@@ -172,9 +172,9 @@ You are working in this repository as an autonomous agent. Before taking any act
 
 ---
 
-### Phase 3 — Conversion Layer (Weeks 9–10)
+### Phase 3 — Conversion Layer (Weeks 9–10) ✅ Complete
 
-- [ ] Build `/audit/index.html` — Audit intake + booking page
+- [x] Build `/audit/index.html` — Audit intake + booking page — built April 6, 2026
   > This is the conversion destination for the free tool funnel. All "get a full audit" CTAs across the site point here. There is no SaaS product — this page sells the $1,500 human-delivered pilot audit.
   - **Above the fold:** Headline ("Get a complete ADA Title II audit for your district — delivered in 48 hours"), 3-bullet value prop (what's included, turnaround time, price), primary CTA button: "Request your audit — $1,500"
   - **What's included section:** mirrors the runbook scope — up to 15 tools, risk scorecard per tool, vendor outreach emails pre-written, executive summary for superintendent, compliance documentation trail
@@ -185,7 +185,7 @@ You are working in this repository as an autonomous agent. Before taking any act
   - No FAQ schema on this page — it's a conversion page. Add Article schema only if a longer explanatory section is added.
   - No `/pro/index.html` — do not create that path. If it exists already, add a redirect canonical pointing to `/audit/index.html`.
 
-- [ ] Update all tool page CTAs to point to `/audit/index.html`
+- [x] Update all tool page CTAs to point to `/audit/index.html` — implemented April 6, 2026 via `generate-tool-pages.js`; homepage audit CTAs now route to the new audit page as well
   - Replace any existing "Get a full district report →" links that point to `/pro/index.html`
   - Place below the "Recommended next steps" section on every tool page
   - CTA text: "Get a full district audit →" or "Book your district audit — $1,500"
@@ -216,8 +216,8 @@ You are working in this repository as an autonomous agent. Before taking any act
 - [x] FAQ schema on all 47 real tool pages
 - [x] Article schema on all 6 blog posts
 - [x] OG + Twitter meta tags sitewide
-- [x] Canonical tags on all 66 indexed pages
-- [x] XML sitemap (66 URLs, all with lastmod, alias pages excluded)
+- [x] Canonical tags on all 67 indexed pages
+- [x] XML sitemap (67 URLs, all with lastmod, alias pages excluded)
 - [x] robots.txt configured
 - [x] GSC verification file at root (`google838396fbdba882e4.html`)
 - [x] Internal linking: homepage → tools hub → tool pages; blog posts link to tool pages

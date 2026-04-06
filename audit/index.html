@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EdTech ADA Title II Compliance Audit | DistrictCheck</title>
+  <meta name="description" content="Full compliance audit for K-12 districts: up to 15 edtech tools, WCAG 2.1 AA gap analysis, 48-hour delivery, and a $1,500 flat fee." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/audit/index.html" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="EdTech ADA Title II Compliance Audit | DistrictCheck" />
+  <meta property="og:description" content="Get a complete ADA Title II audit for your district: up to 15 edtech tools, vendor outreach drafts, and a written report delivered in 48 hours." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://districtcheck.io/audit/index.html" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="EdTech ADA Title II Compliance Audit | DistrictCheck" />
+  <meta name="twitter:description" content="Get a complete ADA Title II audit for your district: up to 15 edtech tools, vendor outreach drafts, and a written report delivered in 48 hours." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+  <style>
+    :root {
+      --dark: #0E1013;
+      --surface: #16191E;
+      --card: #1C2027;
+      --border: #272C35;
+      --muted: #7B8490;
+      --text: #D8DCE3;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --yellow: #F59E0B;
+      --red: #F87171;
+      --accent: #5254CC;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(82, 84, 204, 0.20), transparent 28%),
+        linear-gradient(180deg, #101319 0%, var(--dark) 40%);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .logo em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 42px 0 28px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(82, 84, 204, 0.65);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(38px, 6vw, 60px);
+      line-height: 1.03;
+      letter-spacing: -0.045em;
+      color: var(--white);
+    }
+
+    .hero-copy p {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 62ch;
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: transparent;
+      color: var(--white);
+    }
+
+    .btn.secondary {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+    }
+
+    .panel, .card {
+      background: rgba(22, 25, 30, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+    }
+
+    .panel {
+      padding: 24px;
+    }
+
+    .price-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .price-amount {
+      font-size: clamp(42px, 7vw, 62px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .price-desc {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .mini-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .mini-item::before {
+      content: "•";
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .section {
+      padding: 26px 0;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: clamp(24px, 3vw, 36px);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .section p.lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 22px;
+    }
+
+    .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      color: var(--white);
+      letter-spacing: -0.02em;
+    }
+
+    .card p, .card li {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 14px;
+    }
+
+    .check {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 16px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .check-mark {
+      color: var(--green);
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 1;
+      margin-top: 1px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(82, 84, 204, 0.18);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .price-note {
+      margin-top: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .signal {
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .signal strong {
+      color: var(--white);
+    }
+
+    .form-shell {
+      padding: 24px;
+    }
+
+    .form-shell h2 {
+      margin-bottom: 12px;
+    }
+
+    .form-shell p {
+      color: var(--muted);
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .embed-placeholder {
+      border: 1px dashed rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .embed-placeholder ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin: 18px 0;
+      padding: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .embed-placeholder li::before {
+      content: "→ ";
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .subtle-link {
+      color: var(--muted);
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 0.14em;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .hero, .grid-3, .steps, .pricing-grid, .signal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap {
+        width: min(1120px, calc(100% - 24px));
+      }
+
+      nav {
+        padding: 18px 0;
+      }
+
+      .nav-links {
+        gap: 10px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      .hero-copy p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="../index.html" aria-label="DistrictCheck">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="../index.html#how-it-works">How it works</a>
+        <a class="nav-link" href="../tools/index.html">Browse tools</a>
+        <a class="nav-cta" href="#request-audit">Request your audit</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Pilot audit · 48-hour delivery · $1,500 flat</div>
+          <h1>Get a complete ADA Title II audit for your district — delivered in 48 hours.</h1>
+          <p>A written compliance report covering up to 15 edtech tools, with risk tiers, WCAG 2.1 AA gap notes, and vendor outreach drafts ready to send before the deadline.</p>
+          <div class="mini-list" aria-label="Audit value summary">
+            <div class="mini-item">Up to 15 student-facing tools reviewed in one district-wide audit</div>
+            <div class="mini-item">Written report built for leadership, legal, and procurement files</div>
+            <div class="mini-item">$1,500 flat fee with a $500/month retainer option if you want ongoing coverage</div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="#request-audit">Request your audit — $1,500</a>
+            <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20audit%20question">Questions? Email jerel@districtcheck.io</a>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="price-kicker">District pilot audit</div>
+          <div class="price-amount">$1,500</div>
+          <div class="price-desc">Flat fee per district, up to 15 tools, with delivery targeted inside 48 hours once your intake is received.</div>
+          <div class="mini-list" aria-label="Audit panel summary">
+            <div class="mini-item">Risk scorecard for each tool in your stack</div>
+            <div class="mini-item">Pre-written vendor VPAT request letters</div>
+            <div class="mini-item">Executive summary for superintendent or cabinet review</div>
+            <div class="mini-item">Compliance documentation trail you can keep on file</div>
+          </div>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Open intake form</a>
+            <a class="btn secondary" href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" target="_blank" rel="noopener noreferrer">Pay online after intake</a>
+          </div>
+          <div class="price-note">Districts under common micro-purchase thresholds of $2,500–$10,000 usually do not need a PO for a $1,500 professional-services engagement.</div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <h2>What’s included in the audit</h2>
+        <p class="lead">This is not a generic accessibility memo. It is a district-specific package designed to help you document a real good-faith review before or after the ADA Title II deadline.</p>
+        <div class="checklist">
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>Up to 15 tools reviewed.</strong> We audit the core tools your district actually uses, not just the ones already in our public lookup.</div>
+          </div>
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>Risk scorecard per tool.</strong> Every tool is rated Critical, High, Medium, or Low with the specific documentation gap that drove the rating.</div>
+          </div>
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>WCAG 2.1 AA gap analysis.</strong> We translate the vendor documentation problem into practical district risk instead of handing you a vague summary.</div>
+          </div>
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>Vendor outreach emails pre-written.</strong> Every tool with a documentation gap includes a ready-to-send VPAT request or follow-up draft.</div>
+          </div>
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>Executive summary for leadership.</strong> Your superintendent, IT director, or legal reviewer gets a short version they can actually use.</div>
+          </div>
+          <div class="check">
+            <div class="check-mark">✓</div>
+            <div><strong>Compliance documentation trail.</strong> The finished package is designed to help prove your district took accessibility seriously and acted promptly.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>How it works</h2>
+        <p class="lead">This is built to be fast for busy district teams. The intake is short, the audit is human-reviewed, and the output is ready to file.</p>
+        <div class="steps">
+          <article class="card">
+            <div class="step-num">1</div>
+            <h3>Fill out the intake form</h3>
+            <p>Submit your district name, contact details, and your current edtech stack. If your list is incomplete, send the rough version and we can help refine it.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">2</div>
+            <h3>We audit the tools</h3>
+            <p>We check VPAT status, WCAG 2.1 AA coverage signals, documentation gaps, and the likely district exposure tied to each tool.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">3</div>
+            <h3>You receive the report</h3>
+            <p>Within 48 hours of receiving your intake, you get a report, a priority action plan, and vendor outreach language that helps you move immediately.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Pricing</h2>
+        <p class="lead">The pilot audit is designed to be fast enough to act on and affordable enough to approve without weeks of procurement overhead.</p>
+        <div class="pricing-grid">
+          <article class="card">
+            <div class="label">Single audit</div>
+            <h3>$1,500 flat</h3>
+            <p>Up to 15 tools, written documentation, vendor outreach drafts, and delivery in 48 hours once your intake is received.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#request-audit">Request your audit</a>
+              <a class="btn secondary" href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" target="_blank" rel="noopener noreferrer">Pay online</a>
+            </div>
+          </article>
+          <article class="card">
+            <div class="label">Ongoing retainer</div>
+            <h3>$500 / month</h3>
+            <p>Quarterly re-audits, new tool reviews on request, and ongoing documentation monitoring after the initial pilot audit is complete.</p>
+            <div class="hero-actions">
+              <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20retainer%20question">Ask about retainer coverage</a>
+              <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20invoice%20request">Request invoice</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Why districts buy this instead of waiting</h2>
+        <div class="signal-grid">
+          <div class="signal">
+            <strong>The risk is timing, not perfection.</strong>
+            <p>Districts are buying a documented good-faith effort before complaints force the issue.</p>
+          </div>
+          <div class="signal">
+            <strong>It’s faster than traditional consulting.</strong>
+            <p>The alternative is a slower compliance engagement that often costs $5,000–$15,000 and takes weeks to start.</p>
+          </div>
+          <div class="signal">
+            <strong>The deadline still matters.</strong>
+            <p>The April 24, 2026 ADA Title II date changed the documentation expectation even for districts still catching up.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section panel form-shell" id="request-audit">
+        <div class="label">Request your audit</div>
+        <h2>Start with the intake form</h2>
+        <p>Use the current intake link below to send your district name, contact details, and rough tool list. We&apos;ll follow up with next steps and can invoice manually if your district prefers not to pay online.</p>
+        <div class="embed-placeholder">
+          <!-- TODO: replace with real Google Form embed URL -->
+          <p><strong>Temporary intake setup:</strong> the live intake currently opens in Google Forms while the embedded version is being finalized for this page.</p>
+          <ul>
+            <li>District name</li>
+            <li>State</li>
+            <li>Primary contact name and email</li>
+            <li>Rough tool list</li>
+            <li>Deadline or special notes</li>
+          </ul>
+          <div class="hero-actions">
+            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Open intake form</a>
+            <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20audit%20request">Request by email instead</a>
+          </div>
+          <div class="price-note">We aim to reply within 4 hours with next steps. Audit delivery begins once we have your tool list and intake details.</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+    </footer>
+  </div>
+</body>
+</html>

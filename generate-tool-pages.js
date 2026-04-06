@@ -21,10 +21,11 @@
 const fs = require('fs');
 const path = require('path');
 
-const DEFAULT_LASTMOD = '2026-04-05';
+const DEFAULT_LASTMOD = '2026-04-06';
 const BLOG_INDEX_LASTMOD = '2026-04-05';
 const OG_IMAGE = 'https://districtcheck.io/og-default.png';
 const staticPages = [
+  { loc: 'https://districtcheck.io/audit/index.html', lastmod: '2026-04-06' },
   { loc: 'https://districtcheck.io/resources/ada-title-ii-faq.html', lastmod: '2026-04-05' },
   { loc: 'https://districtcheck.io/resources/vendor-vpat-request-template.html', lastmod: '2026-04-05' },
   { loc: 'https://districtcheck.io/resources/wcag-checklist-edtech.html', lastmod: '2026-04-05' },
@@ -930,6 +931,7 @@ function page(tool) {
   const vpat = escapeHtml(tool.vpat);
   const wcag = escapeHtml(tool.wcag);
   const pii = escapeHtml(tool.pii);
+  const auditHref = '../audit/index.html';
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1228,7 +1230,7 @@ function page(tool) {
       <div class="nav-links">
         <a class="nav-link" href="../index.html#how-it-works">How it works</a>
         <a class="nav-link" href="../index.html#full-audit">Full audit</a>
-        <a class="nav-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Get full audit</a>
+        <a class="nav-cta" href="${auditHref}">Get full audit</a>
       </div>
     </nav>
     <main id="main-content">
@@ -1238,7 +1240,7 @@ function page(tool) {
         <h1>${toolName} ADA Compliance</h1>
         <p>${toolName} ADA compliance is currently rated <strong>${escapeHtml(tierLabel)} risk</strong> in the DistrictCheck tool database. This page summarizes the current VPAT status, WCAG claim, student data exposure, and the next action a district should take.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Audit your full stack</a>
+          <a class="btn primary" href="${auditHref}">Audit your full stack</a>
           <a class="btn secondary" href="../index.html">Check another tool</a>
         </div>
       </div>
@@ -1310,6 +1312,13 @@ function page(tool) {
           <p>Record any accommodations, alternate workflows, or annual review notes tied to ${toolName} so your compliance file is complete.</p>
         </article>
       </div>
+      <div class="panel" style="margin-top:18px;">
+        <div class="label">Need a district-wide answer?</div>
+        <p class="lead" style="margin-bottom:18px;">The fastest next step after checking ${toolName} is to audit the full district stack. DistrictCheck's $1,500 pilot covers up to 15 tools, documents the risk tier for each one, and prepares the vendor outreach trail your district can file.</p>
+        <div class="hero-actions">
+          <a class="btn secondary" href="${auditHref}">Book your district audit — $1,500</a>
+        </div>
+      </div>
     </section>
 
     <section class="section">
@@ -1354,7 +1363,7 @@ ${relatedBlogLinks}
         <h2 style="margin-top:0;">One tool is useful. The full stack is what matters.</h2>
         <p class="lead" style="margin-bottom:18px;">Districts rarely use just one platform. DistrictCheck can review your full edtech stack, assign a risk tier to each tool, and prepare vendor outreach language for the ones that need documentation.</p>
         <div class="hero-actions">
-          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog">Request full audit</a>
+          <a class="btn primary" href="${auditHref}">Request full audit</a>
           <a class="btn secondary" href="../blog/index.html">Read the blog</a>
           <a class="btn secondary" href="./index.html">Browse all tools</a>
           <a class="btn secondary" href="../index.html">Return to lookup</a>
