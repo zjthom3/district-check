@@ -45,6 +45,21 @@
       --red:     #F87171;
       --blue:    #3B82F6;
       --accent:  #5254CC;
+
+      /* Border-radius scale */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+
+      /* Shadow */
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+
+      /* Transition */
+      --transition-fast: 0.15s ease;
+
+      /* Gradient */
+      --gradient-base: #101319;
     }
 
     html { scroll-behavior: smooth; }
@@ -77,11 +92,11 @@
       background: var(--white);
       color: var(--dark);
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 700;
       z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus {
       transform: translateY(0);
@@ -170,12 +185,12 @@
     .nav-link:hover { color: var(--text); }
     .nav-cta {
       background: var(--accent);
-      color: #fff;
+      color: var(--white);
       padding: 8px 18px;
-      border-radius: 6px;
+      border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 600;
-      transition: opacity 0.15s;
+      transition: opacity var(--transition-fast);
     }
     .nav-cta:hover { opacity: 0.88; }
 
@@ -479,9 +494,9 @@
     .email-capture-form input::placeholder { color: var(--muted); }
     .email-capture-form button {
       background: var(--accent);
-      color: #fff;
+      color: var(--white);
       border: 0;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       padding: 13px 18px;
       font-size: 14px;
       font-weight: 700;
@@ -801,32 +816,32 @@
     .btn-book {
       display: block;
       background: var(--accent);
-      color: #fff;
+      color: var(--white);
       padding: 13px 24px;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       font-size: 14px;
       font-weight: 700;
       text-align: center;
-      transition: opacity 0.15s;
+      transition: opacity var(--transition-fast);
       margin-bottom: 8px;
     }
     .btn-book:hover { opacity: 0.88; }
     .btn-secondary {
       display: block;
-      background: transparent;
+      background: rgba(255, 255, 255, 0.04);
       color: var(--text);
       border: 1px solid var(--border);
       padding: 12px 24px;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       font-size: 13px;
       font-weight: 700;
       text-align: center;
-      transition: opacity 0.15s, border-color 0.15s;
+      transition: opacity var(--transition-fast), border-color var(--transition-fast);
       margin-bottom: 10px;
     }
     .btn-secondary:hover {
       opacity: 0.9;
-      border-color: rgba(99,102,241,0.45);
+      border-color: rgba(82, 84, 204, 0.45);
     }
     .price-note {
       font-size: 12px;

@@ -84,6 +84,13 @@
       --red:     #F87171;
       --blue:    #3B82F6;
       --accent:  #5254CC;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --transition-fast: 0.15s ease;
+      --gradient-base: #101319;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -97,9 +104,9 @@
       position: absolute; left: 20px; top: 16px;
       transform: translateY(-180%);
       background: var(--white); color: var(--dark);
-      padding: 10px 14px; border-radius: 8px;
+      padding: 10px 14px; border-radius: var(--radius-sm);
       font-size: 14px; font-weight: 700; z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
 

@@ -21,19 +21,26 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --bg: #0e1013;
+      --dark: #0e1013;
       --surface: #16191e;
       --border: #272c35;
       --text: #d8dce3;
       --muted: #7b8490;
       --white: #ffffff;
       --accent: #5254cc;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --transition-fast: 0.15s ease;
+      --gradient-base: #101319;
     }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #101319 0%, var(--bg) 40%);
+      background: linear-gradient(180deg, var(--gradient-base) 0%, var(--dark) 40%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -45,13 +52,13 @@
       top: 16px;
       transform: translateY(-180%);
       background: var(--white);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 700;
       z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus {
       transform: translateY(0);
@@ -103,10 +110,10 @@
       border-radius: 16px;
       padding: 18px 20px;
       display: block;
-      transition: border-color 0.15s, transform 0.15s;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
     }
     .tool-card:hover {
-      border-color: rgba(99,102,241,0.45);
+      border-color: rgba(82,84,204,0.45);
       transform: translateY(-1px);
     }
     .tool-card-top {
@@ -128,7 +135,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 5px 9px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       border: 1px solid rgba(255,255,255,0.08);
     }
     .tool-card-tier.critical { color: #fca5a5; background: rgba(239,68,68,0.12); }

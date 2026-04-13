@@ -23,7 +23,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --bg: #0e1013;
+      --dark: #0e1013;
       --surface: #16191e;
       --card: #1c2027;
       --border: #272c35;
@@ -32,6 +32,13 @@
       --white: #ffffff;
       --accent: #f97316;
       --accent-soft: rgba(249,115,22,0.20);
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --transition-fast: 0.15s ease;
+      --gradient-base: #101319;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -39,7 +46,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       background:
         radial-gradient(circle at top right, var(--accent-soft), transparent 28%),
-        linear-gradient(180deg, #101319 0%, var(--bg) 42%);
+        linear-gradient(180deg, var(--gradient-base) 0%, var(--dark) 42%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -51,13 +58,13 @@
       top: 16px;
       transform: translateY(-180%);
       background: var(--white);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 700;
       z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus {
       transform: translateY(0);
@@ -78,9 +85,9 @@
     .nav-link { font-size: 13px; color: var(--muted); }
     .nav-cta {
       background: var(--accent);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 16px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 700;
     }
@@ -130,20 +137,20 @@
       align-items: center;
       justify-content: center;
       padding: 12px 18px;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--border);
       font-size: 14px;
       font-weight: 700;
     }
-    .btn.primary { background: var(--accent); border-color: transparent; color: var(--bg); }
-    .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--dark); }
+    .btn.secondary { background: rgba(255, 255, 255, 0.04); color: var(--text); }
     .panel, .card {
       background: rgba(22,25,30,0.9);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
     }
-    .panel { padding: 22px; }
+    .panel { padding: 24px; }
     .panel-top {
       display: flex;
       align-items: center;
@@ -157,7 +164,7 @@
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       background: var(--accent-soft);
       color: var(--white);
       border: 1px solid rgba(255,255,255,0.08);
@@ -212,7 +219,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-    .card { padding: 22px; }
+    .card { padding: 20px; }
     .card p { margin: 0; font-size: 15px; color: var(--muted); }
     .card strong { color: var(--text); }
     .steps {
@@ -263,7 +270,7 @@
       border-radius: 14px;
       color: var(--text);
       font-size: 14px;
-      transition: border-color 0.15s, transform 0.15s;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
     }
     .related-link:hover {
       border-color: rgba(255,255,255,0.18);

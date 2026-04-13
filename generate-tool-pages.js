@@ -765,19 +765,26 @@ function toolDirectoryPage() {
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --bg: #0e1013;
+      --dark: #0e1013;
       --surface: #16191e;
       --border: #272c35;
       --text: #d8dce3;
       --muted: #7b8490;
       --white: #ffffff;
       --accent: #5254cc;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --transition-fast: 0.15s ease;
+      --gradient-base: #101319;
     }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #101319 0%, var(--bg) 40%);
+      background: linear-gradient(180deg, var(--gradient-base) 0%, var(--dark) 40%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -789,13 +796,13 @@ function toolDirectoryPage() {
       top: 16px;
       transform: translateY(-180%);
       background: var(--white);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 700;
       z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus {
       transform: translateY(0);
@@ -847,10 +854,10 @@ function toolDirectoryPage() {
       border-radius: 16px;
       padding: 18px 20px;
       display: block;
-      transition: border-color 0.15s, transform 0.15s;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
     }
     .tool-card:hover {
-      border-color: rgba(99,102,241,0.45);
+      border-color: rgba(82,84,204,0.45);
       transform: translateY(-1px);
     }
     .tool-card-top {
@@ -872,7 +879,7 @@ function toolDirectoryPage() {
       letter-spacing: 0.08em;
       text-transform: uppercase;
       padding: 5px 9px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       border: 1px solid rgba(255,255,255,0.08);
     }
     .tool-card-tier.critical { color: #fca5a5; background: rgba(239,68,68,0.12); }
@@ -966,7 +973,7 @@ function page(tool) {
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     :root {
-      --bg: #0e1013;
+      --dark: #0e1013;
       --surface: #16191e;
       --card: #1c2027;
       --border: #272c35;
@@ -975,6 +982,13 @@ function page(tool) {
       --white: #ffffff;
       --accent: ${tier.accent};
       --accent-soft: ${tier.glow};
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-card: 0 24px 60px rgba(0, 0, 0, 0.28);
+      --transition-fast: 0.15s ease;
+      --gradient-base: #101319;
     }
     html { scroll-behavior: smooth; }
     body {
@@ -982,7 +996,7 @@ function page(tool) {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       background:
         radial-gradient(circle at top right, var(--accent-soft), transparent 28%),
-        linear-gradient(180deg, #101319 0%, var(--bg) 42%);
+        linear-gradient(180deg, var(--gradient-base) 0%, var(--dark) 42%);
       color: var(--text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
@@ -994,13 +1008,13 @@ function page(tool) {
       top: 16px;
       transform: translateY(-180%);
       background: var(--white);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 14px;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 14px;
       font-weight: 700;
       z-index: 1000;
-      transition: transform 0.15s ease;
+      transition: transform var(--transition-fast);
     }
     .skip-link:focus {
       transform: translateY(0);
@@ -1021,9 +1035,9 @@ function page(tool) {
     .nav-link { font-size: 13px; color: var(--muted); }
     .nav-cta {
       background: var(--accent);
-      color: var(--bg);
+      color: var(--dark);
       padding: 10px 16px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       font-size: 13px;
       font-weight: 700;
     }
@@ -1073,20 +1087,20 @@ function page(tool) {
       align-items: center;
       justify-content: center;
       padding: 12px 18px;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--border);
       font-size: 14px;
       font-weight: 700;
     }
-    .btn.primary { background: var(--accent); border-color: transparent; color: var(--bg); }
-    .btn.secondary { background: rgba(255,255,255,0.02); color: var(--text); }
+    .btn.primary { background: var(--accent); border-color: transparent; color: var(--dark); }
+    .btn.secondary { background: rgba(255, 255, 255, 0.04); color: var(--text); }
     .panel, .card {
       background: rgba(22,25,30,0.9);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
     }
-    .panel { padding: 22px; }
+    .panel { padding: 24px; }
     .panel-top {
       display: flex;
       align-items: center;
@@ -1100,7 +1114,7 @@ function page(tool) {
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       background: var(--accent-soft);
       color: var(--white);
       border: 1px solid rgba(255,255,255,0.08);
@@ -1155,7 +1169,7 @@ function page(tool) {
       grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
-    .card { padding: 22px; }
+    .card { padding: 20px; }
     .card p { margin: 0; font-size: 15px; color: var(--muted); }
     .card strong { color: var(--text); }
     .steps {
@@ -1206,7 +1220,7 @@ function page(tool) {
       border-radius: 14px;
       color: var(--text);
       font-size: 14px;
-      transition: border-color 0.15s, transform 0.15s;
+      transition: border-color var(--transition-fast), transform var(--transition-fast);
     }
     .related-link:hover {
       border-color: rgba(255,255,255,0.18);
