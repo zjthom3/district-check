@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PowerSchool ADA Compliance (High Risk) | DistrictCheck</title>
-  <meta name="description" content="PowerSchool is rated high risk for ADA Title II. The tool has no current VPAT (unclear public status) and a vague claim WCAG claim. See what K-12 districts should do." />
+  <title>PowerSchool ADA Compliance (Medium Risk) | DistrictCheck</title>
+  <meta name="description" content="PowerSchool is rated medium risk for ADA Title II. The tool has no current VPAT (unclear public status) and a specific claim WCAG claim. See what K-12 districts should do." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://districtcheck.io/tools/powerschool" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
-  <meta property="og:title" content="PowerSchool ADA Compliance (High Risk) | DistrictCheck" />
-  <meta property="og:description" content="PowerSchool is rated high risk for ADA Title II. The tool has no current VPAT (unclear public status) and a vague claim WCAG claim. See what K-12 districts should do." />
+  <meta property="og:title" content="PowerSchool ADA Compliance (Medium Risk) | DistrictCheck" />
+  <meta property="og:description" content="PowerSchool is rated medium risk for ADA Title II. The tool has no current VPAT (unclear public status) and a specific claim WCAG claim. See what K-12 districts should do." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://districtcheck.io/tools/powerschool" />
   <meta property="og:site_name" content="DistrictCheck" />
   <meta property="og:image" content="https://districtcheck.io/og-default.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="PowerSchool ADA Compliance (High Risk) | DistrictCheck" />
-  <meta name="twitter:description" content="PowerSchool is rated high risk for ADA Title II. The tool has no current VPAT (unclear public status) and a vague claim WCAG claim. See what K-12 districts should do." />
+  <meta name="twitter:title" content="PowerSchool ADA Compliance (Medium Risk) | DistrictCheck" />
+  <meta name="twitter:description" content="PowerSchool is rated medium risk for ADA Title II. The tool has no current VPAT (unclear public status) and a specific claim WCAG claim. See what K-12 districts should do." />
   <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://districtcheck.io/"},{"@type":"ListItem","position":2,"name":"Tools","item":"https://districtcheck.io/tools/"},{"@type":"ListItem","position":3,"name":"PowerSchool","item":"https://districtcheck.io/tools/powerschool"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is PowerSchool ADA compliant?","acceptedAnswer":{"@type":"Answer","text":"DistrictCheck rates PowerSchool as high risk because the public accessibility documentation picture is unclear for many district-relevant workflows and products."}},{"@type":"Question","name":"Does PowerSchool have a VPAT?","acceptedAnswer":{"@type":"Answer","text":"Districts should request product-specific accessibility documentation directly from PowerSchool because public coverage is not clear enough to treat as settled evidence."}},{"@type":"Question","name":"Why is PowerSchool higher risk than some other tools?","acceptedAnswer":{"@type":"Answer","text":"Because it is district infrastructure tied to grades, records, parent access, and official workflows, so accessibility failures affect core school operations."}}]}</script>
@@ -30,8 +30,8 @@
       --text: #d8dce3;
       --muted: #7b8490;
       --white: #ffffff;
-      --accent: #f97316;
-      --accent-soft: rgba(249,115,22,0.20);
+      --accent: #f59e0b;
+      --accent-soft: rgba(245,158,11,0.20);
     }
     html { scroll-behavior: smooth; }
     body {
@@ -302,9 +302,9 @@
     <main id="main-content">
     <section class="hero">
       <div class="hero-copy">
-        <div class="eyebrow">High Risk · K-12 Accessibility Review</div>
+        <div class="eyebrow">Medium Risk · K-12 Accessibility Review</div>
         <h1>PowerSchool ADA Compliance</h1>
-        <p>PowerSchool ADA compliance is currently rated <strong>High risk</strong> in the DistrictCheck tool database. This page summarizes the current VPAT status, WCAG claim, student data exposure, and the next action a district should take.</p>
+        <p>PowerSchool ADA compliance is currently rated <strong>Medium risk</strong> in the DistrictCheck tool database. This page summarizes the current VPAT status, WCAG claim, student data exposure, and the next action a district should take.</p>
         <div class="hero-actions">
           <a class="btn primary" href="../audit/index.html">Audit your full stack</a>
           <a class="btn secondary" href="../index.html">Check another tool</a>
@@ -314,7 +314,7 @@
       <aside class="panel">
         <div class="panel-top">
           <div class="panel-title">PowerSchool</div>
-          <div class="badge">High</div>
+          <div class="badge">Medium</div>
         </div>
         <div class="stats">
           <div class="stat">
@@ -323,7 +323,7 @@
           </div>
           <div class="stat">
             <div class="label">WCAG 2.1 claim</div>
-            <div class="value">Vague claim</div>
+            <div class="value">Specific claim</div>
           </div>
           <div class="stat">
             <div class="label">Handles student PII</div>
@@ -332,7 +332,7 @@
         </div>
         <div class="callout">
           <div class="label">Recommended action</div>
-          <p>Escalate a written VPAT request through your account team and ask which accessibility documentation applies to SIS, parent portal, and mobile workflows. PowerSchool is core infrastructure, so document alternate family/student access paths while status is unresolved.</p>
+          <p>Request VPATs through your PowerSchool account team — the documentation exists but is only distributed via a secure portal, not publicly downloadable. PowerSchool contractually commits to WCAG 2.1 Level AA. Request confirmation that the VPAT covers Schoology, the parent portal, and mobile. Document alternate access paths for any workflows with reported gaps.</p>
         </div>
       </aside>
     </section>
@@ -341,11 +341,11 @@
 
     <section class="section">
       <h2>What PowerSchool ADA compliance means for districts</h2>
-      <p class="lead">This tool shows elevated ADA compliance risk because the VPAT is missing, unclear, or paired with weak accessibility claims. Districts should request updated documentation now and flag likely problem areas for review.</p>
+      <p class="lead">This tool has some accessibility documentation, but there are still gaps, dated materials, or partially conformant features to track. Districts should file current documentation and note any areas where accommodations may still be needed.</p>
       <div class="grid">
         <article class="card">
           <div class="label">Current finding</div>
-          <p><strong>PowerSchool</strong> is marked as <strong>high risk</strong> because the current database entry lists <strong>VPAT: Unclear public status</strong> and <strong>WCAG claim: Vague claim</strong>.</p>
+          <p><strong>PowerSchool</strong> is marked as <strong>medium risk</strong> because the current database entry lists <strong>VPAT: Unclear public status</strong> and <strong>WCAG claim: Specific claim</strong>.</p>
         </article>
         <article class="card">
           <div class="label">District implication</div>
@@ -385,7 +385,7 @@
         <article class="card step">
           <div class="step-num">2</div>
           <h3>Contact the vendor</h3>
-          <p>Escalate a written VPAT request through your account team and ask which accessibility documentation applies to SIS, parent portal, and mobile workflows. PowerSchool is core infrastructure, so document alternate family/student access paths while status is unresolved.</p>
+          <p>Request VPATs through your PowerSchool account team — the documentation exists but is only distributed via a secure portal, not publicly downloadable. PowerSchool contractually commits to WCAG 2.1 Level AA. Request confirmation that the VPAT covers Schoology, the parent portal, and mobile. Document alternate access paths for any workflows with reported gaps.</p>
         </article>
         <article class="card step">
           <div class="step-num">3</div>
@@ -407,7 +407,7 @@
       <div class="faq-list">
         <article class="card faq">
           <h3>Is PowerSchool ADA compliant?</h3>
-          <p>DistrictCheck currently rates PowerSchool as <strong>high risk</strong>, based on the tool database entry for its VPAT status, WCAG claim, and usage context.</p>
+          <p>DistrictCheck currently rates PowerSchool as <strong>medium risk</strong>, based on the tool database entry for its VPAT status, WCAG claim, and usage context.</p>
         </article>
         <article class="card faq">
           <h3>Does PowerSchool have a VPAT?</h3>
@@ -415,7 +415,7 @@
         </article>
         <article class="card faq">
           <h3>What should districts do next?</h3>
-          <p>Escalate a written VPAT request through your account team and ask which accessibility documentation applies to SIS, parent portal, and mobile workflows. PowerSchool is core infrastructure, so document alternate family/student access paths while status is unresolved.</p>
+          <p>Request VPATs through your PowerSchool account team — the documentation exists but is only distributed via a secure portal, not publicly downloadable. PowerSchool contractually commits to WCAG 2.1 Level AA. Request confirmation that the VPAT covers Schoology, the parent portal, and mobile. Document alternate access paths for any workflows with reported gaps.</p>
         </article>
       </div>
     </section>
@@ -426,7 +426,7 @@
       <div class="related-stack">
 <a class="related-link" href="./nearpod.html">Districts using PowerSchool often also use Nearpod &rarr;</a>
 <a class="related-link" href="./ixl.html">Districts using PowerSchool often also use IXL &rarr;</a>
-<a class="related-link" href="./remind.html">Districts using PowerSchool often also use Remind &rarr;</a>
+<a class="related-link" href="./padlet.html">Districts using PowerSchool often also use Padlet &rarr;</a>
       </div>
     </section>
 
@@ -441,17 +441,6 @@
     </section>
 
     
-    <section class="section">
-      <div class="panel">
-        <div class="label">Vendor outreach</div>
-        <h2 style="margin-top:0;">Need a VPAT from this vendor?</h2>
-        <p class="lead" style="margin-bottom:18px;">Use DistrictCheck's copy-paste outreach templates to request a VPAT, follow up if needed, and document your good-faith compliance effort.</p>
-        <div class="hero-actions">
-          <a class="btn primary" href="../resources/vendor-vpat-request-template.html">Request a VPAT from this vendor</a>
-          <a class="btn secondary" href="../resources/wcag-checklist-edtech.html">Review the WCAG checklist</a>
-        </div>
-      </div>
-    </section>
 
     <section class="section">
       <div class="panel">

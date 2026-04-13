@@ -7,6 +7,31 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+---
+
+## [2026-04-13] — Tool data audit
+
+### Changed
+- **ClassDojo** — critical → low; `vpat: 'Exists (2025)'`; `wcag: 'Specific claim'` (Sep 2025 ACR, WCAG 2.2 A/AA, VPAT 2.5, Level Access tested)
+- **Kahoot** — high → low; `vpat: 'Exists (2024)'`; `wcag: 'Specific claim'` (Dec 2024 ACR, VPAT 2.5, WCAG 2.2 AA)
+- **Edpuzzle** — high → low; `vpat: 'Exists (2025)'`; `wcag: 'Specific claim'` (Apr 2025 VPAT 2.5, WCAG 2.2)
+- **Kami** — medium → low; `vpat: 'Exists (2024)'`; `wcag: 'Specific claim'` (Oct 2024 VPAT 2.5)
+- **Book Creator** — medium → low; `vpat: 'Exists (2024)'`; `wcag: 'Specific claim'` (WCAG 2.2, Section 508, EN 301 549)
+- **Nearpod** — high → medium; `vpat: 'Exists (2023)'`; `wcag: 'Specific claim'` (WCAG 2.0 AA; needs WCAG 2.1 update)
+- **IXL** — high → medium; `vpat: 'Exists (confidential)'`; `wcag: 'Specific claim'` (self-authored ACR, distributed via account contact)
+- **Padlet** — high → medium; `vpat: 'Exists (2024)'`; `wcag: 'Specific claim'` (WCAG 2.2 AA, partially conformant)
+- **Boom Learning** — high → medium; `vpat: 'Exists (date unconfirmed)'` (four VPATs in help center; dates need manual verification)
+- **PowerSchool** — high → medium; `wcag: 'Specific claim'` (WCAG 2.1 AA commitment; VPAT gated to account portal)
+- **i-Ready** — high → medium; `wcag: 'Specific claim'` (WCAG 2.0 AA claimed as of 2019–20; no VPAT published)
+- **Seesaw** — `vpat: 'Exists (2024)'` (Jan 2024 ACR, revised Nov 2025; WCAG 2.2 AA partially conformant)
+- **CommonLit** — `wcag: 'Aspirational'` (WCAG 2.1 AA goal stated; no VPAT)
+- seoOverrides updated for ClassDojo, Kahoot, Nearpod, Padlet to reflect new tier labels
+- All tool pages and sitemap regenerated via `node generate-tool-pages.js`
+
+### Notes
+- 11 tools flagged for manual verification (BrainPOP, Flip, Discovery Education, Duolingo, Clever, Typing.com, Epic, Loom, DreamBox, Lexia, Amplify) — no search results found; existing data unchanged
+- Next audit recommended: 2026-10-13 (6-month cycle)
+
 ### Added
 - Netlify Forms replacing Google Forms for audit intake, homepage lead capture, and vendor applications
 - `/thank-you/` confirmation page with context-aware payment CTAs
