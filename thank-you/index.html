@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Received | DistrictCheck</title>
+  <meta name="description" content="Your request has been received. We'll be in touch within 2 business days." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://districtcheck.io/thank-you/" />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark: #0E1013;
+      --surface: #16191E;
+      --card: #1C2027;
+      --border: #272C35;
+      --muted: #7B8490;
+      --text: #D8DCE3;
+      --white: #FFFFFF;
+      --green: #22C55E;
+      --accent: #5254CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background: radial-gradient(circle at top right, rgba(82,84,204,0.18), transparent 28%),
+                  linear-gradient(180deg, #101319 0%, var(--dark) 40%);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+    a { color: inherit; text-decoration: none; }
+    .skip-link {
+      position: absolute;
+      left: 20px;
+      top: 16px;
+      transform: translateY(-180%);
+      background: var(--white);
+      color: var(--dark);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    nav {
+      padding: 22px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .logo { font-size: 18px; font-weight: 800; color: var(--white); letter-spacing: -0.02em; }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 14px; }
+    .nav-link { font-size: 13px; color: var(--muted); }
+    .main-content {
+      padding: 80px 0 60px;
+      max-width: 640px;
+    }
+    .check-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .lead {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      max-width: 58ch;
+    }
+    .next-steps {
+      background: rgba(22,25,30,0.92);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .next-steps-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .step-list {
+      display: grid;
+      gap: 14px;
+    }
+    .step-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 15px;
+      color: var(--text);
+    }
+    .step-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(82,84,204,0.2);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Payment CTA — hidden by default, shown via JS */
+    .payment-cta {
+      display: none;
+      background: rgba(82,84,204,0.08);
+      border: 1px solid rgba(82,84,204,0.3);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 32px;
+    }
+    .payment-cta.visible { display: block; }
+    .payment-cta-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .payment-cta h2 {
+      font-size: 22px;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+    .payment-cta p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 700;
+      border: 1px solid transparent;
+    }
+    .btn.primary { background: var(--accent); color: var(--white); }
+    .btn.secondary { border-color: var(--border); color: var(--text); background: rgba(255,255,255,0.02); }
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 60px;
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(1120px, calc(100% - 24px)); }
+      .main-content { padding: 48px 0 40px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <div class="wrap">
+    <nav aria-label="Main navigation">
+      <a class="logo" href="/" aria-label="DistrictCheck">District<em>Check</em></a>
+      <div class="nav-links">
+        <a class="nav-link" href="/tools/">Browse tools</a>
+        <a class="nav-link" href="/blog/">Blog</a>
+      </div>
+    </nav>
+
+    <main id="main-content">
+      <div class="main-content">
+        <div class="check-icon" aria-hidden="true">✓</div>
+        <h1 id="ty-heading">Request received.</h1>
+        <p class="lead" id="ty-lead">We'll review what you sent and follow up within 2 business days with next steps.</p>
+
+        <!-- Audit payment CTA (shown when ?type=audit) -->
+        <div class="payment-cta" id="audit-cta" aria-labelledby="audit-cta-heading">
+          <div class="payment-cta-label">Optional next step</div>
+          <h2 id="audit-cta-heading">Ready to lock in your audit slot?</h2>
+          <p>Pay the $1,500 flat fee online to confirm your spot. You can also request an invoice by email if your district prefers to pay via PO.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" target="_blank" rel="noopener noreferrer">Pay $1,500 online</a>
+            <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20invoice%20request">Request an invoice</a>
+          </div>
+        </div>
+
+        <!-- Vendor payment CTA (shown when ?type=vendor) -->
+        <div class="payment-cta" id="vendor-cta" aria-labelledby="vendor-cta-heading">
+          <div class="payment-cta-label">Optional next step</div>
+          <h2 id="vendor-cta-heading">Start your DistrictCheck Verified subscription</h2>
+          <p>Complete your application by paying the $999/year certification fee. Once payment is confirmed we'll begin your documentation review and reach out to schedule the kickoff.</p>
+          <div class="actions">
+            <a class="btn primary" href="https://buy.stripe.com/14A8wO7ii9gObdubac6Vq03" target="_blank" rel="noopener noreferrer">Pay $999/year online</a>
+            <a class="btn secondary" href="mailto:hello@districtcheck.io?subject=DistrictCheck%20Verified%20invoice">Request an invoice</a>
+          </div>
+        </div>
+
+        <div class="next-steps">
+          <div class="next-steps-label">What happens next</div>
+          <div class="step-list" id="steps-list">
+            <!-- Steps injected by JS based on type param -->
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn secondary" href="/">Back to homepage</a>
+          <a class="btn secondary" href="/tools/">Browse tool database</a>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div>Copyright 2026 DistrictCheck · ADA Title II · WCAG 2.1 AA · K-12</div>
+    </footer>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+
+    const auditSteps = [
+      'We review your tool list and district details.',
+      'If anything is unclear or incomplete, we email within 4 hours to follow up.',
+      'Once we have everything, your audit begins. Report delivery is targeted within 48 hours.',
+      'You receive a risk scorecard, executive summary, and vendor outreach drafts.'
+    ];
+
+    const vendorSteps = [
+      'We review your application and accessibility documentation.',
+      'If your docs meet the rubric, we issue your DistrictCheck Verified badge.',
+      'Your vendor profile is updated to show Verified status with a link to reviewed documentation.',
+      'When your VPAT changes, send us the update and we'll refresh the badge.'
+    ];
+
+    const defaultSteps = [
+      'We review your submission.',
+      'We follow up by email within 2 business days.',
+      'If any details are missing, we'll reach out to complete the picture.'
+    ];
+
+    function renderSteps(steps) {
+      const list = document.getElementById('steps-list');
+      list.innerHTML = steps.map((s, i) =>
+        `<div class="step-item"><div class="step-num">${i + 1}</div><div>${s}</div></div>`
+      ).join('');
+    }
+
+    if (type === 'audit') {
+      document.getElementById('ty-heading').textContent = 'Audit request received.';
+      document.getElementById('ty-lead').textContent = 'We\'ll review your tool list and follow up within 2 business days. If your district is ready, you can pay to lock in your audit slot now.';
+      document.getElementById('audit-cta').classList.add('visible');
+      renderSteps(auditSteps);
+    } else if (type === 'vendor') {
+      document.getElementById('ty-heading').textContent = 'Application received.';
+      document.getElementById('ty-lead').textContent = 'We\'ll review your documentation and follow up within 2 business days. If you\'re ready to get started, you can complete your payment now.';
+      document.getElementById('vendor-cta').classList.add('visible');
+      renderSteps(vendorSteps);
+    } else {
+      renderSteps(defaultSteps);
+    }
+  </script>
+</body>
+</html>

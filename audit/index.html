@@ -395,34 +395,80 @@
       margin-bottom: 18px;
     }
 
-    .embed-placeholder {
-      border: 1px dashed rgba(255, 255, 255, 0.18);
-      border-radius: 16px;
-      padding: 22px;
-      background: rgba(255, 255, 255, 0.015);
-    }
-
-    .embed-placeholder ul {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin: 18px 0;
-      padding: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .embed-placeholder li::before {
-      content: "→ ";
-      color: var(--accent);
-      font-weight: 700;
-    }
-
     .subtle-link {
       color: var(--muted);
       font-size: 13px;
       text-decoration: underline;
       text-underline-offset: 0.14em;
+    }
+
+    .intake-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .intake-form input,
+    .intake-form textarea,
+    .intake-form select {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: var(--text);
+      font-family: inherit;
+      transition: border-color 0.15s;
+    }
+
+    .intake-form input:focus,
+    .intake-form textarea:focus,
+    .intake-form select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .intake-form input::placeholder,
+    .intake-form textarea::placeholder {
+      color: var(--muted);
+    }
+
+    .intake-form textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .intake-form button[type="submit"] {
+      background: var(--accent);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      padding: 14px 20px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.15s;
+    }
+
+    .intake-form button[type="submit"]:hover {
+      opacity: 0.88;
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 640px) {
+      .form-row { grid-template-columns: 1fr; }
     }
 
     footer {
@@ -501,8 +547,8 @@
             <div class="mini-item">Compliance documentation trail you can keep on file</div>
           </div>
           <div class="hero-actions">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Open intake form</a>
-            <a class="btn secondary" href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" target="_blank" rel="noopener noreferrer">Pay online after intake</a>
+            <a class="btn primary" href="#request-audit">Fill out the intake form</a>
+            <a class="btn secondary" href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" target="_blank" rel="noopener noreferrer">Pay $1,500 online</a>
           </div>
           <div class="price-note">Districts under common micro-purchase thresholds of $2,500–$10,000 usually do not need a PO for a $1,500 professional-services engagement.</div>
         </aside>
@@ -579,8 +625,8 @@
             <h3>$500 / month</h3>
             <p>Quarterly re-audits, new tool reviews on request, and ongoing documentation monitoring after the initial pilot audit is complete.</p>
             <div class="hero-actions">
-              <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20retainer%20question">Ask about retainer coverage</a>
-              <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20invoice%20request">Request invoice</a>
+              <a class="btn primary" href="https://buy.stripe.com/5kQ14m9qqakS1CU5PS6Vq02" target="_blank" rel="noopener noreferrer">Subscribe — $500/mo</a>
+              <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20retainer%20question">Questions? Email us</a>
             </div>
           </article>
         </div>
@@ -607,23 +653,22 @@
       <section class="section panel form-shell" id="request-audit">
         <div class="label">Request your audit</div>
         <h2>Start with the intake form</h2>
-        <p>Use the current intake link below to send your district name, contact details, and rough tool list. We&apos;ll follow up with next steps and can invoice manually if your district prefers not to pay online.</p>
-        <div class="embed-placeholder">
-          <!-- TODO: replace with real Google Form embed URL -->
-          <p><strong>Temporary intake setup:</strong> the live intake currently opens in Google Forms while the embedded version is being finalized for this page.</p>
-          <ul>
-            <li>District name</li>
-            <li>State</li>
-            <li>Primary contact name and email</li>
-            <li>Rough tool list</li>
-            <li>Deadline or special notes</li>
-          </ul>
-          <div class="hero-actions">
-            <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdQJKWQ0HhmANtrWZZ29Cdk5tfqPrRim3R5zFWS_cPN5RDEZg/viewform?usp=dialog" target="_blank" rel="noopener noreferrer">Open intake form</a>
-            <a class="btn secondary" href="mailto:jerel@districtcheck.io?subject=DistrictCheck%20audit%20request">Request by email instead</a>
+        <p>Send your district name, contact details, and rough tool list. We&apos;ll review it and follow up within 2 business days with next steps and payment options.</p>
+        <form class="intake-form" name="audit-intake" method="POST" data-netlify="true" action="/thank-you/?type=audit">
+          <input type="hidden" name="form-name" value="audit-intake" />
+          <div class="form-row">
+            <input type="text" name="district-name" placeholder="District name" required autocomplete="organization" />
+            <input type="text" name="state" placeholder="State" required />
           </div>
-          <div class="price-note">We aim to reply within 4 hours with next steps. Audit delivery begins once we have your tool list and intake details.</div>
-        </div>
+          <div class="form-row">
+            <input type="text" name="contact-name" placeholder="Your name" required autocomplete="name" />
+            <input type="email" name="email" placeholder="Work email" required autocomplete="email" />
+          </div>
+          <textarea name="tools" placeholder="List the edtech tools you need audited (one per line — rough list is fine)"></textarea>
+          <textarea name="notes" placeholder="Deadline, special notes, or anything else we should know (optional)"></textarea>
+          <button type="submit">Submit audit request</button>
+          <div class="form-note">We aim to reply within 4 hours on business days. Audit delivery is targeted within 48 hours once we have your complete tool list.</div>
+        </form>
       </section>
     </main>
 

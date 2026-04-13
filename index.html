@@ -1139,7 +1139,8 @@
         <div class="email-capture-label">District audit intake</div>
         <h3>Need a full compliance audit for your district?</h3>
         <p>Enter your work email and district name, then continue to the live audit intake form for a full district review.</p>
-        <form class="email-capture-form" action="/audit/#request-audit" method="get">
+        <form class="email-capture-form" name="homepage-lead" method="POST" data-netlify="true" action="/audit/">
+          <input type="hidden" name="form-name" value="homepage-lead" />
           <input type="email" name="email" placeholder="Work email" autocomplete="email" required />
           <input type="text" name="district_name" placeholder="District name" autocomplete="organization" required />
           <input type="hidden" name="source" value="homepage-tool-lookup" />
