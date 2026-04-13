@@ -25,17 +25,19 @@ const DEFAULT_LASTMOD = '2026-04-06';
 const BLOG_INDEX_LASTMOD = '2026-04-05';
 const OG_IMAGE = 'https://districtcheck.io/og-default.png';
 const staticPages = [
-  { loc: 'https://districtcheck.io/audit/index.html', lastmod: '2026-04-06' },
-  { loc: 'https://districtcheck.io/resources/ada-title-ii-faq.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/resources/vendor-vpat-request-template.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/resources/wcag-checklist-edtech.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/section-508/index.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/lms/index.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/lms/canvas-vs-schoology.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/assessment/index.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/communication/index.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/tools/content/index.html', lastmod: '2026-04-05' },
-  { loc: 'https://districtcheck.io/vendors/index.html', lastmod: '2026-04-05' }
+  { loc: 'https://districtcheck.io/audit/', lastmod: '2026-04-06' },
+  { loc: 'https://districtcheck.io/resources/ada-title-ii-faq', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/resources/vendor-vpat-request-template', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/resources/wcag-checklist-edtech', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/section-508/', lastmod: '2026-04-13' },
+  { loc: 'https://districtcheck.io/tools/lms/', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/lms/canvas-vs-schoology', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/lms/google-classroom-vs-canvas', lastmod: '2026-04-13' },
+  { loc: 'https://districtcheck.io/tools/assessment/nearpod-vs-pear-deck', lastmod: '2026-04-13' },
+  { loc: 'https://districtcheck.io/tools/assessment/', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/communication/', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/tools/content/', lastmod: '2026-04-05' },
+  { loc: 'https://districtcheck.io/vendors/', lastmod: '2026-04-05' }
 ];
 
 const blogPosts = [
@@ -161,7 +163,7 @@ const seoOverrides = {
   },
   Kahoot: {
     title: 'Kahoot ADA Compliance (High Risk) | DistrictCheck',
-    description: 'Kahoot has no VPAT and only an aspirational WCAG claim - high ADA risk. See the key barriers and what your district should do before the deadline.'
+    description: 'Kahoot has no published VPAT and only an aspirational WCAG claim — high ADA Title II risk for K-12 districts. See what the documentation gap means and how to request a VPAT.'
   },
   Prodigy: {
     title: 'Prodigy Math ADA Compliance (High Risk) | DistrictCheck',
@@ -175,9 +177,13 @@ const seoOverrides = {
     title: 'Padlet ADA Compliance (High Risk) | DistrictCheck',
     description: 'Padlet has no VPAT and a vague WCAG claim - high ADA risk. The canvas interface creates known screen reader barriers. See what districts should do.'
   },
+  Canvas: {
+    title: 'Canvas LMS ADA Compliance (Low Risk) | DistrictCheck',
+    description: 'Canvas has a current 2024 VPAT and a specific WCAG 2.1 AA claim — low ADA Title II risk. See what the VPAT covers, partial-support notes, and the one LTI exception districts must know.'
+  },
   'Google Classroom': {
     title: 'Google Classroom ADA Compliance (Low Risk) | DistrictCheck',
-    description: 'Google Classroom has a current VPAT and specific WCAG claim - low ADA risk. See what is covered, what is partially supported, and what districts should file.'
+    description: 'Google Classroom has a current 2024 VPAT and specific WCAG claim — low ADA Title II risk. See what is covered, what is partially supported, and what districts should file.'
   },
   'Canva for Education': {
     title: 'Canva Education ADA Compliance | DistrictCheck',
@@ -588,9 +594,12 @@ function toolSeo(tool) {
     };
   }
   if (override) return override;
+  const vpat = tool.vpat.toLowerCase().startsWith('exists')
+    ? `has a ${tool.vpat.toLowerCase()}`
+    : `has no current VPAT (${tool.vpat.toLowerCase()})`;
   return {
     title: `${tool.name} ADA Compliance (${tierMap[tool.tier].label} Risk) | DistrictCheck`,
-    description: `${tool.name} ADA compliance review for K-12 districts: ${tool.tier} risk, VPAT ${tool.vpat.toLowerCase()}, WCAG claim ${tool.wcag.toLowerCase()}, and recommended next steps.`
+    description: `${tool.name} is rated ${tierMap[tool.tier].label.toLowerCase()} risk for ADA Title II. The tool ${vpat} and a ${tool.wcag.toLowerCase()} WCAG claim. See what K-12 districts should do.`
   };
 }
 
@@ -911,10 +920,10 @@ function page(tool) {
   const tier = tierMap[canonical.tier];
   const seo = toolSeo(tool);
   const slug = slugify(tool.name);
-  const canonicalHref = `https://districtcheck.io/tools/${canonicalSlug(tool)}.html`;
+  const canonicalHref = `https://districtcheck.io/tools/${canonicalSlug(tool)}`;
   const breadcrumbScript = breadcrumbJsonLd([
     { name: 'Home', item: 'https://districtcheck.io/' },
-    { name: 'Tools', item: 'https://districtcheck.io/tools/index.html' },
+    { name: 'Tools', item: 'https://districtcheck.io/tools/' },
     { name: canonical.name, item: canonicalHref }
   ]);
   const aliasNote = isAlias(tool)
@@ -945,7 +954,7 @@ function page(tool) {
   <meta property="og:title" content="${escapeHtml(seo.title)}" />
   <meta property="og:description" content="${escapeHtml(seo.description)}" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://districtcheck.io/tools/${slug}.html" />
+  <meta property="og:url" content="https://districtcheck.io/tools/${slug}" />
   <meta property="og:site_name" content="DistrictCheck" />
   <meta property="og:image" content="${OG_IMAGE}" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -1383,11 +1392,11 @@ ${relatedBlogLinks}
 function sitemapXml() {
   const urls = [
     { loc: 'https://districtcheck.io/', lastmod: DEFAULT_LASTMOD },
-    { loc: 'https://districtcheck.io/blog/index.html', lastmod: BLOG_INDEX_LASTMOD },
-    ...blogPosts.map((post) => ({ loc: `https://districtcheck.io/blog/${post.slug}`, lastmod: post.lastmod })),
+    { loc: 'https://districtcheck.io/blog/', lastmod: BLOG_INDEX_LASTMOD },
+    ...blogPosts.map((post) => ({ loc: `https://districtcheck.io/blog/${post.slug.replace('.html', '')}`, lastmod: post.lastmod })),
     ...staticPages,
-    { loc: 'https://districtcheck.io/tools/index.html', lastmod: DEFAULT_LASTMOD },
-    ...tools.filter((tool) => !isAlias(tool)).map((tool) => ({ loc: `https://districtcheck.io/tools/${slugify(tool.name)}.html`, lastmod: DEFAULT_LASTMOD }))
+    { loc: 'https://districtcheck.io/tools/', lastmod: DEFAULT_LASTMOD },
+    ...tools.filter((tool) => !isAlias(tool)).map((tool) => ({ loc: `https://districtcheck.io/tools/${slugify(tool.name)}`, lastmod: DEFAULT_LASTMOD }))
   ];
   const entries = urls.map((url) => `  <url>\n    <loc>${url.loc}</loc>\n    <lastmod>${url.lastmod}</lastmod>\n  </url>`).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;

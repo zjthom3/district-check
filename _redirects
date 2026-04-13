@@ -1,0 +1,23 @@
+# Redirect .html URLs to clean URLs (301 permanent)
+# Index pages — explicit rules first (processed before wildcards)
+/blog/index.html                  /blog/                  301
+/audit/index.html                 /audit/                 301
+/vendors/index.html               /vendors/               301
+/tools/index.html                 /tools/                 301
+/tools/section-508/index.html     /tools/section-508/     301
+/tools/lms/index.html             /tools/lms/             301
+/tools/assessment/index.html      /tools/assessment/      301
+/tools/communication/index.html   /tools/communication/   301
+/tools/content/index.html         /tools/content/         301
+
+# Nested page wildcards (subdirectories — * does not match /)
+/tools/lms/*.html                 /tools/lms/:splat       301
+/tools/assessment/*.html          /tools/assessment/:splat 301
+/tools/communication/*.html       /tools/communication/:splat 301
+/tools/content/*.html             /tools/content/:splat   301
+/tools/section-508/*.html         /tools/section-508/:splat 301
+
+# Top-level wildcards
+/tools/*.html                     /tools/:splat           301
+/blog/*.html                      /blog/:splat            301
+/resources/*.html                 /resources/:splat       301

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nearpod vs Pear Deck: ADA Accessibility Comparison for K-12 Districts | DistrictCheck</title>
+  <meta name="description" content="Nearpod and Pear Deck are both interactive classroom tools — but their ADA compliance postures differ. Nearpod is High risk with no VPAT. Pear Deck has a 2023 VPAT. See what districts should do." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://districtcheck.io/tools/assessment/nearpod-vs-pear-deck" />
+  <link rel="icon" href="../../favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Nearpod vs Pear Deck: ADA Accessibility Comparison | DistrictCheck" />
+  <meta property="og:description" content="Nearpod has no VPAT (High risk). Pear Deck has a 2023 VPAT (Medium risk). See what the documentation gap means for K-12 districts using either platform." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://districtcheck.io/tools/assessment/nearpod-vs-pear-deck" />
+  <meta property="og:site_name" content="DistrictCheck" />
+  <meta property="og:image" content="https://districtcheck.io/og-default.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nearpod vs Pear Deck: ADA Accessibility Comparison | DistrictCheck" />
+  <meta name="twitter:description" content="Nearpod has no VPAT (High risk). Pear Deck has a 2023 VPAT (Medium risk). See what the documentation gap means for K-12 districts using either platform." />
+  <meta name="twitter:image" content="https://districtcheck.io/og-default.png" />
+
+  <!-- Article + FAQ structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Nearpod vs Pear Deck: ADA Accessibility Comparison for K-12 Districts",
+    "description": "A side-by-side comparison of Nearpod and Pear Deck on ADA Title II accessibility documentation, VPAT status, WCAG 2.1 AA conformance claims, and recommended district action steps.",
+    "datePublished": "2026-04-13",
+    "author": { "@type": "Organization", "name": "DistrictCheck" },
+    "publisher": { "@type": "Organization", "name": "DistrictCheck", "url": "https://districtcheck.io" }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://districtcheck.io/" },
+      { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://districtcheck.io/tools/" },
+      { "@type": "ListItem", "position": 3, "name": "Assessment", "item": "https://districtcheck.io/tools/assessment/" },
+      { "@type": "ListItem", "position": 4, "name": "Nearpod vs Pear Deck", "item": "https://districtcheck.io/tools/assessment/nearpod-vs-pear-deck" }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is Nearpod ADA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Nearpod is rated High risk by DistrictCheck. It has no published VPAT and only a vague WCAG claim. Districts using Nearpod for required classroom activities should request updated accessibility documentation from the vendor and document an accessible alternative for students who may encounter barriers in real-time interactive activities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is Pear Deck ADA compliant?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pear Deck is rated Medium risk by DistrictCheck. It has an existing VPAT from 2023 with a specific WCAG 2.1 AA conformance claim. Districts should file this VPAT and note that freehand drawing and annotation tools are partially conformant — text-based alternatives should be available for those activities."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Nearpod or Pear Deck: which is better for ADA compliance?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pear Deck has stronger ADA documentation than Nearpod. Pear Deck has a 2023 VPAT with a specific WCAG 2.1 AA claim; Nearpod has no VPAT and only a vague claim. For districts prioritizing documented compliance, Pear Deck is the more defensible choice based on currently available documentation. However, both tools have interactive features — like drawing tools and real-time activities — that districts should specifically flag in their compliance notes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What should districts do if they use both Nearpod and Pear Deck?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "File the existing Pear Deck VPAT immediately. For Nearpod, send a written VPAT request to the vendor, record the date, and document an alternative participation pathway for students who may encounter accessibility barriers in real-time Nearpod sessions — particularly for timed activities, drag-and-drop interactions, and audio-dependent content."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --dark:    #0E1013;
+      --surface: #16191E;
+      --card:    #1C2027;
+      --border:  #272C35;
+      --muted:   #7B8490;
+      --text:    #D8DCE3;
+      --white:   #FFFFFF;
+      --green:   #22C55E;
+      --yellow:  #F59E0B;
+      --orange:  #F97316;
+      --red:     #F87171;
+      --blue:    #3B82F6;
+      --accent:  #5254CC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--dark); color: var(--text);
+      line-height: 1.7; -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .skip-link {
+      position: absolute; left: 20px; top: 16px;
+      transform: translateY(-180%);
+      background: var(--white); color: var(--dark);
+      padding: 10px 14px; border-radius: 8px;
+      font-size: 14px; font-weight: 700; z-index: 1000;
+      transition: transform 0.15s ease;
+    }
+    .skip-link:focus { transform: translateY(0); outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 60px; border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
+    .logo em { color: var(--accent); font-style: normal; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-link { font-size: 13px; color: var(--muted); transition: color 0.15s; }
+    .nav-link:hover { color: var(--text); text-decoration: none; }
+    .nav-cta {
+      background: var(--accent); color: #fff;
+      padding: 8px 18px; border-radius: 6px;
+      font-size: 13px; font-weight: 600; transition: opacity 0.15s;
+    }
+    .nav-cta:hover { opacity: 0.88; text-decoration: none; }
+
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+
+    .article-header {
+      padding: 64px 0 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 48px;
+    }
+    .breadcrumb {
+      font-size: 12px; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600;
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--text); text-decoration: none; }
+    .breadcrumb-sep { color: var(--border); }
+    .article-tag {
+      display: inline-block;
+      background: rgba(82,84,204,0.15); color: var(--accent);
+      border: 1px solid rgba(82,84,204,0.3);
+      border-radius: 4px; padding: 4px 10px;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(26px, 4vw, 42px);
+      font-weight: 900; line-height: 1.1;
+      letter-spacing: -0.03em; color: var(--white); margin-bottom: 20px;
+    }
+    .article-meta { font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    .article-body { padding-bottom: 80px; }
+    .article-body p { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 24px; }
+    .article-body h2 {
+      font-size: clamp(22px, 3vw, 28px); font-weight: 800;
+      letter-spacing: -0.025em; line-height: 1.15;
+      color: var(--white); margin: 48px 0 16px;
+    }
+    .article-body h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.015em; color: var(--white); margin: 32px 0 12px; }
+    .article-body ul, .article-body ol { margin: 0 0 24px 0; padding-left: 24px; }
+    .article-body li { font-size: 17px; line-height: 1.75; color: var(--text); margin-bottom: 8px; }
+    .article-body strong { color: var(--white); font-weight: 700; }
+    .article-body a { text-decoration: underline; text-underline-offset: 0.14em; }
+
+    .scorecard-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 32px 0;
+    }
+    .score-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px;
+    }
+    .score-card.winner { border-color: var(--yellow); }
+    .score-card-tool { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 8px; }
+    .score-card-name { font-size: 22px; font-weight: 900; color: var(--white); margin-bottom: 16px; }
+    .score-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--border); gap: 8px; }
+    .score-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .score-label { font-size: 13px; color: var(--muted); }
+    .score-value { font-size: 13px; font-weight: 700; text-align: right; }
+    .score-green { color: var(--green); }
+    .score-yellow { color: var(--yellow); }
+    .score-orange { color: var(--orange); }
+    .winner-tag {
+      display: inline-block;
+      background: rgba(245,158,11,0.15); color: var(--yellow);
+      border: 1px solid rgba(245,158,11,0.3); border-radius: 4px;
+      padding: 3px 8px; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
+    }
+
+    .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; }
+    .compare-table th {
+      text-align: left; font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted);
+      padding: 10px 14px; border-bottom: 2px solid var(--border);
+    }
+    .compare-table td { padding: 14px 14px; font-size: 14px; color: var(--text); border-bottom: 1px solid var(--border); vertical-align: top; }
+    .compare-table tr:hover td { background: var(--surface); }
+    .compare-table td:first-child { color: var(--white); font-weight: 600; width: 34%; }
+    .compare-table td.nearpod { color: var(--orange); font-weight: 700; }
+    .compare-table td.peardeck { color: var(--yellow); font-weight: 700; }
+    .badge {
+      display: inline-flex; align-items: center;
+      padding: 3px 10px; border-radius: 999px;
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+    }
+    .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange); }
+    .badge-yellow { background: rgba(245,158,11,0.15); color: var(--yellow); }
+
+    .callout {
+      background: var(--card); border: 1px solid var(--border);
+      border-left: 4px solid var(--accent); border-radius: 10px;
+      padding: 20px 24px; margin: 32px 0;
+    }
+    .callout.warning { border-left-color: var(--yellow); }
+    .callout.urgent { border-left-color: var(--orange); }
+    .callout-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-bottom: 8px; color: var(--accent);
+    }
+    .callout.warning .callout-label { color: var(--yellow); }
+    .callout.urgent .callout-label { color: var(--orange); }
+    .callout p { margin-bottom: 0 !important; font-size: 15px !important; }
+
+    .verdict-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 28px 32px; margin: 40px 0;
+    }
+    .verdict-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+    .verdict-text { font-size: 19px; font-weight: 700; color: var(--white); line-height: 1.4; }
+
+    .cta-block {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 14px; padding: 36px; text-align: center; margin: 48px 0;
+    }
+    .cta-block h3 { color: var(--white); font-size: 22px; margin-bottom: 10px; }
+    .cta-block p { color: var(--muted); font-size: 15px; margin-bottom: 24px !important; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--accent); color: #fff;
+      padding: 14px 28px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; transition: opacity 0.15s;
+    }
+    .cta-btn:hover { opacity: 0.88; text-decoration: none; }
+    .cta-secondary { display: inline-block; margin-top: 12px; font-size: 14px; color: var(--muted); }
+
+    footer {
+      border-top: 1px solid var(--border); padding: 32px 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 13px; color: var(--muted);
+    }
+    .footer-logo { font-size: 15px; font-weight: 800; color: var(--white); }
+    .footer-logo em { color: var(--accent); font-style: normal; }
+
+    @media (max-width: 640px) {
+      nav { padding: 14px 20px; }
+      footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .scorecard-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <nav aria-label="Main navigation">
+    <a href="/" class="logo" aria-label="DistrictCheck">District<em>Check</em></a>
+    <div class="nav-right">
+      <a href="/blog/" class="nav-link">Blog</a>
+      <a href="/#tools" class="nav-link">Browse Tools</a>
+      <a href="/" class="nav-cta">Check a Tool →</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+  <div class="wrap">
+    <article>
+      <header class="article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="/tools/">Tools</a>
+          <span class="breadcrumb-sep">/</span>
+          <a href="/tools/assessment/">Assessment</a>
+          <span class="breadcrumb-sep">/</span>
+          Nearpod vs Pear Deck
+        </nav>
+        <div class="article-tag">Assessment Tool Comparison</div>
+        <h1>Nearpod vs Pear Deck: ADA Accessibility Comparison for K-12 Districts</h1>
+        <div class="article-meta">
+          <span>DistrictCheck Team</span>
+          <span>·</span>
+          <span>April 2026</span>
+          <span>·</span>
+          <span>6 min read</span>
+        </div>
+      </header>
+
+      <div class="article-body">
+
+        <p>Nearpod and Pear Deck are two of the most widely used interactive presentation and formative assessment tools in K-12 classrooms. Both enable real-time student participation, embedded activities, and live lesson delivery. From an ADA Title II compliance standpoint, however, the two tools are in meaningfully different positions — and that difference matters for any district that needs to document its accessibility posture before or after the April 24, 2026 deadline.</p>
+
+        <div class="verdict-box">
+          <div class="verdict-label">Bottom line</div>
+          <div class="verdict-text">Pear Deck has stronger ADA documentation than Nearpod. Pear Deck has a 2023 VPAT with a specific WCAG claim; Nearpod has no VPAT and only a vague claim. Both tools have interactive features — drawing tools, timed activities, drag-and-drop — that districts should specifically note when documenting accessible alternatives.</div>
+        </div>
+
+        <h2>Side-by-Side Scorecard</h2>
+
+        <div class="scorecard-grid">
+          <div class="score-card">
+            <div class="score-card-tool">Interactive Assessment</div>
+            <div class="score-card-name">Nearpod</div>
+            <div class="score-row">
+              <span class="score-label">Risk tier</span>
+              <span class="score-value score-orange"><span class="badge badge-orange">High</span></span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">VPAT status</span>
+              <span class="score-value score-orange">Not found</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">WCAG 2.1 AA claim</span>
+              <span class="score-value score-orange">Vague claim</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">Documentation recency</span>
+              <span class="score-value score-orange">No formal document</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">Action needed</span>
+              <span class="score-value score-orange">Request VPAT now</span>
+            </div>
+          </div>
+
+          <div class="score-card winner">
+            <div class="winner-tag">Stronger documentation</div>
+            <div class="score-card-tool">Interactive Assessment</div>
+            <div class="score-card-name">Pear Deck</div>
+            <div class="score-row">
+              <span class="score-label">Risk tier</span>
+              <span class="score-value score-yellow"><span class="badge badge-yellow">Medium</span></span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">VPAT status</span>
+              <span class="score-value score-yellow">Exists (2023)</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">WCAG 2.1 AA claim</span>
+              <span class="score-value score-yellow">Specific claim</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">Documentation recency</span>
+              <span class="score-value score-yellow">2023 — request update</span>
+            </div>
+            <div class="score-row">
+              <span class="score-label">Action needed</span>
+              <span class="score-value score-yellow">File VPAT, note gaps</span>
+            </div>
+          </div>
+        </div>
+
+        <h2>Detailed Comparison</h2>
+
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Criteria</th>
+              <th>Nearpod</th>
+              <th>Pear Deck</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Vendor</td>
+              <td>Renaissance Learning (acquired 2023)</td>
+              <td>Pear Deck Learning</td>
+            </tr>
+            <tr>
+              <td>DistrictCheck risk tier</td>
+              <td class="nearpod"><span class="badge badge-orange">High</span></td>
+              <td class="peardeck"><span class="badge badge-yellow">Medium</span></td>
+            </tr>
+            <tr>
+              <td>VPAT availability</td>
+              <td class="nearpod">Not found</td>
+              <td class="peardeck">Exists (2023)</td>
+            </tr>
+            <tr>
+              <td>WCAG conformance claim</td>
+              <td class="nearpod">Vague / general</td>
+              <td class="peardeck">Specific WCAG 2.1 AA claim</td>
+            </tr>
+            <tr>
+              <td>Known accessibility gaps</td>
+              <td class="nearpod">Real-time drag-and-drop, timed activities, audio-dependent content</td>
+              <td>Freehand drawing and annotation tools are partially conformant</td>
+            </tr>
+            <tr>
+              <td>Student PII handling</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Recommended next step</td>
+              <td class="nearpod">Send written VPAT request, document alternative path</td>
+              <td class="peardeck">File VPAT, note partial-support areas, request 2024 update</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2>Nearpod: The Documentation Gap</h2>
+
+        <p>Nearpod is a widely used tool, particularly for live lesson delivery with embedded formative checks — polls, open-ended questions, drawing activities, virtual field trips, and real-time collaboration. Renaissance Learning acquired Nearpod in 2023, and the accessibility documentation situation has not improved post-acquisition: as of the current DistrictCheck review, no VPAT has been published and the WCAG claim is vague rather than specific.</p>
+
+        <p>The interactive nature of Nearpod's core features makes the documentation gap more consequential than it would be for a simpler content delivery tool. Specifically, districts should flag:</p>
+        <ul>
+          <li><strong>Real-time drag-and-drop activities</strong> — these have documented barriers for students using keyboard-only navigation or switch devices</li>
+          <li><strong>Timed activities</strong> — without vendor documentation confirming WCAG 2.1 Success Criterion 2.2.1 (Timing Adjustable), districts cannot confirm whether time-limited elements can be extended or turned off</li>
+          <li><strong>Audio-dependent content</strong> — virtual field trips and embedded media may lack accessible alternatives for students with hearing disabilities</li>
+          <li><strong>Drawing and annotation tools</strong> — freehand drawing interfaces are among the most common WCAG partial-conformance areas in edtech</li>
+        </ul>
+
+        <div class="callout urgent">
+          <div class="callout-label">Action required for Nearpod districts</div>
+          <p>Send a written VPAT request to Renaissance Learning (Nearpod's current owner), record the date, and document what alternate participation pathway exists for students who cannot use Nearpod's interactive features. The outreach date is the compliance record — even if the vendor responds slowly.</p>
+        </div>
+
+        <h2>Pear Deck: What the Documentation Shows</h2>
+
+        <p>Pear Deck has a VPAT from 2023 with a specific WCAG 2.1 Level AA conformance claim — which puts it in a meaningfully better documentation position than Nearpod. Districts using Pear Deck have a fiable document. That said, "Medium risk" still requires attention.</p>
+
+        <p>The 2023 VPAT notes partial conformance for freehand drawing and annotation tools — one of Pear Deck's signature features. When a student is asked to draw a response, annotate a slide, or drag an element, those interactions may not be fully accessible to students relying on screen readers, switch devices, or other assistive technology.</p>
+
+        <p>For districts using Pear Deck, the compliance tasks are:</p>
+        <ul>
+          <li><strong>File the existing 2023 VPAT</strong> from Pear Deck's accessibility documentation page — save a timestamped copy</li>
+          <li><strong>Note the partial-conformance areas</strong> — drawing and annotation tools — in your local compliance documentation</li>
+          <li><strong>Ensure text-based alternatives are available</strong> for any lesson activity that relies on freehand drawing or annotation input</li>
+          <li><strong>Request an updated VPAT</strong> — the 2023 document is approaching two years old; ask for a 2024 or 2025 update during your next renewal discussion</li>
+        </ul>
+
+        <div class="callout warning">
+          <div class="callout-label">Drawing tool accessibility gap</div>
+          <p>Pear Deck's drawing and annotation features are documented as partially conformant. If a teacher designs a lesson where student drawing is the only response mechanism, students using assistive technology may not be able to participate equivalently. Build a text-input or oral-response alternative into any drawing-heavy lesson design until fuller conformance is documented.</p>
+        </div>
+
+        <h2>Which Should Districts Choose?</h2>
+
+        <p>From a documentation standpoint, Pear Deck is the more defensible choice today. A 2023 VPAT with a specific WCAG 2.1 AA claim gives districts something to file; Nearpod's documentation gap leaves districts without vendor-supplied evidence.</p>
+
+        <p>For districts already using both tools, the priority is clear: file the Pear Deck VPAT now, and initiate a written VPAT request for Nearpod. Both steps create a documented good-faith record that compliance was actively managed — which is the key evidence standard under ADA Title II enforcement.</p>
+
+        <p>For districts evaluating the two platforms in a procurement process, make VPAT quality and WCAG 2.1 AA specificity explicit evaluation criteria. Request a current VPAT from each vendor as part of the RFP and score them on documentation completeness, not just feature set.</p>
+
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is Nearpod ADA compliant?</h3>
+        <p>Nearpod is rated <strong>High risk</strong> by DistrictCheck because no VPAT has been published and the WCAG conformance claim is vague. Districts using Nearpod should request updated accessibility documentation from Renaissance Learning and document an alternate participation pathway for students who may encounter barriers. See the full <a href="/tools/nearpod">Nearpod ADA compliance page</a>.</p>
+
+        <h3>Is Pear Deck ADA compliant?</h3>
+        <p>Pear Deck is rated <strong>Medium risk</strong> by DistrictCheck. It has an existing 2023 VPAT with a specific WCAG 2.1 AA claim — a fiable document. Note that drawing and annotation tools are partially conformant. See the full <a href="/tools/pear-deck">Pear Deck ADA compliance page</a> for recommended next steps.</p>
+
+        <h3>Does using Pear Deck inside Google Slides affect its compliance status?</h3>
+        <p>Pear Deck's VPAT covers the Pear Deck platform. When Pear Deck is used as a Google Slides add-on, the interaction between Pear Deck and Google Slides introduces additional interface elements. Districts should note this deployment model in their compliance documentation and verify that the add-on interface has been included in Pear Deck's accessibility testing.</p>
+
+        <h3>What should districts document if a student can't use Nearpod?</h3>
+        <p>Document three things: (1) the date a VPAT was requested from the vendor, (2) the specific interactive features that present barriers for students using assistive technology, and (3) the alternate participation pathway — such as submitting responses via a Google Form or orally — that the teacher will use for those students. This record is your good-faith compliance evidence under ADA Title II.</p>
+
+        <div class="cta-block">
+          <h3>Check Your Full Assessment Tool Stack</h3>
+          <p>Nearpod and Pear Deck are two of many assessment tools your district may be using. See the full ADA compliance status of your edtech stack — free, instant, no account needed.</p>
+          <a href="/" class="cta-btn">Run a Free Compliance Check →</a>
+          <br>
+          <a href="/tools/assessment/" class="cta-secondary">See all assessment tools in the DistrictCheck database →</a>
+        </div>
+
+      </div>
+    </article>
+  </div>
+  </main>
+
+  <footer>
+    <div class="footer-logo">District<em>Check</em></div>
+    <div>Copyright 2026 DistrictCheck · Free ADA compliance lookup for K-12 edtech · <a href="/" style="color:var(--muted);">districtcheck.io</a></div>
+  </footer>
+
+</body>
+</html>
