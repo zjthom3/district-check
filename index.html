@@ -1087,7 +1087,7 @@
         </div>
         <div class="result-action">
           <div class="result-action-label">Recommended Action</div>
-          <div class="result-action-text">Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date — this is your good-faith compliance record.</div>
+          <div class="result-action-text">Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before your compliance deadline. Document the send date — this is your good-faith compliance record.</div>
         </div>
         <div class="tool-count-row">
           ↑ That's 1 tool. Your district probably uses <strong>10–15 more just like it.</strong>
@@ -1165,7 +1165,7 @@
   </div>
   <div class="trust-item">
     <svg aria-hidden="true" focusable="false" width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-    ADA Title II deadline: April 24, 2026
+    ADA Title II: Apr 24, 2026 (50k+ pop.) · Apr 26, 2027 (&lt;50k &amp; special districts)
   </div>
 </div>
 
@@ -1182,7 +1182,7 @@
     </div>
     <div>
       <div class="stat-num accent" id="deadline-countdown">0 days</div>
-      <div class="stat-label" id="deadline-label">since the April 24 enforcement deadline</div>
+      <div class="stat-label" id="deadline-label">until the April 24 deadline (50k+ districts)</div>
     </div>
     <div>
       <div class="stat-num" style="color: var(--green);">10%</div>
@@ -1274,7 +1274,7 @@
         <div class="step-content">
           <h3>Forward the emails, file the report</h3>
           <p>You've documented your good-faith compliance effort before the deadline. One person can approve the engagement — under most district micro-purchase thresholds.</p>
-          <span class="step-tag">Before April 24</span>
+          <span class="step-tag">Before your compliance deadline</span>
         </div>
       </div>
     </div>
@@ -1302,7 +1302,7 @@
       <a href="/audit/" class="btn-book">Get full audit →</a>
       <a href="https://buy.stripe.com/cNi8wO3220Ki0yQ9246Vq00" class="btn-secondary" target="_blank" rel="noopener noreferrer">Step 2: Pay online after you submit intake</a>
       <div class="price-note">Start with the intake form so we have your tool list first. If you prefer, pilot districts can still handle payment manually by email.</div>
-      <div class="deadline-tag">Deadline has passed — document your good-faith effort now</div>
+      <div class="deadline-tag">Apr 24, 2026 (50,000+ pop.) · Apr 26, 2027 (under 50,000 &amp; special districts)</div>
     </div>
   </div>
 </section>
@@ -1310,6 +1310,10 @@
 <!-- FAQ -->
 <section class="faq">
   <h2>Common questions.</h2>
+  <div class="faq-item">
+    <p class="faq-q">When is my district's ADA Title II compliance deadline?</p>
+    <p class="faq-a">It depends on your district's population. Districts serving a population of 50,000 or more must comply by <strong>April 24, 2026</strong>. Districts serving fewer than 50,000 people and special districts have until <strong>April 26, 2027</strong>. Both tiers must meet WCAG 2.1 AA for all web content and mobile apps used by students, staff, and families.</p>
+  </div>
   <div class="faq-item">
     <p class="faq-q">What's the difference between the free tool and the full audit?</p>
     <p class="faq-a">The free tool checks one tool at a time from our existing database. The full audit checks your complete tool list — including tools not yet in our database — plus writes the vendor outreach emails and generates a formatted PDF report you can file as part of your compliance record.</p>
@@ -1380,9 +1384,9 @@
   // ── TOOL DATABASE ──
   const tools = [
     // CRITICAL
-    { name: "ClassDojo",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before April 24. Document the send date — this is your good-faith compliance record." },
-    { name: "Formative",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
-    { name: "GoFormative",      tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before April 24, document an accessible alternative assessment pathway for students who need it." },
+    { name: "ClassDojo",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before your compliance deadline. Document the send date — this is your good-faith compliance record." },
+    { name: "Formative",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before your compliance deadline, document an accessible alternative assessment pathway for students who need it." },
+    { name: "GoFormative",      tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send vendor outreach immediately. If no VPAT is received before your compliance deadline, document an accessible alternative assessment pathway for students who need it." },
     { name: "Edulastic",        tier: "critical", vpat: "Not found",         wcag: "No claim",       pii: "Yes",  action: "Send outreach today. Loop in your Special Education Director — any student with an IEP or 504 taking Edulastic assessments needs a documented accessibility accommodation pathway now." },
 
     // HIGH
@@ -1500,16 +1504,30 @@
     const msPerDay = 24 * 60 * 60 * 1000;
     const today = new Date();
     const todayStart = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const deadline = new Date(2026, 3, 24);
-    const diff = Math.round((todayStart - deadline) / msPerDay);
+    // Tier 1: districts serving 50,000+
+    const deadline1 = new Date(2026, 3, 24);
+    // Tier 2: districts serving under 50,000 + special districts
+    const deadline2 = new Date(2027, 3, 26);
+    const diff1 = Math.round((todayStart - deadline1) / msPerDay);
+    const diff2 = Math.round((todayStart - deadline2) / msPerDay);
 
-    if (diff >= 0) {
-      countdownEl.textContent = `${diff} ${diff === 1 ? 'day' : 'days'}`;
-      if (labelEl) labelEl.textContent = diff === 0 ? 'the April 24 enforcement deadline is today' : 'since the April 24 enforcement deadline';
-    } else {
-      const remaining = Math.abs(diff);
+    if (diff1 < 0) {
+      // Deadline 1 is still upcoming — most urgent
+      const remaining = Math.abs(diff1);
       countdownEl.textContent = `${remaining} ${remaining === 1 ? 'day' : 'days'}`;
-      if (labelEl) labelEl.textContent = 'until the April 24 enforcement deadline';
+      if (labelEl) labelEl.textContent = 'until the Apr 24, 2026 deadline (50k+ districts)';
+    } else if (diff1 === 0) {
+      countdownEl.textContent = 'Today';
+      if (labelEl) labelEl.textContent = 'Apr 24, 2026 deadline is today (50k+ districts)';
+    } else if (diff2 < 0) {
+      // Deadline 1 passed, deadline 2 still upcoming
+      const remaining = Math.abs(diff2);
+      countdownEl.textContent = `${remaining} ${remaining === 1 ? 'day' : 'days'}`;
+      if (labelEl) labelEl.textContent = 'until the Apr 26, 2027 deadline (under 50k &amp; special districts)';
+    } else {
+      // Both deadlines passed
+      countdownEl.textContent = `${diff2} ${diff2 === 1 ? 'day' : 'days'}`;
+      if (labelEl) labelEl.textContent = 'since the April 26, 2027 compliance deadline';
     }
   }
 
