@@ -514,7 +514,6 @@
     }
 
     /* sample result (shown on load) */
-    #sample-panel { margin-top: 20px; }
     .sample-label {
       font-size: 11px;
       font-weight: 600;
@@ -1085,36 +1084,6 @@
         <div id="suggestions" role="listbox" aria-label="Tool suggestions" aria-hidden="true"></div>
       </div>
 
-      <!-- sample state shown on load -->
-      <div id="sample-panel">
-        <div class="sample-label">Example result</div>
-        <div class="result-header">
-          <span class="result-tool-name">ClassDojo</span>
-          <span class="risk-badge critical">⬤ Critical</span>
-        </div>
-        <div class="result-grid">
-          <div class="result-stat">
-            <div class="result-stat-label">VPAT Status</div>
-            <div class="result-stat-val bad">Not found</div>
-          </div>
-          <div class="result-stat">
-            <div class="result-stat-label">WCAG 2.1 AA Claim</div>
-            <div class="result-stat-val bad">No claim</div>
-          </div>
-          <div class="result-stat">
-            <div class="result-stat-label">Handles Student PII</div>
-            <div class="result-stat-val bad">Yes</div>
-          </div>
-        </div>
-        <div class="result-action">
-          <div class="result-action-label">Recommended Action</div>
-          <div class="result-action-text">Send vendor outreach requesting a VPAT and WCAG 2.1 AA conformance statement before your compliance deadline. Document the send date — this is your good-faith compliance record.</div>
-        </div>
-        <div class="tool-count-row">
-          ↑ That's 1 tool. Your district probably uses <strong>10–15 more just like it.</strong>
-        </div>
-      </div>
-
       <!-- live result panel (hidden until search) -->
       <div id="result-panel" aria-live="polite" aria-atomic="true">
         <div class="result-header">
@@ -1165,7 +1134,7 @@
           <input type="email" name="email" placeholder="Work email" autocomplete="email" required />
           <input type="text" name="district_name" placeholder="District name" autocomplete="organization" required />
           <input type="hidden" name="source" value="homepage-tool-lookup" />
-          <input type="hidden" name="current_tool" id="email-capture-tool" value="ClassDojo" />
+          <input type="hidden" name="current_tool" id="email-capture-tool" value="" />
           <button type="submit">Open intake form</button>
         </form>
         <div class="email-capture-note">We&apos;ll take you to the live intake form next so you can submit your district details and tool list.</div>
@@ -1470,7 +1439,6 @@
   }
 
   function showResult(tool) {
-    document.getElementById('sample-panel').style.display = 'none';
     document.getElementById('not-found').style.display    = 'none';
     document.getElementById('result-panel').style.display = 'block';
     document.getElementById('email-capture-tool').value = tool.name;
@@ -1497,7 +1465,6 @@
   }
 
   function showNotFound(query) {
-    document.getElementById('sample-panel').style.display = 'none';
     document.getElementById('result-panel').style.display = 'none';
     document.getElementById('not-found').style.display    = 'block';
     document.getElementById('email-capture-tool').value = query;
